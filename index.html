@@ -71,10 +71,10 @@
     <h1 itemprop="name">Computer Arichitecture Homework</h1>
     
      
-           <p itemprop="description" >1. 写出三级cache的平均访问时间的公式。
+           <p itemprop="description" >写出三级cache的平均访问时间的公式。
 解：平均访存时间公式：
 $$平均访存时间=命中时间+失效率*失效开销$$
-设三级cache的命中率分别为H1 H2 H3,失效率分别为M1 M2 M3,第三级cache的失效开销为P3则:$$\sum{i=1}^n a_i=0$$$</p>
+设三级cache的命中率分别为H1 H2 H3,失效率分别为M1 M2 M3,第三级cache的失效开销为P3则:$$\sum{i=1}^n a_i=0$$$$\s</p>
         
     
     <time datetime="2014-06-03T13:32:54.000Z" itemprop="datePublished">6月 3 2014</time>
@@ -254,13 +254,35 @@ $(document).ready(function(){
 
 
 
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
 </script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 <script type="text/x-mathjax-config"> 
 MathJax.Hub.Config({ 
