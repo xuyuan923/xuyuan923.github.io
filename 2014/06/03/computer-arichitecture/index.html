@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>welcome to my github blog | 前端学习踩过的坑</title>
+    <title>Computer Arichitecture Homework | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="The blog was built by Hexo.">
+    <meta name="description" content="1. 写出三级cache的平均访问时间的公式。
+解：平均访存时间公式：
+$$平均访存时间=命中时间+失效率*失效开销$$
+设三级cache的命中率分别为H1 H2 H3,失效率分别为M1 M2 M3,第三级cache的失效开销为P3则:$$\sum{i=1}^n a_i=0$$$$\sum^{j-1">
     
     
     
@@ -69,14 +72,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/31/welcome-to-my-github-blog/" title="welcome to my github blog" itemprop="url">welcome to my github blog</a>
+      <a href="/2014/06/03/computer-arichitecture/" title="Computer Arichitecture Homework" itemprop="url">Computer Arichitecture Homework</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-30T23:50:37.000Z" itemprop="datePublished">发表于5月 31 2014</time>
+    <time datetime="2014-06-03T13:32:54.000Z" itemprop="datePublished">发表于6月 3 2014</time>
     
   </p>
 </header>
@@ -86,19 +89,98 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_写出三级cache的平均访问时间的公式。"><span class="toc-number">1.</span> <span class="toc-text">1. 写出三级cache的平均访问时间的公式。</strong></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_试计算直接映像Cache和两路组相联Cache的平均访问时间以及CPU的性能"><span class="toc-number">2.</span> <span class="toc-text">2. 试计算直接映像Cache和两路组相联Cache的平均访问时间以及CPU的性能</strong></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分别对于下述三种Cache计算CPI"><span class="toc-number">3.</span> <span class="toc-text">3.分别对于下述三种Cache计算CPI</strong></span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代入上述公式计算出结果为："><span class="toc-number">3.1.</span> <span class="toc-text">代入上述公式计算出结果为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代入上述公式计算出结果为：-1"><span class="toc-number">3.2.</span> <span class="toc-text">代入上述公式计算出结果为：</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#关于"><span class="toc-number"></span> <span class="toc-text">关于</span></a></li></ol>
 		
 		</div>
 		
-		<p>The blog was built by Hexo.</p>
+		<h3 id="1-_写出三级cache的平均访问时间的公式。"><strong>1. 写出三级cache的平均访问时间的公式。</strong></h3>
+<p>解：平均访存时间公式：</p>
+<p>$$平均访存时间=命中时间+失效率*失效开销$$</p>
+<p>设三级cache的命中率分别为<code>H1</code> <code>H2</code> <code>H3</code>,失效率分别为<code>M1</code> <code>M2</code> <code>M3</code>,第三级cache的失效开销为<code>P3</code><br>则:<br>$$\sum<em>{i=1}^n a_i=0$$<br>$$\sum^{j-1}</em>{k=0}{\widehat{\gamma}_{kj} z_k}$$</p>
+<p>$$<br>\begin{align}<br>第三级cache访存时间&amp;=H3+M3<em>P3\<br>第二级cache访存时间&amp;=H2+M2</em>(H3+M3<em>P3)\<br>第一级cache访存时间&amp;=H1+M1</em>{H2+M2<em>(H3+M3</em>P3)}\<br>平均访存时间T_A=第一级cache访存时间&amp;=H1+M1<em>{H2+M2</em>(H3+M3*P3)}\<br>\end{align}<br>$$</p>
+<hr>
+<h3 id="2-_试计算直接映像Cache和两路组相联Cache的平均访问时间以及CPU的性能"><strong>2. 试计算直接映像Cache和两路组相联Cache的平均访问时间以及CPU的性能</strong></h3>
+<p>解：平均访存时间公式：<br>$$平均访存时间=命中时间+失效率*失效开销$$</p>
+<ul>
+<li><p>直接映像cache平均访问时间:<br>$$<br>平均访问时间_{1路}=2.0+1.4\%*80=3.12ns<br>$$</p>
+</li>
+<li><p>两路组相联Cache平均访问时间：<br>$$<br>平均访问时间_{2路}=2.0<em>(1+10\%)+1.0\% </em>80=3.0ns<br>$$</p>
+</li>
+</ul>
+<p><strong>所以，可见两路组相联的平均访问时间比较低。</strong><br>CPU时间公式：<br>$$<br>\begin{align}<br>CPU<em>{time}&amp;=(CPU</em>{执行}+存储等待周期）<em>时钟周期\<br>CPU<em>{time}&amp; =IC(CPI</em>{执行}+\frac{总失效次数}{指令总数}</em>失效开销)<em>时钟周期\<br>&amp;=IC((CPI_{执行}</em>时钟周期)+(每条指令的访存次数<em>失效率</em>失效开销<em>时钟周期))\<br>CPU_{直接映像}&amp;=IC(2.0</em>2+1.2<em>0.014</em>80)＝5.344IC\<br>CPU<em>{两路组相联}&amp;=IC(2.2<em>2+1.2</em>0.01*80)＝5.36IC\<br>相对性能比：\<br>\frac{CPU</em>{两路组相联}}{CPU_{直接映像}}&amp;=\frac{5.36}{5.344}=1.003\<br>\end{align}<br>$$</p>
+<hr>
+<h3 id="3-分别对于下述三种Cache计算CPI"><strong>3.分别对于下述三种Cache计算CPI</strong></h3>
+<p>对于理想TLB，TLB失效开销为0。而对于统一Cache，<br>$$<br>\begin{align}<br>R<em>{指令}&amp;=R</em>{数据}\<br>P<em>{指令}&amp;=主存延迟＋传输一个块需要使用的时间＝40＋\frac{32}{4}＝48(拍)\<br>P</em>{数据}&amp;＝40+50\%<em>+\frac{32}{4}50\%</em>\frac{64}{4} = 52(拍)\<br>CPI&amp;=1.5+[R<em>{指令}P</em>{指令}+(R<em>{数据}P</em>{数据}*20\%)+0]\<br>\end{align}<br>$$</p>
+<h4 id="代入上述公式计算出结果为：">代入上述公式计算出结果为：</h4>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>失效率</th>
+<th>CPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16KB 直接统一映象</td>
+<td>0.029</td>
+<td>3.1936</td>
+</tr>
+<tr>
+<td>16KB两路统一映象</td>
+<td>0.022</td>
+<td>2.7848</td>
+</tr>
+<tr>
+<td>32KB直接统一映象</td>
+<td>0.020</td>
+<td>2.668</td>
+</tr>
+</tbody>
+</table>
+<p>对于理想TLB，TLB失效开销为0。而对于统一Cache，R指令=R数据，无论取指令还是读写数据块失效，都有50%的可能性被替换的块是一个脏块，需要写回主存。<br>$$<br>\begin{align}<br>P<em>{指令}&amp;＝40+50\%<em>\frac{32}{4}+50\%</em>\frac{64}{4} = 52(拍)\<br>P</em>{数据}&amp;＝40+50\%<em>\frac{32}{4}+50\%</em>\frac{64}{4} = 52(拍)\<br>CPI&amp;=1.5+[R<em>{指令}P</em>{指令}+(R<em>{数据}P</em>{数据}*20\%)+0]\<br>\end{align}<br>$$</p>
+<h4 id="代入上述公式计算出结果为：-1">代入上述公式计算出结果为：</h4>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>失效率</th>
+<th>CPI</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16KB 直接统一映象</td>
+<td>0.029</td>
+<td>3.3036</td>
+</tr>
+<tr>
+<td>16KB两路统一映象</td>
+<td>0.022</td>
+<td>2.8748</td>
+</tr>
+<tr>
+<td>32KB直接统一映象</td>
+<td>0.020</td>
+<td>2.748</td>
+</tr>
+</tbody>
+</table>
+<h2 id="关于">关于</h2>
+<p>这个PDF是基于<code>MarkDown</code>编辑器编写生成的，公式编辑采用<code>LaTex</code>，采用<code>Chrome</code>浏览器将<code>.markdown</code>格式转换成<code>.pdf</code>格式的.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/MarkDown/">MarkDown</a>
+</div>
+
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/blog article/">blog article</a>
+  <span></span> <a href="/tags/LaTex/">LaTex</a><a href="/tags/MarkDown/">MarkDown</a><a href="/tags/Homework/">Homework</a>
   </div>
 
 
@@ -106,7 +188,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/05/31/welcome-to-my-github-blog/" data-title="welcome to my github blog | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2014/06/03/computer-arichitecture/" data-title="Computer Arichitecture Homework | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -115,19 +197,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/06/03/computer-arichitecture/" title="Computer Arichitecture Homework">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Computer Arichitecture Homework</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/05/31/hello-world/"  title="Hello World">
+<a href="/2014/05/31/welcome-to-my-github-blog/"  title="welcome to my github blog">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>welcome to my github blog
 </span>
 </a>
 </div>
@@ -145,7 +219,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-_写出三级cache的平均访问时间的公式。"><span class="toc-number">1.</span> <span class="toc-text">1. 写出三级cache的平均访问时间的公式。</strong></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-_试计算直接映像Cache和两路组相联Cache的平均访问时间以及CPU的性能"><span class="toc-number">2.</span> <span class="toc-text">2. 试计算直接映像Cache和两路组相联Cache的平均访问时间以及CPU的性能</strong></span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-分别对于下述三种Cache计算CPI"><span class="toc-number">3.</span> <span class="toc-text">3.分别对于下述三种Cache计算CPI</strong></span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代入上述公式计算出结果为："><span class="toc-number">3.1.</span> <span class="toc-text">代入上述公式计算出结果为：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#代入上述公式计算出结果为：-1"><span class="toc-number">3.2.</span> <span class="toc-text">代入上述公式计算出结果为：</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#关于"><span class="toc-number"></span> <span class="toc-text">关于</span></a></li></ol>
  
   </div>
 
