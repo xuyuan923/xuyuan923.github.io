@@ -4,12 +4,31 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>welcome to my github blog | 前端学习踩过的坑</title>
+    <title>svn remote create repository | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="The blog was built by Hexo.">
+    <meta name="description" content="Quick Start
+进入远程服务器的svn目录
+比如我测试的服务器svn目录在/var/svn下
+1
+cd /var/svn
+
+
+新建版本库
+1
+svnadmin create xuyuan
+
+
+查看xuyuan版本库是否已经成功创建
+1
+2
+cd /var/svn
+ls
+
+
+修改版本库配置文件">
     
     
     
@@ -69,14 +88,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/31/welcome-to-my-github-blog/" title="welcome to my github blog" itemprop="url">welcome to my github blog</a>
+      <a href="/2014/06/19/svn-remote-create-repository/" title="svn remote create repository" itemprop="url">svn remote create repository</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-30T23:50:37.000Z" itemprop="datePublished">发表于5月 31 2014</time>
+    <time datetime="2014-06-19T13:06:05.000Z" itemprop="datePublished">发表于6月 19 2014</time>
     
   </p>
 </header>
@@ -86,11 +105,71 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.3.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.4.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.4.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置password"><span class="toc-number">1.4.2.</span> <span class="toc-text">配置password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.4.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.5.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.6.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li></ol>
 		
 		</div>
 		
-		<p>The blog was built by Hexo.</p>
+		<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="进入远程服务器的svn目录">进入远程服务器的svn目录</h3>
+<p>比如我测试的服务器svn目录在/var/svn下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /var/svn
+</pre></td></tr></table></figure>
+
+<h3 id="新建版本库">新建版本库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>svnadmin create xuyuan
+</pre></td></tr></table></figure>
+
+<h3 id="查看xuyuan版本库是否已经成功创建">查看xuyuan版本库是否已经成功创建</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /var/svn
+ls
+</pre></td></tr></table></figure>
+
+<h3 id="修改版本库配置文件">修改版本库配置文件</h3>
+<h4 id="配置svnserve-conf">配置svnserve.conf</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="built_in">cd</span> xuyuan
+<span class="built_in">cd</span> conf
+vi svnserve.conf
+</pre></td></tr></table></figure><br>修改以下配置：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>anon-acess = none //未存在用户没有任何权限
+auth-acess = write //存在用户有写的权限
+<span class="comment">#password-db = password</span>
+</pre></td></tr></table></figure>
+
+<h4 id="配置password">配置password</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>vi password
+</pre></td></tr></table></figure>
+
+<p>在password文件最下方添加用户:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>xuyuan = <span class="number">123456</span>
+</pre></td></tr></table></figure>
+
+<h4 id="配置authz">配置authz</h4>
+<p>在最下方添加用户的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>[/]
+xuyuan = wr
+</pre></td></tr></table></figure>
+
+<h3 id="本地新建空文件夹取回版本库">本地新建空文件夹取回版本库</h3>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>svn checkout
+svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyuan
+</pre></td></tr></table></figure><br>会下载最新版本xuyuan库</p>
+<h3 id="关联提交文件到远程服务器指定文件夹下">关联提交文件到远程服务器指定文件夹下</h3>
+<p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用sftp工具，配置sftp-config.json文件可以remote文件</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -98,7 +177,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/blog article/">blog article</a>
+  <span></span> <a href="/tags/svn tools/">svn tools</a>
   </div>
 
 
@@ -106,7 +185,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2014/05/31/welcome-to-my-github-blog/" data-title="welcome to my github blog | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2014/06/19/svn-remote-create-repository/" data-title="svn remote create repository | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -115,19 +194,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/06/19/svn-remote-create-repository/" title="svn remote create repository">
-  <strong>上一篇：</strong><br/>
-  <span>
-  svn remote create repository</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/05/31/hello-world/"  title="Hello World">
+<a href="/2014/05/31/welcome-to-my-github-blog/"  title="welcome to my github blog">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>welcome to my github blog
 </span>
 </a>
 </div>
@@ -145,7 +216,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.3.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.4.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.4.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置password"><span class="toc-number">1.4.2.</span> <span class="toc-text">配置password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.4.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.5.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.6.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li></ol>
  
   </div>
 
