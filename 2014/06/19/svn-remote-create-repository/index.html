@@ -105,7 +105,7 @@ ls
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.2.1.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.3.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置password"><span class="toc-number">1.3.2.</span> <span class="toc-text">配置password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.4.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.5.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.2.1.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.3.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置password"><span class="toc-number">1.3.2.</span> <span class="toc-text">配置password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.4.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.5.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现公用项目代码自动更新update"><span class="toc-number">1.6.</span> <span class="toc-text">实现公用项目代码自动更新update</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可以使用svn_hooks"><span class="toc-number">1.6.1.</span> <span class="toc-text">svn hooks</code></span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#配置域名"><span class="toc-number">1.7.</span> <span class="toc-text">配置域名</span></a></li></ol>
 		
 		</div>
 		
@@ -175,6 +175,66 @@ svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyua
 <p>会下载最新版本xuyuan库</p>
 <h3 id="关联提交文件到远程服务器指定文件夹下">关联提交文件到远程服务器指定文件夹下</h3>
 <p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
+<h3 id="实现公用项目代码自动更新update">实现公用项目代码自动更新update</h3>
+<h4 id="可以使用svn_hooks">可以使用<code>svn hooks</code></h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="built_in">cd</span> [svn版本库]
+<span class="built_in">cd</span> hooks
+ls
+cp post-commit-tmpl post-commit
+vi post-commit
+</pre></td></tr></table></figure><br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span>
+SVN=/usr/bin/svn
+WEB=/var/www/html/online/【工作副本A】
+<span class="variable">$SVN</span> up <span class="variable">$WEB</span> --username admin --password <span class="number">666666</span> --no-auth-cache
+</pre></td></tr></table></figure>
+
+<h3 id="配置域名">配置域名</h3>
+<p>进入根目录文件夹下的httpd文件夹下，修改vhost</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /etc/httpd
+vi vhost
+</pre></td></tr></table></figure>
+
+<p>添加一段新的vhost:</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="comment">#library by cassie</span>
+&lt;VirtualHost *:<span class="number">80</span>&gt;
+ServerName findlove.net
+ServerAdmin hfutonline@<span class="number">163</span>.com
+DocumentRoot <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>
+SetEnv APPLICATION_ENV <span class="string">"development"</span>
+&lt;Directory <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>&gt;
+DirectoryIndex index.php
+AllowOverride All
+Order deny,allow
+Allow from all
+<span class="comment">#Option Index</span>
+&lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre></td></tr></table></figure><br>配置完毕后，需要重启<code>apache</code>,执行<code>service apachectl restart</code>.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -221,7 +281,7 @@ svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyua
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.2.1.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.3.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置password"><span class="toc-number">1.3.2.</span> <span class="toc-text">配置password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.4.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.5.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.2.1.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.3.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置password"><span class="toc-number">1.3.2.</span> <span class="toc-text">配置password</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.4.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.5.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现公用项目代码自动更新update"><span class="toc-number">1.6.</span> <span class="toc-text">实现公用项目代码自动更新update</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可以使用svn_hooks"><span class="toc-number">1.6.1.</span> <span class="toc-text">svn hooks</code></span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#配置域名"><span class="toc-number">1.7.</span> <span class="toc-text">配置域名</span></a></li></ol>
  
   </div>
 
