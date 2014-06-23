@@ -97,12 +97,12 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽原理分析"><span class="toc-number">1.</span> <span class="toc-text">拖拽原理分析</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件一，鼠标在可拖拽区域按下时"><span class="toc-number">1.1.</span> <span class="toc-text">事件一，鼠标在可拖拽区域按下时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件二，鼠标在可拖动区域按下并开始移动时"><span class="toc-number">1.2.</span> <span class="toc-text">事件二，鼠标在可拖动区域按下并开始移动时</span></a></li><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#检测，元素是否标记为移动,浮层跟随鼠标移动"><span class="toc-number">1.2.1.</span> <span class="toc-text">检测，元素是否标记为移动,浮层跟随鼠标移动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拖拽区域的宽度和高度限制"><span class="toc-number">1.2.2.</span> <span class="toc-text">拖拽区域的宽度和高度限制</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#事件三，鼠标松开时"><span class="toc-number">1.3.</span> <span class="toc-text">事件三，鼠标松开时</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽特性——重点函数总结"><span class="toc-number">2.</span> <span class="toc-text">拖拽特性——重点函数总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细图片展示和demo"><span class="toc-number">3.</span> <span class="toc-text">详细图片展示和demo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#详细图片展示"><span class="toc-number">3.1.</span> <span class="toc-text">详细图片展示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#demo"><span class="toc-number">3.2.</span> <span class="toc-text">demo</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#拖拽原理分析"><span class="toc-number">1.</span> <span class="toc-text">拖拽原理分析</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件一，鼠标在可拖拽区域按下时"><span class="toc-number">1.1.</span> <span class="toc-text">事件一，鼠标在可拖拽区域按下时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件二，鼠标在可拖动区域按下并开始移动时"><span class="toc-number">1.2.</span> <span class="toc-text">事件二，鼠标在可拖动区域按下并开始移动时</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#检测，元素是否标记为移动,浮层跟随鼠标移动"><span class="toc-number">1.2.1.</span> <span class="toc-text">检测，元素是否标记为移动,浮层跟随鼠标移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拖拽区域的宽度和高度限制"><span class="toc-number">1.2.2.</span> <span class="toc-text">拖拽区域的宽度和高度限制</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#事件三，鼠标松开时"><span class="toc-number">1.3.</span> <span class="toc-text">事件三，鼠标松开时</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#拖拽特性——重点函数总结"><span class="toc-number">2.</span> <span class="toc-text">拖拽特性——重点函数总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详细图片展示和demo"><span class="toc-number">3.</span> <span class="toc-text">详细图片展示和demo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#详细图片展示"><span class="toc-number">3.1.</span> <span class="toc-text">详细图片展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demo"><span class="toc-number">3.2.</span> <span class="toc-text">demo</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="拖拽原理分析">拖拽原理分析</h3>
-<h4 id="事件一，鼠标在可拖拽区域按下时">事件一，鼠标在可拖拽区域按下时</h4>
+		<h2 id="拖拽原理分析">拖拽原理分析</h2>
+<h3 id="事件一，鼠标在可拖拽区域按下时">事件一，鼠标在可拖拽区域按下时</h3>
 <p>计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
@@ -118,8 +118,8 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
 })
 </pre></td></tr></table></figure>
 
-<h4 id="事件二，鼠标在可拖动区域按下并开始移动时">事件二，鼠标在可拖动区域按下并开始移动时</h4>
-<h5 id="检测，元素是否标记为移动,浮层跟随鼠标移动">检测，元素是否标记为移动,浮层跟随鼠标移动</h5>
+<h3 id="事件二，鼠标在可拖动区域按下并开始移动时">事件二，鼠标在可拖动区域按下并开始移动时</h3>
+<h4 id="检测，元素是否标记为移动,浮层跟随鼠标移动">检测，元素是否标记为移动,浮层跟随鼠标移动</h4>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -148,7 +148,7 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
 };
 </pre></td></tr></table></figure>
 
-<h5 id="拖拽区域的宽度和高度限制">拖拽区域的宽度和高度限制</h5>
+<h4 id="拖拽区域的宽度和高度限制">拖拽区域的宽度和高度限制</h4>
 <p>上段程序未进行可移动区域的限制，这样拖拽图层可能脱离屏幕，出现滚轮<br>通过<code>clientWidth</code>,<code>clientHeight</code>设置<code>pageWidth</code>和<code>pageHeight</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
@@ -198,7 +198,7 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
 };
 </pre></td></tr></table></figure>
 
-<h4 id="事件三，鼠标松开时">事件三，鼠标松开时</h4>
+<h3 id="事件三，鼠标松开时">事件三，鼠标松开时</h3>
 <p>标记元素为不可拖动</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
@@ -208,16 +208,37 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
 }
 </pre></td></tr></table></figure>
 
-<h3 id="拖拽特性——重点函数总结">拖拽特性——重点函数总结</h3>
-<p>||名称|说明|<br>|<figure class="highlight |````|````|"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="string">|</span>
-</pre></td></tr></table></figure>|document.getElementById(ID)|根据传入的ID获得元素element对象|<br>|<figure class="highlight |Element.addEventListener(TYPE,FUNCTION)|为元素对象设置事件侦听处理|"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="string">|</span>
-</pre></td></tr></table></figure>|document.onmouseup=function(e){}|鼠标松开时触发|<br>|````|document.onmousemove=function(e){}|鼠标移动时触发|</p>
-<h3 id="详细图片展示和demo">详细图片展示和demo</h3>
-<h4 id="详细图片展示">详细图片展示</h4>
+<h2 id="拖拽特性——重点函数总结">拖拽特性——重点函数总结</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document.getElementById(ID)</td>
+<td>根据传入的ID获得元素element对象</td>
+</tr>
+<tr>
+<td>Element.addEventListener(TYPE,FUNCTION)</td>
+<td>为元素对象设置事件侦听处理</td>
+</tr>
+<tr>
+<td>document.onmouseup=function(e){}</td>
+<td>鼠标松开时触发</td>
+</tr>
+<tr>
+<td>document.onmousemove=function(e){}</td>
+<td>鼠标移动时触发</td>
+</tr>
+</tbody>
+</table>
+<h2 id="详细图片展示和demo">详细图片展示和demo</h2>
+<h3 id="详细图片展示">详细图片展示</h3>
 <p><img src="../../../../img/tuozhuai.jpg" alt="拖拽图片"></p>
-<h4 id="demo">demo</h4>
+<h3 id="demo">demo</h3>
 <p><a href="/drag.html">拖拽效果在线演示</a></p>
   
 	</div>
@@ -265,7 +286,7 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽原理分析"><span class="toc-number">1.</span> <span class="toc-text">拖拽原理分析</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#事件一，鼠标在可拖拽区域按下时"><span class="toc-number">1.1.</span> <span class="toc-text">事件一，鼠标在可拖拽区域按下时</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#事件二，鼠标在可拖动区域按下并开始移动时"><span class="toc-number">1.2.</span> <span class="toc-text">事件二，鼠标在可拖动区域按下并开始移动时</span></a></li><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#检测，元素是否标记为移动,浮层跟随鼠标移动"><span class="toc-number">1.2.1.</span> <span class="toc-text">检测，元素是否标记为移动,浮层跟随鼠标移动</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#拖拽区域的宽度和高度限制"><span class="toc-number">1.2.2.</span> <span class="toc-text">拖拽区域的宽度和高度限制</span></a></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#事件三，鼠标松开时"><span class="toc-number">1.3.</span> <span class="toc-text">事件三，鼠标松开时</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#拖拽特性——重点函数总结"><span class="toc-number">2.</span> <span class="toc-text">拖拽特性——重点函数总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细图片展示和demo"><span class="toc-number">3.</span> <span class="toc-text">详细图片展示和demo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#详细图片展示"><span class="toc-number">3.1.</span> <span class="toc-text">详细图片展示</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#demo"><span class="toc-number">3.2.</span> <span class="toc-text">demo</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#拖拽原理分析"><span class="toc-number">1.</span> <span class="toc-text">拖拽原理分析</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#事件一，鼠标在可拖拽区域按下时"><span class="toc-number">1.1.</span> <span class="toc-text">事件一，鼠标在可拖拽区域按下时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#事件二，鼠标在可拖动区域按下并开始移动时"><span class="toc-number">1.2.</span> <span class="toc-text">事件二，鼠标在可拖动区域按下并开始移动时</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#检测，元素是否标记为移动,浮层跟随鼠标移动"><span class="toc-number">1.2.1.</span> <span class="toc-text">检测，元素是否标记为移动,浮层跟随鼠标移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#拖拽区域的宽度和高度限制"><span class="toc-number">1.2.2.</span> <span class="toc-text">拖拽区域的宽度和高度限制</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#事件三，鼠标松开时"><span class="toc-number">1.3.</span> <span class="toc-text">事件三，鼠标松开时</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#拖拽特性——重点函数总结"><span class="toc-number">2.</span> <span class="toc-text">拖拽特性——重点函数总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详细图片展示和demo"><span class="toc-number">3.</span> <span class="toc-text">详细图片展示和demo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#详细图片展示"><span class="toc-number">3.1.</span> <span class="toc-text">详细图片展示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demo"><span class="toc-number">3.2.</span> <span class="toc-text">demo</span></a></li></ol>
  
   </div>
 
@@ -280,9 +301,9 @@ oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
-		
 			<li><a href="/tags/js demo/" title="js demo">js demo<sup>1</sup></a></li>
+		
+			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
 		
 			<li><a href="/tags/svn tools/" title="svn tools">svn tools<sup>1</sup></a></li>
 		
