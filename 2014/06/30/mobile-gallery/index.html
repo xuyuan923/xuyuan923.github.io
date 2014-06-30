@@ -4,12 +4,17 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>welcome to my github blog | 前端学习踩过的坑</title>
+    <title>mobile-gallery | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="The blog was built by Hexo.">
+    <meta name="description" content="第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。
+移动端对比web端
+移动端的开发优势
+
+移动端浏览器大多采用webkit内核，需要考虑的js兼容性问题较少
+移动端的动画可以用CSS3来制作，浏览器兼容性问题">
     
     
     
@@ -69,14 +74,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/05/31/welcome-to-my-github-blog/" title="welcome to my github blog" itemprop="url">welcome to my github blog</a>
+      <a href="/2014/06/30/mobile-gallery/" title="mobile-gallery" itemprop="url">mobile-gallery</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
 		
   <p class="article-time">
-    <time datetime="2014-05-30T23:50:37.000Z" itemprop="datePublished">发表于5月 31 2014</time>
+    <time datetime="2014-06-30T08:31:43.000Z" itemprop="datePublished">发表于6月 30 2014</time>
     
   </p>
 </header>
@@ -86,11 +91,45 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端对比web端"><span class="toc-number">1.</span> <span class="toc-text">移动端对比web端</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端的开发优势"><span class="toc-number">1.1.</span> <span class="toc-text">移动端的开发优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端开发的劣势"><span class="toc-number">1.2.</span> <span class="toc-text">移动端开发的劣势</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端开发工具"><span class="toc-number">2.</span> <span class="toc-text">移动端开发工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端开发的一些注意点"><span class="toc-number">3.</span> <span class="toc-text">移动端开发的一些注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#demo完整版演示"><span class="toc-number">4.</span> <span class="toc-text">demo完整版演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资料推荐"><span class="toc-number">5.</span> <span class="toc-text">资料推荐</span></a></li></ol>
 		
 		</div>
 		
-		<p>The blog was built by Hexo.</p>
+		<p>第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。</p>
+<h2 id="移动端对比web端">移动端对比web端</h2>
+<h3 id="移动端的开发优势">移动端的开发优势</h3>
+<ul>
+<li>移动端浏览器大多采用webkit内核，需要考虑的js兼容性问题较少</li>
+<li>移动端的动画可以用CSS3来制作，浏览器兼容性问题少，开发效率高</li>
+</ul>
+<h3 id="移动端开发的劣势">移动端开发的劣势</h3>
+<ul>
+<li>移动端对加载速率要求更高，js代码必须更精简高效</li>
+<li>只能引入更小的js库,比如zepto.js</li>
+<li>由于引入的js库（如zepto.js）有些功能尚未包含，有时需要自己写原生的js</li>
+</ul>
+<h2 id="移动端开发工具">移动端开发工具</h2>
+<ul>
+<li>js：<a href="https://github.com/madrobby/zepto" target="_blank">zepto.js</a></li>
+<li>css3: <a href="http://daneden.github.io/animate.css/" target="_blank">animate.css</a></li>
+</ul>
+<p><code>zepto.js</code>是专为移动端打造的轻量型js库，移动端页面中可以引入大量<code>CSS3</code>动画，十分生动。</p>
+<h2 id="移动端开发的一些注意点">移动端开发的一些注意点</h2>
+<ul>
+<li>传统web端的<code>DOM animation</code>用<code>css3</code>动画代替</li>
+<li><code>zepto.js</code>中由于click事件的效率太低，执行一次click 事件有200~300ms的延迟，为了更快的响应，最好用Zepto 提供的<a href="http://zeptojs.com/#touch" target="_blank">touch</a>事件代替。</li>
+<li>使用canvas代替images,canvas会触发GPU设备，进行物理渲染，canvas可以把需要重复绘制的画面数据进行缓存起来，比images更高效</li>
+</ul>
+<h2 id="demo完整版演示">demo完整版演示</h2>
+<p>调试：<code>F12</code>打开调试窗口 ——&gt;<code>ESC</code>打开Console视图，选择<code>Emulation</code>，设置模拟的<code>device</code> ——&gt; F5刷新浏览器，查看模拟效果 </p>
+<ul>
+<li><strong>demo</strong>: <a href="http://xuyuan923.github.io/demo/mobile-gallery.html" target="_blank">http://xuyuan923.github.io/demo/mobile-gallery.html</a></li>
+</ul>
+<h2 id="资料推荐">资料推荐</h2>
+<ul>
+<li><a href="http://www.imooc.com/learn/140" target="_blank">@远人，视频传送门</a></li>
+<li><a href="http://chaoskeh.com/blog/some-experience-of-using-zepto.html" target="_blank">Zepto 使用中的一些注意点</a></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -98,7 +137,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/blog article/">blog article</a>
+  <span></span> <a href="/tags/移动端/">移动端</a><a href="/tags/css3/">css3</a><a href="/tags/demo/">demo</a>
   </div>
 
 
@@ -106,7 +145,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xuyuan923.github.io/2014/05/31/welcome-to-my-github-blog/" data-title="welcome to my github blog | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://xuyuan923.github.io/2014/06/30/mobile-gallery/" data-title="mobile-gallery | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -115,19 +154,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/06/19/svn-remote-create-repository/" title="svn remote create repository">
-  <strong>上一篇：</strong><br/>
-  <span>
-  svn remote create repository</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/05/31/hello-world/"  title="Hello World">
+<a href="/2014/06/23/the-effect-of-mouse-drag/"  title="The effect of mouse drag">
  <strong>下一篇：</strong><br/> 
- <span>Hello World
+ <span>The effect of mouse drag
 </span>
 </a>
 </div>
@@ -145,7 +176,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端对比web端"><span class="toc-number">1.</span> <span class="toc-text">移动端对比web端</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端的开发优势"><span class="toc-number">1.1.</span> <span class="toc-text">移动端的开发优势</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#移动端开发的劣势"><span class="toc-number">1.2.</span> <span class="toc-text">移动端开发的劣势</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端开发工具"><span class="toc-number">2.</span> <span class="toc-text">移动端开发工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#移动端开发的一些注意点"><span class="toc-number">3.</span> <span class="toc-text">移动端开发的一些注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#demo完整版演示"><span class="toc-number">4.</span> <span class="toc-text">demo完整版演示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#资料推荐"><span class="toc-number">5.</span> <span class="toc-text">资料推荐</span></a></li></ol>
  
   </div>
 
