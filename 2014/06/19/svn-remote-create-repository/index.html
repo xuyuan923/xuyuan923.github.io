@@ -177,6 +177,7 @@ svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyua
 <p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
 <h3 id="实现公用项目代码自动更新update">实现公用项目代码自动更新update</h3>
 <h5 id="可以使用svn_hooks">可以使用svn hooks</h5>
+<p>将post-commit.tmpl拷贝一份到post-commit</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -185,12 +186,17 @@ svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyua
 </pre></td><td class="code"><pre><span class="built_in">cd</span> [svn版本库]
 <span class="built_in">cd</span> hooks
 ls
-cp post-commit-tmpl post-commit
+cp post-commit.tmpl post-commit
 vi post-commit
-</pre></td></tr></table></figure><br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure>
+
+<p>然后要赋予post-commit文件可执行的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>chmod +x post-commit
+</pre></td></tr></table></figure><br>此时，通过ls -al可以查看到post-commit已有执行的权限了。<br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span>
-<span class="variable">$SVN</span> update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache
+svn update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache
 </pre></td></tr></table></figure>
 
 <h3 id="在测试服务器文件夹根目录checkout版本库">在测试服务器文件夹根目录checkout版本库</h3>
@@ -242,9 +248,7 @@ Allow from all
 
 <p>配置完毕后，需要重启<code>apache</code>.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">cd</span> /etc/init.d
-.httpd/ restart
+</pre></td><td class="code"><pre>service httpd restart
 </pre></td></tr></table></figure>
 
   
