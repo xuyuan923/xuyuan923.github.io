@@ -1,0 +1,695 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>理解Kissy框架的Base机制 | 前端学习踩过的坑</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="Cassie Xu">
+    
+    <meta name="description" content="理解Base API
+Kissy的Base机制非常强大，官方文档对Base的解释并不全面，Base API。
+extend()
+
+官网extend()解释为从当前类上扩展出一个子类
+
+callSuper()
+调用父类的对应方法，如果没有，则返回undefined,直接看用法
+1
+2
+3
+4
+5
+6
+">
+    
+    
+    
+    
+    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/cassie.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
+				<h2 class="blog-motto">By Cassie</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2014/08/03/understand-kissy-base/" title="理解Kissy框架的Base机制" itemprop="url">理解Kissy框架的Base机制</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
+		
+  <p class="article-time">
+    <time datetime="2014-08-03T12:50:51.000Z" itemprop="datePublished">发表于8月 3 2014</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解Base_API"><span class="toc-number">1.</span> <span class="toc-text">理解Base API</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#extend()"><span class="toc-number">1.1.</span> <span class="toc-text">extend()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#callSuper()"><span class="toc-number">1.2.</span> <span class="toc-text">callSuper()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ATTRS"><span class="toc-number">1.3.</span> <span class="toc-text">ATTRS</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Base的demo"><span class="toc-number">2.</span> <span class="toc-text">Base的demo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tips:kissy-add()与kissy-use()"><span class="toc-number">2.1.</span> <span class="toc-text">tips:kissy.add()与kissy.use()</span></a></li></ol>
+		
+		</div>
+		
+		<h2 id="理解Base_API">理解Base API</h2>
+<p>Kissy的Base机制非常强大，官方文档对Base的解释并不全面，<a href="http://docs.kissyui.com/1.4/docs/html/api/base/" target="_blank">Base API</a>。</p>
+<h3 id="extend()">extend()</h3>
+<blockquote>
+<p>官网extend()解释为<em>从当前类上扩展出一个子类</em></p>
+</blockquote>
+<h3 id="callSuper()">callSuper()</h3>
+<p>调用父类的对应方法，如果没有，则返回undefined,直接看用法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre>KISSY.use(<span class="string">'base'</span>, function(S, Base) {
+    var A = Base.extend({
+        m: function (value) {
+            <span class="keyword">return</span> <span class="string">'am:'</span> + value;
+        },
+        m2: function (value) {
+            <span class="keyword">return</span> <span class="string">'am2:'</span> + value;
+        }
+    });
+
+    var B = A.extend({
+        m: function(value) {
+            <span class="keyword">return</span> <span class="string">'bm:('</span> + this.callSuper(value) + <span class="string">')'</span>;
+        },
+        m2: function(value) {
+        	//获取B的父类A对应的方法，获取A的参数
+            <span class="keyword">return</span> <span class="string">'bm2('</span> + this.callSuper.apply(this, arguments) + <span class="string">')'</span>;
+        }
+    });
+
+    var b = new B();
+    console.log(b.m(<span class="number">1</span>)); //bm:(am:<span class="number">1</span>)
+    console.log(b.m2(<span class="number">2</span>)); //bm2:(am:<span class="number">2</span>)
+});
+</pre></td></tr></table></figure>
+
+<h3 id="ATTRS">ATTRS</h3>
+<p>ATTRS是Base的配置项，提供了默认的三种属性。<br>1.提供默认值（value）<br>2.提供获取属性值时的函数封装（getter）<br>3.提供设定属性值时的函数封装（setter）<br>举个例子，关键部分代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre>Keystone.ATTRS = {
+    backgroundColor: {
+        // 默认值
+        value: <span class="string">'#F50'</span>,
+        // this.set(<span class="string">'backgroundColor'</span>, <span class="string">'#ddd'</span>); 的时候会调用的方法
+        setter: function(v) {
+            <span class="keyword">if</span> (/^\<span class="comment">#[0-9a-f]{6}$/i.test(v) || /^\#[0-9a-f]{3}/i.test(v)) {</span>
+                <span class="keyword">return</span> v;
+            }
+            <span class="keyword">else</span> {
+                <span class="keyword">return</span> <span class="string">'#F50'</span>;
+            }
+        },
+        // this.get(<span class="string">'backgroundColor'</span>) 时会调用的方法
+        getter: function(v) {
+            <span class="keyword">if</span> (v.length === <span class="number">4</span>) {
+                <span class="keyword">return</span> <span class="string">'#'</span> + v.substr(<span class="number">1</span>).replace(/\w/ig, function(c) {
+                    <span class="keyword">return</span> c.toUpperCase() + c.toUpperCase();
+                })
+            }
+            <span class="keyword">else</span> {
+                <span class="keyword">return</span> v.toUpperCase();
+            }
+        }
+    }
+};
+</pre></td></tr></table></figure>
+
+<h2 id="Base的demo">Base的demo</h2>
+<p>来解析一下官网提供的一个kissy Base的<a href="http://docs.kissyui.com/1.4/docs/html/demo/base/index.html" target="_blank">demo</a>.抽出骨架来看一下Base模块，为防止误会，这里把ATTRS里的validator给删了，validator是kissy中value特有的方法，ATTRS配置项中通常只允许有value,setter(),getter()三种配置项。<br>KISSY.use(‘base, node, event’, function(S, Base, Node, Event) {<br>    var $ = Node.all;<br>    // 自定义类<br>    // 继承 Base<br>    var Person = Base.extend({<br>        sayHi: function(name) {<br>            alert(“Hi, “ + name + “! Nice to meet you!”);<br>            //触发自定义事件<br>            this.fire(‘say’);<br>        },</p>
+<pre><code>    tellName: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        alert(<span class="string">"My name is "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'name'</span>) + <span class="string">"."</span>);
+        <span class="keyword">this</span>.fire(<span class="string">'say'</span>);
+    },
+
+    tellAge: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        alert(<span class="string">"I'm "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'age'</span>) + <span class="string">" years old."</span>);
+        <span class="keyword">this</span>.fire(<span class="string">'say'</span>);
+    },
+
+    introduce: <span class="function"><span class="keyword">function</span><span class="params">(extra)</span> {</span>
+        alert(<span class="string">"Hello everyone, my name is "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'name'</span>) + <span class="string">", and I'm "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'age'</span>) + <span class="string">" years old."</span> + extra);
+        <span class="keyword">this</span>.fire(<span class="string">'say'</span>);
+    }
+},{
+    ATTRS: {
+        name: {
+            <span class="comment">//设置默认值</span>
+            value: <span class="string">""</span>
+        },
+        age: {
+            value: <span class="number">1</span>,
+        },
+        gender: {
+            value: Gender.MALE,
+            <span class="comment">/*
+            指定setter和getter方法的操作
+             */</span>
+            setter: <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+                <span class="keyword">if</span> ( S.isString(value) ) {
+                    <span class="keyword">return</span> Gender[value.toUpperCase()];
+                }
+                <span class="keyword">return</span> value;
+            },
+            getter: <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+                <span class="keyword">return</span> S.keys(Gender)[value];
+            },
+        }
+    }
+});
+
+window.person = <span class="keyword">new</span> Person({
+    name: <span class="string">"Andy"</span>,
+    age: <span class="number">18</span>,
+    gender: <span class="string">"female"</span>
+});
+
+<span class="comment">/*
+继承Person
+ */</span>
+<span class="keyword">var</span> Student = Person.extend({
+    introduce: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="comment">//调用父类方法</span>
+        <span class="keyword">this</span>.callSuper(<span class="string">"I'm a student of "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'school'</span>) + <span class="string">".My hometown is "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'from'</span>) + <span class="string">"."</span>);
+    },
+
+    addScore: <span class="function"><span class="keyword">function</span><span class="params">(subject, score)</span> {</span>
+        <span class="comment">//error异常收集</span>
+        <span class="comment">//设置子属性</span>
+        <span class="keyword">this</span>.<span class="keyword">set</span>(<span class="string">'score.'</span> + subject, score, {
+            error: <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+                console.log(e);
+            }
+        });
+    },
+
+    <span class="comment">/*
+    bind属性变化的方法
+     */</span>
+    _onSetScore: <span class="function"><span class="keyword">function</span><span class="params">(value, ev)</span> {</span>
+        <span class="keyword">if</span> (!S.isEmptyObject(value)) {
+            alert(<span class="string">'Score change'</span>);
+            alert(<span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'score'</span>));
+        }
+    }
+}, {
+    ATTRS: {
+        school: {
+            value: <span class="string">""</span>
+        },
+
+        from: {
+            value: <span class="string">""</span>
+        },
+
+        score: {
+        }
+    }
+});
+
+<span class="keyword">var</span> Teacher = Person.extend({
+    introduce: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">this</span>.callSuper(<span class="string">"I'm a "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'level'</span>) + <span class="string">"teacher, and I teach "</span> + <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'teach'</span>) + <span class="string">"."</span>);
+    },
+
+    upLevel: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">this</span>.<span class="keyword">set</span>(<span class="string">'level'</span>, <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'level'</span>) + <span class="number">1</span>, {
+            error: <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+                alert(e);
+            }
+        });
+    },
+
+    downLevel: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+        <span class="keyword">this</span>.<span class="keyword">set</span>(<span class="string">'level'</span>, <span class="keyword">this</span>.<span class="keyword">get</span>(<span class="string">'level'</span>) - <span class="number">1</span>, {
+            error: <span class="function"><span class="keyword">function</span><span class="params">(e)</span> {</span>
+                alert(e);
+            }
+        });
+    }
+}, {
+    ATTRS: {
+        teach: {
+            value: <span class="string">""</span>
+        },
+
+        level: {
+            value: Level.PRIMARY,
+            setter: <span class="function"><span class="keyword">function</span><span class="params">(value)</span> {</span>
+                <span class="keyword">if</span> ( S.isString(value) ) {
+                    <span class="keyword">return</span> Level[value.toUpperCase()];
+                }
+                <span class="keyword">return</span> value;
+            }
+        }
+    }
+});
+</code></pre><h3 id="tips:kissy-add()与kissy-use()">tips:kissy.add()与kissy.use()</h3>
+<p>kissy.add()与kissy.use()的区别是，kissy.add()只加载模块，kissy.use()不仅加载模块，而且引用模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>kissy.add(<span class="string">'base,node'</span>,function(S,Base,Node){
+	
+},{
+	ATTRS:{}
+	}
+	<span class="keyword">return</span>
+)
+</pre></td></tr></table></figure>
+
+<p>注意区别，kissy.use()还需要配置依赖项。</p>
+<p>```bash<br>//引用本地模块<br>kissy.use(‘fp/mods/lu’,function(S,Base,Node){</p>
+<p>},{<br>    ATTRS:{}<br>    return<br>},{<br>    requires: [<br>        ‘../../base/base’<br>    ]<br>}<br>)</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/kissy/">kissy</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://xuyuan923.github.io/2014/08/03/understand-kissy-base/" data-title="理解Kissy框架的Base机制 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2014/06/30/mobile-gallery/"  title="移动端相册">
+ <strong>下一篇：</strong><br/> 
+ <span>移动端相册
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#理解Base_API"><span class="toc-number">1.</span> <span class="toc-text">理解Base API</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#extend()"><span class="toc-number">1.1.</span> <span class="toc-text">extend()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#callSuper()"><span class="toc-number">1.2.</span> <span class="toc-text">callSuper()</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ATTRS"><span class="toc-number">1.3.</span> <span class="toc-text">ATTRS</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#Base的demo"><span class="toc-number">2.</span> <span class="toc-text">Base的demo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#tips:kissy-add()与kissy-use()"><span class="toc-number">2.1.</span> <span class="toc-text">tips:kissy.add()与kissy.use()</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
+		
+			<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
+      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
+      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
+      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		
+		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
+		
+	</div>
+	
+	
+	<section class="info">
+		<p> 我是一名大三的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
+			这是我的github博客</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
+		
+		
+		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
+		
+		
+		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2014 
+		
+		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"null"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<div id="totop">
+<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+</div>
+
+<script src="/js/totop.js"></script>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config"> 
+MathJax.Hub.Config({ 
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
+}); 
+</script>
+<script type="text/javascript"
+   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </body>
+</html>
