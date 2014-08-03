@@ -10,7 +10,7 @@
     <meta name="author" content="Cassie Xu">
     
     <meta name="description" content="理解Base API
-Kissy的Base机制非常强大，官方文档对Base的解释并不全面，Base API。
+Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为Base API。
 extend()
 
 官网extend()解释为从当前类上扩展出一个子类
@@ -20,10 +20,7 @@ callSuper()
 1
 2
 3
-4
-5
-6
-">
+4">
     
     
     
@@ -105,10 +102,10 @@ callSuper()
 		</div>
 		
 		<h2 id="理解Base_API">理解Base API</h2>
-<p>Kissy的Base机制非常强大，官方文档对Base的解释并不全面，<a href="http://docs.kissyui.com/1.4/docs/html/api/base/" target="_blank">Base API</a>。</p>
+<p>Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为<a href="http://docs.kissyui.com/1.4/docs/html/api/base/" target="_blank">Base API</a>。</p>
 <h3 id="extend()">extend()</h3>
 <blockquote>
-<p>官网extend()解释为<em>从当前类上扩展出一个子类</em></p>
+<p>官网extend()解释为<strong>从当前类上扩展出一个子类</strong></p>
 </blockquote>
 <h3 id="callSuper()">callSuper()</h3>
 <p>调用父类的对应方法，如果没有，则返回undefined,直接看用法</p>
@@ -165,8 +162,9 @@ callSuper()
 <h3 id="ATTRS">ATTRS</h3>
 <p>ATTRS是Base的配置项，提供了默认的三种属性。</p>
 <blockquote>
-<p>1.提供默认值（value）<br>2.提供获取属性值时的函数封装（getter）<br>3.提供设定属性值时的函数封装（setter）<br>举个例子，关键部分代码如下：</p>
+<p>1.提供默认值（value）<br>2.提供获取属性值时的函数封装（getter）<br>3.提供设定属性值时的函数封装（setter）</p>
 </blockquote>
+<p>举个例子，关键部分代码如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -222,7 +220,7 @@ callSuper()
 </pre></td></tr></table></figure>
 
 <h2 id="Base的demo">Base的demo</h2>
-<p>来解析一下官网提供的一个kissy Base的<a href="http://docs.kissyui.com/1.4/docs/html/demo/base/index.html" target="_blank">demo</a>.抽出骨架来看一下Base模块，为防止误会，这里把ATTRS里的validator给删了，validator是kissy中value特有的方法，ATTRS配置项中通常只允许有value,setter(),getter()三种配置项。</p>
+<p>来解析一下官网提供的一个kissy Base的<a href="http://docs.kissyui.com/1.4/docs/html/demo/base/index.html" target="_blank">demo</a>。抽出骨架来看一下Base模块，为防止误会，这里把ATTRS里的validator()给删了，validator()是kissy中value特有的方法，ATTRS配置项中通常只允许有value,setter(),getter()三种配置项。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
