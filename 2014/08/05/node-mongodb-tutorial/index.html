@@ -86,7 +86,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-渲染用户列表页"><span class="toc-number">6.</span> <span class="toc-text">8.渲染用户列表页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-向渲染页插入数据"><span class="toc-number">7.</span> <span class="toc-text">9.向渲染页插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Mongodb可视化工具rockmongo"><span class="toc-number">8.</span> <span class="toc-text">10.Mongodb可视化工具rockmongo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">8.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rockmongo的配置"><span class="toc-number">8.2.</span> <span class="toc-text">rockmongo的配置</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#给数据库注册用户名和密码"><span class="toc-number">9.</span> <span class="toc-text">给数据库注册用户名和密码</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li></ol>
 		
 		</div>
 		
@@ -190,7 +190,7 @@ mkdir data
 2
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
 mongod --dbpath <span class="string">"f://rs//nodetest1//data"</span>
-</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="连接数据库"><br><br>##6.创建数据库<br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt=""><br><br><br>##6.创建数据库<br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
 use nodetest1
@@ -238,12 +238,11 @@ use nodetest1
 <span class="keyword">var</span> db = monk(<span class="string">'localhost:27017/nodetest1'</span>);
 </pre></td></tr></table></figure>
 
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre>app.use(<span class="string">'/'</span>, routes);
 app.use(<span class="string">'/users'</span>, users);
-</pre></td></tr></table></figure><br>上插入下面的程序，让数据库和router相连</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>上插入下面的程序，让数据库和router相连<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -251,10 +250,7 @@ app.use(<span class="string">'/users'</span>, users);
     req.db = db;
     <span class="built_in">next</span>();
 });
-</pre></td></tr></table></figure></p>
-<h2 id="8-渲染用户列表页">8.渲染用户列表页</h2>
-<p>打开<code>/routee/index.js</code>输入</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>##8.渲染用户列表页<br>打开<code>/routee/index.js</code>输入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -274,8 +270,7 @@ router.get(<span class="string">'/userlist'</span>, <span class="function"><span
         });
     });
 });
-</pre></td></tr></table></figure><br>在view文件夹下新建userlist.jade文件，打开<code>/views/userlist.jade</code>输入</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>在view文件夹下新建userlist.jade文件，打开<code>/views/userlist.jade</code>输入<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -291,10 +286,7 @@ block content
         each user, i <span class="keyword">in</span> userlist
             li
                 a(href=<span class="string">"mailto:#{user.email}"</span>)= user.username
-</pre></td></tr></table></figure><br>执行<code>npm start</code>,打开<a href="http://localhost:3000/userlist" target="_blank">http://localhost:3000/userlist</a>,可以在命令行插入的一条记录。</p>
-<h2 id="9-向渲染页插入数据">9.向渲染页插入数据</h2>
-<p>打开<code>/routes/index.js</code>,插入以下代码：</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>执行<code>npm start</code>,打开<a href="http://localhost:3000/userlist" target="_blank">http://localhost:3000/userlist</a>,可以在命令行插入的一条记录。<br><br>##9.向渲染页插入数据<br>打开<code>/routes/index.js</code>,插入以下代码：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -354,21 +346,15 @@ router.post(<span class="string">'/adduser'</span>, <span class="function"><span
         }
     });
 });
-</pre></td></tr></table></figure><br>执行<code>npm start</code>，打开<a href="http://localhost:3000/newuser" target="_blank">http://localhost:3000/newuser</a>,可以看到页面已经可以插入数据了！</p>
-<h2 id="10-Mongodb可视化工具rockmongo">10.Mongodb可视化工具rockmongo</h2>
-<p><a href="http://rockmongo.com/" target="_blank">rockmongo</a>是mongodb的一款可视化工具，弥补了非关系型数据库只能用命令行显示的缺陷，这个工具可以直观友好地显示数据库。</p>
-<h3 id="安装">安装</h3>
-<p>去<a href="http://rockmongo.com/downloads" target="_blank">rockmongo官网</a>下载安装即可，安装很简单，直接运行exe文件即可，这里不再赘述。</p>
-<h3 id="rockmongo的配置">rockmongo的配置</h3>
-<h2 id="给数据库注册用户名和密码">给数据库注册用户名和密码</h2>
-<p>发现配置rockmongo时需要输入数据库用户名和密码，而创建nodetest1时，系统未提示我们需要创建数据库用户名和密码。首先切入到nodetest1数据库</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>执行<code>npm start</code>，打开<a href="http://localhost:3000/newuser" target="_blank">http://localhost:3000/newuser</a>,可以看到页面已经可以插入数据了！<br><br>##10.Mongodb可视化工具rockmongo<br><a href="http://rockmongo.com/" target="_blank">rockmongo</a>是mongodb的一款可视化工具，弥补了非关系型数据库只能用命令行显示的缺陷，这个工具可以直观友好地显示数据库。<br>###安装<br>去<a href="http://rockmongo.com/downloads" target="_blank">rockmongo官网</a>下载安装即可，安装很简单，直接运行exe文件即可，这里不再赘述。<br>###rockmongo的配置<br>##给数据库注册用户名和密码<br>发现配置rockmongo时需要输入数据库用户名和密码，而创建nodetest1时，系统未提示我们需要创建数据库用户名和密码。首先切入到nodetest1数据库<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/bin
 mongo
 use nodetest1
-</pre></td></tr></table></figure><br>执行<code>db.addUser(“root”, “root”)</code>插入用户名和密码均为root,这时执行<code>show users</code>,将看到<br><img src="/images/show-users.jpg" alt="show-users"><br>表明，现在数据库nodetest1中已存在root的用户。<br>打开rockmongo安装文件夹，打开<code>/web/rockmongo/config.php</code>文件，修改以下几项：<br>首先打开cmd串口，输入<code>ipConfig</code>查看本机IP，node的默认端口为27017,如果你的端口没有改，则不需要改，下图为我的配置：<br><img src="/images/rockmongo.jpg" alt="rockmongo"><br>这时，双击安装文件夹下的rockstart.bat将打开浏览器，出现非常友好的数据库界面，wonderful!<br><img src="/images/rockmongo-welcome.jpg" alt="rockmongo-welcome"></p>
+</pre></td></tr></table></figure>
+
+<p>执行<code>db.addUser(“root”, “root”)</code>插入用户名和密码均为root,这时执行<code>show users</code>,将看到<br><img src="/images/show-users.jpg" alt=""><br>表明，现在数据库nodetest1中已存在root的用户。<br>打开rockmongo安装文件夹，打开<code>/web/rockmongo/config.php</code>文件，修改以下几项：<br>首先打开cmd串口，输入<code>ipConfig</code>查看本机IP，node的默认端口为27017,如果你的端口没有改，则不需要改，下图为我的配置：<br><img src="/images/rockmongo.jpg" alt=""><br>这时，双击安装文件夹下的<code>rockstart.bat</code>将打开浏览器，出现非常友好的数据库界面，wonderful!<br><img src="/images/rockmongo-welcome.jpg" alt=""></p>
 <p>附本人demo源码: <a href="https://github.com/xuyuan923/node-mongodb-demo" target="_blank">https://github.com/xuyuan923/node-mongodb-demo</a><br>第一次在atatech上发文章，给自己总结经验也是帮新手少走弯路。</p>
   
 	</div>
@@ -416,7 +402,7 @@ use nodetest1
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-渲染用户列表页"><span class="toc-number">6.</span> <span class="toc-text">8.渲染用户列表页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-向渲染页插入数据"><span class="toc-number">7.</span> <span class="toc-text">9.向渲染页插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-Mongodb可视化工具rockmongo"><span class="toc-number">8.</span> <span class="toc-text">10.Mongodb可视化工具rockmongo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">8.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rockmongo的配置"><span class="toc-number">8.2.</span> <span class="toc-text">rockmongo的配置</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#给数据库注册用户名和密码"><span class="toc-number">9.</span> <span class="toc-text">给数据库注册用户名和密码</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li></ol>
  
   </div>
 
