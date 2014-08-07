@@ -179,7 +179,7 @@ node express nodetest1
 npm install
 </pre></td></tr></table></figure>
 
-<p>此时，执行<code>npm start</code>，打开<a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>,可以看到<img src="/images/suc-welcome.jpg" alt="欢迎页">的界面，代表node+express运行成功了！下一步，我们将Node和mongodb关联起来。</p>
+<p>此时，执行<code>npm start</code>，打开<a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>,可以看到<br><img src="/images/suc-welcome.jpg" alt="欢迎页">的界面，代表node+express运行成功了！下一步，我们将Node和mongodb关联起来。</p>
 <h2 id="5-安装mongodb">5.安装mongodb</h2>
 <p>首先，安装<a href="https://www.mongodb.org/" target="_blank">mongodb</a>,直接解压安装，这里不再赘述。<br>下面，我们来讲mongodb和node连接起来，在工程文件夹<code>nodetest1</code>下新建<code>data</code>用来存放数据</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
@@ -193,7 +193,7 @@ mkdir data
 2
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
 mongod --dbpath <span class="string">"f://rs//nodetest1//data"</span>
-</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="con-mongodb"><br><br>##6.创建数据库<br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="con-mongodb"><br><br><br>##6.创建数据库<br><br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
 use nodetest1
@@ -452,13 +452,13 @@ use nodetest1
 		
 			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
 		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
 			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
 		
-			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
+			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
 		
 			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
 		
 			<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 		
