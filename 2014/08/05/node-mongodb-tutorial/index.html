@@ -86,7 +86,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-将数据插入到浏览器中"><span class="toc-number">6.</span> <span class="toc-text">6.将数据插入到浏览器中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-渲染用户列表页"><span class="toc-number">7.</span> <span class="toc-text">7.渲染用户列表页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-向渲染页插入数据"><span class="toc-number">8.</span> <span class="toc-text">8.向渲染页插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Mongodb可视化工具rockmongo"><span class="toc-number">9.</span> <span class="toc-text">9.Mongodb可视化工具rockmongo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">9.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rockmongo的配置"><span class="toc-number">9.2.</span> <span class="toc-text">rockmongo的配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#给数据库注册用户名和密码"><span class="toc-number">9.2.1.</span> <span class="toc-text">给数据库注册用户名和密码</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#11-一些坑"><span class="toc-number">10.</span> <span class="toc-text">11.一些坑</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-将数据插入到浏览器中"><span class="toc-number">6.</span> <span class="toc-text">6.将数据插入到浏览器中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-渲染用户列表页"><span class="toc-number">7.</span> <span class="toc-text">7.渲染用户列表页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-向渲染页插入数据"><span class="toc-number">8.</span> <span class="toc-text">8.向渲染页插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Mongodb可视化工具rockmongo"><span class="toc-number">9.</span> <span class="toc-text">9.Mongodb可视化工具rockmongo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">9.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rockmongo的配置"><span class="toc-number">9.2.</span> <span class="toc-text">rockmongo的配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#给数据库注册用户名和密码"><span class="toc-number">9.2.1.</span> <span class="toc-text">给数据库注册用户名和密码</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#10-一些坑"><span class="toc-number">10.</span> <span class="toc-text">10.一些坑</span></a></li></ol>
 		
 		</div>
 		
@@ -188,12 +188,12 @@ npm install
 mkdir data
 </pre></td></tr></table></figure>
 
-<p>这里，我的mongodb安装的路径为<code>D:\Program Files\MONGO</code>,所以，我进入MONGO下的bin文件夹下执行</p>
+<p>这里，我的mongodb安装的路径为<code>D:\Program Files\MONGO</code>,所以，我进入<code>MONGO</code>下的<code>bin</code>文件夹下执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
 mongod --dbpath <span class="string">"f://rs//nodetest1//data"</span>
-</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="连接mongodb"><br>下面我们来创建数据库。<br><br>###创建数据库<br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="连接mongodb"><br>下面我们来创建数据库。<br><br>##创建数据库<br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 </pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
 use nodetest1
@@ -209,7 +209,7 @@ use nodetest1
 </pre></td><td class="code"><pre>db.usercollection.find().pretty()
 </pre></td></tr></table></figure>
 
-<p>查看你刚刚创建的usercollection表。</p>
+<p>查看你刚刚创建的<code>usercollection</code>表。</p>
 <h2 id="6-将数据插入到浏览器中">6.将数据插入到浏览器中</h2>
 <p>打开<code>app.js</code>,应该可以看到<code>app.js</code>中的内容</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
@@ -386,7 +386,7 @@ use nodetest1
 </pre></td></tr></table></figure>
 
 <p>执行<code>db.addUser(“root”, “root”)</code>插入用户名和密码均为root,这时执行<code>show users</code>,将看到<br><img src="/images/show-users.jpg" alt="show-users"><br>表明，现在数据库nodetest1中已存在root的用户。<br>打开rockmongo安装文件夹，打开<code>/web/rockmongo/config.php</code>文件，修改以下几项：<br>首先打开cmd串口，输入<code>ipConfig</code>查看本机IP，node的默认端口为27017,如果你的端口没有改，则不需要改，下图为我的配置：<br><img src="/images/rockmongo.jpg" alt="rockmongo"><br>这时，双击安装文件夹下的<code>rockstart.bat</code>将打开浏览器，出现非常友好的数据库界面，wonderful!<br><img src="/images/rockmongo-welcome.jpg" alt="rockmongo"></p>
-<h2 id="11-一些坑">11.一些坑</h2>
+<h2 id="10-一些坑">10.一些坑</h2>
 <p>在将数据库和工程文件夹data相连接时，我们通常会在mongo安装目录下执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>或者在mongo安装目录下执行mongo命令，它有时会报错“errno:10061”。<br><img src="/images/mongodlock.png" alt="mongod.lock error"><br>原因：工程文件夹<code>data</code>下存在了<code>mongod.lock</code>文件。这个文件阻止其他进程使用此工程目录。<br>解决办法：删除工程文件夹下的<code>data</code>文件夹里的mongod.lock文件。</p>
 <p>附本人demo源码: <a href="https://github.com/xuyuan923/node-mongodb-demo" target="_blank">https://github.com/xuyuan923/node-mongodb-demo</a><br>第一次在atatech上发文章，给自己总结经验也是帮新手少走弯路。</p>
   
@@ -435,7 +435,7 @@ use nodetest1
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-将数据插入到浏览器中"><span class="toc-number">6.</span> <span class="toc-text">6.将数据插入到浏览器中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-渲染用户列表页"><span class="toc-number">7.</span> <span class="toc-text">7.渲染用户列表页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-向渲染页插入数据"><span class="toc-number">8.</span> <span class="toc-text">8.向渲染页插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Mongodb可视化工具rockmongo"><span class="toc-number">9.</span> <span class="toc-text">9.Mongodb可视化工具rockmongo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">9.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rockmongo的配置"><span class="toc-number">9.2.</span> <span class="toc-text">rockmongo的配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#给数据库注册用户名和密码"><span class="toc-number">9.2.1.</span> <span class="toc-text">给数据库注册用户名和密码</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#11-一些坑"><span class="toc-number">10.</span> <span class="toc-text">11.一些坑</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-安装nodejs"><span class="toc-number">1.</span> <span class="toc-text">1.安装nodejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-安装express"><span class="toc-number">2.</span> <span class="toc-text">2.安装express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-新建一个express工程"><span class="toc-number">3.</span> <span class="toc-text">3.新建一个express工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-安装包依赖"><span class="toc-number">4.</span> <span class="toc-text">4.安装包依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-安装mongodb"><span class="toc-number">5.</span> <span class="toc-text">5.安装mongodb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-将数据插入到浏览器中"><span class="toc-number">6.</span> <span class="toc-text">6.将数据插入到浏览器中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-渲染用户列表页"><span class="toc-number">7.</span> <span class="toc-text">7.渲染用户列表页</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-向渲染页插入数据"><span class="toc-number">8.</span> <span class="toc-text">8.向渲染页插入数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-Mongodb可视化工具rockmongo"><span class="toc-number">9.</span> <span class="toc-text">9.Mongodb可视化工具rockmongo</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">9.1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rockmongo的配置"><span class="toc-number">9.2.</span> <span class="toc-text">rockmongo的配置</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#给数据库注册用户名和密码"><span class="toc-number">9.2.1.</span> <span class="toc-text">给数据库注册用户名和密码</span></a></li></ol></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#10-一些坑"><span class="toc-number">10.</span> <span class="toc-text">10.一些坑</span></a></li></ol>
  
   </div>
 
@@ -452,13 +452,13 @@ use nodetest1
 		
 			<li><a href="/tags/node/" title="node">node<sup>1</sup></a></li>
 		
-			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
 		
 			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
 		
-			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
-			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
+			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
 		
 			<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 		
