@@ -111,11 +111,11 @@ req.body在官方文档">
 <h1 id="适用情景案例">适用情景案例</h1>
 <h2 id="req-body">req.body</h2>
 <p><code>req.body</code>在<a href="http://expressjs.com/4x/api.html#request" target="_blank">官方文档</a>是没有提供的，但是它也是很好用的获取表单参数的方法。<code>req.body</code>是<strong>配合Express中间件<code>bodyParser()</code>中间件</strong>提供的。当<code>bodyParser()</code>中间件使用后，这个对象默认为 <code>{}</code>,<code>req.body</code>可以获取到post到body中的内容。<br>举个栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre>app.post(<span class="string">'/user/signup'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span>{</span>
-	<span class="keyword">var</span> _user = req.body.user;
+</pre></td><td class="code"><pre>app.post(<span class="string">'/user/signup'</span>,function(req,res){
+	var _user = req.body.user;
 })
 </pre></td></tr></table></figure>
 
@@ -143,31 +143,31 @@ req.body.name
 
 <h2 id="req-params">req.params</h2>
 <p>这是一个数组对象，命名过的参数会以键值对的形式存放。 比如你有一个路由<code>/user/:name</code>, <code>name</code>属性会存放在<code>req.params.name</code>. 这个对象默认为 <code>{}</code>.<br>举个栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
 4
 5
 6
 7
-</pre></td><td class="code"><pre><span class="comment">// GET /user/tj</span>
+</pre></td><td class="code"><pre>// GET /user/tj
 req.params.name
-<span class="comment">// =&gt; "tj"</span>
+// =&gt; <span class="string">"tj"</span>
 
-app.post(<span class="string">'/user/signup/:userid'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span>{</span>
+app.post(<span class="string">'/user/signup/:userid'</span>,function(req,res){
 	req.params.userid;
 })
-</pre></td></tr></table></figure><br>当使用正则表达式定义路由的时候，<code>req.params[N]</code>会是这个应用这个正则后的捕获分组, <code>N</code>是代表的是第<code>N</code>个捕获分组。这个规则同样适用于全匹配的路由，如 <code>/file/*</code><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>当使用正则表达式定义路由的时候，<code>req.params[N]</code>会是这个应用这个正则后的捕获分组, <code>N</code>是代表的是第<code>N</code>个捕获分组。这个规则同样适用于全匹配的路由，如 <code>/file/*</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
-</pre></td><td class="code"><pre><span class="comment">// GET /file/javascripts/jquery.js</span>
+</pre></td><td class="code"><pre>// GET /file/javascripts/jquery.js
 req.params[<span class="number">0</span>]
-<span class="comment">// =&gt; "javascripts/jquery.js"</span>
+// =&gt; <span class="string">"javascripts/jquery.js"</span>
 </pre></td></tr></table></figure>
 
 <h2 id="req-param(name)">req.param(name)</h2>
-<p><code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。<code>req.param(name)</code>返回<code>name</code>参数的值。<br>举个栗子：<br>和上面的req.body类似</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+<p><code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。<code>req.param(name)</code>返回<code>name</code>参数的值。<br>举个栗子：<br>和上面的<code>req.body</code>方法类似</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -180,24 +180,24 @@ req.params[<span class="number">0</span>]
 11
 12
 13
-</pre></td><td class="code"><pre><span class="comment">// POST name=tobi</span>
-app.post(<span class="string">'/user?name=tobi'</span>,<span class="function"><span class="keyword">function</span><span class="params">(req,res)</span>{</span>
-	 req.param(<span class="string">'name'</span>);
-	 <span class="comment">// =&gt; "tobi"</span>
+</pre></td><td class="code"><pre>// POST name=tobi
+app.post(<span class="string">'/user?name=tobi'</span>,function(req,res){
+ req.param(<span class="string">'name'</span>);
+ // =&gt; <span class="string">"tobi"</span>
 })
 
-<span class="comment">// ?name=tobi</span>
+// ?name=tobi
 req.param(<span class="string">'name'</span>)
-<span class="comment">// =&gt; "tobi"</span>
+// =&gt; <span class="string">"tobi"</span>
 
-<span class="comment">// /user/tobi for /user/:name </span>
+// /user/tobi <span class="keyword">for</span> /user/:name 
 req.param(<span class="string">'name'</span>)
-<span class="comment">// =&gt; "tobi"</span>
+// =&gt; <span class="string">"tobi"</span>
 </pre></td></tr></table></figure>
 
 <h2 id="req-query">req.query</h2>
 <p>这是一个解析过的请求参数对象，默认为<code>{}</code>.<br>举个栗子：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -210,19 +210,19 @@ req.param(<span class="string">'name'</span>)
 11
 12
 13
-</pre></td><td class="code"><pre><span class="comment">// GET /search?q=tobi+ferret</span>
+</pre></td><td class="code"><pre>// GET /search?q=tobi+ferret
 req.query.q
-<span class="comment">// =&gt; "tobi ferret"</span>
+// =&gt; <span class="string">"tobi ferret"</span>
 
-<span class="comment">// GET /shoes?order=desc&shoe[color]=blue&shoe[type]=converse</span>
+// GET /shoes?order=desc&shoe[color]=blue&shoe[<span class="built_in">type</span>]=converse
 req.query.order
-<span class="comment">// =&gt; "desc"</span>
+// =&gt; <span class="string">"desc"</span>
 
 req.query.shoe.color
-<span class="comment">// =&gt; "blue"</span>
+// =&gt; <span class="string">"blue"</span>
 
 req.query.shoe.type
-<span class="comment">// =&gt; "converse"</span>
+// =&gt; <span class="string">"converse"</span>
 </pre></td></tr></table></figure>
 
 <h1 id="区别与联系">区别与联系</h1>
@@ -297,9 +297,9 @@ req.query.shoe.type
 		
 			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
 		
-			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
-		
 			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
 			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
 		
