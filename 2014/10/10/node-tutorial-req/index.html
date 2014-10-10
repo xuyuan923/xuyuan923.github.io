@@ -4,20 +4,22 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>前端学习踩过的坑</title>
+    <title>Node Express获取参数的几种方式 | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="title: [Node学习笔记]Node Express获取参数的几种方式date: 2014-10-10 20:54:14
-tags: [node]
-Node配合Express框架获取参数主要有以下4种形式:
+    <meta name="description" content="Node配合Express框架获取参数主要有以下4种形式:
 
 req.body
 req.params
 req.param()
 req.query
-">
+
+那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
+适用情景案例
+req.body
+req.body在官方文档">
     
     
     
@@ -77,7 +79,7 @@ req.query
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/10/10/node-tutorial-req/" title="" itemprop="url"></a>
+      <a href="/2014/10/10/node-tutorial-req/" title="Node Express获取参数的几种方式" itemprop="url">Node Express获取参数的几种方式</a>
   </h1>
   <p class="article-author">By
        
@@ -94,13 +96,11 @@ req.query
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags:_[node]"><span class="toc-number">1.</span> <span class="toc-text">tags: [node]</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#适用情景案例"><span class="toc-number"></span> <span class="toc-text">适用情景案例</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#req-body"><span class="toc-number">1.</span> <span class="toc-text">req.body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-params"><span class="toc-number">2.</span> <span class="toc-text">req.params</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-param(name)"><span class="toc-number">3.</span> <span class="toc-text">req.param(name)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-query"><span class="toc-number">4.</span> <span class="toc-text">req.query</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#区别与联系"><span class="toc-number"></span> <span class="toc-text">区别与联系</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、对于path中的变量，均可以使用req-params-xxxxx方法"><span class="toc-number">1.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、对于get请求的?xxxx=,使用req-query-xxxxx方法"><span class="toc-number">2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、对于post请求中的变量，使用req-body-xxxxx方法"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以上三种情形，均可以使用req-param()方法，所以说req-param()是req-query、req-body、以及req-params获取参数的三种方式的封装。"><span class="toc-number">4.</span> <span class="toc-text">获取参数的三种方式的封装。</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number"></span> <span class="toc-text">参考资料</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#适用情景案例"><span class="toc-number">1.</span> <span class="toc-text">适用情景案例</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#req-body"><span class="toc-number">1.1.</span> <span class="toc-text">req.body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-params"><span class="toc-number">1.2.</span> <span class="toc-text">req.params</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-param(name)"><span class="toc-number">1.3.</span> <span class="toc-text">req.param(name)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-query"><span class="toc-number">1.4.</span> <span class="toc-text">req.query</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#区别与联系"><span class="toc-number">2.</span> <span class="toc-text">区别与联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
 		
 		</div>
 		
-		<p>title: [Node学习笔记]Node Express获取参数的几种方式<br>date: 2014-10-10 20:54:14</p>
-<h2 id="tags:_[node]">tags: [node]</h2>
-<p>Node配合Express框架获取参数主要有以下4种形式:</p>
+		<p>Node配合Express框架获取参数主要有以下4种形式:</p>
 <ul>
 <li>req.body</li>
 <li>req.params</li>
@@ -226,11 +226,7 @@ req.query.shoe.type
 </pre></td></tr></table></figure>
 
 <h1 id="区别与联系">区别与联系</h1>
-<p>总结出以下4点：</p>
-<h2 id="1、对于path中的变量，均可以使用req-params-xxxxx方法">1、对于path中的变量，均可以使用<code>req.params.xxxxx</code>方法</h2>
-<h2 id="2、对于get请求的?xxxx=,使用req-query-xxxxx方法">2、对于get请求的<code>?xxxx=</code>,使用<code>req.query.xxxxx</code>方法</h2>
-<h2 id="3、对于post请求中的变量，使用req-body-xxxxx方法">3、对于post请求中的变量，使用<code>req.body.xxxxx</code>方法</h2>
-<h2 id="以上三种情形，均可以使用req-param()方法，所以说req-param()是req-query、req-body、以及req-params获取参数的三种方式的封装。">以上三种情形，均可以使用<code>req.param()</code>方法，所以说<code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。</h2>
+<p>总结出以下4点：<br>1、对于path中的变量，均可以使用<code>req.params.xxxxx</code>方法<br>2、对于get请求的<code>?xxxx=</code>,使用<code>req.query.xxxxx</code>方法<br>3、对于post请求中的变量，使用<code>req.body.xxxxx</code>方法<br>4、以上三种情形，均可以使用<code>req.param()</code>方法，所以说<code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。</p>
 <h1 id="参考资料">参考资料</h1>
 <ul>
 <li><a href="http://expressjs.com/4x/api.html#request" target="_blank">express官方文档</a></li>
@@ -241,12 +237,17 @@ req.query.shoe.type
 		<footer class="article-footer clearfix">
 
 
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/node/">node</a>
+  </div>
+
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/" data-title="前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/" data-title="Node Express获取参数的几种方式 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -277,7 +278,7 @@ req.query.shoe.type
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags:_[node]"><span class="toc-number">1.</span> <span class="toc-text">tags: [node]</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#适用情景案例"><span class="toc-number"></span> <span class="toc-text">适用情景案例</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#req-body"><span class="toc-number">1.</span> <span class="toc-text">req.body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-params"><span class="toc-number">2.</span> <span class="toc-text">req.params</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-param(name)"><span class="toc-number">3.</span> <span class="toc-text">req.param(name)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-query"><span class="toc-number">4.</span> <span class="toc-text">req.query</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#区别与联系"><span class="toc-number"></span> <span class="toc-text">区别与联系</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、对于path中的变量，均可以使用req-params-xxxxx方法"><span class="toc-number">1.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、对于get请求的?xxxx=,使用req-query-xxxxx方法"><span class="toc-number">2.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、对于post请求中的变量，使用req-body-xxxxx方法"><span class="toc-number">3.</span> <span class="toc-text">方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以上三种情形，均可以使用req-param()方法，所以说req-param()是req-query、req-body、以及req-params获取参数的三种方式的封装。"><span class="toc-number">4.</span> <span class="toc-text">获取参数的三种方式的封装。</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number"></span> <span class="toc-text">参考资料</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#适用情景案例"><span class="toc-number">1.</span> <span class="toc-text">适用情景案例</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#req-body"><span class="toc-number">1.1.</span> <span class="toc-text">req.body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-params"><span class="toc-number">1.2.</span> <span class="toc-text">req.params</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-param(name)"><span class="toc-number">1.3.</span> <span class="toc-text">req.param(name)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-query"><span class="toc-number">1.4.</span> <span class="toc-text">req.query</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#区别与联系"><span class="toc-number">2.</span> <span class="toc-text">区别与联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
  
   </div>
 
@@ -292,15 +293,15 @@ req.query.shoe.type
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/node/" title="node">node<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+			<li><a href="/tags/node/" title="node">node<sup>3</sup></a></li>
 		
 			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
 		
-			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
-		
 			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+		
+			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/tools/" title="tools">tools<sup>1</sup></a></li>
 		
 			<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 		
