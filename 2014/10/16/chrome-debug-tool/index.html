@@ -117,14 +117,14 @@ DOM
 <li><code>h</code> toggle 元素的 visibility 属性</li>
 <li>拖拽节点, 调整顺序</li>
 <li>拖拽节点到编辑器<ul>
-<li><img src="http://img3.tbcdn.cn/L1/461/1/6568776c7a3cb0bdf17cf3760c5a0b23221f5653" alt="drag"></li>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/6568776c7a3cb0bdf17cf3760c5a0b23221f5653" alt=""></li>
 </ul>
 </li>
 <li><code>ctrl</code> + <code>z</code> 撤销修改</li>
 </ul>
 <h3 id="查看元素上绑定了哪些事件">查看元素上绑定了哪些事件</h3>
 <p><img src="http://img4.tbcdn.cn/L1/461/1/e2aacb4eb0fedb9002aeb89439f08944fefd636a" alt="event"></p>
-<ol>
+<ul>
 <li>默认会列出 <code>All Nodes</code>, 这些包括代理绑定在该节点的父/祖父节点上的事件, 因为在在冒泡或捕获阶段会经过该节点</li>
 <li><code>Selected Node Only</code> 只会列出当前节点上绑定的事件</li>
 <li>每个事件会有对应的几个属性 <code>handler</code>, <code>isAtribute</code>, <code>lineNumber</code>, <code>listenerBody</code>, <code>sourceName</code>, <code>type</code>, <code>useCapture</code><ul>
@@ -134,24 +134,16 @@ DOM
 <li><code>useCapture</code> 是 <code>addEventListener</code> 的第三个参数, 说明事件是以 冒泡 还是 捕获 顺序执行</li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2 id="Styles">Styles</h2>
 <h3 id="修改样式">修改样式</h3>
-<ol>
-<li>添加规则</li>
-</ol>
 <ul>
-<li><img src="http://img2.tbcdn.cn/L1/461/1/47df15944c5aad071da619c02693f1f00e3efad2" alt="add rule"></li>
-</ul>
-<ol>
-<li>添加、修改属性</li>
-</ol>
-<ul>
-<li>同样可以通过 <code>ctrl</code> + <code>z</code> 取消</li>
+<li>添加规则<br><img src="http://img2.tbcdn.cn/L1/461/1/47df15944c5aad071da619c02693f1f00e3efad2" alt="add rule"></li>
+<li>添加、修改属性<br>同样可以通过 <code>ctrl</code> + <code>z</code> 取消</li>
 </ul>
 <h1 id="断点">断点</h1>
 <h2 id="代码断点">代码断点</h2>
-<ol>
+<ul>
 <li>设置断点<ul>
 <li>在 Sources 面板 js 文件行号处设置断点, 这里除了常规断点外, 还有个条件断点(右键 <code>conditional breakpoint</code>), 在设置的条件为 <code>true</code> 时才会断电, 在循环中需要断点时比较有用.</li>
 <li>断点后可以查看 堆栈, 变量 信息:</li>
@@ -168,7 +160,7 @@ DOM
 <li><img src="http://img4.tbcdn.cn/L1/461/1/3236461d66878cfe24e80ef6801f971b6b179879" alt=""></li>
 </ul>
 </li>
-</ol>
+</ul>
 <h2 id="事件断点">事件断点</h2>
 <h3 id="元素上事件断点">元素上事件断点</h3>
 <p><code>devtools</code> 可以查看某一个元素上绑定了哪些事件: <code>Elements</code> &gt; <code>Event Listeners</code></p>
@@ -269,9 +261,9 @@ DOM
 		
 			<li><a href="/tags/blog article/" title="blog article">blog article<sup>1</sup></a></li>
 		
-			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
-		
 			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
 			<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 		
