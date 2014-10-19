@@ -91,7 +91,7 @@ git init在项目根目">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要学git"><span class="toc-number">1.</span> <span class="toc-text">为什么要学git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git_命令大全"><span class="toc-number">2.</span> <span class="toc-text">git 命令大全</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取与创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">获取与创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本快照"><span class="toc-number">2.2.</span> <span class="toc-text">基本快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与合并"><span class="toc-number">2.3.</span> <span class="toc-text">分支与合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分享与更新项目"><span class="toc-number">2.4.</span> <span class="toc-text">分享与更新项目</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#git本地分支与远程分支推送原则"><span class="toc-number">3.</span> <span class="toc-text">git本地分支与远程分支推送原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作区与暂存区理解"><span class="toc-number">4.</span> <span class="toc-text">工作区与暂存区理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级知识"><span class="toc-number">5.</span> <span class="toc-text">高级知识</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git_ssh"><span class="toc-number">5.1.</span> <span class="toc-text">git ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitignore"><span class="toc-number">5.2.</span> <span class="toc-text">gitignore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github相关"><span class="toc-number">5.3.</span> <span class="toc-text">github相关</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#更多资料"><span class="toc-number">6.</span> <span class="toc-text">更多资料</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要学git"><span class="toc-number">1.</span> <span class="toc-text">为什么要学git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git_命令大全"><span class="toc-number">2.</span> <span class="toc-text">git 命令大全</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取与创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">获取与创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本快照"><span class="toc-number">2.2.</span> <span class="toc-text">基本快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与合并"><span class="toc-number">2.3.</span> <span class="toc-text">分支与合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分享与更新项目"><span class="toc-number">2.4.</span> <span class="toc-text">分享与更新项目</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#git本地分支与远程分支推送原则"><span class="toc-number">3.</span> <span class="toc-text">git本地分支与远程分支推送原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作区与暂存区理解"><span class="toc-number">4.</span> <span class="toc-text">工作区与暂存区理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级知识"><span class="toc-number">5.</span> <span class="toc-text">高级知识</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git_ssh"><span class="toc-number">5.1.</span> <span class="toc-text">git ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitignore"><span class="toc-number">5.2.</span> <span class="toc-text">gitignore</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#更多资料"><span class="toc-number">6.</span> <span class="toc-text">更多资料</span></a></li></ol>
 		
 		</div>
 		
@@ -180,18 +180,18 @@ git init在项目根目">
 <li>开发时，将本地的分支切换到开发分支在写代码，保证本地的master分支不被污染<br>在实际开发中，我们应该按照几个基本原则进行分支管理：<ul>
 <li>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</li>
 <li>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</li>
-<li>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="http://www.liaoxuefeng.com/files/attachments/001384909239390d355eb07d9d64305b6322aaf4edac1e3000/0" alt=""></li>
+<li>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="http://gtms03.alicdn.com/tps/i3/TB1BQNaGFXXXXaZaXXXhdPbZFXX-498-125.png" alt=""></li>
 </ul>
 </li>
 </ul>
 <h2 id="工作区与暂存区理解">工作区与暂存区理解</h2>
-<p><img src="http://www.liaoxuefeng.com/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0" alt=""><br>我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<p><img src="http://gtms02.alicdn.com/tps/i2/TB1Z.xmGFXXXXcLXpXXKwd3HVXX-458-234.jpg" alt=""><br>我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
 <h2 id="高级知识">高级知识</h2>
 <h3 id="git_ssh">git ssh</h3>
 <p>SSH是什么？SSH公钥是让Git服务器验证你的电脑是被认证的，本地配置SSH避免了每次git要求你输入用户名、密码这些认证信息<br>如何配置SSH公钥看这里，<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">Generating SSH keys</a></p>
 <h3 id="gitignore">gitignore</h3>
 <p><code>.gitignore</code>是一个文件，通常我们是不希望git将本地的编辑器缓存的内容，包括.git文件，以及庞大的node-modules安装包推送到远程，如果仓库里含有.gitignore这个文件，git push会识别哪些是你不想推送到远端的文件，并选择性不推送到远端<br>来看一个.gitignore文件</p>
-<p><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -215,8 +215,8 @@ demo/.svn/
 *.swp
 .sw*
 .idea/*
-</pre></td></tr></table></figure></p>
-<h3 id="github相关">github相关</h3>
+</pre></td></tr></table></figure>
+
 <h2 id="更多资料">更多资料</h2>
 <p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰-Git教程</a><br><a href="http://gitref.org/zh/" target="_blank">Git 参考手册</a><br><a href="http://git-scm.com/book/zh/" target="_blank">Git-book</a></p>
   
@@ -243,14 +243,6 @@ demo/.svn/
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/10/17/21-git/" title="21-git">
-  <strong>上一篇：</strong><br/>
-  <span>
-  21-git</span>
-</a>
-</div>
-
 
 <div class="next">
 <a href="/2014/10/16/chrome-debug-tool/"  title="chrome调试工具常用功能整理">
@@ -273,7 +265,7 @@ demo/.svn/
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要学git"><span class="toc-number">1.</span> <span class="toc-text">为什么要学git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git_命令大全"><span class="toc-number">2.</span> <span class="toc-text">git 命令大全</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取与创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">获取与创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本快照"><span class="toc-number">2.2.</span> <span class="toc-text">基本快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与合并"><span class="toc-number">2.3.</span> <span class="toc-text">分支与合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分享与更新项目"><span class="toc-number">2.4.</span> <span class="toc-text">分享与更新项目</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#git本地分支与远程分支推送原则"><span class="toc-number">3.</span> <span class="toc-text">git本地分支与远程分支推送原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作区与暂存区理解"><span class="toc-number">4.</span> <span class="toc-text">工作区与暂存区理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级知识"><span class="toc-number">5.</span> <span class="toc-text">高级知识</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git_ssh"><span class="toc-number">5.1.</span> <span class="toc-text">git ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitignore"><span class="toc-number">5.2.</span> <span class="toc-text">gitignore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#github相关"><span class="toc-number">5.3.</span> <span class="toc-text">github相关</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#更多资料"><span class="toc-number">6.</span> <span class="toc-text">更多资料</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要学git"><span class="toc-number">1.</span> <span class="toc-text">为什么要学git</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#git_命令大全"><span class="toc-number">2.</span> <span class="toc-text">git 命令大全</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取与创建项目"><span class="toc-number">2.1.</span> <span class="toc-text">获取与创建项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本快照"><span class="toc-number">2.2.</span> <span class="toc-text">基本快照</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与合并"><span class="toc-number">2.3.</span> <span class="toc-text">分支与合并</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分享与更新项目"><span class="toc-number">2.4.</span> <span class="toc-text">分享与更新项目</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#git本地分支与远程分支推送原则"><span class="toc-number">3.</span> <span class="toc-text">git本地分支与远程分支推送原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#工作区与暂存区理解"><span class="toc-number">4.</span> <span class="toc-text">工作区与暂存区理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级知识"><span class="toc-number">5.</span> <span class="toc-text">高级知识</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git_ssh"><span class="toc-number">5.1.</span> <span class="toc-text">git ssh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gitignore"><span class="toc-number">5.2.</span> <span class="toc-text">gitignore</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#更多资料"><span class="toc-number">6.</span> <span class="toc-text">更多资料</span></a></li></ol>
  
   </div>
 
@@ -288,13 +280,13 @@ demo/.svn/
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/tools/" title="tools">tools<sup>4</sup></a></li>
-		
 			<li><a href="/tags/node/" title="node">node<sup>3</sup></a></li>
 		
-			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
+			<li><a href="/tags/tools/" title="tools">tools<sup>3</sup></a></li>
 		
 			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/js/" title="js">js<sup>1</sup></a></li>
 		
 			<li><a href="/tags/移动端/" title="移动端">移动端<sup>1</sup></a></li>
 		
