@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>test | 前端学习踩过的坑</title>
+    <title>github/gitlab同时管理多个ssh key | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
+    
+    <meta name="description" content="以前用github的ssh key，后来工作原因多了一个gitlab的账号，在绑定gitlab的ssh key时，发现将github的ssh key覆盖了。怎么同时绑定github和gitlab的ssh key，并不产生冲突呢？今天找到了个小技巧，在.ssh目录下新建一个config文件配置一下，就">
     
     
     
@@ -67,14 +69,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/11/04/test/" title="test" itemprop="url">test</a>
+      <a href="/2014/11/04/github-gitlab-ssh/" title="github/gitlab同时管理多个ssh key" itemprop="url">github/gitlab同时管理多个ssh key</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
 		
   <p class="article-time">
-    <time datetime="2014-11-04T08:30:19.000Z" itemprop="datePublished">发表于11月 4 2014</time>
+    <time datetime="2014-11-04T10:53:59.000Z" itemprop="datePublished">发表于11月 4 2014</time>
     
   </p>
 </header>
@@ -84,21 +86,87 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成并添加第一个ssh_key"><span class="toc-number">1.</span> <span class="toc-text">生成并添加第一个ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成并添加第二个ssh_key"><span class="toc-number">2.</span> <span class="toc-text">生成并添加第二个ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加私钥"><span class="toc-number">3.</span> <span class="toc-text">添加私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给github/gitlab上添加ssh_key"><span class="toc-number">5.</span> <span class="toc-text">给github/gitlab上添加ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">6.</span> <span class="toc-text">测试</span></a></li></ol>
 		
 		</div>
 		
-		  
+		<p>以前用github的ssh key，后来工作原因多了一个gitlab的账号，在绑定gitlab的ssh key时，发现将github的ssh key覆盖了。怎么同时绑定github和gitlab的ssh key，并不产生冲突呢？<br>今天找到了个小技巧，在<code>.ssh</code>目录下新建一个<code>config</code>文件配置一下，就能解决gitlab与github的ssh key的冲突。</p>
+<h2 id="生成并添加第一个ssh_key">生成并添加第一个ssh key</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> ~/.ssh
+ssh  ssh-keygen -t ras -C <span class="string">"youremail@yourcompany.com"</span>
+</pre></td></tr></table></figure>
+
+<p>这时可以一路回车，不输入任何字符，将自动生成<code>id_rsa</code>和<code>id_rsa.pub</code>文件。</p>
+<h2 id="生成并添加第二个ssh_key">生成并添加第二个ssh key</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ ssh-keygen -t rsa -C <span class="string">"youremail@gmail.com"</span>
+</pre></td></tr></table></figure>
+
+<p>注意，这时不能一路回车，否则邮箱将覆盖上一次生成的ssh key，给这个文件起一个名字， 比如叫 id_rsa_github, 所以相应的也会生成一个 id_rsa_github.pub 文件。<br><img src="/images/githubssh.png" alt=""><br>此时查看.ssh下的目录文件，发现多了<code>id_rsa_github</code>和<code>id_rsa_github.pub</code>两个文件。<br><img src="/images/sshls.png" alt=""></p>
+<h2 id="添加私钥">添加私钥</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ ssh-add ~/.ssh/id_rsa
+$ ssh-add ~/.ssh/id_rsa_github
+</pre></td></tr></table></figure>
+
+<h2 id="修改配置文件">修改配置文件</h2>
+<p>在 ~/.ssh 目录下新建一个config文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>touch config
+</pre></td></tr></table></figure>
+
+<p>并添加一下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="comment"># gitlab</span>
+Host gitlab.com
+    HostName gitlab.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+<span class="comment"># github</span>
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_github
+</pre></td></tr></table></figure>
+
+<h2 id="给github/gitlab上添加ssh_key">给github/gitlab上添加ssh key</h2>
+<p>查看<code>cat id_rsa_github.pub</code>内容，将文本内容拷贝到<a href="https://github.com/settings/ssh里。生成`ssh" target="_blank">https://github.com/settings/ssh里。生成`ssh</a> key`的方法可以去看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">官方教程</a>，这里不再赘述。</p>
+<h2 id="测试">测试</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ ssh -T git@github.com
+</pre></td></tr></table></figure>
+
+<p>如果输出<code>Hi xuyuan923! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>，说明成功的连上github了。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/tools/">tools</a>
+  </div>
 
 
 
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xuyuan923.github.io/2014/11/04/test/" data-title="test | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://xuyuan923.github.io/2014/11/04/github-gitlab-ssh/" data-title="github/gitlab同时管理多个ssh key | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -129,7 +197,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成并添加第一个ssh_key"><span class="toc-number">1.</span> <span class="toc-text">生成并添加第一个ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成并添加第二个ssh_key"><span class="toc-number">2.</span> <span class="toc-text">生成并添加第二个ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加私钥"><span class="toc-number">3.</span> <span class="toc-text">添加私钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#给github/gitlab上添加ssh_key"><span class="toc-number">5.</span> <span class="toc-text">给github/gitlab上添加ssh key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">6.</span> <span class="toc-text">测试</span></a></li></ol>
  
   </div>
 
@@ -144,9 +212,9 @@
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/node/" title="node">node<sup>3</sup></a></li>
+			<li><a href="/tags/tools/" title="tools">tools<sup>4</sup></a></li>
 		
-			<li><a href="/tags/tools/" title="tools">tools<sup>3</sup></a></li>
+			<li><a href="/tags/node/" title="node">node<sup>3</sup></a></li>
 		
 			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
 		
