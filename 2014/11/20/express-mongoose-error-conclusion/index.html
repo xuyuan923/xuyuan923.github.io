@@ -9,7 +9,7 @@
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="1、mongoose populate
+    <meta name="description" content="mongoose populate
 1
 2
 3
@@ -30,7 +30,7 @@
 18
 Line.find({issues:id}, function (err, lines) {
         Issue
-            //在line集合中查找">
+            //在line集合中查找is">
     
     
     
@@ -107,11 +107,11 @@ Line.find({issues:id}, function (err, lines) {
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、mongoose_populate"><span class="toc-number">1.</span> <span class="toc-text">1、mongoose populate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0"><span class="toc-number">2.</span> <span class="toc-text">2、显示CastError: Cast to ObjectId failed for value ，length为0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、出现can’t_set_header_after_they_are_sent"><span class="toc-number">3.</span> <span class="toc-text">3、出现can’t set header after they are sent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、find()与findOne()的区别"><span class="toc-number">4.</span> <span class="toc-text">4、find()与findOne()的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、打印出当前用户"><span class="toc-number">5.</span> <span class="toc-text">5、打印出当前用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、转换日期"><span class="toc-number">6.</span> <span class="toc-text">6、转换日期</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mongoose_populate"><span class="toc-number">1.</span> <span class="toc-text">mongoose populate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0"><span class="toc-number">2.</span> <span class="toc-text">显示CastError: Cast to ObjectId failed for value ，length为0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#出现can’t_set_header_after_they_are_sent"><span class="toc-number">3.</span> <span class="toc-text">出现can’t set header after they are sent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find()与findOne()的区别"><span class="toc-number">4.</span> <span class="toc-text">find()与findOne()的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打印出当前用户"><span class="toc-number">5.</span> <span class="toc-text">打印出当前用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换日期"><span class="toc-number">6.</span> <span class="toc-text">转换日期</span></a></li></ol>
 		
 		</div>
 		
-		<h2 id="1、mongoose_populate">1、mongoose populate</h2>
+		<h2 id="mongoose_populate">mongoose populate</h2>
 <figure class="highlight"><table><tr><td class="gutter"><pre>1
 2
 3
@@ -154,11 +154,11 @@ Line.find({issues:id}, function (err, lines) {
 <li><code>populate</code>中的option的值必须为<code>issue</code>集合里的字段，比如这里belongLineId是issue里的字段</li>
 <li><code>populate</code>中的select的值必须为<code>line</code>集合里的字段，比如这里<code>name</code>为<code>line</code>集合的字段</li>
 </ul>
-<h2 id="2、显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0">2、显示CastError: Cast to ObjectId failed for value ，length为0</h2>
+<h2 id="显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0">显示CastError: Cast to ObjectId failed for value ，length为0</h2>
 <p>通常是在schema中忘记添加相应地字段，或者在controller里render时忘记传递字段值</p>
-<h2 id="3、出现can’t_set_header_after_they_are_sent">3、出现can’t set header after they are sent</h2>
+<h2 id="出现can’t_set_header_after_they_are_sent">出现can’t set header after they are sent</h2>
 <p>通常是controller里render了两次，或者redirect了两次</p>
-<h2 id="4、find()与findOne()的区别">4、find()与findOne()的区别</h2>
+<h2 id="find()与findOne()的区别">find()与findOne()的区别</h2>
 <p><figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">var</span> id = req.params.id
 </pre></td></tr></table></figure></p>
@@ -166,12 +166,12 @@ Line.find({issues:id}, function (err, lines) {
 <li><code>find(id)</code>是遍历出所有的数组</li>
 <li><code>findOne({_id:id})</code>是查找出一个这个id浏览器当前页面参数相同的值</li>
 </ul>
-<h2 id="5、打印出当前用户">5、打印出当前用户</h2>
+<h2 id="打印出当前用户">打印出当前用户</h2>
 <ul>
 <li><code>req.session.user._id</code></li>
 <li><code>req.session.user.name</code></li>
 </ul>
-<h2 id="6、转换日期">6、转换日期</h2>
+<h2 id="转换日期">转换日期</h2>
 <ul>
 <li><code>npm install moment --save</code></li>
 <li><code>#{moment(issue.start).format(&#39;YYYY/MM/DD&#39;)}</code></li>
@@ -222,7 +222,7 @@ Line.find({issues:id}, function (err, lines) {
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、mongoose_populate"><span class="toc-number">1.</span> <span class="toc-text">1、mongoose populate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0"><span class="toc-number">2.</span> <span class="toc-text">2、显示CastError: Cast to ObjectId failed for value ，length为0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、出现can’t_set_header_after_they_are_sent"><span class="toc-number">3.</span> <span class="toc-text">3、出现can’t set header after they are sent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、find()与findOne()的区别"><span class="toc-number">4.</span> <span class="toc-text">4、find()与findOne()的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、打印出当前用户"><span class="toc-number">5.</span> <span class="toc-text">5、打印出当前用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、转换日期"><span class="toc-number">6.</span> <span class="toc-text">6、转换日期</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#mongoose_populate"><span class="toc-number">1.</span> <span class="toc-text">mongoose populate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0"><span class="toc-number">2.</span> <span class="toc-text">显示CastError: Cast to ObjectId failed for value ，length为0</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#出现can’t_set_header_after_they_are_sent"><span class="toc-number">3.</span> <span class="toc-text">出现can’t set header after they are sent</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find()与findOne()的区别"><span class="toc-number">4.</span> <span class="toc-text">find()与findOne()的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打印出当前用户"><span class="toc-number">5.</span> <span class="toc-text">打印出当前用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#转换日期"><span class="toc-number">6.</span> <span class="toc-text">转换日期</span></a></li></ol>
  
   </div>
 
