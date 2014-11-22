@@ -100,7 +100,7 @@ var person = new">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-number">1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型（prototype）"><span class="toc-number">2.</span> <span class="toc-text">原型（prototype）</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1"><span class="toc-number">2.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2"><span class="toc-number">2.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链（prototype_chain）"><span class="toc-number">2.3.</span> <span class="toc-text">原型链（prototype chain）</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#继承(Inheritance)"><span class="toc-number">3.</span> <span class="toc-text">继承(Inheritance)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1-1"><span class="toc-number">3.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2-1"><span class="toc-number">3.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo3:继承的一个实例"><span class="toc-number">3.3.</span> <span class="toc-text">Demo3:继承的一个实例</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#this关键字"><span class="toc-number">4.</span> <span class="toc-text">this关键字</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo:"><span class="toc-number">4.1.</span> <span class="toc-text">Demo:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改上面demo:"><span class="toc-number">4.2.</span> <span class="toc-text">修改上面demo:</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-number">1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型（prototype）"><span class="toc-number">2.</span> <span class="toc-text">原型（prototype）</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1"><span class="toc-number">2.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2"><span class="toc-number">2.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链（prototype_chain）"><span class="toc-number">2.3.</span> <span class="toc-text">原型链（prototype chain）</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#继承(Inheritance)"><span class="toc-number">3.</span> <span class="toc-text">继承(Inheritance)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1-1"><span class="toc-number">3.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2-1"><span class="toc-number">3.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo3:继承的一个实例"><span class="toc-number">3.3.</span> <span class="toc-text">Demo3:继承的一个实例</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#this关键字"><span class="toc-number">4.</span> <span class="toc-text">this关键字</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo:"><span class="toc-number">4.1.</span> <span class="toc-text">Demo:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改上面demo:"><span class="toc-number">4.2.</span> <span class="toc-text">修改上面demo:</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#强制修改函数上下文的方法"><span class="toc-number">5.</span> <span class="toc-text">强制修改函数上下文的方法</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用Object-bind()代替this"><span class="toc-number">5.1.</span> <span class="toc-text">用Object.bind()代替this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Object-call/Object-apply执行上下文"><span class="toc-number">5.2.</span> <span class="toc-text">使用Object.call/Object.apply执行上下文</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#补充其他"><span class="toc-number">6.</span> <span class="toc-text">补充其他</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自执行函数"><span class="toc-number">6.1.</span> <span class="toc-text">自执行函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包作用域"><span class="toc-number">6.2.</span> <span class="toc-text">闭包作用域</span></a></li></ol>
 		
 		</div>
 		
@@ -364,7 +364,7 @@ rect.appendToBody();
 </pre></td></tr></table></figure>
 
 <h3 id="修改上面demo:">修改上面demo:</h3>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -379,7 +379,6 @@ rect.appendToBody();
 13
 14
 15
-16
 </pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span>{</span>
 	<span class="keyword">this</span>._setupDom(width,height);
 }
@@ -395,45 +394,123 @@ Rect.prototype.appendToBody = <span class="function"><span class="keyword">funct
 };
 <span class="keyword">var</span> rect = <span class="keyword">new</span> Rect(<span class="number">100</span>,<span class="number">100</span>);
 rect.appendToBody();
-``
-</pre></td></tr></table></figure>j<br>var person = {<br>    firstName: “Penelope”,<br>    lastName: “Barrymore”,<br>    sayFullName: function () {<br>        console.log(this.firstName + “ “ + this.lastName); //=&gt; “Penelope Barrymore”<br>        console.log(person.firstName + “ “ + person.lastName); //=&gt; “Penelope Barrymore”<br>    }<br>};<br>person.sayFullName();</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>
-<span class="preprocessor">### 严格模式下的this</span>
-</pre></td></tr></table></figure>js<br>funtion foo(){<br>    ‘use strict’;<br>    console.log(this) //undefined<br>}</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>
-<span class="preprocessor">## 强制修改函数上下文的方法</span>
-<span class="preprocessor">### 用Object.bind()代替this</span>
-</pre></td></tr></table></figure>js<br>function foo(a, b) {<br>  console.log(this);<br>  console.log(a + b);<br>}<br>var fooBinding = foo.bind({ name: ‘Cassie Xu’ });<br>fooBinding(1, 2); </p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>上面code将输出
-</pre></td></tr></table></figure><br>[object Object] {<br>  name: “Cassie Xu”<br>}<br>3</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>
-### 使用<span class="built_in">Object</span>.call/<span class="built_in">Object</span>.apply执行上下文
-call/apply方法都为调用<span class="built_in">Object</span>方法，区别是apply将所有参数放到一个数组中去
-</pre></td></tr></table></figure>js<br>function foo(a, b) {<br>  console.log(this);<br>  console.log(a + b);<br>}<br>foo.call({name:’Cassie Xu’}, 1, 2);<br>foo.apply({name:’Cassie Xu’}, [1, 2]);</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
-</pre></td><td class="code"><pre>
-<span class="preprocessor">## 补充其他</span>
-<span class="preprocessor">### 自执行函数</span>
-why we use it? -&gt;避免泄露全局变量
-</pre></td></tr></table></figure>js<br>(function(c){<br>    var a = 1;<br>    var b = 2;<br>    console.log(a+b+c);<br>})(3)<br>// c = 3</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre>1
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> person = {
+    firstName: <span class="string">"Penelope"</span>,
+    lastName: <span class="string">"Barrymore"</span>,
+    sayFullName: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        console.log(<span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName); <span class="comment">//=&gt; "Penelope Barrymore"</span>
+        console.log(person.firstName + <span class="string">" "</span> + person.lastName); <span class="comment">//=&gt; "Penelope Barrymore"</span>
+    }
+};
+person.sayFullName();
+</pre></td></tr></table></figure><br>### 严格模式下的this<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
-</pre></td><td class="code"><pre>
-<span class="preprocessor">### 闭包作用域</span>
-</pre></td></tr></table></figure>js<br>var a = {};<br>a.foo = function(callback) {<br>  // do something and call callback in whatever way<br>}<br>a.bar = function() {<br>  this.num = 1;<br>  var that = this;<br>  //闭包，这里that可以访问到a.bar的作用域<br>  this.foo(function(newNum) {<br>    that.num = newNum;<br>  });<br>  console.log(this.num);<br>}<br>a.bar();<br>```                </p>
-  
+3
+4
+</pre></td><td class="code"><pre>funtion foo(){
+	<span class="string">'use strict'</span>;
+	console.log(<span class="keyword">this</span>) <span class="comment">//undefined</span>
+}
+</pre></td></tr></table></figure>
+
+<h2 id="强制修改函数上下文的方法">强制修改函数上下文的方法</h2>
+<h3 id="用Object-bind()代替this">用Object.bind()代替this</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> {</span>
+  console.log(<span class="keyword">this</span>);
+  console.log(a + b);
+}
+<span class="keyword">var</span> fooBinding = foo.bind({ name: <span class="string">'Cassie Xu'</span> });
+fooBinding(<span class="number">1</span>, <span class="number">2</span>);
+</pre></td></tr></table></figure><br>上面code将输出<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="attr_selector">[object Object]</span> <span class="rules">{
+  <span class="rule"><span class="attribute">name</span>:<span class="value"> <span class="string">"Cassie Xu"</span>
+</span></span></span>}
+3
+</pre></td></tr></table></figure>
+
+<h3 id="使用Object-call/Object-apply执行上下文">使用Object.call/Object.apply执行上下文</h3>
+<p>call/apply方法都为调用Object方法，区别是apply将所有参数放到一个数组中去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> {</span>
+  console.log(<span class="keyword">this</span>);
+  console.log(a + b);
+}
+foo.call({name:<span class="string">'Cassie Xu'</span>}, <span class="number">1</span>, <span class="number">2</span>);
+foo.apply({name:<span class="string">'Cassie Xu'</span>}, [<span class="number">1</span>, <span class="number">2</span>]);
+</pre></td></tr></table></figure>
+
+<h2 id="补充其他">补充其他</h2>
+<h3 id="自执行函数">自执行函数</h3>
+<p>why we use it? -&gt;避免泄露全局变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">(c)</span>{</span>
+	<span class="keyword">var</span> a = <span class="number">1</span>;
+	<span class="keyword">var</span> b = <span class="number">2</span>;
+	console.log(a+b+c);
+})(<span class="number">3</span>)
+<span class="comment">// c = 3</span>
+</pre></td></tr></table></figure>
+
+<h3 id="闭包作用域">闭包作用域</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> a = {};
+a.foo = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
+  <span class="comment">// do something and call callback in whatever way</span>
+}
+a.bar = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">this</span>.num = <span class="number">1</span>;
+  <span class="keyword">var</span> that = <span class="keyword">this</span>;
+  <span class="comment">//闭包，这里that可以访问到a.bar的作用域</span>
+  <span class="keyword">this</span>.foo(<span class="function"><span class="keyword">function</span><span class="params">(newNum)</span> {</span>
+    that.num = newNum;
+  });
+  console.log(<span class="keyword">this</span>.num);
+}
+a.bar();
+</pre></td></tr></table></figure>                  
 	</div>
 		<footer class="article-footer clearfix">
 
@@ -479,7 +556,7 @@ why we use it? -&gt;避免泄露全局变量
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-number">1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型（prototype）"><span class="toc-number">2.</span> <span class="toc-text">原型（prototype）</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1"><span class="toc-number">2.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2"><span class="toc-number">2.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链（prototype_chain）"><span class="toc-number">2.3.</span> <span class="toc-text">原型链（prototype chain）</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#继承(Inheritance)"><span class="toc-number">3.</span> <span class="toc-text">继承(Inheritance)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1-1"><span class="toc-number">3.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2-1"><span class="toc-number">3.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo3:继承的一个实例"><span class="toc-number">3.3.</span> <span class="toc-text">Demo3:继承的一个实例</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#this关键字"><span class="toc-number">4.</span> <span class="toc-text">this关键字</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo:"><span class="toc-number">4.1.</span> <span class="toc-text">Demo:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改上面demo:"><span class="toc-number">4.2.</span> <span class="toc-text">修改上面demo:</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-number">1.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#原型（prototype）"><span class="toc-number">2.</span> <span class="toc-text">原型（prototype）</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1"><span class="toc-number">2.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2"><span class="toc-number">2.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#原型链（prototype_chain）"><span class="toc-number">2.3.</span> <span class="toc-text">原型链（prototype chain）</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#继承(Inheritance)"><span class="toc-number">3.</span> <span class="toc-text">继承(Inheritance)</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo1-1"><span class="toc-number">3.1.</span> <span class="toc-text">Demo1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo2-1"><span class="toc-number">3.2.</span> <span class="toc-text">Demo2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo3:继承的一个实例"><span class="toc-number">3.3.</span> <span class="toc-text">Demo3:继承的一个实例</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#this关键字"><span class="toc-number">4.</span> <span class="toc-text">this关键字</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Demo:"><span class="toc-number">4.1.</span> <span class="toc-text">Demo:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改上面demo:"><span class="toc-number">4.2.</span> <span class="toc-text">修改上面demo:</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#强制修改函数上下文的方法"><span class="toc-number">5.</span> <span class="toc-text">强制修改函数上下文的方法</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用Object-bind()代替this"><span class="toc-number">5.1.</span> <span class="toc-text">用Object.bind()代替this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用Object-call/Object-apply执行上下文"><span class="toc-number">5.2.</span> <span class="toc-text">使用Object.call/Object.apply执行上下文</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#补充其他"><span class="toc-number">6.</span> <span class="toc-text">补充其他</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#自执行函数"><span class="toc-number">6.1.</span> <span class="toc-text">自执行函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭包作用域"><span class="toc-number">6.2.</span> <span class="toc-text">闭包作用域</span></a></li></ol>
  
   </div>
 
