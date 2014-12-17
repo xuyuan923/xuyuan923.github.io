@@ -4,22 +4,18 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Node Express获取参数的几种方式 | 前端学习踩过的坑</title>
+    <title>CSS3实现六边形图片，兼容IE6 | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="Node配合Express框架获取参数主要有以下4种形式:
+    <meta name="description" content="最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。先看一下最终实现的效果图
+主要采用的技术
+这个效果的主要css样式有：
 
-req.body
-req.params
-req.param()
-req.query
-
-那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
-适用情景案例
-req.body
-req.body在官方文档">
+transform: rotate(120deg); 图片旋转
+overflow:hidden;  超出隐藏
+visibility: hidden; ">
     
     
     
@@ -79,14 +75,14 @@ req.body在官方文档">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2014/10/10/node-tutorial-req/" title="Node Express获取参数的几种方式" itemprop="url">Node Express获取参数的几种方式</a>
+      <a href="/2014/12/17/hexagon-6-using-css3/" title="CSS3实现六边形图片，兼容IE6" itemprop="url">CSS3实现六边形图片，兼容IE6</a>
   </h1>
   <p class="article-author">By
        
 		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
 		
   <p class="article-time">
-    <time datetime="2014-10-10T12:54:14.000Z" itemprop="datePublished">发表于10月 10 2014</time>
+    <time datetime="2014-12-17T10:37:01.000Z" itemprop="datePublished">发表于12月 17 2014</time>
     
   </p>
 </header>
@@ -96,142 +92,37 @@ req.body在官方文档">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#适用情景案例"><span class="toc-number">1.</span> <span class="toc-text">适用情景案例</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#req-body"><span class="toc-number">1.1.</span> <span class="toc-text">req.body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-params"><span class="toc-number">1.2.</span> <span class="toc-text">req.params</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-param(name)"><span class="toc-number">1.3.</span> <span class="toc-text">req.param(name)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-query"><span class="toc-number">1.4.</span> <span class="toc-text">req.query</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#区别与联系"><span class="toc-number">2.</span> <span class="toc-text">区别与联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要采用的技术"><span class="toc-number">1.</span> <span class="toc-text">主要采用的技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-number">2.</span> <span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器兼容性处理"><span class="toc-number">3.</span> <span class="toc-text">浏览器兼容性处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#demo"><span class="toc-number">4.</span> <span class="toc-text">demo</span></a></li></ol>
 		
 		</div>
 		
-		<p>Node配合Express框架获取参数主要有以下4种形式:</p>
+		<p>最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。<br>先看一下最终实现的效果图<img src="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png" alt=""></p>
+<h2 id="主要采用的技术">主要采用的技术</h2>
+<p>这个效果的主要css样式有：</p>
 <ul>
-<li>req.body</li>
-<li>req.params</li>
-<li>req.param()</li>
-<li>req.query</li>
+<li>transform: rotate(120deg); 图片旋转</li>
+<li>overflow:hidden;  超出隐藏</li>
+<li>visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置</li>
 </ul>
-<p>那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？</p>
-<h1 id="适用情景案例">适用情景案例</h1>
-<h2 id="req-body">req.body</h2>
-<p><code>req.body</code>在<a href="http://expressjs.com/4x/api.html#request" target="_blank">官方文档</a>是没有提供的，但是它也是很好用的获取表单参数的方法。<code>req.body</code>是<strong>配合Express中间件<code>bodyParser()</code>中间件</strong>提供的。当<code>bodyParser()</code>中间件使用后，这个对象默认为 <code>{}</code>,<code>req.body</code>可以获取到post到body中的内容。<br>举个栗子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>app.post(<span class="string">'/user/signup'</span>,function(req,res){
-	var _user = req.body.user;
-})
-</pre></td></tr></table></figure>
-
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-</pre></td><td class="code"><pre>// POST user[name]=tobi&user[email]=tobi@learnboost.com
-req.body.user.name
-// =&gt; <span class="string">"tobi"</span>
-
-req.body.user.email
-// =&gt; <span class="string">"tobi@learnboost.com"</span>
-
-// POST { <span class="string">"name"</span>: <span class="string">"tobi"</span> }
-req.body.name
-// =&gt; <span class="string">"tobi"</span>
-</pre></td></tr></table></figure>
-
-<h2 id="req-params">req.params</h2>
-<p>这是一个数组对象，命名过的参数会以键值对的形式存放。 比如你有一个路由<code>/user/:name</code>, <code>name</code>属性会存放在<code>req.params.name</code>. 这个对象默认为 <code>{}</code>.<br>举个栗子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-</pre></td><td class="code"><pre>// GET /user/tj
-req.params.name
-// =&gt; <span class="string">"tj"</span>
-
-app.post(<span class="string">'/user/signup/:userid'</span>,function(req,res){
-	req.params.userid;
-})
-</pre></td></tr></table></figure><br>当使用正则表达式定义路由的时候，<code>req.params[N]</code>会是这个应用这个正则后的捕获分组, <code>N</code>是代表的是第<code>N</code>个捕获分组。这个规则同样适用于全匹配的路由，如 <code>/file/*</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>// GET /file/javascripts/jquery.js
-req.params[<span class="number">0</span>]
-// =&gt; <span class="string">"javascripts/jquery.js"</span>
-</pre></td></tr></table></figure>
-
-<h2 id="req-param(name)">req.param(name)</h2>
-<p><code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。<code>req.param(name)</code>返回<code>name</code>参数的值。<br>举个栗子：<br>和上面的<code>req.body</code>方法类似</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre>// POST name=tobi
-app.post(<span class="string">'/user?name=tobi'</span>,function(req,res){
- req.param(<span class="string">'name'</span>);
- // =&gt; <span class="string">"tobi"</span>
-})
-
-// ?name=tobi
-req.param(<span class="string">'name'</span>)
-// =&gt; <span class="string">"tobi"</span>
-
-// /user/tobi <span class="keyword">for</span> /user/:name 
-req.param(<span class="string">'name'</span>)
-// =&gt; <span class="string">"tobi"</span>
-</pre></td></tr></table></figure>
-
-<h2 id="req-query">req.query</h2>
-<p>这是一个解析过的请求参数对象，默认为<code>{}</code>.<br>举个栗子：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-</pre></td><td class="code"><pre>// GET /search?q=tobi+ferret
-req.query.q
-// =&gt; <span class="string">"tobi ferret"</span>
-
-// GET /shoes?order=desc&shoe[color]=blue&shoe[<span class="built_in">type</span>]=converse
-req.query.order
-// =&gt; <span class="string">"desc"</span>
-
-req.query.shoe.color
-// =&gt; <span class="string">"blue"</span>
-
-req.query.shoe.type
-// =&gt; <span class="string">"converse"</span>
-</pre></td></tr></table></figure>
-
-<h1 id="区别与联系">区别与联系</h1>
-<p>总结出以下4点：<br>1、对于path中的变量，均可以使用<code>req.params.xxxxx</code>方法<br>2、对于get请求的<code>?xxxx=</code>,使用<code>req.query.xxxxx</code>方法<br>3、对于post请求中的变量，使用<code>req.body.xxxxx</code>方法<br>4、以上三种情形，均可以使用<code>req.param()</code>方法，所以说<code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。</p>
-<h1 id="参考资料">参考资料</h1>
+<h2 id="实现原理">实现原理</h2>
+<p>我们使用3层div来实现这个六边形图层，</p>
 <ul>
-<li><a href="http://expressjs.com/4x/api.html#request" target="_blank">express官方文档</a></li>
-<li><a href="http://expressjs.jser.us/3x_zh-cn/api.html" target="_blank">express中文文档翻译版</a></li>
+<li>最外层div(boxF)旋转120度，div设置visibility: hidden</li>
+<li>第二层(boxS)旋转-60度，div设置visibility: hidden</li>
+<li>第三层(boxT)再旋转-60度，和最外层第二层的旋转正好回转，使视觉看起来没有旋转，div设置visibility: visible</li>
+<li>经过旋转肯定有超出的部分，因此对3个div都设置overflow:hidden;</li>
+<li>鼠标放上去时，图层显示以背景图的形式展示图片</li>
 </ul>
+<h2 id="浏览器兼容性处理">浏览器兼容性处理</h2>
+<ul>
+<li>兼容IE9:-ms-transform:rotate(120deg);</li>
+<li>兼容firefox:-moz-transform:rotate(120deg);</li>
+<li>兼容Safari和Chrome:-webkit-transform:rotate(120deg);</li>
+<li>兼容Opera:-o-transform:rotate(120deg);</li>
+<li>兼容IE6-8: filter:progid:DXImageTransform.Microsoft.Matrix(M11=cos(roation),M12=-sin(roation),M21=sin(roation),M22=cos(roation),SizingMethod=’auto expand’);</li>
+</ul>
+<h2 id="demo">demo</h2>
+<p><a href="/demo/hexagon.html">六边形图片演示</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -239,7 +130,7 @@ req.query.shoe.type
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/node/">node</a>
+  <span></span> <a href="/tags/CSS3/">CSS3</a>
   </div>
 
 
@@ -247,7 +138,7 @@ req.query.shoe.type
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/" data-title="Node Express获取参数的几种方式 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/" data-title="CSS3实现六边形图片，兼容IE6 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -256,19 +147,11 @@ req.query.shoe.type
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2014/10/16/chrome-debug-tool/" title="chrome调试工具常用功能整理">
-  <strong>上一篇：</strong><br/>
-  <span>
-  chrome调试工具常用功能整理</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2014/09/25/nodejs-notes/"  title="Nodejs Web开发一些好用的工具">
+<a href="/2014/11/21/oo-javascript/"  title="JavaScript面向对象知识点小结">
  <strong>下一篇：</strong><br/> 
- <span>Nodejs Web开发一些好用的工具
+ <span>JavaScript面向对象知识点小结
 </span>
 </a>
 </div>
@@ -286,7 +169,7 @@ req.query.shoe.type
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#适用情景案例"><span class="toc-number">1.</span> <span class="toc-text">适用情景案例</span></a></li><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#req-body"><span class="toc-number">1.1.</span> <span class="toc-text">req.body</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-params"><span class="toc-number">1.2.</span> <span class="toc-text">req.params</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-param(name)"><span class="toc-number">1.3.</span> <span class="toc-text">req.param(name)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#req-query"><span class="toc-number">1.4.</span> <span class="toc-text">req.query</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#区别与联系"><span class="toc-number">2.</span> <span class="toc-text">区别与联系</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-number">3.</span> <span class="toc-text">参考资料</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#主要采用的技术"><span class="toc-number">1.</span> <span class="toc-text">主要采用的技术</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实现原理"><span class="toc-number">2.</span> <span class="toc-text">实现原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#浏览器兼容性处理"><span class="toc-number">3.</span> <span class="toc-text">浏览器兼容性处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#demo"><span class="toc-number">4.</span> <span class="toc-text">demo</span></a></li></ol>
  
   </div>
 

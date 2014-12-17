@@ -1,0 +1,250 @@
+
+  
+    <!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background: url('http://2.su.bdimg.com/skin_zoom/6.jpg?2') no-repeat;
+            background-attachment: fixed !important;
+            background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            zoom: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #main {
+            float: left;
+            position: relative;
+            left: 30%;
+            top: 80px;
+        }
+        #main .boxF {
+            width: 165px;
+            height: 200px;
+            overflow: hidden;
+            visibility: hidden;
+            transform: rotate(120deg);
+            float: left;
+            margin-left: 20px;
+            -ms-transform: rotate(120deg);
+            -moz-transform: rotate(120deg);
+            -webkit-transform: rotate(120deg);
+            filter: progid:DXImageTransform.Microsoft.Matrix(M11=-0.5, M12=-0.5, M21=0.5, M22=-0.5, SizingMethod='auto expand');
+        }
+        #main .boxF .boxS {
+            width: 165px;
+            height: 200px;
+            overflow: hidden;
+            visibility: hidden;
+            transform: rotate(-60deg);
+            -ms-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.5, M12=0.5, M21=-0.5, M22=0.5, SizingMethod='auto expand');
+        }
+        #main .boxF .boxS .boxT {
+            width: 165px;
+            height: 200px;
+            overflow: hidden;
+            transform: rotate(-60deg);
+            background: no-repeat 50% center;
+            background-size: 125% auto;
+            -ms-transform: rotate(-60deg);
+            -moz-transform: rotate(-60deg);
+            -webkit-transform: rotate(-60deg);
+            filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.5, M12=0.5, M21=-0.5, M22=0.5, SizingMethod='auto expand');
+            visibility: visible;
+        }
+        #main .boxF .boxS .boxT .word {
+            position: absolute;
+            top: 45px;
+            color: #ffffff;
+        }
+        #main .boxF .boxS .boxT .word .word-title {
+            position: absolute;
+            text-align: center;
+            width: 166px;
+            top: 20px;
+            font-size: 20px;
+        }
+        #main .boxF .boxS .boxT .word .more {
+            color: #ffffff;
+            position: absolute;
+            text-align: center;
+            width: 78px;
+            height: 22px;
+            line-height: 22px;
+            top: 50px;
+            left: 40px;
+            font-size: 12px;
+            border: 2px solid #fff;
+        }
+        #main .boxF .boxS .boxT.boxT1 {
+            background: #9b9b9b;
+        }
+        #main .boxF .boxS .boxT.boxT1:hover {
+            background-image: url('http://c.hiphotos.baidu.com/super/whfpf%3D425%2C260%2C50/sign=5efb56b0379b033b2cddaf9a73f302e1/3812b31bb051f8190cc948fed9b44aed2f73e792.jpg');
+        }
+        #main .boxF .boxS .boxT.boxT2 {
+            background: #1e9eac;
+        }
+        #main .boxF .boxS .boxT.boxT2:hover {
+            background-image: url('http://c.hiphotos.baidu.com/super/whfpf%3D425%2C260%2C50/sign=5efb56b0379b033b2cddaf9a73f302e1/3812b31bb051f8190cc948fed9b44aed2f73e792.jpg');
+        }
+        #main .boxF .boxS .boxT.boxT3 {
+            background: #d55f53;
+        }
+        #main .boxF .boxS .boxT.boxT3:hover {
+            background-image: url('http://c.hiphotos.baidu.com/super/whfpf%3D425%2C260%2C50/sign=5efb56b0379b033b2cddaf9a73f302e1/3812b31bb051f8190cc948fed9b44aed2f73e792.jpg');
+        }
+        #main .boxF .boxS .boxT.boxT4 {
+            background: #824396;
+        }
+        #main .boxF .boxS .boxT.boxT4 .center-top {
+            font-size: 18px;
+            margin-left: 55px;
+            margin-top: 10px;
+            width: 60px;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 2px solid #fff;
+        }
+        #main .boxF .boxS .boxT.boxT4 .center-bot {
+            margin-left: 45px;
+            font-size: 18px;
+            width: 80px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        #main .boxF .boxS .boxT.boxT5 {
+            background: #d55f53;
+        }
+        #main .boxF .boxS .boxT.boxT5:hover {
+            background-image: url('http://c.hiphotos.baidu.com/super/whfpf%3D425%2C260%2C50/sign=5efb56b0379b033b2cddaf9a73f302e1/3812b31bb051f8190cc948fed9b44aed2f73e792.jpg');
+        }
+        #main .boxF .boxS .boxT.boxT6 {
+            background: #1e9eac;
+        }
+        #main .boxF .boxS .boxT.boxT6:hover {
+            background-image: url('http://c.hiphotos.baidu.com/super/whfpf%3D425%2C260%2C50/sign=5efb56b0379b033b2cddaf9a73f302e1/3812b31bb051f8190cc948fed9b44aed2f73e792.jpg');
+        }
+        #main .boxF .boxS .boxT.boxT7 {
+            background: #9b9b9b;
+        }
+        #main .boxF .boxS .boxT.boxT7:hover {
+            background-image: url('http://c.hiphotos.baidu.com/super/whfpf%3D425%2C260%2C50/sign=5efb56b0379b033b2cddaf9a73f302e1/3812b31bb051f8190cc948fed9b44aed2f73e792.jpg');
+        }
+        #main .lineF {
+            position: absolute;
+            visibility: hidden;
+            width: 370px;
+            left: 93px;
+        }
+        #main .lineS {
+            position: absolute;
+            visibility: hidden;
+            top: 165px;
+            left: 0px;
+            width: 560px;
+        }
+        #main .lineT {
+            position: absolute;
+            visibility: hidden;
+            top: 330px;
+            left: 93px;
+            width: 370px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main">
+    <div class="showPng"></div>
+    <div class="lineF">
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT boxT1 animated zoomInDown">
+                    <div class="word">
+                        <p class="word-title">道德巡礼</p>
+                        <a class="more" href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT boxT2 animated zoomInDown">
+                    <div class="word">
+                        <p class="word-title">道德巡礼</p>
+                        <a class="more" href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lineS">
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT boxT3 animated zoomInLeft">
+                    <div class="word">
+                        <p class="word-title">道德巡礼</p>
+                        <a class="more" href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT  boxT4 animated zoomIn">
+                    <div class="word">
+                        <p class="center-top">OUR</p>
+                        <p class="center-bot">ACTIVITY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT boxT5 animated zoomInRight">
+                    <div class="word">
+                        <p class="word-title">道德巡礼</p>
+                        <a class="more" href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="lineT">
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT boxT6 animated zoomInUp">
+                    <div class="word">
+                        <p class="word-title">道德巡礼</p>
+                        <a class="more" href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="boxF">
+            <div class="boxS">
+                <div class="boxT boxT7 animated zoomInUp">
+                    <div class="word">
+                        <p class="word-title">道德巡礼</p>
+                        <a class="more" href="#">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+  
