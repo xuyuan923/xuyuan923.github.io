@@ -11,8 +11,8 @@
     
     <meta name="description" content="移动端开发的经验比较少，之前做过一点移动端的页面，都没有好好总结经验教训。移动端布局技巧性比较强，借最近摔的坑，记录一下工具和技巧。
 工具篇
-Chrome
-首先是chrome的device model,我目前使用的chrome为当前最新的38.0.2125.122版本。没升级的建议升级下chrome">
+Chrome模拟器
+首先是chrome的device model,我目前使用的chrome为当前最新的38.0.2125.122版本。没升级的建议升级下chr">
     
     
     
@@ -89,15 +89,33 @@ Chrome
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具篇"><span class="toc-number">1.</span> <span class="toc-text">工具篇</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome"><span class="toc-number">1.1.</span> <span class="toc-text">Chrome</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">1.2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-number">2.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未完，明天继续总结。"><span class="toc-number">3.</span> <span class="toc-text">未完，明天继续总结。</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具篇"><span class="toc-number">1.</span> <span class="toc-text">工具篇</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome模拟器"><span class="toc-number">1.1.</span> <span class="toc-text">Chrome模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">1.2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.3.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-number">2.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未完，明天继续总结。"><span class="toc-number">3.</span> <span class="toc-text">未完，明天继续总结。</span></a></li></ol>
 		
 		</div>
 		
 		<p>移动端开发的经验比较少，之前做过一点移动端的页面，都没有好好总结经验教训。移动端布局技巧性比较强，借最近摔的坑，记录一下工具和技巧。</p>
 <h2 id="工具篇">工具篇</h2>
-<h3 id="Chrome">Chrome</h3>
+<h3 id="Chrome模拟器">Chrome模拟器</h3>
 <p>首先是chrome的device model,我目前使用的chrome为当前最新的38.0.2125.122版本。没升级的建议升级下chrome，最新版本从界面上来看非常美观，而且以前从Emulating入口进入，<br>现在可以直接通过手机icon进入，更加快捷。<br>移动端调试时，如果将调试框放在下面，整个移动端界面就会被压缩。笔者之前一直找不到将调试栏移动到右边的方法，谷歌搜索了很久才明白了方法。<br>鼠标<strong>长按</strong>右上角Dock to the main window，将会出现出现右侧布局框的按钮，该细节隐藏太深！简明教程如下：<br><img src="/images/switchtoright.gif" alt=""></p>
 <h3 id="UC开发版测试安卓真机">UC开发版测试安卓真机</h3>
+<h3 id="Weinre测试安卓真机">Weinre测试安卓真机</h3>
+<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
+<ul>
+<li>首先安装Weinre<figure class="highlight code"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> npm install -g weinre
+</pre></td></tr></table></figure></li>
+<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
+<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span>
+</pre></td></tr></table></figure><br>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>将会看到下面的界面<br><img src="/images/C8E76947-FF70-491D-A1E6-9EB311BCFE88.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong></li>
+<li>调试自己本地的页面<br>比如说，我本地有这么个页面，想在真机上看下实际效果。<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>具体操作步骤为：</li>
+</ul>
+<ul>
+<li>1、引入上图中的外链js<br><img src="/images/C3029D85-B518-45E2-8AE7-55879BAB0A76.png" alt=""></li>
+<li>2、将本地页面链接的localhost修改为局域网ip，我的ip为192.168.1.103，故我需要调试的页面打开方式为<code>http://192.168.1.103:3000/index</code><br><img src="/images/5B4C7C76-4D3F-4A01-AF45-8CE67EEF60FD.png" alt=""></li>
+<li>3、打开手机浏览器，访问<code>http://192.168.1.103:3000/index</code>，将在手机上看到PC端的网页<br><img src="/images/Screenshot_2015-01-03-14-35-46.png" alt=""></li>
+<li>4、进入<code>http://192.168.1.103:8080/client/#anonymous</code><br>选中需要调试的页面，这里我选择<code>http://192.168.1.103:3000/index</code>这一页面，此时选择的链接将被高亮设置。<br>选择Elements,在这里选中元素，比如我选择<code>`这一节点，将在手机山看到</code>ul`的元素被选中了。<br><img src="/images/IMAG0001.jpg" alt=""><br>在PC上改变元素的样式在手机可以看到元素样式的改变，console功能都可以使用。这里不再一一演示。</li>
+</ul>
 <h2 id="响应式布局">响应式布局</h2>
 <p>我采用的方法是rem为所有长度高度、字体大小的单位。<br>首先设置字体大小为10px,即1rem = 10px;</p>
 <p><figure class="highlight code"><table><tr><td class="gutter"><pre>1
@@ -162,7 +180,7 @@ Chrome
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具篇"><span class="toc-number">1.</span> <span class="toc-text">工具篇</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome"><span class="toc-number">1.1.</span> <span class="toc-text">Chrome</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">1.2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-number">2.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未完，明天继续总结。"><span class="toc-number">3.</span> <span class="toc-text">未完，明天继续总结。</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#工具篇"><span class="toc-number">1.</span> <span class="toc-text">工具篇</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Chrome模拟器"><span class="toc-number">1.1.</span> <span class="toc-text">Chrome模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">1.2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.3.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#响应式布局"><span class="toc-number">2.</span> <span class="toc-text">响应式布局</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#未完，明天继续总结。"><span class="toc-number">3.</span> <span class="toc-text">未完，明天继续总结。</span></a></li></ol>
  
   </div>
 
@@ -177,17 +195,17 @@ Chrome
 	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
-			<li><a href="/tags/node/" title="node">node<sup>4</sup></a></li>
-		
 			<li><a href="/tags/tools/" title="tools">tools<sup>4</sup></a></li>
+		
+			<li><a href="/tags/node/" title="node">node<sup>4</sup></a></li>
 		
 			<li><a href="/tags/js/" title="js">js<sup>2</sup></a></li>
 		
 			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
 		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
 			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
+		
+			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
 		
 			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
 		
@@ -245,7 +263,7 @@ Chrome
 		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
 		
 	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2014 
+		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
 		
 		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
 		
