@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>移动端前端开发测试实践 | 前端学习踩过的坑</title>
+    <title>移动端前端开发真机调试实践 | 前端学习踩过的坑</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Cassie Xu">
     
-    <meta name="description" content="上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录下实践过程。
+    <meta name="description" content="上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。
 Weinre测试安卓真机
-Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是Mac,只在Mac上做了">
+Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是Mac,只在Mac上做">
     
     
     
@@ -71,7 +71,7 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/01/03/mobile-debug/" title="移动端前端开发测试实践" itemprop="url">移动端前端开发测试实践</a>
+      <a href="/2015/01/03/mobile-debug/" title="移动端前端开发真机调试实践" itemprop="url">移动端前端开发真机调试实践</a>
   </h1>
   <p class="article-author">By
        
@@ -88,11 +88,11 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调试自己本地的页面"><span class="toc-number">1.1.</span> <span class="toc-text">调试自己本地的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试外网页面"><span class="toc-number">1.2.</span> <span class="toc-text">调试外网页面</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调试自己本地的页面"><span class="toc-number">1.1.</span> <span class="toc-text">调试自己本地的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试外网页面"><span class="toc-number">1.2.</span> <span class="toc-text">调试外网页面</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多真机调试资料分享"><span class="toc-number">3.</span> <span class="toc-text">更多真机调试资料分享</span></a></li></ol>
 		
 		</div>
 		
-		<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录下实践过程。</p>
+		<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
 <h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
 <p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
 <ul>
@@ -114,7 +114,7 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 <h3 id="调试外网页面">调试外网页面</h3>
 <p>因为不是自己本地或者自己写的页面，无法手动在自己的html文件里加入<code>&lt;script src=&quot;http://192.168.1.103:8080/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;</code>这种target script.<br>但我们可以通过代理服务器主页【Target Bookmarklet】一节中 bookmarklet 来实现。</p>
 <ul>
-<li>1、在书签地址栏加入这段代码<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+<li>1、在手机浏览器书签地址栏加入这段代码<figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre>javascript:(<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>e.setAttribute(<span class="string">"src"</span>,<span class="string">"http://192.168.1.103:8080/target/target-script-min.js#anonymous"</span>);document.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(e);})(document.createElement(<span class="string">"script"</span>));<span class="keyword">void</span>(<span class="number">0</span>);
 </pre></td></tr></table></figure></li>
 <li>2、在<code>http://192.168.1.103:8080/client/#anonymous</code>选中百度的链接</li>
@@ -127,6 +127,11 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 <li>3、用和手机处于同一网段的PC或MAC访问步骤2获得的IP后加上 :9998，比如我需要进入192.168.1.102:9998</li>
 <li>4、打开UC开发版安卓客户端，选择“允许”，将在PC上获得这样的界面<br><img src="/images/F6BFF092-D176-4157-95CE-8CAF337FA35A.png" alt=""></li>
 <li>5、在<code>http://192.168.1.102:9998/</code>里选择站点，进入后调试元素，在UC开发版手机端将看到变化的效果<br>注意，调试本地localhost路径的页面，只需要在手机浏览器里将localhost改成局域网IP。</li>
+</ul>
+<h2 id="更多真机调试资料分享">更多真机调试资料分享</h2>
+<ul>
+<li><a href="https://github.com/jieyou/remote_inspect_web_on_real_device" target="_blank">各种 真机远程调试 方法 汇总</a></li>
+<li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank">移动端前端开发调试</a></li>
 </ul>
   
 	</div>
@@ -143,7 +148,7 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 
 <div class="article-share" id="share">
 
-  <div data-url="http://xuyuan923.github.io/2015/01/03/mobile-debug/" data-title="移动端前端开发测试实践 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
+  <div data-url="http://xuyuan923.github.io/2015/01/03/mobile-debug/" data-title="移动端前端开发真机调试实践 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -174,7 +179,7 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调试自己本地的页面"><span class="toc-number">1.1.</span> <span class="toc-text">调试自己本地的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试外网页面"><span class="toc-number">1.2.</span> <span class="toc-text">调试外网页面</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调试自己本地的页面"><span class="toc-number">1.1.</span> <span class="toc-text">调试自己本地的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试外网页面"><span class="toc-number">1.2.</span> <span class="toc-text">调试外网页面</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多真机调试资料分享"><span class="toc-number">3.</span> <span class="toc-text">更多真机调试资料分享</span></a></li></ol>
  
   </div>
 
