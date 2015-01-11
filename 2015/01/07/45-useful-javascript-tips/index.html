@@ -221,7 +221,7 @@ numbers = numbers.sort(<span class="function"><span class="keyword">function</sp
 <span class="comment">/* numbers 数组将类似于 [120, 5, 228, -215, 400, 458, -85411, 122205]  */</span>
 </pre></td></tr></table></figure><br>这里使用了JavaScript内置的数组排序函数，更好的办法是用专门的代码来实现（如Fisher-Yates算法），可以参见StackOverFlow上的<a href="http://stackoverflow.com/questions/962802/is-it-correct-to-use-javascript-array-sort-method-for-shuffling/962890#962890" target="_blank">这个讨论</a>。<br><br>## 字符串去空格<br>Java、C#和PHP等语言都实现了专门的字符串去空格函数，但JavaScript中是没有的，可以通过下面的代码来为String对象函数一个trim函数：<br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span><span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">""</span>);};
-</pre></td></tr></table></figure><br>新的JavaScript引擎已经有了trim()的原生实现。<br><br>## 数组之间追加<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td></tr></table></figure><br>新的JavaScript引擎已经有了trim()的原生实现。<br><br>##  数组之间追加<br><br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
 2
 3
 4
@@ -233,10 +233,12 @@ console.log(array1);
 <span class="comment">/* array1 值为  [12 , "foo" , -2458 , "Doe" , 555 , 100] */</span>
 </pre></td></tr></table></figure>
 
+
 <h2 id="对象转换为数组">对象转换为数组</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
 </pre></td><td class="code"><pre><span class="keyword">var</span> argArray = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);
 </pre></td></tr></table></figure>
+
 
 <h2 id="验证是否是数字">验证是否是数字</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre>1
