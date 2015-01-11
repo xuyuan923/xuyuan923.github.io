@@ -1,0 +1,3064 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[前端学习踩过的坑]]></title>
+  <subtitle><![CDATA[By Cassie]]></subtitle>
+  <link href="/atom.xml" rel="self"/>
+  <link href="http://xuyuan923.github.io//"/>
+  <updated>2015-01-11T13:35:50.615Z</updated>
+  <id>http://xuyuan923.github.io//</id>
+  
+  <author>
+    <name><![CDATA[Cassie Xu]]></name>
+    <email><![CDATA[xuyuan923@gmail.com]]></email>
+  </author>
+  
+  <generator uri="http://zespia.tw/hexo/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[45个实用的JavaScript技巧]]></title>
+    <link href="http://xuyuan923.github.io/2015/01/07/45-useful-javascript-tips/"/>
+    <id>http://xuyuan923.github.io/2015/01/07/45-useful-javascript-tips/</id>
+    <published>2015-01-07T01:52:47.000Z</published>
+    <updated>2015-01-11T13:21:51.000Z</updated>
+    <content type="html"><![CDATA[<p>本文是一篇转载加补充的文章，原文及译文信息如下：</p>
+<ul>
+<li>原文：<a href="http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/" target="_blank">45 Useful JavaScript Tips, Tricks and Best Practices</a></li>
+<li>作者：<a href="http://modernweb.com/authors/saad-mousliki/" target="_blank">Saad Mousliki</a></li>
+<li>译文：<a href="http://chensd.com/2015-01/45-useful-javascript-tips-tricks-and-best-practices.html" target="_blank">JavaScript奇技淫巧45招</a></li>
+<li>作者：<a href="http://chensd.com/" target="_blank">chensd</a></li>
+</ul>
+<p>JavaScript是一个绝冠全球的编程语言，可用于Web开发、移动应用开发（PhoneGap、Appcelerator）、服务器端开发（Node.js和Wakanda）等等。JavaScript还是很多新手踏入编程世界的第一个语言。既可以用来显示浏览器中的简单提示框，也可以通过nodebot或nodruino来控制机器人。能够编写结构清晰、性能高效的JavaScript代码的开发人员，现如今已成了招聘市场最受追捧的人。<br>在这篇文章里，我将分享一些JavaScript的技巧、秘诀和最佳实践，除了少数几个外，不管是浏览器的JavaScript引擎，还是服务器端JavaScript解释器，均适用。<br>本文中的示例代码，通过了在Google Chrome 30最新版（V8 3.20.17.15）上的测试。</p>
+<h2 id="首次为变量赋值时务必使用var关键字">首次为变量赋值时务必使用var关键字</h2>
+<p>变量没有声明而直接赋值得话，默认会作为一个新的全局变量，要尽量避免使用全局变量。</p>
+<h2 id="使用===取代==">使用===取代==</h2>
+<p>==和!=操作符会在需要的情况下自动转换数据类型。但===和!==不会，它们会同时比较值和数据类型，这也使得它们要比==和!=快。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>[<span class="number">10</span>] === <span class="number">10</span>    <span class="comment">// is false</span>
+[<span class="number">10</span>]  == <span class="number">10</span>    <span class="comment">// is true</span>
+<span class="string">'10'</span> == <span class="number">10</span>     <span class="comment">// is true</span>
+<span class="string">'10'</span> === <span class="number">10</span>    <span class="comment">// is false</span>
+[]   == <span class="number">0</span>     <span class="comment">// is true</span>
+[] ===  <span class="number">0</span>     <span class="comment">// is false</span>
+<span class="string">''</span> == <span class="literal">false</span>   <span class="comment">// is true but true == "a" is false</span>
+<span class="string">''</span> === <span class="literal">false</span>  <span class="comment">// is false</span>
+</pre></td></tr></table></figure>
+
+<h2 id="注意underfined，null，0，false，NaN，‘’的逻辑结果均为false">注意<code>underfined</code>，<code>null</code>，<code>0</code>，<code>false</code>，<code>NaN</code>，<code>‘’</code>的逻辑结果均为<code>false</code></h2>
+<h2 id="行尾使用分号">行尾使用分号</h2>
+<p>实践中最好还是使用分号，忘了写也没事，大部分情况下JavaScript解释器都会自动添加。对于为何要使用分号，可参考文章<a href="http://davidwalsh.name/javascript-semicolons" target="_blank">JavaScript中关于分号的真相</a>。</p>
+<h2 id="使用对象构造器">使用对象构造器</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(firstName, lastName)</span>{</span>
+    <span class="keyword">this</span>.firstName =  firstName;
+    <span class="keyword">this</span>.lastName = lastName;
+}
+<span class="keyword">var</span> Saad = <span class="keyword">new</span> Person(<span class="string">"Saad"</span>, <span class="string">"Mousliki"</span>);
+</pre></td></tr></table></figure>
+
+<h2 id="注意区别使用typeof、instanceof和contructor">注意区别使用<code>typeof</code>、<code>instanceof</code>和<code>contructor</code></h2>
+<ul>
+<li>typeof:JavaScript一元操作符，用于以字符串的形式返回变量的原始类型，注意，typeof null也会返回object，大多数的对象类型（数组Array、时间Date等）也会返回object</li>
+<li>constructor: 内部原型属性，可以通过代码重写</li>
+<li>instanceof: JavaScript操作符，会在原型链中的构造器中搜索，找到则返回true，否则返回false</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];
+<span class="keyword">typeof</span> arr;  <span class="comment">// return "object"</span>
+arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span>
+arr.constructor();  <span class="comment">//[]</span>
+</pre></td></tr></table></figure>
+
+<h2 id="使用自调用函数">使用自调用函数</h2>
+<p>函数在创建之后直接自动执行，通常称之为自调用匿名函数（Self-Invoked Anonymous Function）或直接调用函数表达式（Immediately Invoked Function Expression ）。格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+    <span class="comment">// 置于此处的代码将自动执行</span>
+})();
+(<span class="function"><span class="keyword">function</span><span class="params">(a,b)</span>{</span>
+    <span class="keyword">var</span> result = a+b;
+    <span class="keyword">return</span> result;
+})(<span class="number">10</span>,<span class="number">20</span>)
+</pre></td></tr></table></figure>
+
+<h2 id="从数组中随机获取成员">从数组中随机获取成员</h2>
+<ul>
+<li>Math.random()将随机出现[0,1]区间随机数</li>
+<li>Math.floor()方法执行的是向下取整计算，它返回的是小于或等于函数参数，并且与之最接近的整数。<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> , <span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> , <span class="number">2145</span> , <span class="number">119</span>];
+<span class="keyword">var</span> randomItem = items[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * items.length)];
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="获取指定范围内的随机数">获取指定范围内的随机数</h2>
+<p>这个功能在生成测试用的假数据时特别有用，比如在与指定范围内的工资数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;
+</pre></td></tr></table></figure>
+
+<h2 id="生成从0到指定值的数字数组">生成从0到指定值的数字数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> numbersArray = [] , max = <span class="number">100</span>;
+<span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">1</span>; numbersArray.push(i++) &lt; max;);  <span class="comment">// numbers = [1,2,3 ... 100]</span>
+</pre></td></tr></table></figure>
+
+<h2 id="生成随机的字母数字字符串">生成随机的字母数字字符串</h2>
+<ul>
+<li>toString(36):把一个Number对象转换为一个36进制字符串</li>
+<li>substr(): 在字符串中抽取从 start 下标开始的指定数目的字符<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">generateRandomAlphaNum</span><span class="params">(len)</span> {</span>
+    <span class="keyword">var</span> rdmString = <span class="string">""</span>;
+    <span class="keyword">for</span>( ; rdmString.length &lt; len; rdmString  += <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substr(<span class="number">2</span>));
+    <span class="keyword">return</span>  rdmString.substr(<span class="number">0</span>, len);
+}
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="打乱数字数组的顺序">打乱数字数组的顺序</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , -<span class="number">215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, -<span class="number">85411</span>];
+numbers = numbers.sort(<span class="function"><span class="keyword">function</span><span class="params">()</span>{</span> <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>});
+<span class="comment">/* numbers 数组将类似于 [120, 5, 228, -215, 400, 458, -85411, 122205]  */</span>
+</pre></td></tr></table></figure>
+
+<p>这里使用了JavaScript内置的数组排序函数，更好的办法是用专门的代码来实现（如Fisher-Yates算法），可以参见StackOverFlow上的<a href="http://stackoverflow.com/questions/962802/is-it-correct-to-use-javascript-array-sort-method-for-shuffling/962890#962890" target="_blank">这个讨论</a>。</p>
+<h2 id="字符串去空格">字符串去空格</h2>
+<p>Java、C#和PHP等语言都实现了专门的字符串去空格函数，但JavaScript中是没有的，可以通过下面的代码来为String对象函数一个trim函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span><span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">""</span>);};
+</pre></td></tr></table></figure>
+
+<p>新的JavaScript引擎已经有了trim()的原生实现。</p>
+<h2 id="数组之间追加">数组之间追加</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> array1 = [<span class="number">12</span> , <span class="string">"foo"</span> , -<span class="number">2458</span>];
+<span class="keyword">var</span> array2 = [<span class="string">"Doe"</span> , <span class="number">555</span> , <span class="number">100</span>];
+<span class="built_in">Array</span>.prototype.push.apply(array1, array2);
+console.log(array1);
+<span class="comment">/* array1 值为  [12 , "foo" , -2458 , "Doe" , 555 , 100] */</span>
+</pre></td></tr></table></figure>
+
+
+<h2 id="对象转换为数组">对象转换为数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> argArray = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);
+</pre></td></tr></table></figure>
+
+
+<h2 id="验证是否是数字">验证是否是数字</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span><span class="params">(n)</span>{</span>
+    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) && <span class="built_in">isFinite</span>(n);
+}
+</pre></td></tr></table></figure>
+
+<h2 id="验证是否是数组">验证是否是数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">isArray</span><span class="params">(obj)</span>{</span>
+    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span> ;
+}
+</pre></td></tr></table></figure>
+
+<p>但如果toString()方法被重写过得话，就行不通了。也可以使用下面的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">Array</span>.isArray(obj); <span class="comment">// its a new Array method</span>
+</pre></td></tr></table></figure>
+
+<p>如果在浏览器中没有使用frame，还可以用instanceof，但如果上下文太复杂，也有可能出错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="keyword">var</span> myFrame = document.createElement(<span class="string">'iframe'</span>);
+document.body.appendChild(myFrame);
+<span class="keyword">var</span> myArray = window.frames[window.frames.length-<span class="number">1</span>].Array;
+<span class="keyword">var</span> arr = <span class="keyword">new</span> myArray(a,b,<span class="number">10</span>); <span class="comment">// [a,b,10]</span>
+<span class="comment">// myArray 的构造器已经丢失，instanceof 的结果将不正常</span>
+<span class="comment">// 构造器是不能跨 frame 共享的</span>
+arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// false</span>
+</pre></td></tr></table></figure>
+
+<h2 id="获取数组中的最大值和最小值">获取数组中的最大值和最小值</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span>  numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , -<span class="number">215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, -<span class="number">85411</span>];
+<span class="keyword">var</span> maxInNumbers = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, numbers);
+<span class="keyword">var</span> minInNumbers = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, numbers);
+</pre></td></tr></table></figure>
+
+<h2 id="清空数组">清空数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> myArray = [<span class="number">12</span> , <span class="number">222</span> , <span class="number">1000</span> ];
+myArray.length = <span class="number">0</span>; <span class="comment">// myArray will be equal to [].</span>
+</pre></td></tr></table></figure>
+
+<h2 id="不要直接从数组中delete或remove元素">不要直接从数组中delete或remove元素</h2>
+<p>如果对数组元素直接使用<code>delete</code>，其实并没有删除，只是将元素置为了<code>undefined</code>。数组元素删除应使用<code>**splice**</code>。</p>
+<ul>
+<li>arrayObject.splice(index,howmany,item1,…..,itemX): 向/从数组中添加/删除项目，然后返回被删除的项目。<br>这样做是错误的：<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> ,<span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> ,<span class="number">2154</span> , <span class="number">119</span> ];
+items.length; <span class="comment">// return 11</span>
+<span class="keyword">delete</span> items[<span class="number">3</span>]; <span class="comment">// return true</span>
+items.length; <span class="comment">// return 11</span>
+<span class="comment">/* items 结果为 [12, 548, "a", undefined × 1, 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119] */</span>
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>应这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> ,<span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> ,<span class="number">2154</span> , <span class="number">119</span> ];
+items.length; <span class="comment">// return 11</span>
+items.splice(<span class="number">3</span>,<span class="number">1</span>) ;
+items.length; <span class="comment">// return 10</span>
+<span class="comment">/* items 结果为 [12, 548, "a", 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119]</span>
+</pre></td></tr></table></figure>
+
+<p>删除对象的属性时可以使用delete。</p>
+<h2 id="使用length属性截断数组">使用length属性截断数组</h2>
+<p>前面的例子中用length属性清空数组，同样还可用它来截断数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> myArray = [<span class="number">12</span> , <span class="number">222</span> , <span class="number">1000</span> , <span class="number">124</span> , <span class="number">98</span> , <span class="number">10</span> ];
+myArray.length = <span class="number">4</span>; <span class="comment">// myArray will be equal to [12 , 222 , 1000 , 124].</span>
+</pre></td></tr></table></figure><br>与此同时，如果把length属性变大，数组的长度值变会增加，会使用undefined来作为新的元素填充。length是一个可写的属性。<br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>myArray.length = <span class="number">10</span>; <span class="comment">// the new array length is 10</span>
+myArray[myArray.length - <span class="number">1</span>] ; <span class="comment">// undefined</span>
+</pre></td></tr></table></figure>
+
+<h2 id="在条件中使用逻辑与或">在条件中使用逻辑与或</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> foo = <span class="number">10</span>;
+foo == <span class="number">10</span> && doSomething(); <span class="comment">// is the same thing as if (foo == 10) doSomething();</span>
+foo == <span class="number">5</span> || doSomething(); <span class="comment">// is the same thing as if (foo != 5) doSomething();</span>
+</pre></td></tr></table></figure>
+
+<p>逻辑或还可用来设置默认值，比如函数参数的默认值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span><span class="params">(arg1)</span>{</span>
+    arg1 = arg1 || <span class="number">10</span>; <span class="comment">// arg1 will have 10 as a default value if it’s not already set</span>
+}
+</pre></td></tr></table></figure>
+
+<h2 id="使用map()函数方法对数据循环">使用map()函数方法对数据循环</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">Array.prototype.map()</a><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> squares = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>].map(<span class="function"><span class="keyword">function</span> <span class="params">(val)</span> {</span>
+    <span class="keyword">return</span> val * val;
+});
+<span class="comment">// squares will be equal to [1, 4, 9, 16]</span>
+</pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="保留指定小数位数">保留指定小数位数</h2>
+<ul>
+<li><a href="http://www.w3school.com.cn/jsref/jsref_tofixed.asp" target="_blank">toFixed()</a><br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> num =<span class="number">2.443242342</span>;
+num = num.toFixed(<span class="number">4</span>);  <span class="comment">// num will be equal to 2.4432</span>
+</pre></td></tr></table></figure><br>注意，toFixec()返回的是字符串，不是数字。</li>
+</ul>
+<h2 id="浮点计算的问题">浮点计算的问题</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span> <span class="comment">// is false</span>
+<span class="number">9007199254740992</span> + <span class="number">1</span> <span class="comment">// is equal to 9007199254740992</span>
+<span class="number">9007199254740992</span> + <span class="number">2</span> <span class="comment">// is equal to 9007199254740994</span>
+</pre></td></tr></table></figure><br>为什么呢？因为0.1+0.2等于0.30000000000000004。JavaScript的数字都遵循IEEE 754标准构建，在内部都是64位浮点小数表示，具体可以参见<a href="">JavaScript中的数字是如何编码的</a>.<br>可以通过使用<code>toFixed()</code>和<code>toPrecision()</code>来解决这个问题。<br><br>## 通过for-in循环检查对象的属性<br>下面这样的用法，可以防止迭代的时候进入到对象的原型属性中。<br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> object) {
+    <span class="keyword">if</span> (object.hasOwnProperty(name)) {
+        <span class="comment">// do something with name</span>
+    }
+}
+</pre></td></tr></table></figure>
+
+<h2 id="26、通过for-in循环检查对象的属性">26、通过for-in循环检查对象的属性</h2>
+<p>下面这样的用法，可以防止迭代的时候进入到对象的原型属性中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> object) {
+    <span class="keyword">if</span> (object.hasOwnProperty(name)) {
+        <span class="comment">// do something with name</span>
+    }
+}
+</pre></td></tr></table></figure>
+
+
+<h2 id="逗号操作符">逗号操作符</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> a = <span class="number">0</span>;
+<span class="keyword">var</span> b = ( a++, <span class="number">99</span> );
+console.log(a);  <span class="comment">// a will be equal to 1</span>
+console.log(b);  <span class="comment">// b is equal to 99</span>
+</pre></td></tr></table></figure>
+
+<h2 id="临时存储用于计算和查询的变量">临时存储用于计算和查询的变量</h2>
+<p>在jQuery选择器中，可以临时存储整个DOM元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> navright = document.querySelector(<span class="string">'#right'</span>);
+<span class="keyword">var</span> navleft = document.querySelector(<span class="string">'#left'</span>);
+<span class="keyword">var</span> navup = document.querySelector(<span class="string">'#up'</span>);
+<span class="keyword">var</span> navdown = document.querySelector(<span class="string">'#down'</span>);
+</pre></td></tr></table></figure>
+
+<h2 id="提前检查传入isFinite()的参数">提前检查传入isFinite()的参数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="built_in">isFinite</span>(<span class="number">0</span>/<span class="number">0</span>) ; <span class="comment">// false</span>
+<span class="built_in">isFinite</span>(<span class="string">"foo"</span>); <span class="comment">// false</span>
+<span class="built_in">isFinite</span>(<span class="string">"10"</span>); <span class="comment">// true</span>
+<span class="built_in">isFinite</span>(<span class="number">10</span>);   <span class="comment">// true</span>
+<span class="built_in">isFinite</span>(<span class="literal">undefined</span>);  <span class="comment">// false</span>
+<span class="built_in">isFinite</span>();   <span class="comment">// false</span>
+<span class="built_in">isFinite</span>(<span class="literal">null</span>);  <span class="comment">// true，这点当特别注意</span>
+</pre></td></tr></table></figure>
+
+<h2 id="避免在数组中使用负数做索引">避免在数组中使用负数做索引</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> numbersArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];
+<span class="keyword">var</span> from = numbersArray.indexOf(<span class="string">"foo"</span>) ;  <span class="comment">// from is equal to -1</span>
+numbersArray.splice(from,<span class="number">2</span>);    <span class="comment">// will return [5]</span>
+</pre></td></tr></table></figure>
+
+<p>注意传给splice的索引参数不要是负数，当是负数时，会从数组结尾处删除元素。</p>
+<h2 id="用JSON来序列化与反序列化">用JSON来序列化与反序列化</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="keyword">var</span> person = {name :<span class="string">'Saad'</span>, age : <span class="number">26</span>, department : {ID : <span class="number">15</span>, name : <span class="string">"R&D"</span>} };
+<span class="keyword">var</span> stringFromPerson = <span class="built_in">JSON</span>.stringify(person);
+<span class="comment">/* stringFromPerson 结果为 "{"name":"Saad","age":26,"department":{"ID":15,"name":"R&D"}}"   */</span>
+<span class="keyword">var</span> personFromString = <span class="built_in">JSON</span>.parse(stringFromPerson);
+<span class="comment">/* personFromString 的值与 person 对象相同  */</span>
+</pre></td></tr></table></figure>
+
+<h2 id="不要使用eval()或者函数构造器">不要使用eval()或者函数构造器</h2>
+<p>eval()和函数构造器（Function consturctor）的开销较大，每次调用，JavaScript引擎都要将源代码转换为可执行的代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> func1 = <span class="keyword">new</span> <span class="built_in">Function</span>(functionCode);
+<span class="keyword">var</span> func2 = <span class="built_in">eval</span>(functionCode);
+</pre></td></tr></table></figure>
+
+<h2 id="避免使用with()">避免使用with()</h2>
+<p>使用with()可以把变量加入到全局作用域中，因此，如果有其它的同名变量，一来容易混淆，二来值也会被覆盖。</p>
+<h2 id="不要对数组使用for-in">不要对数组使用for-in</h2>
+<p>避免：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> sum = <span class="number">0</span>;
+<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> arrayNumbers) {
+    sum += arrayNumbers[i];
+}
+</pre></td></tr></table></figure>
+
+<p>而是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="keyword">var</span> sum = <span class="number">0</span>;
+<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arrayNumbers.length; i &lt; len; i++) {
+    sum += arrayNumbers[i];
+}
+</pre></td></tr></table></figure>
+
+<p>另外一个好处是，i和len两个变量是在for循环的第一个声明中，二者只会初始化一次，这要比下面这种写法快：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arrayNumbers.length; i++)
+</pre></td></tr></table></figure>
+
+<h2 id="传给setInterval()和setTimeout()时使用函数而不是字符串">传给setInterval()和setTimeout()时使用函数而不是字符串</h2>
+<p>如果传给setTimeout()和setInterval()一个字符串，他们将会用类似于eval方式进行转换，这肯定会要慢些，<br>因此不要使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>setInterval(<span class="string">'doSomethingPeriodically()'</span>, <span class="number">1000</span>);
+setTimeout(<span class="string">'doSomethingAfterFiveSeconds()'</span>, <span class="number">5000</span>);
+</pre></td></tr></table></figure>
+
+<p>而是用:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>setInterval(doSomethingPeriodically, <span class="number">1000</span>);
+setTimeout(doSomethingAfterFiveSeconds, <span class="number">5000</span>);
+</pre></td></tr></table></figure>
+
+<h2 id="使用switch/case代替一大叠的if/else">使用switch/case代替一大叠的if/else</h2>
+<p>当判断有超过两个分支的时候使用switch/case要更快一些，而且也更优雅，更利于代码的组织，当然，如果有超过10个分支，就不要使用switch/case了。</p>
+<h2 id="在switch/case中使用数字区间">在switch/case中使用数字区间</h2>
+<p>其实，switch/case中的case条件，还可以这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">getCategory</span><span class="params">(age)</span> {</span>
+    <span class="keyword">var</span> category = <span class="string">""</span>;
+    <span class="keyword">switch</span> (<span class="literal">true</span>) {
+        <span class="keyword">case</span> <span class="built_in">isNaN</span>(age):
+            category = <span class="string">"not an age"</span>;
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> (age &gt;= <span class="number">50</span>):
+            category = <span class="string">"Old"</span>;
+            <span class="keyword">break</span>;
+        <span class="keyword">case</span> (age &lt;= <span class="number">20</span>):
+            category = <span class="string">"Baby"</span>;
+            <span class="keyword">break</span>;
+        <span class="keyword">default</span>:
+            category = <span class="string">"Young"</span>;
+            <span class="keyword">break</span>;
+    };
+    <span class="keyword">return</span> category;
+}
+getCategory(<span class="number">5</span>);  <span class="comment">// 将返回 "Baby"</span>
+</pre></td></tr></table></figure>
+
+<h2 id="使用对象作为对象的原型">使用对象作为对象的原型</h2>
+<p>下面这样，便可以给定对象作为参数，来创建以此为原型的新对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">clone</span><span class="params">(object)</span> {</span>
+    <span class="function"><span class="keyword">function</span> <span class="title">OneShotConstructor</span><span class="params">()</span>{</span>};
+    OneShotConstructor.prototype = object;
+    <span class="keyword">return</span> <span class="keyword">new</span> OneShotConstructor();
+}
+clone(<span class="built_in">Array</span>).prototype ;  <span class="comment">// []</span>
+</pre></td></tr></table></figure>
+
+<h2 id="HTML字段转换函数">HTML字段转换函数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>function escapeHTML(text) {
+    var replacements= {"&lt;": "&lt;", "&gt;": "&gt;","&": "&", "\"": """};
+    return text.replace(/[&lt;&gt;&"]/g, function(character) {
+        return replacements[character];
+    });
+}
+</pre></td></tr></table></figure>
+
+<h2 id="不要在循环内部使用try-catch-finally">不要在循环内部使用try-catch-finally</h2>
+<p>try-catch-finally中catch部分在执行时会将异常赋给一个变量，这个变量会被构建成一个运行时作用域内的新的变量。<br>切忌：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> object = [<span class="string">'foo'</span>, <span class="string">'bar'</span>], i;
+<span class="keyword">for</span> (i = <span class="number">0</span>, len = object.length; i &lt;len; i++) {
+    <span class="keyword">try</span> {
+        <span class="comment">// do something that throws an exception</span>
+    }
+    <span class="keyword">catch</span> (e) {
+        <span class="comment">// handle exception</span>
+    }
+}
+</pre></td></tr></table></figure>
+
+<p>而应该：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> object = [<span class="string">'foo'</span>, <span class="string">'bar'</span>], i;
+<span class="keyword">try</span> {
+    <span class="keyword">for</span> (i = <span class="number">0</span>, len = object.length; i &lt;len; i++) {
+        <span class="comment">// do something that throws an exception</span>
+    }
+}
+<span class="keyword">catch</span> (e) {
+    <span class="comment">// handle exception</span>
+}
+</pre></td></tr></table></figure>
+
+<h2 id="使用XMLHttpRequests时注意设置超时">使用XMLHttpRequests时注意设置超时</h2>
+<p>XMLHttpRequests在执行时，当长时间没有响应（如出现网络问题等）时，应该中止掉连接，可以通过setTimeout()来完成这个工作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest ();
+xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span>) {
+        clearTimeout(timeout);
+        <span class="comment">// do something with response data</span>
+    }
+}
+<span class="keyword">var</span> timeout = setTimeout( <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+    xhr.abort(); <span class="comment">// call error callback</span>
+}, <span class="number">60</span>*<span class="number">1000</span> <span class="comment">/* timeout after a minute */</span> );
+xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);
+xhr.send();
+</pre></td></tr></table></figure>
+
+<p>同时需要注意的是，不要同时发起多个XMLHttpRequests请求。</p>
+<h2 id="处理WebSocket的超时">处理WebSocket的超时</h2>
+<p>通常情况下，WebSocket连接创建后，如果30秒内没有任何活动，服务器端会对连接进行超时处理，防火墙也可以对单位周期没有活动的连接进行超时处理。<br>为了防止这种情况的发生，可以每隔一定时间，往服务器发送一条空的消息。可以通过下面这两个函数来实现这个需求，一个用于使连接保持活动状态，另一个专门用于结束这个状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="keyword">var</span> timerID = <span class="number">0</span>;
+<span class="function"><span class="keyword">function</span> <span class="title">keepAlive</span><span class="params">()</span> {</span>
+    <span class="keyword">var</span> timeout = <span class="number">15000</span>;
+    <span class="keyword">if</span> (webSocket.readyState == webSocket.OPEN) {
+        webSocket.send(<span class="string">''</span>);
+    }
+    timerId = setTimeout(keepAlive, timeout);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">cancelKeepAlive</span><span class="params">()</span> {</span>
+    <span class="keyword">if</span> (timerId) {
+        cancelTimeout(timerId);
+    }
+}
+</pre></td></tr></table></figure>
+
+<p>keepAlive()函数可以放在WebSocket连接的onOpen()方法的最后面，cancelKeepAlive()放在onClose()方法的最末尾。</p>
+<h2 id="时间注意原始操作符比函数调用快，使用VanillaJS">时间注意原始操作符比函数调用快，使用VanillaJS</h2>
+<p>比如，一般不要这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> min = <span class="built_in">Math</span>.min(a,b);
+A.push(v);
+</pre></td></tr></table></figure>
+
+<p>可以这样来代替：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">var</span> min = a &lt; b ? a : b;
+A[A.length] = v;
+</pre></td></tr></table></figure>
+
+<h2 id="开发时注意代码结构，上线前检查并压缩JavaScript代码">开发时注意代码结构，上线前检查并压缩JavaScript代码</h2>
+<p>可以使用JSLint或JSMin等工具来检查并压缩代码。</p>
+<h2 id="JavaScript博大精深，这里有些不错的学习资源">JavaScript博大精深，这里有些不错的学习资源</h2>
+<ul>
+<li><a href="http://www.codecademy.com/tracks/javascript" target="_blank">Code Academy资源</a></li>
+<li><a href="http://eloquentjavascript.net/" target="_blank">Marjin Haverbekex编写的Eloquent JavaScript</a></li>
+<li><a href="http://ejohn.org/apps/learn/" target="_blank">John Resig编写的Advanced JavaScript</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>本文是一篇转载加补充的文章，原文及译文信息如下：</p>
+<ul>
+<li>原文：<a href="http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/" t]]>
+    </summary>
+    
+      <category term="js" scheme="http://xuyuan923.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[移动端前端开发真机调试实践]]></title>
+    <link href="http://xuyuan923.github.io/2015/01/03/mobile-debug/"/>
+    <id>http://xuyuan923.github.io/2015/01/03/mobile-debug/</id>
+    <published>2015-01-03T07:09:18.000Z</published>
+    <updated>2015-01-03T08:38:50.000Z</updated>
+    <content type="html"><![CDATA[<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
+<h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
+<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
+<ul>
+<li>首先安装Weinre<figure class="highlight code"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">sudo</span> npm install -g weinre
+</pre></td></tr></table></figure></li>
+<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
+<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span>
+</pre></td></tr></table></figure><br>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>将会看到下面的界面<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong><h3 id="调试自己本地的页面">调试自己本地的页面</h3>
+比如说，我本地有这么个页面，想在真机上看下实际效果。<br><img src="/images/5272AF4A-55AB-4564-8C08-033AA93908FA.png" alt=""><br>具体操作步骤为：</li>
+</ul>
+<ul>
+<li>1、引入上图中的外链js<br><img src="/images/C3029D85-B518-45E2-8AE7-55879BAB0A76.png" alt=""></li>
+<li>2、将本地页面链接的localhost修改为局域网ip，我的ip为192.168.1.103，故我需要调试的页面打开方式为<code>http://192.168.1.103:3000/index</code><br><img src="/images/5B4C7C76-4D3F-4A01-AF45-8CE67EEF60FD.png" alt=""></li>
+<li>3、打开手机浏览器，访问<code>http://192.168.1.103:3000/index</code>，将在手机上看到PC端的网页<br><img src="/images/Screenshot_2015-01-03-14-35-46.png" alt=""></li>
+<li>4、进入<code>http://192.168.1.103:8080/client/#anonymous</code><br>选中需要调试的页面，这里我选择<code>http://192.168.1.103:3000/index</code>这一页面，此时选择的链接将被高亮设置。<br><img src="/images/1FAB0AEE-D1B2-4D66-AB55-F320B14D639A.png" alt=""><br>选择Elements,在这里选中元素，比如我选择<code>ul</code>这一节点，将在手机上看到<code>ul</code>的元素被选中了。<br><img src="/images/IMAG0001.jpg" alt=""></li>
+</ul>
+<h3 id="调试外网页面">调试外网页面</h3>
+<p>因为不是自己本地或者自己写的页面，无法手动在自己的html文件里加入<code>&lt;script src=&quot;http://192.168.1.103:8080/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;</code>这种target script.<br>但我们可以通过代理服务器主页【Target Bookmarklet】一节中 bookmarklet 来实现。</p>
+<ul>
+<li>1、在手机浏览器书签地址栏加入这段代码<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>javascript:(<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>e.setAttribute(<span class="string">"src"</span>,<span class="string">"http://192.168.1.103:8080/target/target-script-min.js#anonymous"</span>);document.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(e);})(document.createElement(<span class="string">"script"</span>));<span class="keyword">void</span>(<span class="number">0</span>);
+</pre></td></tr></table></figure></li>
+<li>2、在<code>http://192.168.1.103:8080/client/#anonymous</code>选中百度的链接</li>
+<li>3、即可在Elememts下调试效果<br><img src="/images/IMAG0004.jpg" alt=""><br>在PC上改变元素的样式在手机可以看到元素样式的改变，console功能都可以使用。这里不再一一演示。</li>
+</ul>
+<h2 id="UC开发版测试安卓真机">UC开发版测试安卓真机</h2>
+<ul>
+<li>1、在Android设备上安装UC浏览器开发版，进入<a href="http://www.uc.cn/business/developer/" target="_blank">下载页</a></li>
+<li>2、获取Android设备的IP<br>比如我的小米2A，获取方式为<code>设置</code>-&gt;<code>WLAN</code>-&gt;<code>高级设置</code>-&gt;<code>IP地址</code>，我的IP为192.168.1.102<br><img src="/images/Screenshot_2015-01-03-15-47-42.png" alt=""></li>
+<li>3、用和手机处于同一网段的PC或MAC访问步骤2获得的IP后加上 :9998，比如我需要进入192.168.1.102:9998</li>
+<li>4、打开UC开发版安卓客户端，选择“允许”，将在PC上获得这样的界面<br><img src="/images/F6BFF092-D176-4157-95CE-8CAF337FA35A.png" alt=""></li>
+<li>5、在<code>http://192.168.1.102:9998/</code>里选择站点，进入后调试元素，在UC开发版手机端将看到变化的效果<br><img src="/images/IMAG0006.jpg" alt=""><br>注意，调试本地localhost路径的页面，只需要在手机浏览器里将localhost改成局域网IP。</li>
+</ul>
+<h2 id="更多真机调试资料分享">更多真机调试资料分享</h2>
+<ul>
+<li><a href="https://github.com/jieyou/remote_inspect_web_on_real_device" target="_blank">各种 真机远程调试 方法 汇总</a></li>
+<li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank">移动端前端开发调试</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
+<h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
+<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试]]>
+    </summary>
+    
+      <category term="tools" scheme="http://xuyuan923.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[路还很长，2015重新出发]]></title>
+    <link href="http://xuyuan923.github.io/2014/12/31/my-2014/"/>
+    <id>http://xuyuan923.github.io/2014/12/31/my-2014/</id>
+    <published>2014-12-31T11:29:33.000Z</published>
+    <updated>2014-12-31T13:52:32.000Z</updated>
+    <content type="html"><![CDATA[<p>2014年最后一天，按照以往的惯例，是时候该总结下今年得与失，给自己些鼓励，给2015年制定一些目标，重新出发。<br>新的技术博客从SAE迁移到了github,便没有再写过关于生活的软文。自从决定学习前端后，以前每周会写的私人日记也变成了技术博客。</p>
+<h2 id="2014年纪事">2014年纪事</h2>
+<ul>
+<li><p>2014年1-3月，<a href="http://findlove.hfutonline.com/" target="_blank">我帮室友找对象</a><br>这个项目从1月份真正开始做，然后寒假期间留校了十余天继续做，等2月底三月初开学时稍作修改，于女生节前几天上线了。这是我在学校网络中心的第一个真正意义上的前后端交互比较多的项目。<br>也正是这个项目，让我在三月份阿里春季实习生面试时，有项目细节可以说。现在想来，真该感谢去年寒假留校的日子，当别人都回家了，我和另一个技术部的同学继续做项目。</p>
+</li>
+<li><p>2014年3月，准备阿里实习生面试<br>很早就开始关注阿里的校招，3月份之前便完善了简历。去内推网投过简历，这是一个靠谱的网站，不少阿里的工程师和HR在上面发过招聘启事。那段日子会去上网搜各种面试题，会认真看js的基础知识，一遍一遍完善简历，接到面试官的电话会兴奋很久，面试完等待结果是种煎熬。在收到offer之前，一年前的我不敢想象会有那天。<br>感谢那段日子拼命准备的自己。</p>
+</li>
+<li><p>2014年5月,断断续续做了几个前端页面，也包括一个移动端的页面<br>项目比较小，也由于种种原因，后面我没有继续再做。收获不是很大。</p>
+</li>
+<li><p>2014年6月，搭建了github博客<br>博客从SAE迁移到了github,原来SAE用的是wordpress,wordpress文件非常大，访问速度器慢。看到不少前端同学在github上撘博客，我也搜了hexo搭建github博客的教程。<br>新的github博客采用nodejs搭建，访问速度非常快。文章发布基于markdown,我也恶补了markdown的知识，搭完的感觉是B格高多了。<br>也会鼓励自己多写博客，找工作之前写博客一方面原因是为了找工作时，附上个人博客可能面试官有加分项。现在写博客主要是真的做项目时摔倒坑里了，一定要总结下以免下次继续摔坑。<br>很多时候我会继续翻看之前写的博客，有不少琐碎的知识点能在自己博客里找到，写博客的真正意义就体现出来了。</p>
+</li>
+<li><p>2014年9月，<a href="http://online.hfut.edu.cn/" target="_blank">工大学子门户</a>改版<br>第一个将kissy用到学校的网站上的项目，也是帮助自己更好地熟悉kissy。</p>
+</li>
+<li><p>2014年7-10月，阿里实习<br>在阿里实习的日子里，因为工作需要，接触并恶补了很多的工具，像git,less,sass,node,grunt工具。<br>我记得学长曾和我说过，在哪个公司工作不重要，重要的是跟对人，做对事，我很幸运地遇到了很nice的主管和师兄。<br>有师兄带着做项目，帮我review代码，指出我代码的不足，对我的提高帮助非常大。<br>不得不提的是，主管交给我一个node项目，这个项目在我一开始觉得是难以下手的，一方面自己欠缺后端开发经验，这个项目是偏后端的，另一方面是没做过node开发，连小的工具都没写过，更别说是node web开发了。<br>那段日子经常周六周日没事就去公司继续做，遇到bug就厚着脸皮求助主管和师兄。所以及时的以及不断的知识积累是很重要的，你不知道你今天所学的会在哪天做项目的时候用得着，在实习之前完全有时间去学node的，不要到项目需要了再去弥补这方面的知识就太晚了。</p>
+</li>
+<li><p>2014年10-12月，继续node系统<br>实习离职时node系统还没做完，可以说我是带着愧疚和遗憾离职的。回校后更加坚定了要认真好好做完node系统的决心。<br>通过学习慕课网的node课程，加上自己各种谷歌问题搜索，经常去cnode社区问问题，这个node系统的功能总算都实现了，还剩下一些交互和体验上的完善了。<br>这也是我的2014年底最欣慰的事情。<br>12月，还做了一些小项目，学校工作室的网站，工作室微信平台学长学姐帮忙找工作的项目，又一个移动端的项目，边做边总结移动端开发知识。</p>
+</li>
+<li><p>其他工具篇<br>熟悉了git,grunt,node,less,markdown,用上了VPN，朝着科学上网方向上迈出了坚实的一步。把github当做一项日常，star有用的项目。<br>10月底离职，11月-12月，基本每天都有写代码，往github push代码，也是比较欣慰的事情。这是我在11月-12月编码的结果。<br><img src="/images/A2A74090-C58D-4A67-9F76-3D9C5238C6DB.png" alt=""></p>
+</li>
+<li><p>其他生活篇<br>用三个月的实习工资给自己买了台mac pro，用上的感觉是相见恨晚，我开始觉得敲打命令和代码是件享受的事情。<br>12月底，给自己换了把吉他，好好学吉他的时间不多了，高三暑期学过吉他后来没怎么练，乘现在和寒假有空再学学。以后一定有用得着的时候。</p>
+</li>
+</ul>
+<h2 id="2015年目标">2015年目标</h2>
+<p>给自己列举10条，明年这时候来看看完成了哪几条。</p>
+<h3 id="工作学习上">工作学习上</h3>
+<ul>
+<li>看书，把《javascript高级程序设计》好好地看一遍，看透了。这本书实在太经典太重要。</li>
+<li>写博客。给自己个目标，不是很高，每月写两篇。2015年完成24篇高质量博文。</li>
+<li>github上出现2个star数超过20的项目。</li>
+<li>写node工具，往npm上推送2个包。</li>
+<li>发布2个高质量的kissy组件</li>
+</ul>
+<h3 id="生活上">生活上</h3>
+<p>生活不只是眼前的苟且，还有诗和远方，2015年，我要我的业余生活更精彩。</p>
+<ul>
+<li>去两个没有去过的省份旅游</li>
+<li>学会游泳</li>
+<li>吉他可以达到弹唱水平，根据工作忙碌程度，每天练习20-30分钟</li>
+<li>改变自己的穿衣风格，更成熟一点</li>
+<li>找到男朋友(没有醉，很认真的 ==!)</li>
+</ul>
+<p>感谢2014年某些时候努力的自己，感谢一路同行的朋友。<br>太阳会如约升起，路还很长。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>2014年最后一天，按照以往的惯例，是时候该总结下今年得与失，给自己些鼓励，给2015年制定一些目标，重新出发。<br>新的技术博客从SAE迁移到了github,便没有再写过关于生活的软文。自从决定学习前端后，以前每周会写的私人日记也变成了技术博客。</p>
+<h2 id=]]>
+    </summary>
+    
+      <category term="生活" scheme="http://xuyuan923.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[移动端布局实践]]></title>
+    <link href="http://xuyuan923.github.io/2014/12/30/responsive-layout/"/>
+    <id>http://xuyuan923.github.io/2014/12/30/responsive-layout/</id>
+    <published>2014-12-30T13:00:32.000Z</published>
+    <updated>2015-01-03T08:10:57.000Z</updated>
+    <content type="html"><![CDATA[<p>移动端开发的经验比较少，之前做过一点移动端的页面，都没有好好总结经验教训。移动端布局技巧性比较强，借最近摔的坑，记录一下工具和技巧。</p>
+<h2 id="工具篇">工具篇</h2>
+<h3 id="Chrome模拟器">Chrome模拟器</h3>
+<p>首先是chrome的device model,我目前使用的chrome为当前最新的38.0.2125.122版本。没升级的建议升级下chrome，最新版本从界面上来看非常美观，而且以前从Emulating入口进入，<br>现在可以直接通过手机icon进入，更加快捷。<br>移动端调试时，如果将调试框放在下面，整个移动端界面就会被压缩。笔者之前一直找不到将调试栏移动到右边的方法，谷歌搜索了很久才明白了方法。<br>鼠标<strong>长按</strong>右上角Dock to the main window，将会出现出现右侧布局框的按钮，该细节隐藏太深！简明教程如下：<br><img src="/images/switchtoright.gif" alt=""></p>
+<h2 id="响应式布局">响应式布局</h2>
+<p>我采用的方法是rem为所有长度高度、字体大小的单位。<br>首先设置字体大小为10px,即1rem = 10px;</p>
+<p><figure class="highlight code"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="tag">html</span><span class="rules">{
+    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">62.5</span>%</span></span>;
+<span class="rule">}</span></span>
+</pre></td></tr></table></figure><br>但是问题来了，在chrome下，1rem显示的字体大小永远为12px！这是因为chrome默认最小字体大小为12px，所以对于低于12px的字体，chrome都做了<code>1rem = 12px</code>的处理。<br>解决方法：进入<code>chrome 设置</code>-&gt;<code>显示高级设置</code>-&gt;<code>网络内容</code>-&gt;<code>自定义字体</code>-&gt;<code>最小字号</code>，调整为10px,这样世界一下明朗了。</p>
+<h2 id="未完，明天继续总结。">未完，明天继续总结。</h2>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>移动端开发的经验比较少，之前做过一点移动端的页面，都没有好好总结经验教训。移动端布局技巧性比较强，借最近摔的坑，记录一下工具和技巧。</p>
+<h2 id="工具篇">工具篇</h2>
+<h3 id="Chrome模拟器">Chrome模拟器</h3>
+<p>首先是chro]]>
+    </summary>
+    
+      <category term="移动端" scheme="http://xuyuan923.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[CSS3实现六边形图片，兼容IE6]]></title>
+    <link href="http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/"/>
+    <id>http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/</id>
+    <published>2014-12-17T10:37:01.000Z</published>
+    <updated>2014-12-17T11:22:58.000Z</updated>
+    <content type="html"><![CDATA[<p>最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。<br>先看一下最终实现的效果图<img src="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png" alt=""></p>
+<h2 id="主要采用的技术">主要采用的技术</h2>
+<p>这个效果的主要css样式有：</p>
+<ul>
+<li>transform: rotate(120deg); 图片旋转</li>
+<li>overflow:hidden;  超出隐藏</li>
+<li>visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置</li>
+</ul>
+<h2 id="实现原理">实现原理</h2>
+<p>我们使用3层div来实现这个六边形图层，</p>
+<ul>
+<li>最外层div(boxF)旋转120度，div设置visibility: hidden</li>
+<li>第二层(boxS)旋转-60度，div设置visibility: hidden</li>
+<li>第三层(boxT)再旋转-60度，和最外层第二层的旋转正好回转，使视觉看起来没有旋转，div设置visibility: visible</li>
+<li>经过旋转肯定有超出的部分，因此对3个div都设置overflow:hidden;</li>
+<li>鼠标放上去时，图层显示以背景图的形式展示图片</li>
+</ul>
+<h2 id="浏览器兼容性处理">浏览器兼容性处理</h2>
+<ul>
+<li>兼容IE9:-ms-transform:rotate(120deg);</li>
+<li>兼容firefox:-moz-transform:rotate(120deg);</li>
+<li>兼容Safari和Chrome:-webkit-transform:rotate(120deg);</li>
+<li>兼容Opera:-o-transform:rotate(120deg);</li>
+<li>兼容IE6-8: filter:progid:DXImageTransform.Microsoft.Matrix(M11=cos(roation),M12=-sin(roation),M21=sin(roation),M22=cos(roation),SizingMethod=’auto expand’);</li>
+</ul>
+<h2 id="demo">demo</h2>
+<p><a href="/demo/hexagon.html">六边形图片演示</a></p>
+<h2 id="资料推荐">资料推荐</h2>
+<ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/ie%E7%9F%A9%E9%98%B5%E6%BB%A4%E9%95%9Cmatrix%E4%B8%8B%E6%97%8B%E8%BD%AC%E4%B8%8E%E7%BC%A9%E6%94%BE%E5%8F%8A%E7%BB%93%E5%90%88transform%E7%9A%84%E6%8B%93%E5%B1%95/" target="_blank">IE矩阵滤镜Matrix旋转与缩放及结合transform的拓展</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。<br>先看一下最终实现的效果图<img src="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png" alt=""></p>
+<h2 id="主要采]]>
+    </summary>
+    
+      <category term="CSS3" scheme="http://xuyuan923.github.io/tags/CSS3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[JavaScript面向对象知识点小结]]></title>
+    <link href="http://xuyuan923.github.io/2014/11/21/oo-javascript/"/>
+    <id>http://xuyuan923.github.io/2014/11/21/oo-javascript/</id>
+    <published>2014-11-21T13:28:04.000Z</published>
+    <updated>2014-11-22T09:53:50.000Z</updated>
+    <content type="html"><![CDATA[<p>JavaScript面向对象主要知识点小结，基于ECMAScript 5.</p>
+<h2 id="构造函数">构造函数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span>{</span>
+	<span class="comment">//this可以理解为通过new即将创建的对象</span>
+	<span class="keyword">this</span>.name = name;
+}
+<span class="comment">//将类实例化</span>
+<span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);
+console.log(person.name);
+</pre></td></tr></table></figure>
+
+<p>给一个对象赋予属性或者方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span> {</span>
+  <span class="keyword">this</span>.name = name;
+  <span class="keyword">this</span>.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'Hello, my name is '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);
+  };
+}
+<span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);
+person.greet();
+</pre></td></tr></table></figure>
+
+<h2 id="原型（prototype）">原型（prototype）</h2>
+<p>why we use prototype? -&gt; 便于方法的重用<br><strong>与构造函数模式相比，使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。</strong><br>运行时没找到函数的方法时，对象会首先找它的类的prototype方法</p>
+<h3 id="Demo1">Demo1</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span> {</span>
+  <span class="keyword">this</span>.name = name;
+}
+People.prototype = {
+  greet: <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+    console.log(<span class="string">'Hello, my name is '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);
+  }
+};
+<span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);
+person.greet();
+<span class="comment">//在每个实例化后的对象都会有一个__proto__属性,类会将它的prototype赋给实例</span>
+<span class="comment">//实例化一个对象时，People这个类首先会将person的__proto属性指向People.prototype</span>
+console.log(person.__proto__ === People.prototype); <span class="comment">// true</span>
+</pre></td></tr></table></figure>
+
+<h3 id="Demo2">Demo2</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> a = { foo: <span class="number">1</span> };
+<span class="keyword">var</span> b = { bar: <span class="number">2</span> };
+b.__proto__ = a;
+<span class="comment">//b本身没有foo属性，但是b会继续寻找__proto__属性</span>
+console.log(b.foo); <span class="comment">// 1</span>
+console.log(b.bar); <span class="comment">// 2</span>
+</pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> a = {};
+console.log(a.__proto__); <span class="comment">// {}</span>
+console.log(a.__proto__.__proto__); <span class="comment">// null</span>
+</pre></td></tr></table></figure>
+
+<h3 id="原型链（prototype_chain）">原型链（prototype chain）</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="keyword">var</span> a = {};
+console.log(a.__proto__); <span class="comment">// {}</span>
+console.log(a.__proto__.__proto__); <span class="comment">// null</span>
+</pre></td></tr></table></figure>
+
+<h2 id="继承(Inheritance)">继承(Inheritance)</h2>
+<h3 id="Demo1-1">Demo1</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">()</span>{</span>}
+Parent.prototype = {
+	greet: <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+	console.log(<span class="string">'hello world'</span>);
+}
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">()</span>{</span>}
+<span class="comment">//此方法适用于父类Child不需要传参数</span>
+Child.prototype = <span class="keyword">new</span> Parent();
+<span class="keyword">var</span> c = <span class="keyword">new</span> Child();
+<span class="comment">//c首先寻找自身的方法，没有great,所以找Child的原型方法，而Child.prototype等于Parent方法</span>
+c.greet(); <span class="comment">//console.log('hello world');</span>
+</pre></td></tr></table></figure>
+
+<p>上面的例子如果Parent有参数，将存在以下问题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">(a, b)</span> {</span>}
+Parent.prototype.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  console.log(<span class="string">'JavaScript rocks'</span>);
+}
+<span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">(a, b)</span> {</span>}
+Child.prototype = <span class="keyword">new</span> Parent(); <span class="comment">//something wrong?-&gt;new Parent()不能传参数，否则参数一直不变</span>
+<span class="keyword">var</span> child = <span class="keyword">new</span> Child();
+child.greet();
+</pre></td></tr></table></figure>
+
+<h3 id="Demo2-1">Demo2</h3>
+<p><strong>解决父类参数问题</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">()</span> {</span>
+	<span class="keyword">this</span>.name = <span class="string">'xxx'</span>,
+	<span class="keyword">this</span>.date = <span class="string">'xxx'</span>
+}
+Parent.prototype.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  console.log(<span class="string">'JavaScript rocks'</span>);
+}
+
+<span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">()</span> {</span>}
+<span class="comment">//此方法适用于</span>
+Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);
+<span class="comment">//硬记的知识	</span>
+Child.prototype.constructor = Child;
+<span class="keyword">var</span> child = <span class="keyword">new</span> Child();
+child.greet();
+</pre></td></tr></table></figure>
+
+<h3 id="Demo3:继承的一个实例">Demo3:继承的一个实例</h3>
+<p>创建一个矩形</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span>{</span>
+	<span class="keyword">this</span>._setupDOM(width,height);
+}
+Rect.prototype._setupDOM = <span class="function"><span class="keyword">function</span><span class="params">(width,height)</span>{</span>
+	<span class="keyword">this</span>._dom = document.createElement(<span class="string">'div'</span>);
+	<span class="keyword">this</span>._dom.style.width = width + <span class="string">'px'</span>;
+	<span class="keyword">this</span>._dom.style.height = height + <span class="string">'px'</span>;
+};
+Rect.prototype.appendToBody = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+	document.body.appendChild(<span class="keyword">this</span>._dom);
+};
+<span class="function"><span class="keyword">function</span> <span class="title">BlueRect</span><span class="params">(width,height)</span>{</span>
+  BlueRect._super.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);
+}
+BlueRect.prototype = <span class="built_in">Object</span>.create(Rect.prototype);
+BlueRect.prototype.constructor = BlueRect;
+BlueRect._super = Rect;
+BlueRect.prototype._setupDOM = <span class="function"><span class="keyword">function</span><span class="params">(width,height)</span>{</span>
+  BlueRect._super.prototype._setupDOM.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);
+  <span class="keyword">this</span>._dom.style.backgroundColor = <span class="string">'blue'</span>;
+};
+<span class="keyword">var</span> br = <span class="keyword">new</span> BlueRect(<span class="number">200</span>,<span class="number">300</span>);
+br.appendToBody();
+</pre></td></tr></table></figure>
+
+<h2 id="this关键字">this关键字</h2>
+<h3 id="Demo:">Demo:</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span>{</span>
+	<span class="comment">//私有属性加_</span>
+	<span class="keyword">this</span>._dom = document.createElement(<span class="string">'div'</span>);
+	<span class="keyword">this</span>._dom.style.width = width + <span class="string">'px'</span>;
+	<span class="keyword">this</span>._dom.style.height = height + <span class="string">'px'</span>;
+	<span class="keyword">this</span>._dom.style.backgroundColor = <span class="string">'red'</span>;
+}
+Rect.prototype.appendToBody = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+	document.body.appendChild(<span class="keyword">this</span>._dom);
+};
+<span class="keyword">var</span> rect = <span class="keyword">new</span> Rect(<span class="number">100</span>,<span class="number">100</span>);
+rect.appendToBody();
+</pre></td></tr></table></figure>
+
+<h3 id="修改上面demo:">修改上面demo:</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span>{</span>
+	<span class="keyword">this</span>._setupDom(width,height);
+}
+Rect.prototype._setupDom = <span class="function"><span class="keyword">function</span><span class="params">(width,height)</span>{</span>
+    <span class="comment">//私有属性加_</span>
+	<span class="keyword">this</span>._dom = document.createElement(<span class="string">'div'</span>);
+	<span class="keyword">this</span>._dom.style.width = width + <span class="string">'px'</span>;
+	<span class="keyword">this</span>._dom.style.height = height + <span class="string">'px'</span>;
+	<span class="keyword">this</span>._dom.style.backgroundColor = <span class="string">'red'</span>;
+};
+Rect.prototype.appendToBody = <span class="function"><span class="keyword">function</span><span class="params">()</span>{</span>
+	document.body.appendChild(<span class="keyword">this</span>._dom);
+};
+<span class="keyword">var</span> rect = <span class="keyword">new</span> Rect(<span class="number">100</span>,<span class="number">100</span>);
+rect.appendToBody();
+</pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td><td class="code"><pre><span class="keyword">var</span> person = {
+    firstName: <span class="string">"Penelope"</span>,
+    lastName: <span class="string">"Barrymore"</span>,
+    sayFullName: <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+        console.log(<span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName); <span class="comment">//=&gt; "Penelope Barrymore"</span>
+        console.log(person.firstName + <span class="string">" "</span> + person.lastName); <span class="comment">//=&gt; "Penelope Barrymore"</span>
+    }
+};
+person.sayFullName();
+</pre></td></tr></table></figure>
+
+<h3 id="严格模式下的this">严格模式下的this</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>funtion foo(){
+	<span class="string">'use strict'</span>;
+	console.log(<span class="keyword">this</span>) <span class="comment">//undefined</span>
+}
+</pre></td></tr></table></figure>
+
+<h2 id="强制修改函数上下文的方法">强制修改函数上下文的方法</h2>
+<h3 id="用Object-bind()代替this">用Object.bind()代替this</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> {</span>
+  console.log(<span class="keyword">this</span>);
+  console.log(a + b);
+}
+<span class="keyword">var</span> fooBinding = foo.bind({ name: <span class="string">'Cassie Xu'</span> });
+fooBinding(<span class="number">1</span>, <span class="number">2</span>);
+</pre></td></tr></table></figure><br>上面code将输出<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre><span class="attr_selector">[object Object]</span> <span class="rules">{
+  <span class="rule"><span class="attribute">name</span>:<span class="value"> <span class="string">"Cassie Xu"</span>
+</span></span></span>}
+3
+</pre></td></tr></table></figure>
+
+<h3 id="使用Object-call/Object-apply执行上下文">使用Object.call/Object.apply执行上下文</h3>
+<p>call/apply方法都为调用Object方法，区别是apply将所有参数放到一个数组中去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> {</span>
+  console.log(<span class="keyword">this</span>);
+  console.log(a + b);
+}
+foo.call({name:<span class="string">'Cassie Xu'</span>}, <span class="number">1</span>, <span class="number">2</span>);
+foo.apply({name:<span class="string">'Cassie Xu'</span>}, [<span class="number">1</span>, <span class="number">2</span>]);
+</pre></td></tr></table></figure>
+
+<h2 id="补充其他">补充其他</h2>
+<h3 id="自执行函数">自执行函数</h3>
+<p>why we use it? -&gt;避免泄露全局变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>(<span class="function"><span class="keyword">function</span><span class="params">(c)</span>{</span>
+	<span class="keyword">var</span> a = <span class="number">1</span>;
+	<span class="keyword">var</span> b = <span class="number">2</span>;
+	console.log(a+b+c);
+})(<span class="number">3</span>)
+<span class="comment">// c = 3</span>
+</pre></td></tr></table></figure>
+
+<h3 id="闭包作用域">闭包作用域</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="keyword">var</span> a = {};
+a.foo = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> {</span>
+  <span class="comment">// do something and call callback in whatever way</span>
+}
+a.bar = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">this</span>.num = <span class="number">1</span>;
+  <span class="keyword">var</span> that = <span class="keyword">this</span>;
+  <span class="comment">//闭包，这里that可以访问到a.bar的作用域</span>
+  <span class="keyword">this</span>.foo(<span class="function"><span class="keyword">function</span><span class="params">(newNum)</span> {</span>
+    that.num = newNum;
+  });
+  console.log(<span class="keyword">this</span>.num);
+}
+a.bar();
+</pre></td></tr></table></figure>                ]]></content>
+    <summary type="html">
+    <![CDATA[<p>JavaScript面向对象主要知识点小结，基于ECMAScript 5.</p>
+<h2 id="构造函数">构造函数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre>1
+2
+3
+4]]>
+    </summary>
+    
+      <category term="js" scheme="http://xuyuan923.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Express+Mongoose建站常见报错原因及方法总结]]></title>
+    <link href="http://xuyuan923.github.io/2014/11/20/express-mongoose-error-conclusion/"/>
+    <id>http://xuyuan923.github.io/2014/11/20/express-mongoose-error-conclusion/</id>
+    <published>2014-11-20T14:24:44.000Z</published>
+    <updated>2014-11-20T15:09:15.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="mongoose_populate">mongoose populate</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+</pre></td><td class="code"><pre>Line.find({issues:id}, <span class="function"><span class="keyword">function</span> <span class="params">(err, lines)</span> {</span>
+        Issue
+            <span class="comment">//在line集合中查找issues字段id和issue集合的id相同的line</span>
+            <span class="comment">//使用findOne,只取最后插入的一条</span>
+            .findOne({_id:id})
+            .populate(<span class="string">'belongLineId'</span>,<span class="string">'name'</span>)
+            .exec(<span class="function"><span class="keyword">function</span><span class="params">(err,issue)</span>{</span>
+                console.log(<span class="string">'lines:'</span>)
+                console.log(lines);
+                console.log(<span class="string">'issue:'</span>);
+                console.log(issue);
+                res.render(<span class="string">'issueDetail'</span>, {
+                    title: issue.title,
+                    lines: lines,
+                    issue: issue
+                })
+            })
+    })
+</pre></td></tr></table></figure>
+
+<ul>
+<li><code>populate</code>中的option的值必须为<code>issue</code>集合里的字段，比如这里belongLineId是issue里的字段</li>
+<li><code>populate</code>中的select的值必须为<code>line</code>集合里的字段，比如这里<code>name</code>为<code>line</code>集合的字段</li>
+</ul>
+<h2 id="显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0">显示CastError: Cast to ObjectId failed for value ，length为0</h2>
+<p>通常是在schema中忘记添加相应地字段，或者在controller里render时忘记传递字段值</p>
+<h2 id="出现can’t_set_header_after_they_are_sent">出现can’t set header after they are sent</h2>
+<p>通常是controller里render了两次，或者redirect了两次</p>
+<h2 id="find()与findOne()的区别">find()与findOne()的区别</h2>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="keyword">var</span> id = req.params.id
+</pre></td></tr></table></figure></p>
+<ul>
+<li><code>find(id)</code>是遍历出所有的数组</li>
+<li><code>findOne({_id:id})</code>是查找出一个这个id浏览器当前页面参数相同的值</li>
+</ul>
+<h2 id="打印出当前用户">打印出当前用户</h2>
+<ul>
+<li><code>req.session.user._id</code></li>
+<li><code>req.session.user.name</code></li>
+</ul>
+<h2 id="转换日期">转换日期</h2>
+<ul>
+<li><code>npm install moment --save</code></li>
+<li><code>#{moment(issue.start).format(&#39;YYYY/MM/DD&#39;)}</code></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="mongoose_populate">mongoose populate</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13]]>
+    </summary>
+    
+      <category term="node" scheme="http://xuyuan923.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[github/gitlab同时管理多个ssh key]]></title>
+    <link href="http://xuyuan923.github.io/2014/11/04/github-gitlab-ssh/"/>
+    <id>http://xuyuan923.github.io/2014/11/04/github-gitlab-ssh/</id>
+    <published>2014-11-04T10:53:59.000Z</published>
+    <updated>2014-11-04T11:28:23.000Z</updated>
+    <content type="html"><![CDATA[<p>以前用github的ssh key，后来工作原因多了一个gitlab的账号，在绑定gitlab的ssh key时，发现将github的ssh key覆盖了。怎么同时绑定github和gitlab的ssh key，并不产生冲突呢？<br>今天找到了个小技巧，在<code>.ssh</code>目录下新建一个<code>config</code>文件配置一下，就能解决gitlab与github的ssh key的冲突。</p>
+<h2 id="生成并添加第一个ssh_key">生成并添加第一个ssh key</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> ~/.ssh
+ssh  ssh-keygen -t ras -C <span class="string">"youremail@yourcompany.com"</span>
+</pre></td></tr></table></figure>
+
+<p>这时可以一路回车，不输入任何字符，将自动生成<code>id_rsa</code>和<code>id_rsa.pub</code>文件。</p>
+<h2 id="生成并添加第二个ssh_key">生成并添加第二个ssh key</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ ssh-keygen -t rsa -C <span class="string">"youremail@gmail.com"</span>
+</pre></td></tr></table></figure>
+
+<p>注意，这时不能一路回车，否则邮箱将覆盖上一次生成的ssh key，给这个文件起一个名字， 比如叫 id_rsa_github, 所以相应的也会生成一个 id_rsa_github.pub 文件。<br><img src="/images/githubssh.png" alt=""><br>此时查看.ssh下的目录文件，发现多了<code>id_rsa_github</code>和<code>id_rsa_github.pub</code>两个文件。<br><img src="/images/sshls.png" alt=""></p>
+<h2 id="添加私钥">添加私钥</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>$ ssh-add ~/.ssh/id_rsa
+$ ssh-add ~/.ssh/id_rsa_github
+</pre></td></tr></table></figure>
+
+<h2 id="修改配置文件">修改配置文件</h2>
+<p>在 ~/.ssh 目录下新建一个config文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>touch config
+</pre></td></tr></table></figure>
+
+<p>并添加以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+</pre></td><td class="code"><pre><span class="comment"># gitlab</span>
+Host gitlab.com
+    HostName gitlab.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa
+
+<span class="comment"># github</span>
+Host github.com
+    HostName github.com
+    PreferredAuthentications publickey
+    IdentityFile ~/.ssh/id_rsa_github
+</pre></td></tr></table></figure>
+
+<h2 id="给github/gitlab上添加ssh_key">给github/gitlab上添加ssh key</h2>
+<p>查看<code>ssh key</code>执行<code>cat id_rsa_github.pub</code>内容，将文本内容拷贝到<a href="https://github.com/settings/ssh。生成`ssh" target="_blank">https://github.com/settings/ssh。生成`ssh</a> key`的方法可以去看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">官方教程</a>，这里不再赘述。</p>
+<h2 id="测试">测试</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>$ ssh -T git@github.com
+</pre></td></tr></table></figure>
+
+<p>如果输出<code>Hi xuyuan923! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>，说明成功的连上github了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>以前用github的ssh key，后来工作原因多了一个gitlab的账号，在绑定gitlab的ssh key时，发现将github的ssh key覆盖了。怎么同时绑定github和gitlab的ssh key，并不产生冲突呢？<br>今天找到了个小技巧，在<code>.s]]>
+    </summary>
+    
+      <category term="tools" scheme="http://xuyuan923.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[21分钟入门Git]]></title>
+    <link href="http://xuyuan923.github.io/2014/10/17/git-tutorial/"/>
+    <id>http://xuyuan923.github.io/2014/10/17/git-tutorial/</id>
+    <published>2014-10-17T02:33:31.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="为什么要学git">为什么要学git</h2>
+<p>团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。<br>更多git的强大之处，这里不再赘述，更多git的介绍请看这里，<a href="http://zh.wikipedia.org/zh/Git" target="_blank">git-wiki</a></p>
+<h2 id="git_命令大全">git 命令大全</h2>
+<h3 id="获取与创建项目">获取与创建项目</h3>
+<ul>
+<li>git init<br>在项目根目录执行<code>git init</code>,根目录会多出一个.git的文件夹，这个文件夹用于保存如何git相关的操作记录。</li>
+<li>git clone<br><code>cd</code>进入项目文件夹，执行<code>git clone</code>将会复制别人提交的版本或者你刚在github/gitlab上创建的项目</li>
+</ul>
+<h3 id="基本快照">基本快照</h3>
+<ul>
+<li>git add<ul>
+<li><code>git add</code>告诉Git，把文件添加到仓库,在每次git commit之前必须把文件提交到仓库才能提交到远程</li>
+<li>git add [file]将指定文件添加到仓库</li>
+<li><code>git add .</code>将所有文件添加到仓库</li>
+<li><code>git add -u</code>将所有文件添加到仓库，同时将已删除的文件从仓库中删除</li>
+</ul>
+</li>
+<li>git status<br>查看当前版本库的状态，看文件是否已添加到仓库，通常查看上次提交之后有哪些文件没有被添加到仓库</li>
+<li>git diff<br>显示尚未缓存的改动</li>
+<li>git commit<br><code>git commit -m &quot;这里填提交的提示内容&quot;</code>，将本地仓库中的文件提交到远程版本库</li>
+<li>git log<ul>
+<li><code>git log</code>用于记录每次commit的信息</li>
+<li><code>git log --pretty=oneline</code>将每次commit的记录打印成一行，内容更加精简，突出主要的commit -m “”的记录信息</li>
+</ul>
+</li>
+<li>git reset<ul>
+<li><code>git reset HEAD</code>这条命令用来废除这次修改的记录，当前文件回到上一次提交的状态。</li>
+<li><code>git reset --hard [commit版本号]</code></li>
+</ul>
+</li>
+<li>git rm(慎用)<ul>
+<li>使用这个会将所有版本库记录删除<h3 id="分支与合并">分支与合并</h3>
+</li>
+</ul>
+</li>
+<li>git branch<ul>
+<li><code>git branch</code>查看本地分支</li>
+<li><code>git branch -a</code>查看本地和远程的所有分支</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch -d</code>删除本地分支</li>
+<li>删除远程dev分支呢？-&gt; <code>git push :origin dev</code></li>
+</ul>
+</li>
+<li>git checkout<ul>
+<li><code>git checkout [master]</code>切换到本地的master分支</li>
+<li><code>git checkout -b [dev]</code>创建并切换到本地的dev分支</li>
+</ul>
+</li>
+<li>git merge<br><code>git merge</code>用于本地的指令，如果当前分支是master,本地的另一个分支是dev,<code>git merge dev</code>将本地的dev分支合并到master分支</li>
+<li>git tag<ul>
+<li>通常在发布到线上正式环境时会用到</li>
+<li><code>git tag publish/1.0.0</code>表示给当前分支打上tag标记</li>
+<li>删除远程tag呢？请看<code>git push origin :refs/tags/标签名</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="分享与更新项目">分享与更新项目</h3>
+<ul>
+<li>git push<ul>
+<li><code>git push origin dev</code>表示提交到远程的dev分支。</li>
+<li>通常在本地的dev分支推送到远程的dev分支，注意本地远程分支命名要相同，保证代码不会混乱。</li>
+</ul>
+</li>
+<li>git pull<ul>
+<li><code>git pull origin dev</code>表示拉远程的dev分支到本地，并和本地的dev分支合并</li>
+<li>通常在本地的dev分支推送到远程的dev分支，注意本地远程分支命名要相同，保证代码不会混乱。</li>
+</ul>
+</li>
+<li>git fetch(不常用)<ul>
+<li><code>git fetch origin dev</code>表示拉远程的dev分支到本地，<strong>不</strong>和本地的dev分支合并</li>
+</ul>
+</li>
+<li>git remote<ul>
+<li>分享本地创建的仓库，希望将它添加到远端仓库</li>
+<li><code>git remote add github git@github.com:xuyuan923/test-git.git</code>将本地的仓库推送到github上名为test-git的仓库里</li>
+</ul>
+</li>
+</ul>
+<h2 id="git本地分支与远程分支推送原则">git本地分支与远程分支推送原则</h2>
+<ul>
+<li>本地的<test1>分支推送到远程的<test1>分支，保证本地和远程的同名分支相同。</li>
+<li>多人合作，每天早上开机前先<code>git pull origin &lt;公共开发分支&gt;</code>，晚上关机前<code>git push origin &lt;公共开发分支&gt;</code>，大家都遵守，这样代码就不会乱</li>
+<li>开发时，将本地的分支切换到开发分支在写代码，保证本地的master分支不被污染<br>在实际开发中，我们应该按照几个基本原则进行分支管理：<ul>
+<li>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</li>
+<li>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</li>
+<li>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="http://gtms03.alicdn.com/tps/i3/TB1BQNaGFXXXXaZaXXXhdPbZFXX-498-125.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="工作区与暂存区理解">工作区与暂存区理解</h2>
+<p><img src="http://gtms02.alicdn.com/tps/i2/TB1Z.xmGFXXXXcLXpXXKwd3HVXX-458-234.jpg" alt=""><br>我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<h2 id="高级知识">高级知识</h2>
+<h3 id="git_ssh">git ssh</h3>
+<p>SSH是什么？SSH公钥是让Git服务器验证你的电脑是被认证的，本地配置SSH避免了每次git要求你输入用户名、密码这些认证信息<br>如何配置SSH公钥看这里，<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank">Generating SSH keys</a></p>
+<h3 id="gitignore">gitignore</h3>
+<p><code>.gitignore</code>是一个文件，通常我们是不希望git将本地的编辑器缓存的内容，包括.git文件，以及庞大的node-modules安装包推送到远程，如果仓库里含有.gitignore这个文件，git push会识别哪些是你不想推送到远端的文件，并选择性不推送到远端<br>来看一个.gitignore文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre><span class="comment">#忽略.DS_Store目录下的所有文件</span>
+.DS_Store
+<span class="comment">#忽略node_modules目录下的所有文件</span>
+node_modules
+npm-debug.log
+<span class="comment">#仅仅忽略 demo/.svn文件</span>
+demo/.svn/
+.sass-cache
+<span class="comment">#忽略所有以.swp结尾的文件</span>
+*.swp
+.sw*
+.idea/*
+</pre></td></tr></table></figure>
+
+<h2 id="更多资料">更多资料</h2>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank">廖雪峰-Git教程</a><br><a href="http://gitref.org/zh/" target="_blank">Git 参考手册</a><br><a href="http://git-scm.com/book/zh/" target="_blank">Git-book</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="为什么要学git">为什么要学git</h2>
+<p>团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。<br>更多git的强大之处，这里不再赘述，更多git的介绍请看这里，]]>
+    </summary>
+    
+      <category term="tools" scheme="http://xuyuan923.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[chrome调试工具常用功能整理]]></title>
+    <link href="http://xuyuan923.github.io/2014/10/16/chrome-debug-tool/"/>
+    <id>http://xuyuan923.github.io/2014/10/16/chrome-debug-tool/</id>
+    <published>2014-10-16T11:56:56.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h1 id="Elements">Elements</h1>
+<p>chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.</p>
+<ul>
+<li>windows: <code>ctrl</code> + <code>shift</code> + <code>i</code></li>
+<li>mac: <code>cmd</code> + <code>opt</code> + <code>i</code></li>
+</ul>
+<h2 id="DOM">DOM</h2>
+<h3 id="修改_html_&amp;_属性">修改 html &amp; 属性</h3>
+<p>节点右键, 如下图, 可以:<br><img src="http://gtms02.alicdn.com/tps/i2/TB1cHVlGFXXXXb.XXXXYkh.ZXXX-527-423.jpg" alt=""></p>
+<ul>
+<li>添加属性(<code>enter</code>)</li>
+<li>修改 html(<code>F2</code>)</li>
+<li>删除元素(<code>delete</code>)</li>
+</ul>
+<p>除了右键, 还可以:</p>
+<ul>
+<li><code>h</code> toggle 元素的 visibility 属性</li>
+<li>拖拽节点, 调整顺序</li>
+<li>拖拽节点到编辑器<ul>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/6568776c7a3cb0bdf17cf3760c5a0b23221f5653" alt=""></li>
+</ul>
+</li>
+<li><code>ctrl</code> + <code>z</code> 撤销修改</li>
+</ul>
+<h3 id="查看元素上绑定了哪些事件">查看元素上绑定了哪些事件</h3>
+<p><img src="http://img4.tbcdn.cn/L1/461/1/e2aacb4eb0fedb9002aeb89439f08944fefd636a" alt="event"></p>
+<ul>
+<li>默认会列出 <code>All Nodes</code>, 这些包括代理绑定在该节点的父/祖父节点上的事件, 因为在在冒泡或捕获阶段会经过该节点</li>
+<li><code>Selected Node Only</code> 只会列出当前节点上绑定的事件</li>
+<li>每个事件会有对应的几个属性 <code>handler</code>, <code>isAtribute</code>, <code>lineNumber</code>, <code>listenerBody</code>, <code>sourceName</code>, <code>type</code>, <code>useCapture</code><ul>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/dd47628afb902a2324d09e0985b585a1371b2c6d" alt="handle"></li>
+<li><code>handler</code>是处理函数, 右键可以看到这个函数定义的位置, 一般 js 库绑定事件会包一层, 所以这里很难找到对应<code>handler</code></li>
+<li><code>isAtribute</code> 表明事件是否通过 html 属性(类似<code>onClick</code>)形式绑定的</li>
+<li><code>useCapture</code> 是 <code>addEventListener</code> 的第三个参数, 说明事件是以 冒泡 还是 捕获 顺序执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="Styles">Styles</h2>
+<h3 id="修改样式">修改样式</h3>
+<ul>
+<li>添加规则<br><img src="http://img2.tbcdn.cn/L1/461/1/47df15944c5aad071da619c02693f1f00e3efad2" alt=""></li>
+<li>添加、修改属性<br>同样可以通过 <code>ctrl</code> + <code>z</code> 取消</li>
+</ul>
+<h1 id="断点">断点</h1>
+<h2 id="代码断点">代码断点</h2>
+<ul>
+<li>设置断点<ul>
+<li>在 Sources 面板 js 文件行号处设置断点, 这里除了常规断点外, 还有个条件断点(右键 <code>conditional breakpoint</code>), 在设置的条件为 <code>true</code> 时才会断电, 在循环中需要断点时比较有用.</li>
+<li>断点后可以查看 堆栈, 变量 信息:</li>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/a178787031ff59a3eeb9c4b33cc59338353a4b43" alt=""></li>
+</ul>
+</li>
+<li>在调用堆栈这里可以切换到堆栈中的任何地方重新执行(右键<code>restart frame</code>), 如果想查看断点前的信息时比较有用.<ul>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/c33fd6f40cba8c63a730091ff1519a8915782970" alt=""></li>
+</ul>
+</li>
+<li>断点后的变量保存到全局<ul>
+<li>选中变量, 右键 <code>Evalute in console</code></li>
+<li>在 <code>console</code> 中选中输出的内容, 右键 <code>store as global variable</code></li>
+<li><img src="http://img4.tbcdn.cn/L1/461/1/3236461d66878cfe24e80ef6801f971b6b179879" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="事件断点">事件断点</h2>
+<h3 id="元素上事件断点">元素上事件断点</h3>
+<p><code>devtools</code> 可以查看某一个元素上绑定了哪些事件: <code>Elements</code> &gt; <code>Event Listeners</code></p>
+<ul>
+<li><img src="http://img1.tbcdn.cn/L1/461/1/25f7737f9f88b5b921ecbb0a7eb0cdf9726ac880" alt=""></li>
+</ul>
+<h3 id="dom_mutation_断点(推荐)">dom mutation 断点(推荐)</h3>
+<p><code>dom mutation event</code> 是 DOM3 添加的新的事件, 一般是 dom 结构改变时触发.<br><code>devtools</code> 可以对 <code>DOMSubtreeModified</code> <code>DOMAttrModified</code> 和 <code>DOMNodeRemoved</code> 时断点.<br>对上面 元素上事件断点(<code>mouseover</code>) 后不容易找到业务代码, 使用 <code>mutation</code> 断点, 断点后配合 call stack 就可以找到业务代码了, 如下图<br><img src="http://img2.tbcdn.cn/L1/461/1/14811e0e62a2ecb31c5875ac7186f4caa9e6ccfa" alt=""><br>这种情况使用全局搜索(<code>ctrl</code> + <code>shift</code> + <code>f</code>) 代码中 css classname 也能找到业务代码, 然后直接断点也可以.</p>
+<h3 id="全局事件断点">全局事件断点</h3>
+<p>devtools 还可以对事件发生时断点, 比如 <code>click</code> 发生时断点, 这个跟 元素上事件断点 不同, 不会限定在元素上, 只要是事件发生, 并且有 handler 就断点;<br>还可以对 resize, ajax, setTimeout/setInterval 断点.</p>
+<p>下面这个图是 resize 时中断, 因为库都代理了, 还需要在断点处一步一步跟下去才能走到业务代码中.<br><img src="http://img1.tbcdn.cn/L1/461/1/6fe5a3d32743e8402343062a5ceebdc408cbe511" alt=""></p>
+<h2 id="几个常用的断点快捷键:">几个常用的断点快捷键:</h2>
+<ul>
+<li>F8: 继续执行</li>
+<li>F10: step over, 单步执行, 不进入函数</li>
+<li>F11: step into, 单步执行, 进入函数</li>
+<li>shift + F11: step out, 跳出函数</li>
+<li>ctrl + o: 打开文件</li>
+<li>ctrl + shit + o: 跳到函数定义位置</li>
+<li>ctrl + shift + f: 所有脚本中搜索</li>
+</ul>
+<h1 id="Console">Console</h1>
+<h2 id="元素选择">元素选择</h2>
+<h3 id="$(selector)">$(selector)</h3>
+<p>即使当前页面没有加载jQuery，你也依然可以使用$和$$函数来选取元素，实际上，这两个函数只是对document.querySelector()和document.querySelectorAll()的简单封装，$用于选取单个元素，$$则用于选取多个：<br><img src="http://gtms01.alicdn.com/tps/i1/TB1l6KZFVXXXXc4aXXXYCer4FXX-1190-203.png" alt=""></p>
+<h3 id="$_">$_</h3>
+<p>使用 <code>$_</code> 来引用最近的一个表达式<br><img src="http://gtms01.alicdn.com/tps/i1/TB1D2mQFVXXXXc_XFXX0zJfZVXX-394-121.png" alt=""></p>
+<h3 id="$0_-_$4">$0 - $4</h3>
+<p>除了<code>$_</code>，你还可以使用<code>$0</code>,<code>$1</code>,<code>$2</code>,<code>$3</code>,<code>$4</code>这5个变量来引用最近选取过的5个DOM元素。<br><code>$0</code> 为Elements HTML 面板中选中的元素。<br><code>$1</code> 为上一次在 HTML 面板中选中的元素。<br><code>$2</code>、<code>$3</code>、<code>$4</code> 同样的。不过只能到<code>$4</code></p>
+<h3 id="copy">copy</h3>
+<p>复制到剪切板，copy之后，直接<code>ctrl+v</code><br><img src="http://gtms02.alicdn.com/tps/i2/TB1iSq5FVXXXXXGaXXXJJvZJFXX-920-127.png" alt=""></p>
+<h2 id="信息输出">信息输出</h2>
+<p>在js代码中打点<code>console.log()</code><br>类似<code>debugger</code></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="Elements">Elements</h1>
+<p>chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.</p>
+<ul>
+<li>windows: <code>ctrl</cod]]>
+    </summary>
+    
+      <category term="tools" scheme="http://xuyuan923.github.io/tags/tools/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Node Express获取参数的几种方式]]></title>
+    <link href="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/"/>
+    <id>http://xuyuan923.github.io/2014/10/10/node-tutorial-req/</id>
+    <published>2014-10-10T12:54:14.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<p>Node配合Express框架获取参数主要有以下4种形式:</p>
+<ul>
+<li>req.body</li>
+<li>req.params</li>
+<li>req.param()</li>
+<li>req.query</li>
+</ul>
+<p>那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？</p>
+<h1 id="适用情景案例">适用情景案例</h1>
+<h2 id="req-body">req.body</h2>
+<p><code>req.body</code>在<a href="http://expressjs.com/4x/api.html#request" target="_blank">官方文档</a>是没有提供的，但是它也是很好用的获取表单参数的方法。<code>req.body</code>是<strong>配合Express中间件<code>bodyParser()</code>中间件</strong>提供的。当<code>bodyParser()</code>中间件使用后，这个对象默认为 <code>{}</code>,<code>req.body</code>可以获取到post到body中的内容。<br>举个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>app.post(<span class="string">'/user/signup'</span>,function(req,res){
+	var _user = req.body.user;
+})
+</pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre>// POST user[name]=tobi&user[email]=tobi@learnboost.com
+req.body.user.name
+// =&gt; <span class="string">"tobi"</span>
+
+req.body.user.email
+// =&gt; <span class="string">"tobi@learnboost.com"</span>
+
+// POST { <span class="string">"name"</span>: <span class="string">"tobi"</span> }
+req.body.name
+// =&gt; <span class="string">"tobi"</span>
+</pre></td></tr></table></figure>
+
+<h2 id="req-params">req.params</h2>
+<p>这是一个数组对象，命名过的参数会以键值对的形式存放。 比如你有一个路由<code>/user/:name</code>, <code>name</code>属性会存放在<code>req.params.name</code>. 这个对象默认为 <code>{}</code>.<br>举个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>// GET /user/tj
+req.params.name
+// =&gt; <span class="string">"tj"</span>
+
+app.post(<span class="string">'/user/signup/:userid'</span>,function(req,res){
+	req.params.userid;
+})
+</pre></td></tr></table></figure><br>当使用正则表达式定义路由的时候，<code>req.params[N]</code>会是这个应用这个正则后的捕获分组, <code>N</code>是代表的是第<code>N</code>个捕获分组。这个规则同样适用于全匹配的路由，如 <code>/file/*</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>// GET /file/javascripts/jquery.js
+req.params[<span class="number">0</span>]
+// =&gt; <span class="string">"javascripts/jquery.js"</span>
+</pre></td></tr></table></figure>
+
+<h2 id="req-param(name)">req.param(name)</h2>
+<p><code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。<code>req.param(name)</code>返回<code>name</code>参数的值。<br>举个栗子：<br>和上面的<code>req.body</code>方法类似</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>// POST name=tobi
+app.post(<span class="string">'/user?name=tobi'</span>,function(req,res){
+ req.param(<span class="string">'name'</span>);
+ // =&gt; <span class="string">"tobi"</span>
+})
+
+// ?name=tobi
+req.param(<span class="string">'name'</span>)
+// =&gt; <span class="string">"tobi"</span>
+
+// /user/tobi <span class="keyword">for</span> /user/:name 
+req.param(<span class="string">'name'</span>)
+// =&gt; <span class="string">"tobi"</span>
+</pre></td></tr></table></figure>
+
+<h2 id="req-query">req.query</h2>
+<p>这是一个解析过的请求参数对象，默认为<code>{}</code>.<br>举个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>// GET /search?q=tobi+ferret
+req.query.q
+// =&gt; <span class="string">"tobi ferret"</span>
+
+// GET /shoes?order=desc&shoe[color]=blue&shoe[<span class="built_in">type</span>]=converse
+req.query.order
+// =&gt; <span class="string">"desc"</span>
+
+req.query.shoe.color
+// =&gt; <span class="string">"blue"</span>
+
+req.query.shoe.type
+// =&gt; <span class="string">"converse"</span>
+</pre></td></tr></table></figure>
+
+<h1 id="区别与联系">区别与联系</h1>
+<p>总结出以下4点：<br>1、对于path中的变量，均可以使用<code>req.params.xxxxx</code>方法<br>2、对于get请求的<code>?xxxx=</code>,使用<code>req.query.xxxxx</code>方法<br>3、对于post请求中的变量，使用<code>req.body.xxxxx</code>方法<br>4、以上三种情形，均可以使用<code>req.param()</code>方法，所以说<code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。</p>
+<h1 id="参考资料">参考资料</h1>
+<ul>
+<li><a href="http://expressjs.com/4x/api.html#request" target="_blank">express官方文档</a></li>
+<li><a href="http://expressjs.jser.us/3x_zh-cn/api.html" target="_blank">express中文文档翻译版</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>Node配合Express框架获取参数主要有以下4种形式:</p>
+<ul>
+<li>req.body</li>
+<li>req.params</li>
+<li>req.param()</li>
+<li>req.query</li>
+</ul>
+<p>那么，以上几种形式获取]]>
+    </summary>
+    
+      <category term="node" scheme="http://xuyuan923.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Nodejs Web开发一些好用的工具]]></title>
+    <link href="http://xuyuan923.github.io/2014/09/25/nodejs-notes/"/>
+    <id>http://xuyuan923.github.io/2014/09/25/nodejs-notes/</id>
+    <published>2014-09-25T08:54:13.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<p>学习Node Web开发一个月了，通过做项目积累了一些Node Web开发的经验，分享几款好用的Node Web开发的工具。</p>
+<h2 id="1-数据库可视化工具">1.数据库可视化工具</h2>
+<p>这里推荐MongoVUE。</p>
+<h3 id="a-连接">a.连接</h3>
+<p>点击<code>+</code>icon连接，其中<code>Name</code>配置项是自己配置的，<code>Port</code>默认是27017，<code>Server</code>,<code>Username</code>,<code>Password</code>,<code>Database</code>均是根据mongodb应用的配置来的。</p>
+<h3 id="b-使用">b.使用</h3>
+<p>看一下整体界面，功能很强大，界面友好！<img src="http://gtms04.alicdn.com/tps/i4/TB1esIQGXXXXXXXXpXXFgXUMFXX-1358-712.jpg" alt="使用">,<br>mongovue是收费的，过了免费试用期，就会关闭部分mongovue服务，破解方法传送门，下载本文最后的附件，解压缩后替换mongovue的安装目录下相应文件，即可注册，亲测能用。</p>
+<h2 id="2-Nodemon">2.Nodemon</h2>
+<h3 id="a-为什么要用Nodemon？">a.为什么要用Nodemon？</h3>
+<p>当我第一次开发的node app时候，每当我修改很小东西的时候需要<code>control+c</code>来关闭当前应用，再<code>node app</code>重启应用，这让开发者非常痛苦。Nodemon是一款智能的工具，能监测到你应用的更新，自动重启服务，大大提高了开发效率。</p>
+<h3 id="b-安装">b.安装</h3>
+<p>执行<code>npm install -g nodemon</code>,全局安装</p>
+<h3 id="c-使用">c.使用</h3>
+<p>像执行<code>node app.js</code>那样，执行<code>nodemon app.js</code>，看当我修改了js，nodemon会自动重启应用，即使应用crashed，只要js重新修改过，nodemon还会重启！<br><img src="http://gtms02.alicdn.com/tps/i2/TB1BLkRGXXXXXbqXXXXG.tA2FXX-643-292.jpg" alt="nodemon"></p>
+<h2 id="3-Webstorm_IDE_node_debug工具">3.Webstorm IDE node debug工具</h2>
+<h3 id="a-安装">a.安装</h3>
+<p>如果你已安装了webstorm IDE,就会自带有node debug功能，无需再安装。</p>
+<h3 id="b-监测app-js">b.监测app.js</h3>
+<p>首先配置你需要debug的js,打开webstorm-&gt;<code>run</code>-&gt;’edit configurations’-&gt;指定debug的文件。比如我要监测的是<code>app.js</code>,配置如下：<br><img src="http://gtms04.alicdn.com/tps/i4/TB17ygMGXXXXXb9XpXXv5iZUXXX-1061-363.jpg" alt="debug"><br>注意，<strong>关闭当前node服务</strong>，因为webstorm debug会开启本地服务，会与node服务的端口冲突。<br>下图为常用功能说明<img src="http://gtms03.alicdn.com/tps/i3/TB1SWQRGXXXXXb5XXXXd9uP8pXX-1092-464.jpg" alt="node debugger"></p>
+<h3 id="c-监测其他node文件">c.监测其他node文件</h3>
+<p>如果要监测的是除node启动文件<code>app.js</code>以外的其他node文件，基本步骤同上文，监测的文件同为<code>app.js</code>,区别的是当刷新页面时，只有打开的页面引用到相应的node文件，即需要执行相应的node文件时，这个node文件的断点才能被执行。比如我想监测<code>db.js</code>这样的node文件,在访问<code>/index/require/my</code>页面时，<code>db.js</code>才执行，如果要查看<code>db.js</code>文件的断点情况，则需要打开<code>/index/require/my</code>页面。</p>
+<p>Node Web开发的一些调试工具、回调的处理方法等学问很多，本人造诣不深，等摸透了再做一些分享~</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>学习Node Web开发一个月了，通过做项目积累了一些Node Web开发的经验，分享几款好用的Node Web开发的工具。</p>
+<h2 id="1-数据库可视化工具">1.数据库可视化工具</h2>
+<p>这里推荐MongoVUE。</p>
+<h3 id="a-连接"]]>
+    </summary>
+    
+      <category term="node" scheme="http://xuyuan923.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Node+Express+Mongodb+monk简易入门教程]]></title>
+    <link href="http://xuyuan923.github.io/2014/08/05/node-mongodb-tutorial/"/>
+    <id>http://xuyuan923.github.io/2014/08/05/node-mongodb-tutorial/</id>
+    <published>2014-08-05T12:07:32.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<p>这篇入门教程，适合node+mongodb开发小白，node已玩过很久的大神这篇文章可能不适合你们。<br>接触node很久了，但是玩的都是node工具，没有做过node的项目，也没有玩过mongodb。这几天搭建了了node+express+mongodb的环境，使用了mongodb的可视化工具<a href="http://rockmongo.com/" target="_blank">rockmongo</a>,踩到不少坑，在此认真记录一下。</p>
+<h2 id="1-安装nodejs">1.安装nodejs</h2>
+<p>安装nodejs的教程网上非常多，这里不再赘述。</p>
+<h2 id="2-安装express">2.安装express</h2>
+<p>打开命令窗口，安装express全局环境，方面以后可以在本地各文件夹下安装express文件，输入<code>npm install -g express</code></p>
+<h2 id="3-新建一个express工程">3.新建一个express工程</h2>
+<p>比如这里我在<code>F:\rs</code>目录下新建一个<code>nodetest1</code>的项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /f/rs
+node express nodetest1
+</pre></td></tr></table></figure><br>此时，你将在nodetest1文件夹下看到<code>package.json</code>的文件，文件结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>{
+    <span class="string">"name"</span>: <span class="string">"application-name"</span>,
+    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,
+    <span class="string">"private"</span>: <span class="literal">true</span>,
+    <span class="string">"scripts"</span>: {
+        <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span>
+    },
+    <span class="string">"dependencies"</span>: {
+        <span class="string">"express"</span>: <span class="string">"~4.0.0"</span>,
+        <span class="string">"static-favicon"</span>: <span class="string">"~1.0.0"</span>,
+        <span class="string">"morgan"</span>: <span class="string">"~1.0.0"</span>,
+        <span class="string">"cookie-parser"</span>: <span class="string">"~1.0.1"</span>,
+        <span class="string">"body-parser"</span>: <span class="string">"~1.0.0"</span>,
+        <span class="string">"debug"</span>: <span class="string">"~0.7.4"</span>,
+        <span class="string">"jade"</span>: <span class="string">"~1.3.0"</span>
+    }
+}
+</pre></td></tr></table></figure><br>此时，编辑你的<code>package.json</code>文件，在配置后面加上<code>&quot;mongodb&quot;: &quot;*&quot;</code>和<code>&quot;monk&quot;: &quot;*&quot;</code>,在依赖里引入mongodb和monk，monk是一个Node模块,可以方便你操作mongodb集合的接口。配置完的<code>package.json</code>如下：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="code"><pre>{
+    <span class="string">"name"</span>: <span class="string">"application-name"</span>,
+    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,
+    <span class="string">"private"</span>: <span class="literal">true</span>,
+    <span class="string">"scripts"</span>: {
+        <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span>
+    },
+    <span class="string">"dependencies"</span>: {
+        <span class="string">"express"</span>: <span class="string">"~4.0.0"</span>,
+        <span class="string">"static-favicon"</span>: <span class="string">"~1.0.0"</span>,
+        <span class="string">"morgan"</span>: <span class="string">"~1.0.0"</span>,
+        <span class="string">"cookie-parser"</span>: <span class="string">"~1.0.1"</span>,
+        <span class="string">"body-parser"</span>: <span class="string">"~1.0.0"</span>,
+        <span class="string">"debug"</span>: <span class="string">"~0.7.4"</span>,
+        <span class="string">"jade"</span>: <span class="string">"~1.3.0"</span>
+    }
+}
+</pre></td></tr></table></figure>
+
+<h2 id="4-安装包依赖">4.安装包依赖</h2>
+<p>进入我所在的nodetest1文件夹，安装npm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /f/rs/nodetest1
+npm install
+</pre></td></tr></table></figure>
+
+<p>此时，执行<code>npm start</code>，打开<a href="http://localhost:3000/" target="_blank">http://localhost:3000/</a>,可以看到<br><img src="/images/suc-welcome.jpg" alt="欢迎页">的界面，代表node+express运行成功了！下一步，我们将Node和mongodb关联起来。</p>
+<h2 id="5-安装mongodb">5.安装mongodb</h2>
+<p>首先，安装<a href="https://www.mongodb.org/" target="_blank">mongodb</a>,直接解压安装，这里不再赘述。<br>下面，我们来讲mongodb和node连接起来，在工程文件夹<code>nodetest1</code>下新建<code>data</code>用来存放数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /f/rs/nodetest1
+mkdir data
+</pre></td></tr></table></figure>
+
+<p>这里，我的mongodb安装的路径为<code>D:\Program Files\MONGO</code>,所以，我进入<code>MONGO</code>下的<code>bin</code>文件夹下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
+mongod --dbpath <span class="string">"f://rs//nodetest1//data"</span>
+</pre></td></tr></table></figure><br>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="连接mongodb"><br>下面我们来创建数据库。<br><br>##创建数据库<br>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！<br><br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/data
+use nodetest1
+</pre></td></tr></table></figure>
+
+<p>这时，创建一个新的数据库，将自动切到nodetest1下。<br>插入一个<code>usercollection</code>表，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>db.usercollection.insert({ <span class="string">"username"</span> : <span class="string">"testuser1"</span>, <span class="string">"email"</span> : <span class="string">"testuser1@testdomain.com"</span> })
+</pre></td></tr></table></figure>
+
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>db.usercollection.find().pretty()
+</pre></td></tr></table></figure>
+
+<p>查看你刚刚创建的<code>usercollection</code>表。</p>
+<h2 id="6-将数据插入到浏览器中">6.将数据插入到浏览器中</h2>
+<p>打开<code>app.js</code>,应该可以看到<code>app.js</code>中的内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
+<span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'static-favicon'</span>);
+<span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
+</pre></td></tr></table></figure>
+
+<p>在下面插入3行，现在的app.js应为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);
+<span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);
+<span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'static-favicon'</span>);
+<span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);
+<span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);
+<span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);
+<span class="comment">// New Code</span>
+<span class="keyword">var</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);
+<span class="keyword">var</span> monk = <span class="built_in">require</span>(<span class="string">'monk'</span>);
+<span class="keyword">var</span> db = monk(<span class="string">'localhost:27017/nodetest1'</span>);
+</pre></td></tr></table></figure><br>在以下代码的<strong>下面</strong><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>app.use(<span class="string">'/'</span>, routes);
+app.use(<span class="string">'/users'</span>, users);
+</pre></td></tr></table></figure><br>插入以下3行代码，将数据库和router相连<br><figure class="highlight"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+</pre></td><td class="code"><pre>app.use(<span class="function"><span class="keyword">function</span><span class="params">(req,res,next)</span></span>{
+    req.db = db;
+    <span class="built_in">next</span>();
+});
+</pre></td></tr></table></figure>
+
+<h2 id="7-渲染用户列表页">7.渲染用户列表页</h2>
+<p>打开<code>/routee/index.js</code>输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+</pre></td><td class="code"><pre><span class="comment">/* GET Userlist page. */</span>
+router.get(<span class="string">'/userlist'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
+    <span class="keyword">var</span> db = req.db;
+    <span class="keyword">var</span> collection = db.get(<span class="string">'usercollection'</span>);
+    collection.find({},{},<span class="function"><span class="keyword">function</span><span class="params">(e,docs)</span>{</span>
+        res.render(<span class="string">'userlist'</span>, {
+            <span class="string">"userlist"</span> : docs
+        });
+    });
+});
+</pre></td></tr></table></figure>
+
+<p>在view文件夹下新建<code>userlist.jade</code>文件，打开<code>/views/userlist.jade</code>输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td><td class="code"><pre>extends layout
+block content
+    h1.
+        User List
+    ul
+        each user, i <span class="keyword">in</span> userlist
+            li
+                a(href=<span class="string">"mailto:#{user.email}"</span>)= user.username
+</pre></td></tr></table></figure>
+
+<p>执行<code>npm start</code>,打开<a href="http://localhost:3000/userlist" target="_blank">http://localhost:3000/userlist</a>,可以在命令行插入的一条记录。</p>
+<h2 id="8-向渲染页插入数据">8.向渲染页插入数据</h2>
+<p>打开<code>/routes/index.js</code>,插入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+</pre></td><td class="code"><pre><span class="comment">/* POST to Add User Service */</span>
+router.post(<span class="string">'/adduser'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> {</span>
+
+    <span class="comment">// Set our internal DB variable</span>
+    <span class="keyword">var</span> db = req.db;
+
+    <span class="comment">// Get our form values. These rely on the "name" attributes</span>
+    <span class="keyword">var</span> userName = req.body.username;
+    <span class="keyword">var</span> userEmail = req.body.useremail;
+
+    <span class="comment">// Set our collection</span>
+    <span class="keyword">var</span> collection = db.get(<span class="string">'usercollection'</span>);
+
+    <span class="comment">// Submit to the DB</span>
+    collection.insert({
+        <span class="string">"username"</span> : userName,
+        <span class="string">"email"</span> : userEmail
+    }, <span class="function"><span class="keyword">function</span> <span class="params">(err, doc)</span> {</span>
+        <span class="keyword">if</span> (err) {
+            <span class="comment">// If it failed, return error</span>
+            res.send(<span class="string">"There was a problem adding the information to the database."</span>);
+        }
+        <span class="keyword">else</span> {
+            <span class="comment">// If it worked, set the header so the address bar doesn't still say /adduser</span>
+            res.location(<span class="string">"userlist"</span>);
+            <span class="comment">// And forward to success page</span>
+            res.redirect(<span class="string">"userlist"</span>);
+        }
+    });
+});
+</pre></td></tr></table></figure>
+
+<p>执行<code>npm start</code>，打开<a href="http://localhost:3000/newuser" target="_blank">http://localhost:3000/newuser</a>,可以看到页面已经可以插入数据了！</p>
+<h2 id="9-Mongodb可视化工具rockmongo">9.Mongodb可视化工具rockmongo</h2>
+<p><a href="http://rockmongo.com/" target="_blank">rockmongo</a>是mongodb的一款可视化工具，弥补了非关系型数据库只能用命令行显示的缺陷，这个工具可以直观友好地显示数据库。</p>
+<h3 id="安装">安装</h3>
+<p>去<a href="http://rockmongo.com/downloads" target="_blank">rockmongo官网</a>下载安装即可，安装很简单，直接运行exe文件即可，这里不再赘述。</p>
+<h3 id="rockmongo的配置">rockmongo的配置</h3>
+<h4 id="给数据库注册用户名和密码">给数据库注册用户名和密码</h4>
+<p>发现配置rockmongo时需要输入数据库用户名和密码，而创建nodetest1时，系统未提示我们需要创建数据库用户名和密码。我们可以自行用命令的形式给数据库创建用户名和密码。首先切入到nodetest1数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /d/Program Files/MONGO/bin
+mongo
+use nodetest1
+</pre></td></tr></table></figure>
+
+<p>执行<code>db.addUser(“root”, “root”)</code>插入用户名和密码均为root,这时执行<code>show users</code>,将看到<br><img src="/images/show-users.jpg" alt="show-users"><br>表明，现在数据库nodetest1中已存在root的用户。<br>打开rockmongo安装文件夹，打开<code>/web/rockmongo/config.php</code>文件，修改以下几项：<br>首先打开cmd串口，输入<code>ipConfig</code>查看本机IP，node的默认端口为27017,如果你的端口没有改，则不需要改，下图为我的配置：<br><img src="/images/rockmongo.jpg" alt="rockmongo"><br>这时，双击安装文件夹下的<code>rockstart.bat</code>将打开浏览器，出现非常友好的数据库界面，wonderful!<br><img src="/images/rockmongo-welcome.jpg" alt="rockmongo"></p>
+<h2 id="10-一些坑">10.一些坑</h2>
+<p>在将数据库和工程文件夹data相连接时，我们通常会在mongo安装目录下执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>或者在mongo安装目录下执行mongo命令，它有时会报错“errno:10061”。<br><img src="/images/mongodlock.png" alt="mongod.lock error"><br>原因：工程文件夹<code>data</code>下存在了<code>mongod.lock</code>文件。这个文件阻止其他进程使用此工程目录。<br>解决办法：删除工程文件夹下的<code>data</code>文件夹里的mongod.lock文件。</p>
+<p>附本人demo源码: <a href="https://github.com/xuyuan923/node-mongodb-demo" target="_blank">https://github.com/xuyuan923/node-mongodb-demo</a><br>第一次在atatech上发文章，给自己总结经验也是帮新手少走弯路。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>这篇入门教程，适合node+mongodb开发小白，node已玩过很久的大神这篇文章可能不适合你们。<br>接触node很久了，但是玩的都是node工具，没有做过node的项目，也没有玩过mongodb。这几天搭建了了node+express+mongodb的环境，使用了m]]>
+    </summary>
+    
+      <category term="node" scheme="http://xuyuan923.github.io/tags/node/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[理解Kissy框架的Base机制]]></title>
+    <link href="http://xuyuan923.github.io/2014/08/03/understand-kissy-base/"/>
+    <id>http://xuyuan923.github.io/2014/08/03/understand-kissy-base/</id>
+    <published>2014-08-03T12:50:51.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="理解Base_API">理解Base API</h2>
+<p>Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为<a href="http://docs.kissyui.com/1.4/docs/html/api/base/" target="_blank">Base API</a>。</p>
+<h3 id="extend()">extend()</h3>
+<blockquote>
+<p>官网extend()解释为<strong>从当前类上扩展出一个子类</strong></p>
+</blockquote>
+<h3 id="callSuper()">callSuper()</h3>
+<p>调用父类的对应方法，如果没有，则返回undefined,直接看用法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+</pre></td><td class="code"><pre>KISSY.use(<span class="string">'base'</span>, function(S, Base) {
+    var A = Base.extend({
+        m: function (value) {
+            <span class="keyword">return</span> <span class="string">'am:'</span> + value;
+        },
+        m2: function (value) {
+            <span class="keyword">return</span> <span class="string">'am2:'</span> + value;
+        }
+    });
+
+    var B = A.extend({
+        m: function(value) {
+            <span class="keyword">return</span> <span class="string">'bm:('</span> + this.callSuper(value) + <span class="string">')'</span>;
+        },
+        m2: function(value) {
+        //获取B的父类A对应的方法，获取A的参数
+            <span class="keyword">return</span> <span class="string">'bm2('</span> + this.callSuper.apply(this, arguments) + <span class="string">')'</span>;
+        }
+    });
+
+    var b = new B();
+    console.log(b.m(<span class="number">1</span>)); //bm:(am:<span class="number">1</span>)
+    console.log(b.m2(<span class="number">2</span>)); //bm2:(am:<span class="number">2</span>)
+});
+</pre></td></tr></table></figure>
+
+<h3 id="ATTRS">ATTRS</h3>
+<p>ATTRS是Base的配置项，提供了默认的三种属性。</p>
+<blockquote>
+<p>1.提供默认值（value）<br>2.提供获取属性值时的函数封装（getter）<br>3.提供设定属性值时的函数封装（setter）</p>
+</blockquote>
+<p>举个例子，关键部分代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+</pre></td><td class="code"><pre>Keystone.ATTRS = {
+    backgroundColor: {
+        // 默认值
+        value: <span class="string">'#F50'</span>,
+        // this.set(<span class="string">'backgroundColor'</span>, <span class="string">'#ddd'</span>); 的时候会调用的方法
+        setter: function(v) {
+            <span class="keyword">if</span> (/^\<span class="comment">#[0-9a-f]{6}$/i.test(v) || /^\#[0-9a-f]{3}/i.test(v)) {</span>
+                <span class="keyword">return</span> v;
+            }
+            <span class="keyword">else</span> {
+                <span class="keyword">return</span> <span class="string">'#F50'</span>;
+            }
+        },
+        // this.get(<span class="string">'backgroundColor'</span>) 时会调用的方法
+        getter: function(v) {
+            <span class="keyword">if</span> (v.length === <span class="number">4</span>) {
+                <span class="keyword">return</span> <span class="string">'#'</span> + v.substr(<span class="number">1</span>).replace(/\w/ig, function(c) {
+                    <span class="keyword">return</span> c.toUpperCase() + c.toUpperCase();
+                })
+            }
+            <span class="keyword">else</span> {
+                <span class="keyword">return</span> v.toUpperCase();
+            }
+        }
+    }
+};
+</pre></td></tr></table></figure>
+
+<h2 id="Base的demo">Base的demo</h2>
+<p>来解析一下官网提供的一个kissy Base的<a href="http://docs.kissyui.com/1.4/docs/html/demo/base/index.html" target="_blank">demo</a>。抽出骨架来看一下Base模块，为防止误会，这里把ATTRS里的validator()给删了，validator()是kissy中value特有的方法，ATTRS配置项中通常只允许有value,setter(),getter()三种配置项。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+</pre></td><td class="code"><pre>KISSY.use(<span class="string">'base, node, event'</span>, function(S, Base, Node, Event) {
+    var $ = Node.all;
+    // 自定义类
+    // 继承 Base
+    var Person = Base.extend({
+        sayHi: function(name) {
+            alert(<span class="string">"Hi, "</span> + name + <span class="string">"! Nice to meet you!"</span>);
+            //触发自定义事件
+            this.fire(<span class="string">'say'</span>);
+        },
+
+        tellName: <span class="function"><span class="title">function</span></span>() {
+            alert(<span class="string">"My name is "</span> + this.get(<span class="string">'name'</span>) + <span class="string">"."</span>);
+            this.fire(<span class="string">'say'</span>);
+        },
+
+        tellAge: <span class="function"><span class="title">function</span></span>() {
+            alert(<span class="string">"I'm "</span> + this.get(<span class="string">'age'</span>) + <span class="string">" years old."</span>);
+            this.fire(<span class="string">'say'</span>);
+        },
+
+        introduce: function(extra) {
+            alert(<span class="string">"Hello everyone, my name is "</span> + this.get(<span class="string">'name'</span>) + <span class="string">", and I'm "</span> + this.get(<span class="string">'age'</span>) + <span class="string">" years old."</span> + extra);
+            this.fire(<span class="string">'say'</span>);
+        }
+    },{
+        ATTRS: {
+            name: {
+                //设置默认值
+                value: <span class="string">""</span>
+            },
+            age: {
+                value: <span class="number">1</span>,
+            },
+            gender: {
+                value: Gender.MALE,
+                /*
+                指定setter和getter方法的操作
+                 */
+                setter: function(value) {
+                    <span class="keyword">if</span> ( S.isString(value) ) {
+                        <span class="keyword">return</span> Gender[value.toUpperCase()];
+                    }
+                    <span class="keyword">return</span> value;
+                },
+                getter: function(value) {
+                    <span class="keyword">return</span> S.keys(Gender)[value];
+                },
+            }
+        }
+    });
+
+    window.person = new Person({
+        name: <span class="string">"Andy"</span>,
+        age: <span class="number">18</span>,
+        gender: <span class="string">"female"</span>
+    });
+
+    /*
+    继承Person
+     */
+    var Student = Person.extend({
+        introduce: <span class="function"><span class="title">function</span></span>() {
+            //调用父类方法
+            this.callSuper(<span class="string">"I'm a student of "</span> + this.get(<span class="string">'school'</span>) + <span class="string">".My hometown is "</span> + this.get(<span class="string">'from'</span>) + <span class="string">"."</span>);
+        },
+
+        addScore: function(subject, score) {
+            //error异常收集
+            //设置子属性
+            this.set(<span class="string">'score.'</span> + subject, score, {
+                error: function(e) {
+                    console.log(e);
+                }
+            });
+        },
+
+        /*
+        <span class="built_in">bind</span>属性变化的方法
+         */
+        _onSetScore: function(value, ev) {
+            <span class="keyword">if</span> (!S.isEmptyObject(value)) {
+                alert(<span class="string">'Score change'</span>);
+                alert(this.get(<span class="string">'score'</span>));
+            }
+        }
+    }, {
+        ATTRS: {
+            school: {
+                value: <span class="string">""</span>
+            },
+
+            from: {
+                value: <span class="string">""</span>
+            },
+
+            score: {
+            }
+        }
+    });
+
+    var Teacher = Person.extend({
+        introduce: <span class="function"><span class="title">function</span></span>() {
+            this.callSuper(<span class="string">"I'm a "</span> + this.get(<span class="string">'level'</span>) + <span class="string">"teacher, and I teach "</span> + this.get(<span class="string">'teach'</span>) + <span class="string">"."</span>);
+        },
+
+        upLevel: <span class="function"><span class="title">function</span></span>() {
+            this.set(<span class="string">'level'</span>, this.get(<span class="string">'level'</span>) + <span class="number">1</span>, {
+                error: function(e) {
+                    alert(e);
+                }
+            });
+        },
+
+        downLevel: <span class="function"><span class="title">function</span></span>() {
+            this.set(<span class="string">'level'</span>, this.get(<span class="string">'level'</span>) - <span class="number">1</span>, {
+                error: function(e) {
+                    alert(e);
+                }
+            });
+        }
+    }, {
+        ATTRS: {
+            teach: {
+                value: <span class="string">""</span>
+            },
+
+            level: {
+                value: Level.PRIMARY,
+                setter: function(value) {
+                    <span class="keyword">if</span> ( S.isString(value) ) {
+                        <span class="keyword">return</span> Level[value.toUpperCase()];
+                    }
+                    <span class="keyword">return</span> value;
+                }
+            }
+        }
+    });
+</pre></td></tr></table></figure>
+
+<h3 id="tips:kissy-add()与kissy-use()">tips:kissy.add()与kissy.use()</h3>
+<p>kissy.add()与kissy.use()的区别是，kissy.add()只加载模块，kissy.use()不仅加载模块，而且引用模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td><td class="code"><pre>kissy.add(<span class="string">'base,node'</span>,function(S,Base,Node){
+	
+},{
+	ATTRS:{}
+	}
+	<span class="keyword">return</span>
+)
+</pre></td></tr></table></figure>
+
+<p>注意区别，kissy.use()还需要配置依赖项。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+</pre></td><td class="code"><pre>//引用本地模块
+kissy.use(<span class="string">'fp/mods/lu'</span>,function(S,Base,Node){
+	
+},{
+	ATTRS:{}	
+	<span class="keyword">return</span> 
+},{
+	requires: [
+		<span class="string">'../../base/base'</span>
+	]
+}
+)
+</pre></td></tr></table></figure>]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="理解Base_API">理解Base API</h2>
+<p>Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为<a href="http://docs.kissyui.com/1.4/docs/html/api/base/" targ]]>
+    </summary>
+    
+      <category term="kissy" scheme="http://xuyuan923.github.io/tags/kissy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[移动端相册]]></title>
+    <link href="http://xuyuan923.github.io/2014/06/30/mobile-gallery/"/>
+    <id>http://xuyuan923.github.io/2014/06/30/mobile-gallery/</id>
+    <published>2014-06-30T08:31:43.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<p>第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。</p>
+<h2 id="移动端对比web端">移动端对比web端</h2>
+<h3 id="移动端的开发优势">移动端的开发优势</h3>
+<ul>
+<li>移动端浏览器大多采用webkit内核，需要考虑的js兼容性问题较少</li>
+<li>移动端的动画可以用CSS3来制作，浏览器兼容性问题少，开发效率高</li>
+</ul>
+<h3 id="移动端开发的劣势">移动端开发的劣势</h3>
+<ul>
+<li>移动端对加载速率要求更高，js代码必须更精简高效</li>
+<li>只能引入更小的js库,比如zepto.js</li>
+<li>由于引入的js库（如zepto.js）有些功能尚未包含，有时需要自己写原生的js</li>
+</ul>
+<h2 id="移动端开发工具">移动端开发工具</h2>
+<ul>
+<li>js：<a href="https://github.com/madrobby/zepto" target="_blank">zepto.js</a></li>
+<li>css3: <a href="http://daneden.github.io/animate.css/" target="_blank">animate.css</a></li>
+</ul>
+<p><code>zepto.js</code>是专为移动端打造的轻量型js库，移动端页面中可以引入大量<code>CSS3</code>动画，十分生动。</p>
+<h2 id="移动端开发的一些注意点">移动端开发的一些注意点</h2>
+<ul>
+<li>传统web端的<code>DOM animation</code>用<code>css3</code>动画代替</li>
+<li><code>zepto.js</code>中由于click事件的效率太低，执行一次click 事件有200~300ms的延迟，为了更快的响应，最好用Zepto 提供的<a href="http://zeptojs.com/#touch" target="_blank">touch</a>事件代替。</li>
+<li>使用canvas代替images,canvas会触发GPU设备，进行物理渲染，canvas可以把需要重复绘制的画面数据进行缓存起来，比images更高效</li>
+</ul>
+<h2 id="demo完整版演示">demo完整版演示</h2>
+<p>调试：<code>F12</code>打开调试窗口 ——&gt;<code>ESC</code>打开Console视图，选择<code>Emulation</code>，设置模拟的<code>device</code> ——&gt; F5刷新浏览器，查看模拟效果 </p>
+<ul>
+<li><strong>demo</strong>: <a href="http://xuyuan923.github.io/demo/mobile-gallery.html" target="_blank">http://xuyuan923.github.io/demo/mobile-gallery.html</a></li>
+<li>github源码：<a href="https://github.com/xuyuan923/mobile-gallery" target="_blank">https://github.com/xuyuan923/mobile-gallery</a></li>
+</ul>
+<h2 id="资料推荐">资料推荐</h2>
+<ul>
+<li><a href="http://www.imooc.com/learn/140" target="_blank">@远人，视频传送门</a></li>
+<li><a href="http://chaoskeh.com/blog/some-experience-of-using-zepto.html" target="_blank">Zepto 使用中的一些注意点</a></li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。</p>
+<h2 id="移动端对比web端">移动端对比web端</h2>
+<h3 id="移动端的开发优势">移动端的开发优势</]]>
+    </summary>
+    
+      <category term="移动端" scheme="http://xuyuan923.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[鼠标拖拽特效]]></title>
+    <link href="http://xuyuan923.github.io/2014/06/23/the-effect-of-mouse-drag/"/>
+    <id>http://xuyuan923.github.io/2014/06/23/the-effect-of-mouse-drag/</id>
+    <published>2014-06-23T13:34:16.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="拖拽原理分析">拖拽原理分析</h2>
+<h3 id="事件一，鼠标在可拖拽区域按下时">事件一，鼠标在可拖拽区域按下时</h3>
+<p>计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+</pre></td><td class="code"><pre>oDrag.addEventListener(<span class="string">'mousedown'</span>, function(e) {
+    var e = e || window.event;
+    mouseOffsetX = e.pageX - oDrag.offsetLeft;
+    mouseOffsetY = e.pageY - oDrag.offsetTop;
+    isDraging = <span class="literal">true</span>;
+})
+</pre></td></tr></table></figure>
+
+<h3 id="事件二，鼠标在可拖动区域按下并开始移动时">事件二，鼠标在可拖动区域按下并开始移动时</h3>
+<h4 id="检测，元素是否标记为移动,浮层跟随鼠标移动">检测，元素是否标记为移动,浮层跟随鼠标移动</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+</pre></td><td class="code"><pre>document.onmousemove = function(e) {
+    var e = e || window.event;
+    var mouseX = e.pageX; //鼠标当前在屏幕的位置
+    var mouseY = e.pageY;
+    var moveX = <span class="number">0</span>; //浮层元素的新位置
+    var moveY = <span class="number">0</span>;
+    <span class="keyword">if</span> (isDraging === <span class="literal">true</span>) {
+        moveX = mouseX - mouseOffsetX;
+        moveY = mouseY - mouseOffsetY;
+        oDrag.style.left = moveX + <span class="string">'px'</span>;
+        oDrag.style.top = moveY + <span class="string">'px'</span>;
+    }
+};
+</pre></td></tr></table></figure>
+
+<h4 id="拖拽区域的宽度和高度限制">拖拽区域的宽度和高度限制</h4>
+<p>上段程序未进行可移动区域的限制，这样拖拽图层可能脱离屏幕，出现滚轮<br>通过<code>clientWidth</code>,<code>clientHeight</code>设置<code>pageWidth</code>和<code>pageHeight</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+</pre></td><td class="code"><pre>document.onmousemove = function(e) {
+    var e = e || window.event;
+    var mouseX = e.pageX; //鼠标当前在屏幕的位置
+    var mouseY = e.pageY;
+    var moveX = <span class="number">0</span>; //浮层元素的新位置
+    var moveY = <span class="number">0</span>;
+    <span class="keyword">if</span> (isDraging === <span class="literal">true</span>) {
+        moveX = mouseX - mouseOffsetX;
+        moveY = mouseY - mouseOffsetY;
+        //宽度限制，moveX&gt;<span class="number">0</span>,并且moveX&lt;(页面最大宽度-dialog宽度)
+        //高度限制，moveYou&gt;<span class="number">0</span>,并且moveY&lt;(页面最大高度-dialog高度)
+        var pageWidth = document.documentElement.clientWidth;
+        var pageHeight = document.documentElement.clientHeight;
+        var dialogWidth = oDrag.offsetWidth;
+        var dialogHeight = oDrag.offsetHeight;
+        var maxX = pageWidth - dialogWidth;
+        var maxY = pageHeight - dialogHeight;
+        moveX = Math.min(maxX, Math.max(<span class="number">0</span>, moveX)); //保证moveX不小于<span class="number">0</span>
+        moveY = Math.min(maxY, Math.max(<span class="number">0</span>, moveY)); //保证moveY不小于<span class="number">0</span>
+        oDrag.style.left = moveX + <span class="string">'px'</span>;
+        oDrag.style.top = moveY + <span class="string">'px'</span>;
+    }
+};
+</pre></td></tr></table></figure>
+
+<h3 id="事件三，鼠标松开时">事件三，鼠标松开时</h3>
+<p>标记元素为不可拖动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>document.onmouseup = function(e) {
+    isDraging = <span class="literal">false</span>;
+}
+</pre></td></tr></table></figure>
+
+<h2 id="拖拽特性——重点函数总结">拖拽特性——重点函数总结</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document.getElementById(ID)</td>
+<td>根据传入的ID获得元素element对象</td>
+</tr>
+<tr>
+<td>Element.addEventListener(TYPE,FUNCTION)</td>
+<td>为元素对象设置事件侦听处理</td>
+</tr>
+<tr>
+<td>document.onmouseup=function(e){}</td>
+<td>鼠标松开时触发</td>
+</tr>
+<tr>
+<td>document.onmousemove=function(e){}</td>
+<td>鼠标移动时触发</td>
+</tr>
+</tbody>
+</table>
+<h2 id="详细图片展示和demo">详细图片展示和demo</h2>
+<h3 id="详细图片展示">详细图片展示</h3>
+<p><img src="/images/tuozhuai.jpg" alt="拖拽图片"></p>
+<h3 id="demo">demo</h3>
+<p><a href="/demo/drag.html">拖拽效果在线演示</a><br><a href="/demo/dialog.html">完整登陆浮层拖拽效果</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="拖拽原理分析">拖拽原理分析</h2>
+<h3 id="事件一，鼠标在可拖拽区域按下时">事件一，鼠标在可拖拽区域按下时</h3>
+<p>计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动</p>
+<figure class="highlight bash]]>
+    </summary>
+    
+      <category term="js" scheme="http://xuyuan923.github.io/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[svn远程创建版本库]]></title>
+    <link href="http://xuyuan923.github.io/2014/06/19/svn-remote-create-repository/"/>
+    <id>http://xuyuan923.github.io/2014/06/19/svn-remote-create-repository/</id>
+    <published>2014-06-19T13:06:05.000Z</published>
+    <updated>2014-11-04T08:24:27.000Z</updated>
+    <content type="html"><![CDATA[<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="进入远程服务器的svn目录">进入远程服务器的svn目录</h3>
+<p>比如我测试的服务器svn目录在/var/svn下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /var/svn
+</pre></td></tr></table></figure>
+
+<h3 id="新建版本库">新建版本库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>svnadmin create xuyuan
+</pre></td></tr></table></figure>
+
+<h4 id="查看xuyuan版本库是否已经成功创建">查看xuyuan版本库是否已经成功创建</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /var/svn
+ls
+</pre></td></tr></table></figure>
+
+<h3 id="修改版本库配置文件">修改版本库配置文件</h3>
+<h4 id="配置svnserve-conf">配置svnserve.conf</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre><span class="built_in">cd</span> xuyuan
+<span class="built_in">cd</span> conf
+vi svnserve.conf
+</pre></td></tr></table></figure>
+
+<p>修改以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+</pre></td><td class="code"><pre>anon-acess = none //未存在用户没有任何权限
+auth-acess = write //存在用户有写的权限
+password-db = passwd
+</pre></td></tr></table></figure>
+
+<h4 id="配置passwd">配置passwd</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>vi passwd
+</pre></td></tr></table></figure>
+
+<p>在passwd文件最下方添加用户:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>xuyuan = <span class="number">123456</span>
+</pre></td></tr></table></figure>
+
+<h4 id="配置authz">配置authz</h4>
+<p>在最下方添加用户的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>[/]
+xuyuan = wr
+</pre></td></tr></table></figure>
+
+<h3 id="本地新建空文件夹取回版本库">本地新建空文件夹取回版本库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre>svn checkout
+svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyuan
+</pre></td></tr></table></figure>
+
+<p>会下载最新版本xuyuan库</p>
+<h3 id="关联提交文件到远程服务器指定文件夹下">关联提交文件到远程服务器指定文件夹下</h3>
+<p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
+<h3 id="实现公用项目代码自动更新update">实现公用项目代码自动更新update</h3>
+<h5 id="可以使用svn_hooks">可以使用svn hooks</h5>
+<p>将post-commit.tmpl拷贝一份到post-commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+</pre></td><td class="code"><pre><span class="built_in">cd</span> [svn版本库]
+<span class="built_in">cd</span> hooks
+ls
+cp post-commit.tmpl post-commit
+vi post-commit
+</pre></td></tr></table></figure>
+
+<p>然后要赋予post-commit文件可执行的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>chmod +x post-commit
+</pre></td></tr></table></figure><br>此时，通过ls -al可以查看到post-commit已有执行的权限了。<br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span>
+svn update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache
+</pre></td></tr></table></figure>
+
+<h3 id="在测试服务器文件夹根目录checkout版本库">在测试服务器文件夹根目录checkout版本库</h3>
+<p>使用<code>shell</code>因为是同时在测试服务器上<code>checkout</code> <code>svn</code> 版本库，所以服务器IP为<code>localhost</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> html/[工作副本文件夹]
+svn checkout svn://localhost/xuyuan
+</pre></td></tr></table></figure>
+
+<h3 id="配置域名">配置域名</h3>
+<p>进入根目录文件夹下的httpd文件夹下，修改vhost</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+</pre></td><td class="code"><pre><span class="built_in">cd</span> /etc/httpd
+vi vhost
+</pre></td></tr></table></figure>
+
+<p>添加一段新的vhost:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+</pre></td><td class="code"><pre><span class="comment">#library by cassie</span>
+&lt;VirtualHost *:<span class="number">80</span>&gt;
+ServerName findlove.net
+ServerAdmin hfutonline@<span class="number">163</span>.com
+DocumentRoot <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>
+SetEnv APPLICATION_ENV <span class="string">"development"</span>
+&lt;Directory <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>&gt;
+DirectoryIndex index.php
+AllowOverride All
+Order deny,allow
+Allow from all
+<span class="comment">#Option Index</span>
+&lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</pre></td></tr></table></figure>
+
+<p>配置完毕后，需要重启<code>apache</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
+</pre></td><td class="code"><pre>service httpd restart
+</pre></td></tr></table></figure>
+
+]]></content>
+    <summary type="html">
+    <![CDATA[<h2 id="Quick_Start">Quick Start</h2>
+<h3 id="进入远程服务器的svn目录">进入远程服务器的svn目录</h3>
+<p>比如我测试的服务器svn目录在/var/svn下</p>
+<figure class="highlight bas]]>
+    </summary>
+    
+      <category term="tools" scheme="http://xuyuan923.github.io/tags/tools/"/>
+    
+  </entry>
+  
+</feed>
