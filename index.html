@@ -1,337 +1,751 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>前端学习踩过的坑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Cassie Xu">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/cassie.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <title>前端学习踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端学习踩过的坑">
+<meta property="og:url" content="http://xuyuan923.github.io/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端学习踩过的坑">
+<meta name="twitter:description">
+
+  
+  
+    <link rel="icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="img/cassie.jpg">
+		</div>
 
-  <body>
-    <header>
-      <div>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
 		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
 			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
-				<h2 class="blog-motto">By Cassie</h2>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，努力成长，慢慢沉淀。
+				</section>
+				
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/" title="理解js中call,apply,bind,caller,callee的区别" itemprop="url">
-  
-    <h1 itemprop="name">理解js中call,apply,bind,caller,callee的区别</h1>
-    
-     
-           <p itemprop="description" >javascript中的call(),apply(),bind(),caller(),callee()方法作用都是调用某个函数或方法，概念和作用容易混淆，我自己也经常分不清楚什么时候该用哪种函数，这里总结一下，以免忘记。
-call()</p>
-        
-    
-    <time datetime="2015-01-24T07:07:31.000Z" itemprop="datePublished">1月 24 2015</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/20/近期nodejs-web开发的一些收获小结/" title="近期nodejs-web开发的一些收获小结" itemprop="url">
-  
-    <h1 itemprop="name">近期nodejs-web开发的一些收获小结</h1>
-    
-     
-           <p itemprop="description" >在node web开发学习和实战的路上兜兜转转，经过半年的学习和磨练，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。由于我后端开发经验不足，所以上手node</p>
-        
-    
-    <time datetime="2015-01-20T12:46:46.000Z" itemprop="datePublished">1月 20 2015</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/07/45-useful-javascript-tips/" title="45个实用的JavaScript技巧" itemprop="url">
-  
-    <h1 itemprop="name">45个实用的JavaScript技巧</h1>
-    
-     
-           <p itemprop="description" >本文是一篇转载加补充的文章，原文及译文信息如下：
-
-原文：45 Useful JavaScript Tips, Tricks and Best Practices
-作者：Saad Mousliki
-译文：JavaScript奇技淫巧45招
-作者：chensd
-
-JavaScrip</p>
-        
-    
-    <time datetime="2015-01-07T01:52:47.000Z" itemprop="datePublished">1月 7 2015</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2015/01/03/mobile-debug/" title="移动端前端开发真机调试实践" itemprop="url">
-  
-    <h1 itemprop="name">移动端前端开发真机调试实践</h1>
-    
-     
-           <p itemprop="description" >上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。
-Weinre测试安卓真机
-Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是M</p>
-        
-    
-    <time datetime="2015-01-03T07:09:18.000Z" itemprop="datePublished">1月 3 2015</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/12/31/my-2014/" title="路还很长，2015重新出发" itemprop="url">
-  
-    <h1 itemprop="name">路还很长，2015重新出发</h1>
-    
-     
-           <p itemprop="description" >2014年最后一天，按照以往的惯例，是时候该总结下今年得与失，给自己些鼓励，给2015年制定一些目标，重新出发。新的技术博客从SAE迁移到了github,便没有再写过关于生活的软文。自从决定学习前端后，以前每周会写的私人日记也变成了技术博客。
-2014年纪事
-
-2014年1-3月</p>
-        
-    
-    <time datetime="2014-12-31T11:29:33.000Z" itemprop="datePublished">12月 31 2014</time>
-  </a>
-</section>
-
-
-  <nav id="page-nav" class="clearfix">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" href="/page/2/">Next<span></span></a>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/node/" title="node">node<sup>5</sup></a></li>
-		
-			<li><a href="/tags/tools/" title="tools">tools<sup>5</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
-		
-			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
-      <li><a href="http://hustskyking.cnblogs.com/" target="_blank" title="小胡子哥-Barret Lee">小胡子哥-Barret Lee</a></li>
-      <li><a href="http://yujiangshui.com/" target="_blank" title="于江水">于江水</a></li>
-      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
-      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
-      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
+		</div>
+	</header>				
 </div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
-		
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
 	</div>
-	
-	
-	<section class="info">
-		<p> 我是一名大四的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
-			这是我的github博客</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
-		
-		
-		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
-		
-		
-		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
-		
-		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+</nav>
+      
+  
+    <article id="post-理解js中call,apply,bind,caller,callee的区别" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/" class="article-date">
+  	<time datetime="2015-01-24T07:07:31.000Z" itemprop="datePublished">1月 24 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/">理解js中call,apply,bind,caller,callee的区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>javascript中的<code>call()</code>,<code>apply()</code>,<code>bind()</code>,<code>caller()</code>,<code>callee()</code>方法作用都是调用某个函数或方法，概念和作用容易混淆，我自己也经常分不清楚什么时候该用哪种函数，这里总结一下，以免忘记。</p>
+<h2 id="call()">call()</h2>
+
+      
+    </div>
+  </div>
+  
+</article>
 
 
 
 
 
 
+  
+    <article id="post-近期nodejs-web开发的一些收获小结" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/20/近期nodejs-web开发的一些收获小结/" class="article-date">
+  	<time datetime="2015-01-20T12:46:46.000Z" itemprop="datePublished">1月 20 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
 
-<!-- mathjax config similar to math.stackexchange -->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/20/近期nodejs-web开发的一些收获小结/">近期nodejs-web开发的一些收获小结</a>
+    </h1>
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在node web开发学习和实战的路上兜兜转转，经过半年的学习和磨练，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。<br>由于我后端开发经验不足，所以上手node这门后端语言走了不少弯路，这一路磕磕绊绊，还好，最终我的node-web开发处女秀项目终于做好了。<br>为了开发一个面向研发的OA系统，我在技术上选用nodejs语言，express框架，mongodb数据库，采用mongoose操作库。这几个月下来我的主要成长经历是：</p>
+<h2 id="初始学习阶段">初始学习阶段</h2>
+<p>最初的学习阶段为上网看一些博客教程，看node开发书，比如《深入浅出Node》,《Node.js实战》这样的书，在此说明《深入浅出Node》把node的原理性知识讲解的很透彻，但它并不适合作为开发者nodejs开发实践教材。</p>
+<ul>
+<li>看一些博客教程，学习如何在本地搭建node+mongodb<br>于是有了第一篇翻译的国外的一篇博客的教程，<a href="http://xuyuan923.github.io/2014/08/05/node-mongodb-tutorial/" target="_blank" rel="external">Node+Express+Mongodb+monk简易入门教程</a></li>
+<li>折腾node-web开发相关工具<br>折腾开发工具是因为我开始觉得node调试不够方便，不便于打印日志，每次不明原因的报错以及线程挂起node无法重启，查询mongodb的不便，我开始寻找解决方案。<br>于是写了一篇<a href="http://xuyuan923.github.io/2014/09/25/nodejs-notes/" target="_blank" rel="external">Nodejs Web开发一些好用的工具</a>,推荐<a href="http://www.itpub.net/thread-1821025-1-1.html" target="_blank" rel="external">写给Node.js学徒的7个建议</a>这篇文章。</li>
+<li>看视频教程，看了<a href="http://www.imooc.com/learn/75" target="_blank" rel="external">node+mongodb 建站攻略（一期）</a><br>跟着上面的视频教程后面学习，并跟着敲了<a href="https://github.com/xuyuan923/imooc-1" target="_blank" rel="external">代码</a>，在自己本地跑程序，初步感受到了express-mongodb应用是如何启动起来的，对node文件、数据库文件、路由文件、静态文件是怎么分离的有了大体的认识。</li>
+</ul>
+<h2 id="尝试一轮系统开发(失败告终)">尝试一轮系统开发(失败告终)</h2>
+<p>做完上面的学习积累觉得可以开始做项目了，在纠结用原生的mongodb还是用mongodb的库mongoose上纠结了一阵子，后来决定采用mongodb，因为mongoose需要多一层model与schema的逻辑，我觉得这一层model和schema的嵌套有些复杂就想简单一点，单纯用mongodb。最后证明我当时的决定是错误的，用原生的mongodb非常之麻烦。<br>第二轮重写时，我使用了mongoose,它是mongodb的对象模型工具，用原生的mongodb的痛点是每次数据操作涉及到的嵌套回调太多，当然你可以用Q或者Async来解决。但是用mongoose，它自带了promise模块可以让你不会陷入回调地狱。</p>
+<h2 id="继续深入学习node-web开发">继续深入学习node-web开发</h2>
+<p>深入学习node-web开发，我的学习方式是，当时正好看了慕课网的<a href="http://www.imooc.com/learn/75" target="_blank" rel="external">node+mongodb 建站攻略（一期）</a>，但这一期讲的还是有些基础和简单，欣喜地发现<a href="http://www.imooc.com/learn/197" target="_blank" rel="external">node+mongodb 建站攻略</a>推出了第二期，老师讲的非常好很透彻，所以我的项目目录完全按照这期教程搭建的，基于MEAN架构(mongodb+express+angular+node),当然我并没有用angular,但是数据和模板的绑定也是和Angular有些相似的。<br>在一轮的系统开发中</p>
+<h2 id="重新开发(成功)">重新开发(成功)</h2>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
+      
+    </div>
+  </div>
+  
+</article>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  </body>
- </html>
+
+
+
+
+  
+    <article id="post-45-useful-javascript-tips" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/07/45-useful-javascript-tips/" class="article-date">
+  	<time datetime="2015-01-07T01:52:47.000Z" itemprop="datePublished">1月 7 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/07/45-useful-javascript-tips/">45个实用的JavaScript技巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文是一篇转载加补充的文章，原文及译文信息如下：</p>
+<ul>
+<li>原文：<a href="http://modernweb.com/2013/12/23/45-useful-javascript-tips-tricks-and-best-practices/" target="_blank" rel="external">45 Useful JavaScript Tips, Tricks and Best Practices</a></li>
+<li>作者：<a href="http://modernweb.com/authors/saad-mousliki/" target="_blank" rel="external">Saad Mousliki</a></li>
+<li>译文：<a href="http://chensd.com/2015-01/45-useful-javascript-tips-tricks-and-best-practices.html" target="_blank" rel="external">JavaScript奇技淫巧45招</a></li>
+<li>作者：<a href="http://chensd.com/" target="_blank" rel="external">chensd</a></li>
+</ul>
+<p>JavaScript是一个绝冠全球的编程语言，可用于Web开发、移动应用开发（PhoneGap、Appcelerator）、服务器端开发（Node.js和Wakanda）等等。JavaScript还是很多新手踏入编程世界的第一个语言。既可以用来显示浏览器中的简单提示框，也可以通过nodebot或nodruino来控制机器人。能够编写结构清晰、性能高效的JavaScript代码的开发人员，现如今已成了招聘市场最受追捧的人。<br>在这篇文章里，我将分享一些JavaScript的技巧、秘诀和最佳实践，除了少数几个外，不管是浏览器的JavaScript引擎，还是服务器端JavaScript解释器，均适用。<br>本文中的示例代码，通过了在Google Chrome 30最新版（V8 3.20.17.15）上的测试。</p>
+<h2 id="首次为变量赋值时务必使用var关键字">首次为变量赋值时务必使用var关键字</h2>
+<p>变量没有声明而直接赋值得话，默认会作为一个新的全局变量，要尽量避免使用全局变量。</p>
+<h2 id="使用===取代==">使用===取代==</h2>
+<p>==和!=操作符会在需要的情况下自动转换数据类型。但===和!==不会，它们会同时比较值和数据类型，这也使得它们要比==和!=快。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[<span class="number">10</span>] === <span class="number">10</span>    <span class="comment">// is false</span></div><div class="line">[<span class="number">10</span>]  == <span class="number">10</span>    <span class="comment">// is true</span></div><div class="line"><span class="string">'10'</span> == <span class="number">10</span>     <span class="comment">// is true</span></div><div class="line"><span class="string">'10'</span> === <span class="number">10</span>    <span class="comment">// is false</span></div><div class="line">[]   == <span class="number">0</span>     <span class="comment">// is true</span></div><div class="line">[] ===  <span class="number">0</span>     <span class="comment">// is false</span></div><div class="line"><span class="string">''</span> == <span class="literal">false</span>   <span class="comment">// is true but true == "a" is false</span></div><div class="line"><span class="string">''</span> === <span class="literal">false</span>  <span class="comment">// is false</span></div></pre></td></tr></table></figure>
+
+<h2 id="注意underfined，null，0，false，NaN，‘’的逻辑结果均为false">注意<code>underfined</code>，<code>null</code>，<code>0</code>，<code>false</code>，<code>NaN</code>，<code>‘’</code>的逻辑结果均为<code>false</code></h2>
+<h2 id="行尾使用分号">行尾使用分号</h2>
+<p>实践中最好还是使用分号，忘了写也没事，大部分情况下JavaScript解释器都会自动添加。对于为何要使用分号，可参考文章<a href="http://davidwalsh.name/javascript-semicolons" target="_blank" rel="external">JavaScript中关于分号的真相</a>。</p>
+<h2 id="使用对象构造器">使用对象构造器</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">(firstName, lastName)</span></span>{</div><div class="line">    <span class="keyword">this</span>.firstName =  firstName;</div><div class="line">    <span class="keyword">this</span>.lastName = lastName;</div><div class="line">}</div><div class="line"><span class="keyword">var</span> Saad = <span class="keyword">new</span> Person(<span class="string">"Saad"</span>, <span class="string">"Mousliki"</span>);</div></pre></td></tr></table></figure>
+
+<h2 id="注意区别使用typeof、instanceof和contructor">注意区别使用<code>typeof</code>、<code>instanceof</code>和<code>contructor</code></h2>
+<ul>
+<li>typeof:JavaScript一元操作符，用于以字符串的形式返回变量的原始类型，注意，typeof null也会返回object，大多数的对象类型（数组Array、时间Date等）也会返回object</li>
+<li>constructor: 内部原型属性，可以通过代码重写</li>
+<li>instanceof: JavaScript操作符，会在原型链中的构造器中搜索，找到则返回true，否则返回false</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> arr = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>];</div><div class="line"><span class="keyword">typeof</span> arr;  <span class="comment">// return "object"</span></div><div class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span> <span class="comment">// true</span></div><div class="line">arr.constructor();  <span class="comment">//[]</span></div></pre></td></tr></table></figure>
+
+<h2 id="使用自调用函数">使用自调用函数</h2>
+<p>函数在创建之后直接自动执行，通常称之为自调用匿名函数（Self-Invoked Anonymous Function）或直接调用函数表达式（Immediately Invoked Function Expression ）。格式如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">    <span class="comment">// 置于此处的代码将自动执行</span></div><div class="line">})();</div><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(a,b)</span></span>{</div><div class="line">    <span class="keyword">var</span> result = a+b;</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">})(<span class="number">10</span>,<span class="number">20</span>)</div></pre></td></tr></table></figure>
+
+<h2 id="从数组中随机获取成员">从数组中随机获取成员</h2>
+<ul>
+<li>Math.random()将随机出现[0,1]区间随机数</li>
+<li>Math.floor()方法执行的是向下取整计算，它返回的是小于或等于函数参数，并且与之最接近的整数。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> , <span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> , <span class="number">2145</span> , <span class="number">119</span>];</div><div class="line"><span class="keyword">var</span> randomItem = items[<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * items.length)];</div></pre></td></tr></table></figure>
+
+<h2 id="获取指定范围内的随机数">获取指定范围内的随机数</h2>
+<p>这个功能在生成测试用的假数据时特别有用，比如在与指定范围内的工资数。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> x = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * (max - min + <span class="number">1</span>)) + min;</div></pre></td></tr></table></figure>
+
+<h2 id="生成从0到指定值的数字数组">生成从0到指定值的数字数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbersArray = [] , max = <span class="number">100</span>;</div><div class="line"><span class="keyword">for</span>( <span class="keyword">var</span> i=<span class="number">1</span>; numbersArray.push(i++) &lt; max;);  <span class="comment">// numbers = [1,2,3 ... 100]</span></div></pre></td></tr></table></figure>
+
+<h2 id="生成随机的字母数字字符串">生成随机的字母数字字符串</h2>
+<ul>
+<li>toString(36):把一个Number对象转换为一个36进制字符串</li>
+<li>substr(): 在字符串中抽取从 start 下标开始的指定数目的字符</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateRandomAlphaNum</span><span class="params">(len)</span> </span>{</div><div class="line">    <span class="keyword">var</span> rdmString = <span class="string">""</span>;</div><div class="line">    <span class="keyword">for</span>( ; rdmString.length &lt; len; rdmString  += <span class="built_in">Math</span>.random().toString(<span class="number">36</span>).substr(<span class="number">2</span>));</div><div class="line">    <span class="keyword">return</span>  rdmString.substr(<span class="number">0</span>, len);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="打乱数字数组的顺序">打乱数字数组的顺序</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , -<span class="number">215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, -<span class="number">85411</span>];</div><div class="line">numbers = numbers.sort(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{ <span class="keyword">return</span> <span class="built_in">Math</span>.random() - <span class="number">0.5</span>});</div><div class="line"><span class="comment">/* numbers 数组将类似于 [120, 5, 228, -215, 400, 458, -85411, 122205]  */</span></div></pre></td></tr></table></figure>
+
+<p>这里使用了JavaScript内置的数组排序函数，更好的办法是用专门的代码来实现（如Fisher-Yates算法），可以参见StackOverFlow上的<a href="http://stackoverflow.com/questions/962802/is-it-correct-to-use-javascript-array-sort-method-for-shuffling/962890#962890" target="_blank" rel="external">这个讨论</a>。</p>
+<h2 id="字符串去空格">字符串去空格</h2>
+<p>Java、C#和PHP等语言都实现了专门的字符串去空格函数，但JavaScript中是没有的，可以通过下面的代码来为String对象函数一个trim函数：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">String</span>.prototype.trim = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{<span class="keyword">return</span> <span class="keyword">this</span>.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">""</span>);};</div></pre></td></tr></table></figure>
+
+<p>新的JavaScript引擎已经有了trim()的原生实现。</p>
+<h2 id="数组之间追加">数组之间追加</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array1 = [<span class="number">12</span> , <span class="string">"foo"</span> , -<span class="number">2458</span>];</div><div class="line"><span class="keyword">var</span> array2 = [<span class="string">"Doe"</span> , <span class="number">555</span> , <span class="number">100</span>];</div><div class="line"><span class="built_in">Array</span>.prototype.push.apply(array1, array2);</div><div class="line"><span class="built_in">console</span>.log(array1);</div><div class="line"><span class="comment">/* array1 值为  [12 , "foo" , -2458 , "Doe" , 555 , 100] */</span></div></pre></td></tr></table></figure>
+
+<h2 id="对象转换为数组">对象转换为数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> argArray = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</div></pre></td></tr></table></figure>
+
+<h2 id="验证是否是数字">验证是否是数字</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isNumber</span><span class="params">(n)</span></span>{</div><div class="line">    <span class="keyword">return</span> !<span class="built_in">isNaN</span>(<span class="built_in">parseFloat</span>(n)) && <span class="built_in">isFinite</span>(n);</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="验证是否是数组">验证是否是数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isArray</span><span class="params">(obj)</span></span>{</div><div class="line">    <span class="keyword">return</span> <span class="built_in">Object</span>.prototype.toString.call(obj) === <span class="string">'[object Array]'</span> ;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>但如果toString()方法被重写过得话，就行不通了。也可以使用下面的方法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>.isArray(obj); <span class="comment">// its a new Array method</span></div></pre></td></tr></table></figure>
+
+<p>如果在浏览器中没有使用frame，还可以用instanceof，但如果上下文太复杂，也有可能出错。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myFrame = <span class="built_in">document</span>.createElement(<span class="string">'iframe'</span>);</div><div class="line"><span class="built_in">document</span>.body.appendChild(myFrame);</div><div class="line"><span class="keyword">var</span> myArray = <span class="built_in">window</span>.frames[<span class="built_in">window</span>.frames.length-<span class="number">1</span>].Array;</div><div class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> myArray(a,b,<span class="number">10</span>); <span class="comment">// [a,b,10]</span></div><div class="line"><span class="comment">// myArray 的构造器已经丢失，instanceof 的结果将不正常</span></div><div class="line"><span class="comment">// 构造器是不能跨 frame 共享的</span></div><div class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>; <span class="comment">// false</span></div></pre></td></tr></table></figure>
+
+<h2 id="获取数组中的最大值和最小值">获取数组中的最大值和最小值</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span>  numbers = [<span class="number">5</span>, <span class="number">458</span> , <span class="number">120</span> , -<span class="number">215</span> , <span class="number">228</span> , <span class="number">400</span> , <span class="number">122205</span>, -<span class="number">85411</span>];</div><div class="line"><span class="keyword">var</span> maxInNumbers = <span class="built_in">Math</span>.max.apply(<span class="built_in">Math</span>, numbers);</div><div class="line"><span class="keyword">var</span> minInNumbers = <span class="built_in">Math</span>.min.apply(<span class="built_in">Math</span>, numbers);</div></pre></td></tr></table></figure>
+
+<h2 id="清空数组">清空数组</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArray = [<span class="number">12</span> , <span class="number">222</span> , <span class="number">1000</span> ];</div><div class="line">myArray.length = <span class="number">0</span>; <span class="comment">// myArray will be equal to [].</span></div></pre></td></tr></table></figure>
+
+<h2 id="不要直接从数组中delete或remove元素">不要直接从数组中delete或remove元素</h2>
+<p>如果对数组元素直接使用<code>delete</code>，其实并没有删除，只是将元素置为了<code>undefined</code>。数组元素删除应使用<code>**splice**</code>。</p>
+<ul>
+<li>arrayObject.splice(index,howmany,item1,…..,itemX): 向/从数组中添加/删除项目，然后返回被删除的项目。<br>这样做是错误的：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> ,<span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> ,<span class="number">2154</span> , <span class="number">119</span> ];</div><div class="line">items.length; <span class="comment">// return 11</span></div><div class="line"><span class="keyword">delete</span> items[<span class="number">3</span>]; <span class="comment">// return true</span></div><div class="line">items.length; <span class="comment">// return 11</span></div><div class="line"><span class="comment">/* items 结果为 [12, 548, "a", undefined × 1, 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119] */</span></div></pre></td></tr></table></figure>
+
+<p>应这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> items = [<span class="number">12</span>, <span class="number">548</span> ,<span class="string">'a'</span> , <span class="number">2</span> , <span class="number">5478</span> , <span class="string">'foo'</span> , <span class="number">8852</span>, , <span class="string">'Doe'</span> ,<span class="number">2154</span> , <span class="number">119</span> ];</div><div class="line">items.length; <span class="comment">// return 11</span></div><div class="line">items.splice(<span class="number">3</span>,<span class="number">1</span>) ;</div><div class="line">items.length; <span class="comment">// return 10</span></div><div class="line"><span class="comment">/* items 结果为 [12, 548, "a", 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119]</span></div></pre></td></tr></table></figure>
+
+<p>删除对象的属性时可以使用delete。</p>
+<h2 id="使用length属性截断数组">使用length属性截断数组</h2>
+<p>前面的例子中用length属性清空数组，同样还可用它来截断数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> myArray = [<span class="number">12</span> , <span class="number">222</span> , <span class="number">1000</span> , <span class="number">124</span> , <span class="number">98</span> , <span class="number">10</span> ];</div><div class="line">myArray.length = <span class="number">4</span>; <span class="comment">// myArray will be equal to [12 , 222 , 1000 , 124].</span></div></pre></td></tr></table></figure>
+
+<p>与此同时，如果把length属性变大，数组的长度值变会增加，会使用undefined来作为新的元素填充。length是一个可写的属性。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">myArray.length = <span class="number">10</span>; <span class="comment">// the new array length is 10</span></div><div class="line">myArray[myArray.length - <span class="number">1</span>] ; <span class="comment">// undefined</span></div></pre></td></tr></table></figure>
+
+<h2 id="在条件中使用逻辑与或">在条件中使用逻辑与或</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> foo = <span class="number">10</span>;</div><div class="line">foo == <span class="number">10</span> && doSomething(); <span class="comment">// is the same thing as if (foo == 10) doSomething();</span></div><div class="line">foo == <span class="number">5</span> || doSomething(); <span class="comment">// is the same thing as if (foo != 5) doSomething();</span></div></pre></td></tr></table></figure>
+
+<p>逻辑或还可用来设置默认值，比如函数参数的默认值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">doSomething</span><span class="params">(arg1)</span></span>{</div><div class="line">    arg1 = arg1 || <span class="number">10</span>; <span class="comment">// arg1 will have 10 as a default value if it’s not already set</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="使用map()函数方法对数据循环">使用map()函数方法对数据循环</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external">Array.prototype.map()</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> squares = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>].map(<span class="function"><span class="keyword">function</span> <span class="params">(val)</span> </span>{</div><div class="line">    <span class="keyword">return</span> val * val;</div><div class="line">});</div><div class="line"><span class="comment">// squares will be equal to [1, 4, 9, 16]</span></div></pre></td></tr></table></figure>
+
+<h2 id="保留指定小数位数">保留指定小数位数</h2>
+<ul>
+<li><a href="http://www.w3school.com.cn/jsref/jsref_tofixed.asp" target="_blank" rel="external">toFixed()</a></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> num =<span class="number">2.443242342</span>;</div><div class="line">num = num.toFixed(<span class="number">4</span>);  <span class="comment">// num will be equal to 2.4432</span></div></pre></td></tr></table></figure>
+
+<p>注意，toFixec()返回的是字符串，不是数字。</p>
+<h2 id="浮点计算的问题">浮点计算的问题</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span> <span class="comment">// is false</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">1</span> <span class="comment">// is equal to 9007199254740992</span></div><div class="line"><span class="number">9007199254740992</span> + <span class="number">2</span> <span class="comment">// is equal to 9007199254740994</span></div></pre></td></tr></table></figure>
+
+<p>为什么呢？因为0.1+0.2等于0.30000000000000004。JavaScript的数字都遵循IEEE 754标准构建，在内部都是64位浮点小数表示，具体可以参见<a href="">JavaScript中的数字是如何编码的</a>.<br>可以通过使用<code>toFixed()</code>和<code>toPrecision()</code>来解决这个问题。</p>
+<h2 id="通过for-in循环检查对象的属性">通过for-in循环检查对象的属性</h2>
+<p>下面这样的用法，可以防止迭代的时候进入到对象的原型属性中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> object) {</div><div class="line">    <span class="keyword">if</span> (object.hasOwnProperty(name)) {</div><div class="line">        <span class="comment">// do something with name</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="26、通过for-in循环检查对象的属性">26、通过for-in循环检查对象的属性</h2>
+<p>下面这样的用法，可以防止迭代的时候进入到对象的原型属性中。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> name <span class="keyword">in</span> object) {</div><div class="line">    <span class="keyword">if</span> (object.hasOwnProperty(name)) {</div><div class="line">        <span class="comment">// do something with name</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="逗号操作符">逗号操作符</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = <span class="number">0</span>;</div><div class="line"><span class="keyword">var</span> b = ( a++, <span class="number">99</span> );</div><div class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a will be equal to 1</span></div><div class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// b is equal to 99</span></div></pre></td></tr></table></figure>
+
+<h2 id="临时存储用于计算和查询的变量">临时存储用于计算和查询的变量</h2>
+<p>在jQuery选择器中，可以临时存储整个DOM元素。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> navright = <span class="built_in">document</span>.querySelector(<span class="string">'#right'</span>);</div><div class="line"><span class="keyword">var</span> navleft = <span class="built_in">document</span>.querySelector(<span class="string">'#left'</span>);</div><div class="line"><span class="keyword">var</span> navup = <span class="built_in">document</span>.querySelector(<span class="string">'#up'</span>);</div><div class="line"><span class="keyword">var</span> navdown = <span class="built_in">document</span>.querySelector(<span class="string">'#down'</span>);</div></pre></td></tr></table></figure>
+
+<h2 id="提前检查传入isFinite()的参数">提前检查传入isFinite()的参数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">isFinite</span>(<span class="number">0</span>/<span class="number">0</span>) ; <span class="comment">// false</span></div><div class="line"><span class="built_in">isFinite</span>(<span class="string">"foo"</span>); <span class="comment">// false</span></div><div class="line"><span class="built_in">isFinite</span>(<span class="string">"10"</span>); <span class="comment">// true</span></div><div class="line"><span class="built_in">isFinite</span>(<span class="number">10</span>);   <span class="comment">// true</span></div><div class="line"><span class="built_in">isFinite</span>(<span class="literal">undefined</span>);  <span class="comment">// false</span></div><div class="line"><span class="built_in">isFinite</span>();   <span class="comment">// false</span></div><div class="line"><span class="built_in">isFinite</span>(<span class="literal">null</span>);  <span class="comment">// true，这点当特别注意</span></div></pre></td></tr></table></figure>
+
+<h2 id="避免在数组中使用负数做索引">避免在数组中使用负数做索引</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> numbersArray = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>];</div><div class="line"><span class="keyword">var</span> from = numbersArray.indexOf(<span class="string">"foo"</span>) ;  <span class="comment">// from is equal to -1</span></div><div class="line">numbersArray.splice(from,<span class="number">2</span>);    <span class="comment">// will return [5]</span></div></pre></td></tr></table></figure>
+
+<p>注意传给splice的索引参数不要是负数，当是负数时，会从数组结尾处删除元素。</p>
+<h2 id="用JSON来序列化与反序列化">用JSON来序列化与反序列化</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = {name :<span class="string">'Saad'</span>, age : <span class="number">26</span>, department : {ID : <span class="number">15</span>, name : <span class="string">"R&D"</span>} };</div><div class="line"><span class="keyword">var</span> stringFromPerson = <span class="built_in">JSON</span>.stringify(person);</div><div class="line"><span class="comment">/* stringFromPerson 结果为 "{"name":"Saad","age":26,"department":{"ID":15,"name":"R&D"}}"   */</span></div><div class="line"><span class="keyword">var</span> personFromString = <span class="built_in">JSON</span>.parse(stringFromPerson);</div><div class="line"><span class="comment">/* personFromString 的值与 person 对象相同  */</span></div></pre></td></tr></table></figure>
+
+<h2 id="不要使用eval()或者函数构造器">不要使用eval()或者函数构造器</h2>
+<p>eval()和函数构造器（Function consturctor）的开销较大，每次调用，JavaScript引擎都要将源代码转换为可执行的代码。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> func1 = <span class="keyword">new</span> <span class="built_in">Function</span>(functionCode);</div><div class="line"><span class="keyword">var</span> func2 = <span class="built_in">eval</span>(functionCode);</div></pre></td></tr></table></figure>
+
+<h2 id="避免使用with()">避免使用with()</h2>
+<p>使用with()可以把变量加入到全局作用域中，因此，如果有其它的同名变量，一来容易混淆，二来值也会被覆盖。</p>
+<h2 id="不要对数组使用for-in">不要对数组使用for-in</h2>
+<p>避免：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> arrayNumbers) {</div><div class="line">    sum += arrayNumbers[i];</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>而是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> sum = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = arrayNumbers.length; i &lt; len; i++) {</div><div class="line">    sum += arrayNumbers[i];</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>另外一个好处是，i和len两个变量是在for循环的第一个声明中，二者只会初始化一次，这要比下面这种写法快：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; arrayNumbers.length; i++)</div></pre></td></tr></table></figure>
+
+<h2 id="传给setInterval()和setTimeout()时使用函数而不是字符串">传给setInterval()和setTimeout()时使用函数而不是字符串</h2>
+<p>如果传给setTimeout()和setInterval()一个字符串，他们将会用类似于eval方式进行转换，这肯定会要慢些，<br>因此不要使用：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setInterval(<span class="string">'doSomethingPeriodically()'</span>, <span class="number">1000</span>);</div><div class="line">setTimeout(<span class="string">'doSomethingAfterFiveSeconds()'</span>, <span class="number">5000</span>);</div></pre></td></tr></table></figure>
+
+<p>而是用:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setInterval(doSomethingPeriodically, <span class="number">1000</span>);</div><div class="line">setTimeout(doSomethingAfterFiveSeconds, <span class="number">5000</span>);</div></pre></td></tr></table></figure>
+
+<h2 id="使用switch/case代替一大叠的if/else">使用switch/case代替一大叠的if/else</h2>
+<p>当判断有超过两个分支的时候使用switch/case要更快一些，而且也更优雅，更利于代码的组织，当然，如果有超过10个分支，就不要使用switch/case了。</p>
+<h2 id="在switch/case中使用数字区间">在switch/case中使用数字区间</h2>
+<p>其实，switch/case中的case条件，还可以这样写：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCategory</span><span class="params">(age)</span> </span>{</div><div class="line">    <span class="keyword">var</span> category = <span class="string">""</span>;</div><div class="line">    <span class="keyword">switch</span> (<span class="literal">true</span>) {</div><div class="line">        <span class="keyword">case</span> <span class="built_in">isNaN</span>(age):</div><div class="line">            category = <span class="string">"not an age"</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> (age &gt;= <span class="number">50</span>):</div><div class="line">            category = <span class="string">"Old"</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> (age &lt;= <span class="number">20</span>):</div><div class="line">            category = <span class="string">"Baby"</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">            category = <span class="string">"Young"</span>;</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    };</div><div class="line">    <span class="keyword">return</span> category;</div><div class="line">}</div><div class="line">getCategory(<span class="number">5</span>);  <span class="comment">// 将返回 "Baby"</span></div></pre></td></tr></table></figure>
+
+<h2 id="使用对象作为对象的原型">使用对象作为对象的原型</h2>
+<p>下面这样，便可以给定对象作为参数，来创建以此为原型的新对象：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span><span class="params">(object)</span> </span>{</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">OneShotConstructor</span><span class="params">()</span></span>{};</div><div class="line">    OneShotConstructor.prototype = object;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> OneShotConstructor();</div><div class="line">}</div><div class="line">clone(<span class="built_in">Array</span>).prototype ;  <span class="comment">// []</span></div></pre></td></tr></table></figure>
+
+<h2 id="HTML字段转换函数">HTML字段转换函数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">function escapeHTML(text) {</div><div class="line">    var replacements= {"&lt;": "&lt;", "&gt;": "&gt;","&": "&", "\"": """};</div><div class="line">    return text.replace(/[&lt;&gt;&"]/g, function(character) {</div><div class="line">        return replacements[character];</div><div class="line">    });</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="不要在循环内部使用try-catch-finally">不要在循环内部使用try-catch-finally</h2>
+<p>try-catch-finally中catch部分在执行时会将异常赋给一个变量，这个变量会被构建成一个运行时作用域内的新的变量。<br>切忌：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> object = [<span class="string">'foo'</span>, <span class="string">'bar'</span>], i;</div><div class="line"><span class="keyword">for</span> (i = <span class="number">0</span>, len = object.length; i &lt;len; i++) {</div><div class="line">    <span class="keyword">try</span> {</div><div class="line">        <span class="comment">// do something that throws an exception</span></div><div class="line">    }</div><div class="line">    <span class="keyword">catch</span> (e) {</div><div class="line">        <span class="comment">// handle exception</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>而应该：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> object = [<span class="string">'foo'</span>, <span class="string">'bar'</span>], i;</div><div class="line"><span class="keyword">try</span> {</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>, len = object.length; i &lt;len; i++) {</div><div class="line">        <span class="comment">// do something that throws an exception</span></div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="keyword">catch</span> (e) {</div><div class="line">    <span class="comment">// handle exception</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="使用XMLHttpRequests时注意设置超时">使用XMLHttpRequests时注意设置超时</h2>
+<p>XMLHttpRequests在执行时，当长时间没有响应（如出现网络问题等）时，应该中止掉连接，可以通过setTimeout()来完成这个工作：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest ();</div><div class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.readyState == <span class="number">4</span>) {</div><div class="line">        clearTimeout(timeout);</div><div class="line">        <span class="comment">// do something with response data</span></div><div class="line">    }</div><div class="line">}</div><div class="line"><span class="keyword">var</span> timeout = setTimeout( <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    xhr.abort(); <span class="comment">// call error callback</span></div><div class="line">}, <span class="number">60</span>*<span class="number">1000</span> <span class="comment">/* timeout after a minute */</span> );</div><div class="line">xhr.open(<span class="string">'GET'</span>, url, <span class="literal">true</span>);</div><div class="line">xhr.send();</div></pre></td></tr></table></figure>
+
+<p>同时需要注意的是，不要同时发起多个XMLHttpRequests请求。</p>
+<h2 id="处理WebSocket的超时">处理WebSocket的超时</h2>
+<p>通常情况下，WebSocket连接创建后，如果30秒内没有任何活动，服务器端会对连接进行超时处理，防火墙也可以对单位周期没有活动的连接进行超时处理。<br>为了防止这种情况的发生，可以每隔一定时间，往服务器发送一条空的消息。可以通过下面这两个函数来实现这个需求，一个用于使连接保持活动状态，另一个专门用于结束这个状态。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> timerID = <span class="number">0</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">keepAlive</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">var</span> timeout = <span class="number">15000</span>;</div><div class="line">    <span class="keyword">if</span> (webSocket.readyState == webSocket.OPEN) {</div><div class="line">        webSocket.send(<span class="string">''</span>);</div><div class="line">    }</div><div class="line">    timerId = setTimeout(keepAlive, timeout);</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">cancelKeepAlive</span><span class="params">()</span> </span>{</div><div class="line">    <span class="keyword">if</span> (timerId) {</div><div class="line">        cancelTimeout(timerId);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>keepAlive()函数可以放在WebSocket连接的onOpen()方法的最后面，cancelKeepAlive()放在onClose()方法的最末尾。</p>
+<h2 id="时间注意原始操作符比函数调用快，使用VanillaJS">时间注意原始操作符比函数调用快，使用VanillaJS</h2>
+<p>比如，一般不要这样：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> min = <span class="built_in">Math</span>.min(a,b);</div><div class="line">A.push(v);</div></pre></td></tr></table></figure>
+
+<p>可以这样来代替：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> min = a &lt; b ? a : b;</div><div class="line">A[A.length] = v;</div></pre></td></tr></table></figure>
+
+<h2 id="开发时注意代码结构，上线前检查并压缩JavaScript代码">开发时注意代码结构，上线前检查并压缩JavaScript代码</h2>
+<p>可以使用JSLint或JSMin等工具来检查并压缩代码。</p>
+<h2 id="JavaScript博大精深，这里有些不错的学习资源">JavaScript博大精深，这里有些不错的学习资源</h2>
+<ul>
+<li><a href="http://www.codecademy.com/tracks/javascript" target="_blank" rel="external">Code Academy资源</a></li>
+<li><a href="http://eloquentjavascript.net/" target="_blank" rel="external">Marjin Haverbekex编写的Eloquent JavaScript</a></li>
+<li><a href="http://ejohn.org/apps/learn/" target="_blank" rel="external">John Resig编写的Advanced JavaScript</a></li>
+</ul>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-mobile-debug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/mobile-debug/" class="article-date">
+  	<time datetime="2015-01-03T07:09:18.000Z" itemprop="datePublished">1月 3 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/mobile-debug/">移动端前端开发真机调试实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
+<h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
+<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
+<ul>
+<li>首先安装Weinre</li>
+</ul>
+<figure class="highlight code"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> npm install -g weinre</div></pre></td></tr></table></figure>
+
+<ul>
+<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
+<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></div></pre></td></tr></table></figure>
+
+<p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>将会看到下面的界面<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong></p>
+<h3 id="调试自己本地的页面">调试自己本地的页面</h3>
+<p>比如说，我本地有这么个页面，想在真机上看下实际效果。<br><img src="/images/5272AF4A-55AB-4564-8C08-033AA93908FA.png" alt=""><br>具体操作步骤为：</p>
+<ul>
+<li>1、引入上图中的外链js<br><img src="/images/C3029D85-B518-45E2-8AE7-55879BAB0A76.png" alt=""></li>
+<li>2、将本地页面链接的localhost修改为局域网ip，我的ip为192.168.1.103，故我需要调试的页面打开方式为<code>http://192.168.1.103:3000/index</code><br><img src="/images/5B4C7C76-4D3F-4A01-AF45-8CE67EEF60FD.png" alt=""></li>
+<li>3、打开手机浏览器，访问<code>http://192.168.1.103:3000/index</code>，将在手机上看到PC端的网页<br><img src="/images/Screenshot_2015-01-03-14-35-46.png" alt=""></li>
+<li>4、进入<code>http://192.168.1.103:8080/client/#anonymous</code><br>选中需要调试的页面，这里我选择<code>http://192.168.1.103:3000/index</code>这一页面，此时选择的链接将被高亮设置。<br><img src="/images/1FAB0AEE-D1B2-4D66-AB55-F320B14D639A.png" alt=""><br>选择Elements,在这里选中元素，比如我选择<code>ul</code>这一节点，将在手机上看到<code>ul</code>的元素被选中了。<br><img src="/images/IMAG0001.jpg" alt=""></li>
+</ul>
+<h3 id="调试外网页面">调试外网页面</h3>
+<p>因为不是自己本地或者自己写的页面，无法手动在自己的html文件里加入<code>&lt;script src=&quot;http://192.168.1.103:8080/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;</code>这种target script.<br>但我们可以通过代理服务器主页【Target Bookmarklet】一节中 bookmarklet 来实现。</p>
+<ul>
+<li>1、在手机浏览器书签地址栏加入这段代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">javascript:(<span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>{e.setAttribute(<span class="string">"src"</span>,<span class="string">"http://192.168.1.103:8080/target/target-script-min.js#anonymous"</span>);<span class="built_in">document</span>.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(e);})(<span class="built_in">document</span>.createElement(<span class="string">"script"</span>));<span class="keyword">void</span>(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+
+<ul>
+<li>2、在<code>http://192.168.1.103:8080/client/#anonymous</code>选中百度的链接</li>
+<li>3、即可在Elememts下调试效果<br><img src="/images/IMAG0004.jpg" alt=""><br>在PC上改变元素的样式在手机可以看到元素样式的改变，console功能都可以使用。这里不再一一演示。</li>
+</ul>
+<h2 id="UC开发版测试安卓真机">UC开发版测试安卓真机</h2>
+<ul>
+<li>1、在Android设备上安装UC浏览器开发版，进入<a href="http://www.uc.cn/business/developer/" target="_blank" rel="external">下载页</a></li>
+<li>2、获取Android设备的IP<br>比如我的小米2A，获取方式为<code>设置</code>-&gt;<code>WLAN</code>-&gt;<code>高级设置</code>-&gt;<code>IP地址</code>，我的IP为192.168.1.102<br><img src="/images/Screenshot_2015-01-03-15-47-42.png" alt=""></li>
+<li>3、用和手机处于同一网段的PC或MAC访问步骤2获得的IP后加上 :9998，比如我需要进入192.168.1.102:9998</li>
+<li>4、打开UC开发版安卓客户端，选择“允许”，将在PC上获得这样的界面<br><img src="/images/F6BFF092-D176-4157-95CE-8CAF337FA35A.png" alt=""></li>
+<li>5、在<code>http://192.168.1.102:9998/</code>里选择站点，进入后调试元素，在UC开发版手机端将看到变化的效果<br><img src="/images/IMAG0006.jpg" alt=""><br>注意，调试本地localhost路径的页面，只需要在手机浏览器里将localhost改成局域网IP。</li>
+</ul>
+<h2 id="更多真机调试资料分享">更多真机调试资料分享</h2>
+<ul>
+<li><a href="https://github.com/jieyou/remote_inspect_web_on_real_device" target="_blank" rel="external">各种 真机远程调试 方法 汇总</a></li>
+<li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank" rel="external">移动端前端开发调试</a></li>
+</ul>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-my-2014" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/31/my-2014/" class="article-date">
+  	<time datetime="2014-12-31T11:29:33.000Z" itemprop="datePublished">12月 31 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活/">生活</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/31/my-2014/">路还很长，2015重新出发</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>2014年最后一天，按照以往的惯例，是时候该总结下今年得与失，给自己些鼓励，给2015年制定一些目标，重新出发。<br>新的技术博客从SAE迁移到了github,便没有再写过关于生活的软文。自从决定学习前端后，以前每周会写的私人日记也变成了技术博客。</p>
+<h2 id="2014年纪事">2014年纪事</h2>
+<ul>
+<li><p>2014年1-3月，<a href="http://findlove.hfutonline.com/" target="_blank" rel="external">我帮室友找对象</a><br>这个项目从1月份真正开始做，然后寒假期间留校了十余天继续做，等2月底三月初开学时稍作修改，于女生节前几天上线了。这是我在学校网络中心的第一个真正意义上的前后端交互比较多的项目。<br>也正是这个项目，让我在三月份阿里春季实习生面试时，有项目细节可以说。现在想来，真该感谢去年寒假留校的日子，当别人都回家了，我和另一个技术部的同学继续做项目。</p>
+</li>
+<li><p>2014年3月，准备阿里实习生面试<br>很早就开始关注阿里的校招，3月份之前便完善了简历。去内推网投过简历，这是一个靠谱的网站，不少阿里的工程师和HR在上面发过招聘启事。那段日子会去上网搜各种面试题，会认真看js的基础知识，一遍一遍完善简历，接到面试官的电话会兴奋很久，面试完等待结果是种煎熬。在收到offer之前，一年前的我不敢想象会有那天。<br>感谢那段日子拼命准备的自己。</p>
+</li>
+<li><p>2014年5月,断断续续做了几个前端页面，也包括一个移动端的页面<br>项目比较小，也由于种种原因，后面我没有继续再做。收获不是很大。</p>
+</li>
+<li><p>2014年6月，搭建了github博客<br>博客从SAE迁移到了github,原来SAE用的是wordpress,wordpress文件非常大，访问速度器慢。看到不少前端同学在github上撘博客，我也搜了hexo搭建github博客的教程。<br>新的github博客采用nodejs搭建，访问速度非常快。文章发布基于markdown,我也恶补了markdown的知识，搭完的感觉是B格高多了。<br>也会鼓励自己多写博客，找工作之前写博客一方面原因是为了找工作时，附上个人博客可能面试官有加分项。现在写博客主要是真的做项目时摔倒坑里了，一定要总结下以免下次继续摔坑。<br>很多时候我会继续翻看之前写的博客，有不少琐碎的知识点能在自己博客里找到，写博客的真正意义就体现出来了。</p>
+</li>
+<li><p>2014年9月，<a href="http://online.hfut.edu.cn/" target="_blank" rel="external">工大学子门户</a>改版<br>第一个将kissy用到学校的网站上的项目，也是帮助自己更好地熟悉kissy。</p>
+</li>
+<li><p>2014年7-10月，阿里实习<br>在阿里实习的日子里，因为工作需要，接触并恶补了很多的工具，像git,less,sass,node,grunt工具。<br>我记得学长曾和我说过，在哪个公司工作不重要，重要的是跟对人，做对事，我很幸运地遇到了很nice的主管和师兄。<br>有师兄带着做项目，帮我review代码，指出我代码的不足，对我的提高帮助非常大。<br>不得不提的是，主管交给我一个node项目，这个项目在我一开始觉得是难以下手的，一方面自己欠缺后端开发经验，这个项目是偏后端的，另一方面是没做过node开发，连小的工具都没写过，更别说是node web开发了。<br>那段日子经常周六周日没事就去公司继续做，遇到bug就厚着脸皮求助主管和师兄。所以及时的以及不断的知识积累是很重要的，你不知道你今天所学的会在哪天做项目的时候用得着，在实习之前完全有时间去学node的，不要到项目需要了再去弥补这方面的知识就太晚了。</p>
+</li>
+<li><p>2014年10-12月，继续node系统<br>实习离职时node系统还没做完，可以说我是带着愧疚和遗憾离职的。回校后更加坚定了要认真好好做完node系统的决心。<br>通过学习慕课网的node课程，加上自己各种谷歌问题搜索，经常去cnode社区问问题，这个node系统的功能总算都实现了，还剩下一些交互和体验上的完善了。<br>这也是我的2014年底最欣慰的事情。<br>12月，还做了一些小项目，学校工作室的网站，工作室微信平台学长学姐帮忙找工作的项目，又一个移动端的项目，边做边总结移动端开发知识。</p>
+</li>
+<li><p>其他工具篇<br>熟悉了git,grunt,node,less,markdown,用上了VPN，朝着科学上网方向上迈出了坚实的一步。把github当做一项日常，star有用的项目。<br>10月底离职，11月-12月，基本每天都有写代码，往github push代码，也是比较欣慰的事情。这是我在11月-12月编码的结果。<br><img src="/images/A2A74090-C58D-4A67-9F76-3D9C5238C6DB.png" alt=""></p>
+</li>
+<li><p>其他生活篇<br>用三个月的实习工资给自己买了台mac pro，用上的感觉是相见恨晚，我开始觉得敲打命令和代码是件享受的事情。<br>12月底，给自己换了把吉他，好好学吉他的时间不多了，高三暑期学过吉他后来没怎么练，乘现在和寒假有空再学学。以后一定有用得着的时候。</p>
+</li>
+</ul>
+<h2 id="2015年目标">2015年目标</h2>
+<p>给自己列举10条，明年这时候来看看完成了哪几条。</p>
+<h3 id="工作学习上">工作学习上</h3>
+<ul>
+<li>看书，把《javascript高级程序设计》好好地看一遍，看透了。这本书实在太经典太重要。</li>
+<li>写博客。给自己个目标，不是很高，每月写两篇。2015年完成24篇高质量博文。</li>
+<li>github上出现2个star数超过20的项目。</li>
+<li>写node工具，往npm上推送2个包。</li>
+<li>发布2个高质量的kissy组件</li>
+</ul>
+<h3 id="生活上">生活上</h3>
+<p>生活不只是眼前的苟且，还有诗和远方，2015年，我要我的业余生活更精彩。</p>
+<ul>
+<li>去两个没有去过的省份旅游</li>
+<li>学会游泳</li>
+<li>吉他可以达到弹唱水平，根据工作忙碌程度，每天练习20-30分钟</li>
+<li>改变自己的穿衣风格，更成熟一点</li>
+<li>找到男朋友(没有醉，很认真的 ==!)</li>
+</ul>
+<p>感谢2014年某些时候努力的自己，感谢一路同行的朋友。<br>太阳会如约升起，路还很长。</p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

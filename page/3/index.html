@@ -1,350 +1,762 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>前端学习踩过的坑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Cassie Xu">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/cassie.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <title>前端学习踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端学习踩过的坑">
+<meta property="og:url" content="http://xuyuan923.github.io/page/3/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端学习踩过的坑">
+<meta name="twitter:description">
+
+  
+  
+    <link rel="icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="img/cassie.jpg">
+		</div>
 
-  <body>
-    <header>
-      <div>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
 		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
 			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
-				<h2 class="blog-motto">By Cassie</h2>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，努力成长，慢慢沉淀。
+				</section>
+				
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/10/17/git-tutorial/" title="21分钟入门Git" itemprop="url">
-  
-    <h1 itemprop="name">21分钟入门Git</h1>
-    
-     
-           <p itemprop="description" >为什么要学git
-团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。更多git的强大之处，这里不再赘述，更多git的介绍请看这里，git-wiki
-git 命令大全
-获取与创建项目
-
-git</p>
-        
-    
-    <time datetime="2014-10-17T02:33:31.000Z" itemprop="datePublished">10月 17 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/10/16/chrome-debug-tool/" title="chrome调试工具常用功能整理" itemprop="url">
-  
-    <h1 itemprop="name">chrome调试工具常用功能整理</h1>
-    
-     
-           <p itemprop="description" >Elements
-chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.
-
-windows: ctrl + shift + i
-mac: cmd + opt + i
-
-DOM
-修改 html &amp;amp</p>
-        
-    
-    <time datetime="2014-10-16T11:56:56.000Z" itemprop="datePublished">10月 16 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/10/10/node-tutorial-req/" title="Node Express获取参数的几种方式" itemprop="url">
-  
-    <h1 itemprop="name">Node Express获取参数的几种方式</h1>
-    
-     
-           <p itemprop="description" >Node配合Express框架获取参数主要有以下4种形式:
-
-req.body
-req.params
-req.param()
-req.query
-
-那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
-适用情景案例
-req.body
-req</p>
-        
-    
-    <time datetime="2014-10-10T12:54:14.000Z" itemprop="datePublished">10月 10 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/09/25/nodejs-notes/" title="Nodejs Web开发一些好用的工具" itemprop="url">
-  
-    <h1 itemprop="name">Nodejs Web开发一些好用的工具</h1>
-    
-     
-           <p itemprop="description" >学习Node Web开发一个月了，通过做项目积累了一些Node Web开发的经验，分享几款好用的Node Web开发的工具。
-1.数据库可视化工具
-这里推荐MongoVUE。
-a.连接
-点击+icon连接，其中Name配置项是自己配置的，Port默认是27017，Server,U</p>
-        
-    
-    <time datetime="2014-09-25T08:54:13.000Z" itemprop="datePublished">9月 25 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/08/05/node-mongodb-tutorial/" title="Node+Express+Mongodb+monk简易入门教程" itemprop="url">
-  
-    <h1 itemprop="name">Node+Express+Mongodb+monk简易入门教程</h1>
-    
-     
-           <p itemprop="description" >这篇入门教程，适合node+mongodb开发小白，node已玩过很久的大神这篇文章可能不适合你们。接触node很久了，但是玩的都是node工具，没有做过node的项目，也没有玩过mongodb。这几天搭建了了node+express+mongodb的环境，使用了mongodb的</p>
-        
-    
-    <time datetime="2014-08-05T12:07:32.000Z" itemprop="datePublished">8月 5 2014</time>
-  </a>
-</section>
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" href="/page/2/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" href="/page/4/">Next<span></span></a>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/node/" title="node">node<sup>5</sup></a></li>
-		
-			<li><a href="/tags/tools/" title="tools">tools<sup>5</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
-		
-			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
-      <li><a href="http://hustskyking.cnblogs.com/" target="_blank" title="小胡子哥-Barret Lee">小胡子哥-Barret Lee</a></li>
-      <li><a href="http://yujiangshui.com/" target="_blank" title="于江水">于江水</a></li>
-      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
-      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
-      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
+		</div>
+	</header>				
 </div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
-		
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
 	</div>
-	
-	
-	<section class="info">
-		<p> 我是一名大四的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
-			这是我的github博客</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
-		
-		
-		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
-		
-		
-		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
-		
-		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+</nav>
+      
+  
+    <article id="post-git-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/10/17/git-tutorial/" class="article-date">
+  	<time datetime="2014-10-17T02:33:31.000Z" itemprop="datePublished">10月 17 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/17/git-tutorial/">21分钟入门Git</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="为什么要学git">为什么要学git</h2>
+<p>团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。<br>更多git的强大之处，这里不再赘述，更多git的介绍请看这里，<a href="http://zh.wikipedia.org/zh/Git" target="_blank" rel="external">git-wiki</a></p>
+<h2 id="git_命令大全">git 命令大全</h2>
+<h3 id="获取与创建项目">获取与创建项目</h3>
+<ul>
+<li>git init<br>在项目根目录执行<code>git init</code>,根目录会多出一个.git的文件夹，这个文件夹用于保存如何git相关的操作记录。</li>
+<li>git clone<br><code>cd</code>进入项目文件夹，执行<code>git clone</code>将会复制别人提交的版本或者你刚在github/gitlab上创建的项目</li>
+</ul>
+<h3 id="基本快照">基本快照</h3>
+<ul>
+<li>git add<ul>
+<li><code>git add</code>告诉Git，把文件添加到仓库,在每次git commit之前必须把文件提交到仓库才能提交到远程</li>
+<li>git add [file]将指定文件添加到仓库</li>
+<li><code>git add .</code>将所有文件添加到仓库</li>
+<li><code>git add -u</code>将所有文件添加到仓库，同时将已删除的文件从仓库中删除</li>
+</ul>
+</li>
+<li>git status<br>查看当前版本库的状态，看文件是否已添加到仓库，通常查看上次提交之后有哪些文件没有被添加到仓库</li>
+<li>git diff<br>显示尚未缓存的改动</li>
+<li>git commit<br><code>git commit -m &quot;这里填提交的提示内容&quot;</code>，将本地仓库中的文件提交到远程版本库</li>
+<li>git log<ul>
+<li><code>git log</code>用于记录每次commit的信息</li>
+<li><code>git log --pretty=oneline</code>将每次commit的记录打印成一行，内容更加精简，突出主要的commit -m “”的记录信息</li>
+</ul>
+</li>
+<li>git reset<ul>
+<li><code>git reset HEAD</code>这条命令用来废除这次修改的记录，当前文件回到上一次提交的状态。</li>
+<li><code>git reset --hard [commit版本号]</code></li>
+</ul>
+</li>
+<li>git rm(慎用)<ul>
+<li>使用这个会将所有版本库记录删除<h3 id="分支与合并">分支与合并</h3>
+</li>
+</ul>
+</li>
+<li>git branch<ul>
+<li><code>git branch</code>查看本地分支</li>
+<li><code>git branch -a</code>查看本地和远程的所有分支</li>
+<li><code>git branch -r</code>查看远程分支</li>
+<li><code>git branch -d</code>删除本地分支</li>
+<li>删除远程dev分支呢？-&gt; <code>git push :origin dev</code></li>
+</ul>
+</li>
+<li>git checkout<ul>
+<li><code>git checkout [master]</code>切换到本地的master分支</li>
+<li><code>git checkout -b [dev]</code>创建并切换到本地的dev分支</li>
+</ul>
+</li>
+<li>git merge<br><code>git merge</code>用于本地的指令，如果当前分支是master,本地的另一个分支是dev,<code>git merge dev</code>将本地的dev分支合并到master分支</li>
+<li>git tag<ul>
+<li>通常在发布到线上正式环境时会用到</li>
+<li><code>git tag publish/1.0.0</code>表示给当前分支打上tag标记</li>
+<li>删除远程tag呢？请看<code>git push origin :refs/tags/标签名</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="分享与更新项目">分享与更新项目</h3>
+<ul>
+<li>git push<ul>
+<li><code>git push origin dev</code>表示提交到远程的dev分支。</li>
+<li>通常在本地的dev分支推送到远程的dev分支，注意本地远程分支命名要相同，保证代码不会混乱。</li>
+</ul>
+</li>
+<li>git pull<ul>
+<li><code>git pull origin dev</code>表示拉远程的dev分支到本地，并和本地的dev分支合并</li>
+<li>通常在本地的dev分支推送到远程的dev分支，注意本地远程分支命名要相同，保证代码不会混乱。</li>
+</ul>
+</li>
+<li>git fetch(不常用)<ul>
+<li><code>git fetch origin dev</code>表示拉远程的dev分支到本地，<strong>不</strong>和本地的dev分支合并</li>
+</ul>
+</li>
+<li>git remote<ul>
+<li>分享本地创建的仓库，希望将它添加到远端仓库</li>
+<li><code>git remote add github git@github.com:xuyuan923/test-git.git</code>将本地的仓库推送到github上名为test-git的仓库里</li>
+</ul>
+</li>
+</ul>
+<h2 id="git本地分支与远程分支推送原则">git本地分支与远程分支推送原则</h2>
+<ul>
+<li>本地的<test1>分支推送到远程的<test1>分支，保证本地和远程的同名分支相同。</test1></test1></li>
+<li>多人合作，每天早上开机前先<code>git pull origin &lt;公共开发分支&gt;</code>，晚上关机前<code>git push origin &lt;公共开发分支&gt;</code>，大家都遵守，这样代码就不会乱</li>
+<li>开发时，将本地的分支切换到开发分支在写代码，保证本地的master分支不被污染<br>在实际开发中，我们应该按照几个基本原则进行分支管理：<ul>
+<li>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</li>
+<li>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</li>
+<li>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="http://gtms03.alicdn.com/tps/i3/TB1BQNaGFXXXXaZaXXXhdPbZFXX-498-125.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="工作区与暂存区理解">工作区与暂存区理解</h2>
+<p><img src="http://gtms02.alicdn.com/tps/i2/TB1Z.xmGFXXXXcLXpXXKwd3HVXX-458-234.jpg" alt=""><br>我们把文件往Git版本库里添加的时候，是分两步执行的：<br>第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；<br>第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。</p>
+<h2 id="高级知识">高级知识</h2>
+<h3 id="git_ssh">git ssh</h3>
+<p>SSH是什么？SSH公钥是让Git服务器验证你的电脑是被认证的，本地配置SSH避免了每次git要求你输入用户名、密码这些认证信息<br>如何配置SSH公钥看这里，<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">Generating SSH keys</a></p>
+<h3 id="gitignore">gitignore</h3>
+<p><code>.gitignore</code>是一个文件，通常我们是不希望git将本地的编辑器缓存的内容，包括.git文件，以及庞大的node-modules安装包推送到远程，如果仓库里含有.gitignore这个文件，git push会识别哪些是你不想推送到远端的文件，并选择性不推送到远端<br>来看一个.gitignore文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#忽略.DS_Store目录下的所有文件</span></div><div class="line">.DS_Store</div><div class="line"><span class="comment">#忽略node_modules目录下的所有文件</span></div><div class="line">node_modules</div><div class="line">npm-debug.log</div><div class="line"><span class="comment">#仅仅忽略 demo/.svn文件</span></div><div class="line">demo/.svn/</div><div class="line">.sass-cache</div><div class="line"><span class="comment">#忽略所有以.swp结尾的文件</span></div><div class="line">*.swp</div><div class="line">.sw*</div><div class="line">.idea/*</div></pre></td></tr></table></figure>
+
+<h2 id="更多资料">更多资料</h2>
+<p><a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰-Git教程</a><br><a href="http://gitref.org/zh/" target="_blank" rel="external">Git 参考手册</a><br><a href="http://git-scm.com/book/zh/" target="_blank" rel="external">Git-book</a></p>
+
+      
+    </div>
+  </div>
+  
+</article>
 
 
 
 
 
 
+  
+    <article id="post-chrome-debug-tool" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/10/16/chrome-debug-tool/" class="article-date">
+  	<time datetime="2014-10-16T11:56:56.000Z" itemprop="datePublished">10月 16 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
 
-<!-- mathjax config similar to math.stackexchange -->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/16/chrome-debug-tool/">chrome调试工具常用功能整理</a>
+    </h1>
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Elements">Elements</h1>
+<p>chrome devtools 中 Elements panel 是审查 dom 元素和 css 的, 可以实时修改 dom/css.</p>
+<ul>
+<li>windows: <code>ctrl</code> + <code>shift</code> + <code>i</code></li>
+<li>mac: <code>cmd</code> + <code>opt</code> + <code>i</code></li>
+</ul>
+<h2 id="DOM">DOM</h2>
+<h3 id="修改_html_&amp;_属性">修改 html &amp; 属性</h3>
+<p>节点右键, 如下图, 可以:<br><img src="http://gtms02.alicdn.com/tps/i2/TB1cHVlGFXXXXb.XXXXYkh.ZXXX-527-423.jpg" alt=""></p>
+<ul>
+<li>添加属性(<code>enter</code>)</li>
+<li>修改 html(<code>F2</code>)</li>
+<li>删除元素(<code>delete</code>)</li>
+</ul>
+<p>除了右键, 还可以:</p>
+<ul>
+<li><code>h</code> toggle 元素的 visibility 属性</li>
+<li>拖拽节点, 调整顺序</li>
+<li>拖拽节点到编辑器<ul>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/6568776c7a3cb0bdf17cf3760c5a0b23221f5653" alt=""></li>
+</ul>
+</li>
+<li><code>ctrl</code> + <code>z</code> 撤销修改</li>
+</ul>
+<h3 id="查看元素上绑定了哪些事件">查看元素上绑定了哪些事件</h3>
+<p><img src="http://img4.tbcdn.cn/L1/461/1/e2aacb4eb0fedb9002aeb89439f08944fefd636a" alt="event"></p>
+<ul>
+<li>默认会列出 <code>All Nodes</code>, 这些包括代理绑定在该节点的父/祖父节点上的事件, 因为在在冒泡或捕获阶段会经过该节点</li>
+<li><code>Selected Node Only</code> 只会列出当前节点上绑定的事件</li>
+<li>每个事件会有对应的几个属性 <code>handler</code>, <code>isAtribute</code>, <code>lineNumber</code>, <code>listenerBody</code>, <code>sourceName</code>, <code>type</code>, <code>useCapture</code><ul>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/dd47628afb902a2324d09e0985b585a1371b2c6d" alt="handle"></li>
+<li><code>handler</code>是处理函数, 右键可以看到这个函数定义的位置, 一般 js 库绑定事件会包一层, 所以这里很难找到对应<code>handler</code></li>
+<li><code>isAtribute</code> 表明事件是否通过 html 属性(类似<code>onClick</code>)形式绑定的</li>
+<li><code>useCapture</code> 是 <code>addEventListener</code> 的第三个参数, 说明事件是以 冒泡 还是 捕获 顺序执行</li>
+</ul>
+</li>
+</ul>
+<h2 id="Styles">Styles</h2>
+<h3 id="修改样式">修改样式</h3>
+<ul>
+<li>添加规则<br><img src="http://img2.tbcdn.cn/L1/461/1/47df15944c5aad071da619c02693f1f00e3efad2" alt=""></li>
+<li>添加、修改属性<br>同样可以通过 <code>ctrl</code> + <code>z</code> 取消</li>
+</ul>
+<h1 id="断点">断点</h1>
+<h2 id="代码断点">代码断点</h2>
+<ul>
+<li>设置断点<ul>
+<li>在 Sources 面板 js 文件行号处设置断点, 这里除了常规断点外, 还有个条件断点(右键 <code>conditional breakpoint</code>), 在设置的条件为 <code>true</code> 时才会断电, 在循环中需要断点时比较有用.</li>
+<li>断点后可以查看 堆栈, 变量 信息:</li>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/a178787031ff59a3eeb9c4b33cc59338353a4b43" alt=""></li>
+</ul>
+</li>
+<li>在调用堆栈这里可以切换到堆栈中的任何地方重新执行(右键<code>restart frame</code>), 如果想查看断点前的信息时比较有用.<ul>
+<li><img src="http://img3.tbcdn.cn/L1/461/1/c33fd6f40cba8c63a730091ff1519a8915782970" alt=""></li>
+</ul>
+</li>
+<li>断点后的变量保存到全局<ul>
+<li>选中变量, 右键 <code>Evalute in console</code></li>
+<li>在 <code>console</code> 中选中输出的内容, 右键 <code>store as global variable</code></li>
+<li><img src="http://img4.tbcdn.cn/L1/461/1/3236461d66878cfe24e80ef6801f971b6b179879" alt=""></li>
+</ul>
+</li>
+</ul>
+<h2 id="事件断点">事件断点</h2>
+<h3 id="元素上事件断点">元素上事件断点</h3>
+<p><code>devtools</code> 可以查看某一个元素上绑定了哪些事件: <code>Elements</code> &gt; <code>Event Listeners</code></p>
+<ul>
+<li><img src="http://img1.tbcdn.cn/L1/461/1/25f7737f9f88b5b921ecbb0a7eb0cdf9726ac880" alt=""></li>
+</ul>
+<h3 id="dom_mutation_断点(推荐)">dom mutation 断点(推荐)</h3>
+<p><code>dom mutation event</code> 是 DOM3 添加的新的事件, 一般是 dom 结构改变时触发.<br><code>devtools</code> 可以对 <code>DOMSubtreeModified</code> <code>DOMAttrModified</code> 和 <code>DOMNodeRemoved</code> 时断点.<br>对上面 元素上事件断点(<code>mouseover</code>) 后不容易找到业务代码, 使用 <code>mutation</code> 断点, 断点后配合 call stack 就可以找到业务代码了, 如下图<br><img src="http://img2.tbcdn.cn/L1/461/1/14811e0e62a2ecb31c5875ac7186f4caa9e6ccfa" alt=""><br>这种情况使用全局搜索(<code>ctrl</code> + <code>shift</code> + <code>f</code>) 代码中 css classname 也能找到业务代码, 然后直接断点也可以.</p>
+<h3 id="全局事件断点">全局事件断点</h3>
+<p>devtools 还可以对事件发生时断点, 比如 <code>click</code> 发生时断点, 这个跟 元素上事件断点 不同, 不会限定在元素上, 只要是事件发生, 并且有 handler 就断点;<br>还可以对 resize, ajax, setTimeout/setInterval 断点.</p>
+<p>下面这个图是 resize 时中断, 因为库都代理了, 还需要在断点处一步一步跟下去才能走到业务代码中.<br><img src="http://img1.tbcdn.cn/L1/461/1/6fe5a3d32743e8402343062a5ceebdc408cbe511" alt=""></p>
+<h2 id="几个常用的断点快捷键:">几个常用的断点快捷键:</h2>
+<ul>
+<li>F8: 继续执行</li>
+<li>F10: step over, 单步执行, 不进入函数</li>
+<li>F11: step into, 单步执行, 进入函数</li>
+<li>shift + F11: step out, 跳出函数</li>
+<li>ctrl + o: 打开文件</li>
+<li>ctrl + shit + o: 跳到函数定义位置</li>
+<li>ctrl + shift + f: 所有脚本中搜索</li>
+</ul>
+<h1 id="Console">Console</h1>
+<h2 id="元素选择">元素选择</h2>
+<h3 id="$(selector)">$(selector)</h3>
+<p>即使当前页面没有加载jQuery，你也依然可以使用$和$$函数来选取元素，实际上，这两个函数只是对document.querySelector()和document.querySelectorAll()的简单封装，$用于选取单个元素，$$则用于选取多个：<br><img src="http://gtms01.alicdn.com/tps/i1/TB1l6KZFVXXXXc4aXXXYCer4FXX-1190-203.png" alt=""></p>
+<h3 id="$_">$_</h3>
+<p>使用 <code>$_</code> 来引用最近的一个表达式<br><img src="http://gtms01.alicdn.com/tps/i1/TB1D2mQFVXXXXc_XFXX0zJfZVXX-394-121.png" alt=""></p>
+<h3 id="$0_-_$4">$0 - $4</h3>
+<p>除了<code>$_</code>，你还可以使用<code>$0</code>,<code>$1</code>,<code>$2</code>,<code>$3</code>,<code>$4</code>这5个变量来引用最近选取过的5个DOM元素。<br><code>$0</code> 为Elements HTML 面板中选中的元素。<br><code>$1</code> 为上一次在 HTML 面板中选中的元素。<br><code>$2</code>、<code>$3</code>、<code>$4</code> 同样的。不过只能到<code>$4</code></p>
+<h3 id="copy">copy</h3>
+<p>复制到剪切板，copy之后，直接<code>ctrl+v</code><br><img src="http://gtms02.alicdn.com/tps/i2/TB1iSq5FVXXXXXGaXXXJJvZJFXX-920-127.png" alt=""></p>
+<h2 id="信息输出">信息输出</h2>
+<p>在js代码中打点<code>console.log()</code><br>类似<code>debugger</code></p>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
+      
+    </div>
+  </div>
+  
+</article>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  </body>
- </html>
+
+
+
+
+  
+    <article id="post-node-tutorial-req" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/10/10/node-tutorial-req/" class="article-date">
+  	<time datetime="2014-10-10T12:54:14.000Z" itemprop="datePublished">10月 10 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/10/10/node-tutorial-req/">Node Express获取参数的几种方式</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Node配合Express框架获取参数主要有以下4种形式:</p>
+<ul>
+<li>req.body</li>
+<li>req.params</li>
+<li>req.param()</li>
+<li>req.query</li>
+</ul>
+<p>那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？</p>
+<h1 id="适用情景案例">适用情景案例</h1>
+<h2 id="req-body">req.body</h2>
+<p><code>req.body</code>在<a href="http://expressjs.com/4x/api.html#request" target="_blank" rel="external">官方文档</a>是没有提供的，但是它也是很好用的获取表单参数的方法。<code>req.body</code>是<strong>配合Express中间件<code>bodyParser()</code>中间件</strong>提供的。当<code>bodyParser()</code>中间件使用后，这个对象默认为 <code>{}</code>,<code>req.body</code>可以获取到post到body中的内容。<br>举个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.post(<span class="string">'/user/signup'</span>,function(req,res){</div><div class="line">	var _user = req.body.user;</div><div class="line">})</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// POST user[name]=tobi&user[email]=tobi@learnboost.com</div><div class="line">req.body.user.name</div><div class="line">// =&gt; <span class="string">"tobi"</span></div><div class="line"></div><div class="line">req.body.user.email</div><div class="line">// =&gt; <span class="string">"tobi@learnboost.com"</span></div><div class="line"></div><div class="line">// POST { <span class="string">"name"</span>: <span class="string">"tobi"</span> }</div><div class="line">req.body.name</div><div class="line">// =&gt; <span class="string">"tobi"</span></div></pre></td></tr></table></figure>
+
+<h2 id="req-params">req.params</h2>
+<p>这是一个数组对象，命名过的参数会以键值对的形式存放。 比如你有一个路由<code>/user/:name</code>, <code>name</code>属性会存放在<code>req.params.name</code>. 这个对象默认为 <code>{}</code>.<br>举个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">// GET /user/tj</div><div class="line">req.params.name</div><div class="line">// =&gt; <span class="string">"tj"</span></div><div class="line"></div><div class="line">app.post(<span class="string">'/user/signup/:userid'</span>,function(req,res){</div><div class="line">	req.params.userid;</div><div class="line">})</div></pre></td></tr></table></figure>
+
+<p>当使用正则表达式定义路由的时候，<code>req.params[N]</code>会是这个应用这个正则后的捕获分组, <code>N</code>是代表的是第<code>N</code>个捕获分组。这个规则同样适用于全匹配的路由，如 <code>/file/*</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">// GET /file/javascripts/jquery.js</div><div class="line">req.params[<span class="number">0</span>]</div><div class="line">// =&gt; <span class="string">"javascripts/jquery.js"</span></div></pre></td></tr></table></figure>
+
+<h2 id="req-param(name)">req.param(name)</h2>
+<p><code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。<code>req.param(name)</code>返回<code>name</code>参数的值。<br>举个栗子：<br>和上面的<code>req.body</code>方法类似</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// POST name=tobi</div><div class="line">app.post(<span class="string">'/user?name=tobi'</span>,function(req,res){</div><div class="line"> req.param(<span class="string">'name'</span>);</div><div class="line"> // =&gt; <span class="string">"tobi"</span></div><div class="line">})</div><div class="line"></div><div class="line">// ?name=tobi</div><div class="line">req.param(<span class="string">'name'</span>)</div><div class="line">// =&gt; <span class="string">"tobi"</span></div><div class="line"></div><div class="line">// /user/tobi <span class="keyword">for</span> /user/:name </div><div class="line">req.param(<span class="string">'name'</span>)</div><div class="line">// =&gt; <span class="string">"tobi"</span></div></pre></td></tr></table></figure>
+
+<h2 id="req-query">req.query</h2>
+<p>这是一个解析过的请求参数对象，默认为<code>{}</code>.<br>举个栗子：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// GET /search?q=tobi+ferret</div><div class="line">req.query.q</div><div class="line">// =&gt; <span class="string">"tobi ferret"</span></div><div class="line"></div><div class="line">// GET /shoes?order=desc&shoe[color]=blue&shoe[<span class="built_in">type</span>]=converse</div><div class="line">req.query.order</div><div class="line">// =&gt; <span class="string">"desc"</span></div><div class="line"></div><div class="line">req.query.shoe.color</div><div class="line">// =&gt; <span class="string">"blue"</span></div><div class="line"></div><div class="line">req.query.shoe.type</div><div class="line">// =&gt; <span class="string">"converse"</span></div></pre></td></tr></table></figure>
+
+<h1 id="区别与联系">区别与联系</h1>
+<p>总结出以下4点：<br>1、对于path中的变量，均可以使用<code>req.params.xxxxx</code>方法<br>2、对于get请求的<code>?xxxx=</code>,使用<code>req.query.xxxxx</code>方法<br>3、对于post请求中的变量，使用<code>req.body.xxxxx</code>方法<br>4、以上三种情形，均可以使用<code>req.param()</code>方法，所以说<code>req.param()</code>是<code>req.query</code>、<code>req.body</code>、以及<code>req.params</code>获取参数的三种方式的封装。</p>
+<h1 id="参考资料">参考资料</h1>
+<ul>
+<li><a href="http://expressjs.com/4x/api.html#request" target="_blank" rel="external">express官方文档</a></li>
+<li><a href="http://expressjs.jser.us/3x_zh-cn/api.html" target="_blank" rel="external">express中文文档翻译版</a></li>
+</ul>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-nodejs-notes" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/09/25/nodejs-notes/" class="article-date">
+  	<time datetime="2014-09-25T08:54:13.000Z" itemprop="datePublished">9月 25 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/09/25/nodejs-notes/">Nodejs Web开发一些好用的工具</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>学习Node Web开发一个月了，通过做项目积累了一些Node Web开发的经验，分享几款好用的Node Web开发的工具。</p>
+<h2 id="1-数据库可视化工具">1.数据库可视化工具</h2>
+<p>这里推荐MongoVUE。</p>
+<h3 id="a-连接">a.连接</h3>
+<p>点击<code>+</code>icon连接，其中<code>Name</code>配置项是自己配置的，<code>Port</code>默认是27017，<code>Server</code>,<code>Username</code>,<code>Password</code>,<code>Database</code>均是根据mongodb应用的配置来的。</p>
+<h3 id="b-使用">b.使用</h3>
+<p>看一下整体界面，功能很强大，界面友好！<img src="http://gtms04.alicdn.com/tps/i4/TB1esIQGXXXXXXXXpXXFgXUMFXX-1358-712.jpg" alt="使用">,<br>mongovue是收费的，过了免费试用期，就会关闭部分mongovue服务，破解方法传送门，下载本文最后的附件，解压缩后替换mongovue的安装目录下相应文件，即可注册，亲测能用。</p>
+<h2 id="2-Nodemon">2.Nodemon</h2>
+<h3 id="a-为什么要用Nodemon？">a.为什么要用Nodemon？</h3>
+<p>当我第一次开发的node app时候，每当我修改很小东西的时候需要<code>control+c</code>来关闭当前应用，再<code>node app</code>重启应用，这让开发者非常痛苦。Nodemon是一款智能的工具，能监测到你应用的更新，自动重启服务，大大提高了开发效率。</p>
+<h3 id="b-安装">b.安装</h3>
+<p>执行<code>npm install -g nodemon</code>,全局安装</p>
+<h3 id="c-使用">c.使用</h3>
+<p>像执行<code>node app.js</code>那样，执行<code>nodemon app.js</code>，看当我修改了js，nodemon会自动重启应用，即使应用crashed，只要js重新修改过，nodemon还会重启！<br><img src="http://gtms02.alicdn.com/tps/i2/TB1BLkRGXXXXXbqXXXXG.tA2FXX-643-292.jpg" alt="nodemon"></p>
+<h2 id="3-Webstorm_IDE_node_debug工具">3.Webstorm IDE node debug工具</h2>
+<h3 id="a-安装">a.安装</h3>
+<p>如果你已安装了webstorm IDE,就会自带有node debug功能，无需再安装。</p>
+<h3 id="b-监测app-js">b.监测app.js</h3>
+<p>首先配置你需要debug的js,打开webstorm-&gt;<code>run</code>-&gt;’edit configurations’-&gt;指定debug的文件。比如我要监测的是<code>app.js</code>,配置如下：<br><img src="http://gtms04.alicdn.com/tps/i4/TB17ygMGXXXXXb9XpXXv5iZUXXX-1061-363.jpg" alt="debug"><br>注意，<strong>关闭当前node服务</strong>，因为webstorm debug会开启本地服务，会与node服务的端口冲突。<br>下图为常用功能说明<img src="http://gtms03.alicdn.com/tps/i3/TB1SWQRGXXXXXb5XXXXd9uP8pXX-1092-464.jpg" alt="node debugger"></p>
+<h3 id="c-监测其他node文件">c.监测其他node文件</h3>
+<p>如果要监测的是除node启动文件<code>app.js</code>以外的其他node文件，基本步骤同上文，监测的文件同为<code>app.js</code>,区别的是当刷新页面时，只有打开的页面引用到相应的node文件，即需要执行相应的node文件时，这个node文件的断点才能被执行。比如我想监测<code>db.js</code>这样的node文件,在访问<code>/index/require/my</code>页面时，<code>db.js</code>才执行，如果要查看<code>db.js</code>文件的断点情况，则需要打开<code>/index/require/my</code>页面。</p>
+<p>Node Web开发的一些调试工具、回调的处理方法等学问很多，本人造诣不深，等摸透了再做一些分享~</p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-node-mongodb-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/05/node-mongodb-tutorial/" class="article-date">
+  	<time datetime="2014-08-05T12:07:32.000Z" itemprop="datePublished">8月 5 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/05/node-mongodb-tutorial/">Node+Express+Mongodb+monk简易入门教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇入门教程，适合node+mongodb开发小白，node已玩过很久的大神这篇文章可能不适合你们。<br>接触node很久了，但是玩的都是node工具，没有做过node的项目，也没有玩过mongodb。这几天搭建了了node+express+mongodb的环境，使用了mongodb的可视化工具<a href="http://rockmongo.com/" target="_blank" rel="external">rockmongo</a>,踩到不少坑，在此认真记录一下。</p>
+<h2 id="1-安装nodejs">1.安装nodejs</h2>
+<p>安装nodejs的教程网上非常多，这里不再赘述。</p>
+<h2 id="2-安装express">2.安装express</h2>
+<p>打开命令窗口，安装express全局环境，方面以后可以在本地各文件夹下安装express文件，输入<code>npm install -g express</code></p>
+<h2 id="3-新建一个express工程">3.新建一个express工程</h2>
+<p>比如这里我在<code>F:\rs</code>目录下新建一个<code>nodetest1</code>的项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /f/rs</div><div class="line">node express nodetest1</div></pre></td></tr></table></figure>
+
+<p>此时，你将在nodetest1文件夹下看到<code>package.json</code>的文件，文件结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    <span class="string">"name"</span>: <span class="string">"application-name"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">    <span class="string">"private"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"scripts"</span>: {</div><div class="line">        <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span></div><div class="line">    },</div><div class="line">    <span class="string">"dependencies"</span>: {</div><div class="line">        <span class="string">"express"</span>: <span class="string">"~4.0.0"</span>,</div><div class="line">        <span class="string">"static-favicon"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"morgan"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"cookie-parser"</span>: <span class="string">"~1.0.1"</span>,</div><div class="line">        <span class="string">"body-parser"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"debug"</span>: <span class="string">"~0.7.4"</span>,</div><div class="line">        <span class="string">"jade"</span>: <span class="string">"~1.3.0"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>此时，编辑你的<code>package.json</code>文件，在配置后面加上<code>&quot;mongodb&quot;: &quot;*&quot;</code>和<code>&quot;monk&quot;: &quot;*&quot;</code>,在依赖里引入mongodb和monk，monk是一个Node模块,可以方便你操作mongodb集合的接口。配置完的<code>package.json</code>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    <span class="string">"name"</span>: <span class="string">"application-name"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">    <span class="string">"private"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"scripts"</span>: {</div><div class="line">        <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span></div><div class="line">    },</div><div class="line">    <span class="string">"dependencies"</span>: {</div><div class="line">        <span class="string">"express"</span>: <span class="string">"~4.0.0"</span>,</div><div class="line">        <span class="string">"static-favicon"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"morgan"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"cookie-parser"</span>: <span class="string">"~1.0.1"</span>,</div><div class="line">        <span class="string">"body-parser"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"debug"</span>: <span class="string">"~0.7.4"</span>,</div><div class="line">        <span class="string">"jade"</span>: <span class="string">"~1.3.0"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="4-安装包依赖">4.安装包依赖</h2>
+<p>进入我所在的nodetest1文件夹，安装npm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /f/rs/nodetest1</div><div class="line">npm install</div></pre></td></tr></table></figure>
+
+<p>此时，执行<code>npm start</code>，打开<a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a>,可以看到<br><img src="/images/suc-welcome.jpg" alt="欢迎页">的界面，代表node+express运行成功了！下一步，我们将Node和mongodb关联起来。</p>
+<h2 id="5-安装mongodb">5.安装mongodb</h2>
+<p>首先，安装<a href="https://www.mongodb.org/" target="_blank" rel="external">mongodb</a>,直接解压安装，这里不再赘述。<br>下面，我们来讲mongodb和node连接起来，在工程文件夹<code>nodetest1</code>下新建<code>data</code>用来存放数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /f/rs/nodetest1</div><div class="line">mkdir data</div></pre></td></tr></table></figure>
+
+<p>这里，我的mongodb安装的路径为<code>D:\Program Files\MONGO</code>,所以，我进入<code>MONGO</code>下的<code>bin</code>文件夹下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /d/Program Files/MONGO/data</div><div class="line">mongod --dbpath <span class="string">"f://rs//nodetest1//data"</span></div></pre></td></tr></table></figure>
+
+<p>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="连接mongodb"><br>下面我们来创建数据库。</p>
+<h2 id="创建数据库">创建数据库</h2>
+<p>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /d/Program Files/MONGO/data</div><div class="line">use nodetest1</div></pre></td></tr></table></figure>
+
+<p>这时，创建一个新的数据库，将自动切到nodetest1下。<br>插入一个<code>usercollection</code>表，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.usercollection.insert({ <span class="string">"username"</span> : <span class="string">"testuser1"</span>, <span class="string">"email"</span> : <span class="string">"testuser1@testdomain.com"</span> })</div></pre></td></tr></table></figure>
+
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.usercollection.find().pretty()</div></pre></td></tr></table></figure>
+
+<p>查看你刚刚创建的<code>usercollection</code>表。</p>
+<h2 id="6-将数据插入到浏览器中">6.将数据插入到浏览器中</h2>
+<p>打开<code>app.js</code>,应该可以看到<code>app.js</code>中的内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'static-favicon'</span>);</div><div class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</div><div class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div></pre></td></tr></table></figure>
+
+<p>在下面插入3行，现在的app.js应为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'static-favicon'</span>);</div><div class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</div><div class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"><span class="comment">// New Code</span></div><div class="line"><span class="keyword">var</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</div><div class="line"><span class="keyword">var</span> monk = <span class="built_in">require</span>(<span class="string">'monk'</span>);</div><div class="line"><span class="keyword">var</span> db = monk(<span class="string">'localhost:27017/nodetest1'</span>);</div></pre></td></tr></table></figure>
+
+<p>在以下代码的<strong>下面</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(<span class="string">'/'</span>, routes);</div><div class="line">app.use(<span class="string">'/users'</span>, users);</div></pre></td></tr></table></figure>
+
+<p>插入以下3行代码，将数据库和router相连</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.use(<span class="function"><span class="keyword">function</span><span class="params">(req,res,next)</span></span>{</div><div class="line">    req.db = db;</div><div class="line">    <span class="built_in">next</span>();</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h2 id="7-渲染用户列表页">7.渲染用户列表页</h2>
+<p>打开<code>/routee/index.js</code>输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* GET Userlist page. */</span></div><div class="line">router.get(<span class="string">'/userlist'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line">    <span class="keyword">var</span> db = req.db;</div><div class="line">    <span class="keyword">var</span> collection = db.get(<span class="string">'usercollection'</span>);</div><div class="line">    collection.find({},{},<span class="function"><span class="keyword">function</span><span class="params">(e,docs)</span></span>{</div><div class="line">        res.render(<span class="string">'userlist'</span>, {</div><div class="line">            <span class="string">"userlist"</span> : docs</div><div class="line">        });</div><div class="line">    });</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>在view文件夹下新建<code>userlist.jade</code>文件，打开<code>/views/userlist.jade</code>输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extends layout</div><div class="line">block content</div><div class="line">    h1.</div><div class="line">        User List</div><div class="line">    ul</div><div class="line">        each user, i <span class="keyword">in</span> userlist</div><div class="line">            li</div><div class="line">                a(href=<span class="string">"mailto:#{user.email}"</span>)= user.username</div></pre></td></tr></table></figure>
+
+<p>执行<code>npm start</code>,打开<a href="http://localhost:3000/userlist" target="_blank" rel="external">http://localhost:3000/userlist</a>,可以在命令行插入的一条记录。</p>
+<h2 id="8-向渲染页插入数据">8.向渲染页插入数据</h2>
+<p>打开<code>/routes/index.js</code>,插入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* POST to Add User Service */</span></div><div class="line">router.post(<span class="string">'/adduser'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line"></div><div class="line">    <span class="comment">// Set our internal DB variable</span></div><div class="line">    <span class="keyword">var</span> db = req.db;</div><div class="line"></div><div class="line">    <span class="comment">// Get our form values. These rely on the "name" attributes</span></div><div class="line">    <span class="keyword">var</span> userName = req.body.username;</div><div class="line">    <span class="keyword">var</span> userEmail = req.body.useremail;</div><div class="line"></div><div class="line">    <span class="comment">// Set our collection</span></div><div class="line">    <span class="keyword">var</span> collection = db.get(<span class="string">'usercollection'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Submit to the DB</span></div><div class="line">    collection.insert({</div><div class="line">        <span class="string">"username"</span> : userName,</div><div class="line">        <span class="string">"email"</span> : userEmail</div><div class="line">    }, <span class="function"><span class="keyword">function</span> <span class="params">(err, doc)</span> </span>{</div><div class="line">        <span class="keyword">if</span> (err) {</div><div class="line">            <span class="comment">// If it failed, return error</span></div><div class="line">            res.send(<span class="string">"There was a problem adding the information to the database."</span>);</div><div class="line">        }</div><div class="line">        <span class="keyword">else</span> {</div><div class="line">            <span class="comment">// If it worked, set the header so the address bar doesn't still say /adduser</span></div><div class="line">            res.location(<span class="string">"userlist"</span>);</div><div class="line">            <span class="comment">// And forward to success page</span></div><div class="line">            res.redirect(<span class="string">"userlist"</span>);</div><div class="line">        }</div><div class="line">    });</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>执行<code>npm start</code>，打开<a href="http://localhost:3000/newuser" target="_blank" rel="external">http://localhost:3000/newuser</a>,可以看到页面已经可以插入数据了！</p>
+<h2 id="9-Mongodb可视化工具rockmongo">9.Mongodb可视化工具rockmongo</h2>
+<p><a href="http://rockmongo.com/" target="_blank" rel="external">rockmongo</a>是mongodb的一款可视化工具，弥补了非关系型数据库只能用命令行显示的缺陷，这个工具可以直观友好地显示数据库。</p>
+<h3 id="安装">安装</h3>
+<p>去<a href="http://rockmongo.com/downloads" target="_blank" rel="external">rockmongo官网</a>下载安装即可，安装很简单，直接运行exe文件即可，这里不再赘述。</p>
+<h3 id="rockmongo的配置">rockmongo的配置</h3>
+<h4 id="给数据库注册用户名和密码">给数据库注册用户名和密码</h4>
+<p>发现配置rockmongo时需要输入数据库用户名和密码，而创建nodetest1时，系统未提示我们需要创建数据库用户名和密码。我们可以自行用命令的形式给数据库创建用户名和密码。首先切入到nodetest1数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /d/Program Files/MONGO/bin</div><div class="line">mongo</div><div class="line">use nodetest1</div></pre></td></tr></table></figure>
+
+<p>执行<code>db.addUser(“root”, “root”)</code>插入用户名和密码均为root,这时执行<code>show users</code>,将看到<br><img src="/images/show-users.jpg" alt="show-users"><br>表明，现在数据库nodetest1中已存在root的用户。<br>打开rockmongo安装文件夹，打开<code>/web/rockmongo/config.php</code>文件，修改以下几项：<br>首先打开cmd串口，输入<code>ipConfig</code>查看本机IP，node的默认端口为27017,如果你的端口没有改，则不需要改，下图为我的配置：<br><img src="/images/rockmongo.jpg" alt="rockmongo"><br>这时，双击安装文件夹下的<code>rockstart.bat</code>将打开浏览器，出现非常友好的数据库界面，wonderful!<br><img src="/images/rockmongo-welcome.jpg" alt="rockmongo"></p>
+<h2 id="10-一些坑">10.一些坑</h2>
+<p>在将数据库和工程文件夹data相连接时，我们通常会在mongo安装目录下执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>或者在mongo安装目录下执行mongo命令，它有时会报错“errno:10061”。<br><img src="/images/mongodlock.png" alt="mongod.lock error"><br>原因：工程文件夹<code>data</code>下存在了<code>mongod.lock</code>文件。这个文件阻止其他进程使用此工程目录。<br>解决办法：删除工程文件夹下的<code>data</code>文件夹里的mongod.lock文件。</p>
+<p>附本人demo源码: <a href="https://github.com/xuyuan923/node-mongodb-demo" target="_blank" rel="external">https://github.com/xuyuan923/node-mongodb-demo</a><br>第一次在atatech上发文章，给自己总结经验也是帮新手少走弯路。</p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+    </nav>
+  
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

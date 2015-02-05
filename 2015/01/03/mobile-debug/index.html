@@ -1,110 +1,263 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>移动端前端开发真机调试实践 | 前端学习踩过的坑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Cassie Xu">
-    
-    <meta name="description" content="上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。
+  <title>移动端前端开发真机调试实践 | 前端学习踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。
 Weinre测试安卓真机
-Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是Mac,只在Mac上做">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/cassie.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
+Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
-				<h2 class="blog-motto">By Cassie</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/01/03/mobile-debug/" title="移动端前端开发真机调试实践" itemprop="url">移动端前端开发真机调试实践</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
-		
-  <p class="article-time">
-    <time datetime="2015-01-03T07:09:18.000Z" itemprop="datePublished">发表于1月 3 2015</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调试自己本地的页面"><span class="toc-number">1.1.</span> <span class="toc-text">调试自己本地的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试外网页面"><span class="toc-number">1.2.</span> <span class="toc-text">调试外网页面</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多真机调试资料分享"><span class="toc-number">3.</span> <span class="toc-text">更多真机调试资料分享</span></a></li></ol>
-		
+首先安装Weinre
+
+1sudo npm install -g wei">
+<meta property="og:type" content="article">
+<meta property="og:title" content="移动端前端开发真机调试实践">
+<meta property="og:url" content="http://xuyuan923.github.io/2015/01/03/mobile-debug/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description" content="上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。
+Weinre测试安卓真机
+Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：
+
+首先安装Weinre
+
+1sudo npm install -g wei">
+<meta property="og:image" content="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png">
+<meta property="og:image" content="/images/5272AF4A-55AB-4564-8C08-033AA93908FA.png">
+<meta property="og:image" content="/images/C3029D85-B518-45E2-8AE7-55879BAB0A76.png">
+<meta property="og:image" content="/images/5B4C7C76-4D3F-4A01-AF45-8CE67EEF60FD.png">
+<meta property="og:image" content="/images/Screenshot_2015-01-03-14-35-46.png">
+<meta property="og:image" content="/images/1FAB0AEE-D1B2-4D66-AB55-F320B14D639A.png">
+<meta property="og:image" content="/images/IMAG0001.jpg">
+<meta property="og:image" content="/images/IMAG0004.jpg">
+<meta property="og:image" content="/images/Screenshot_2015-01-03-15-47-42.png">
+<meta property="og:image" content="/images/F6BFF092-D176-4157-95CE-8CAF337FA35A.png">
+<meta property="og:image" content="/images/IMAG0006.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="移动端前端开发真机调试实践">
+<meta name="twitter:description" content="上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。
+Weinre测试安卓真机
+Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：
+
+首先安装Weinre
+
+1sudo npm install -g wei">
+
+  
+  
+    <link rel="icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="img/cassie.jpg">
 		</div>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
 		
-		<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，努力成长，慢慢沉淀。
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <article id="post-mobile-debug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/mobile-debug/" class="article-date">
+  	<time datetime="2015-01-03T07:09:18.000Z" itemprop="datePublished">1月 3 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      移动端前端开发真机调试实践
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
 <h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
 <p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
 <ul>
-<li>首先安装Weinre<figure class="highlight code"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">sudo</span> npm install -g weinre
-</pre></td></tr></table></figure></li>
-<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
-<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行<br><figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span>
-</pre></td></tr></table></figure><br>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>将会看到下面的界面<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong><h3 id="调试自己本地的页面">调试自己本地的页面</h3>
-比如说，我本地有这么个页面，想在真机上看下实际效果。<br><img src="/images/5272AF4A-55AB-4564-8C08-033AA93908FA.png" alt=""><br>具体操作步骤为：</li>
+<li>首先安装Weinre</li>
 </ul>
+<figure class="highlight code"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> npm install -g weinre</div></pre></td></tr></table></figure>
+
+<ul>
+<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
+<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></div></pre></td></tr></table></figure>
+
+<p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>将会看到下面的界面<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong></p>
+<h3 id="调试自己本地的页面">调试自己本地的页面</h3>
+<p>比如说，我本地有这么个页面，想在真机上看下实际效果。<br><img src="/images/5272AF4A-55AB-4564-8C08-033AA93908FA.png" alt=""><br>具体操作步骤为：</p>
 <ul>
 <li>1、引入上图中的外链js<br><img src="/images/C3029D85-B518-45E2-8AE7-55879BAB0A76.png" alt=""></li>
 <li>2、将本地页面链接的localhost修改为局域网ip，我的ip为192.168.1.103，故我需要调试的页面打开方式为<code>http://192.168.1.103:3000/index</code><br><img src="/images/5B4C7C76-4D3F-4A01-AF45-8CE67EEF60FD.png" alt=""></li>
@@ -114,15 +267,17 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 <h3 id="调试外网页面">调试外网页面</h3>
 <p>因为不是自己本地或者自己写的页面，无法手动在自己的html文件里加入<code>&lt;script src=&quot;http://192.168.1.103:8080/target/target-script-min.js#anonymous&quot;&gt;&lt;/script&gt;</code>这种target script.<br>但我们可以通过代理服务器主页【Target Bookmarklet】一节中 bookmarklet 来实现。</p>
 <ul>
-<li>1、在手机浏览器书签地址栏加入这段代码<figure class="highlight js"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>javascript:(<span class="function"><span class="keyword">function</span><span class="params">(e)</span>{</span>e.setAttribute(<span class="string">"src"</span>,<span class="string">"http://192.168.1.103:8080/target/target-script-min.js#anonymous"</span>);document.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(e);})(document.createElement(<span class="string">"script"</span>));<span class="keyword">void</span>(<span class="number">0</span>);
-</pre></td></tr></table></figure></li>
+<li>1、在手机浏览器书签地址栏加入这段代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">javascript:(<span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>{e.setAttribute(<span class="string">"src"</span>,<span class="string">"http://192.168.1.103:8080/target/target-script-min.js#anonymous"</span>);<span class="built_in">document</span>.getElementsByTagName(<span class="string">"body"</span>)[<span class="number">0</span>].appendChild(e);})(<span class="built_in">document</span>.createElement(<span class="string">"script"</span>));<span class="keyword">void</span>(<span class="number">0</span>);</div></pre></td></tr></table></figure>
+
+<ul>
 <li>2、在<code>http://192.168.1.103:8080/client/#anonymous</code>选中百度的链接</li>
 <li>3、即可在Elememts下调试效果<br><img src="/images/IMAG0004.jpg" alt=""><br>在PC上改变元素的样式在手机可以看到元素样式的改变，console功能都可以使用。这里不再一一演示。</li>
 </ul>
 <h2 id="UC开发版测试安卓真机">UC开发版测试安卓真机</h2>
 <ul>
-<li>1、在Android设备上安装UC浏览器开发版，进入<a href="http://www.uc.cn/business/developer/" target="_blank">下载页</a></li>
+<li>1、在Android设备上安装UC浏览器开发版，进入<a href="http://www.uc.cn/business/developer/" target="_blank" rel="external">下载页</a></li>
 <li>2、获取Android设备的IP<br>比如我的小米2A，获取方式为<code>设置</code>-&gt;<code>WLAN</code>-&gt;<code>高级设置</code>-&gt;<code>IP地址</code>，我的IP为192.168.1.102<br><img src="/images/Screenshot_2015-01-03-15-47-42.png" alt=""></li>
 <li>3、用和手机处于同一网段的PC或MAC访问步骤2获得的IP后加上 :9998，比如我需要进入192.168.1.102:9998</li>
 <li>4、打开UC开发版安卓客户端，选择“允许”，将在PC上获得这样的界面<br><img src="/images/F6BFF092-D176-4157-95CE-8CAF337FA35A.png" alt=""></li>
@@ -130,345 +285,114 @@ Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端�
 </ul>
 <h2 id="更多真机调试资料分享">更多真机调试资料分享</h2>
 <ul>
-<li><a href="https://github.com/jieyou/remote_inspect_web_on_real_device" target="_blank">各种 真机远程调试 方法 汇总</a></li>
-<li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank">移动端前端开发调试</a></li>
+<li><a href="https://github.com/jieyou/remote_inspect_web_on_real_device" target="_blank" rel="external">各种 真机远程调试 方法 汇总</a></li>
+<li><a href="http://yujiangshui.com/multidevice-frontend-debug/" target="_blank" rel="external">移动端前端开发调试</a></li>
 </ul>
-  
-	</div>
-		<footer class="article-footer clearfix">
 
-
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/tools/">tools</a>
+      
+    </div>
   </div>
-
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://xuyuan923.github.io/2015/01/03/mobile-debug/" data-title="移动端前端开发真机调试实践 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2015/01/07/45-useful-javascript-tips/" title="45个实用的JavaScript技巧">
-  <strong>上一篇：</strong><br/>
-  <span>
-  45个实用的JavaScript技巧</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2014/12/31/my-2014/"  title="路还很长，2015重新出发">
- <strong>下一篇：</strong><br/> 
- <span>路还很长，2015重新出发
-</span>
-</a>
-</div>
-
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/01/07/45-useful-javascript-tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          45个实用的JavaScript技巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/31/my-2014/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">路还很长，2015重新出发</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
 </nav>
 
-	
-<section class="comment">
-	<div class="ds-thread"></div>
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="mobile-debug" data-title="移动端前端开发真机调试实践" data-url="http://xuyuan923.github.io/2015/01/03/mobile-debug/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '前端学习踩过的坑-CassieXu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Weinre测试安卓真机"><span class="toc-number">1.</span> <span class="toc-text">Weinre测试安卓真机</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#调试自己本地的页面"><span class="toc-number">1.1.</span> <span class="toc-text">调试自己本地的页面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#调试外网页面"><span class="toc-number">1.2.</span> <span class="toc-text">调试外网页面</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#UC开发版测试安卓真机"><span class="toc-number">2.</span> <span class="toc-text">UC开发版测试安卓真机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更多真机调试资料分享"><span class="toc-number">3.</span> <span class="toc-text">更多真机调试资料分享</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/node/" title="node">node<sup>5</sup></a></li>
-		
-			<li><a href="/tags/tools/" title="tools">tools<sup>5</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
-		
-			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
-      <li><a href="http://hustskyking.cnblogs.com/" target="_blank" title="小胡子哥-Barret Lee">小胡子哥-Barret Lee</a></li>
-      <li><a href="http://yujiangshui.com/" target="_blank" title="于江水">于江水</a></li>
-      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
-      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
-      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
-		
-	</div>
-	
-	
-	<section class="info">
-		<p> 我是一名大四的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
-			这是我的github博客</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
-		
-		
-		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
-		
-		
-		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
-		
-		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
-		
-		</p>
-</div>
+  </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<div id="totop">
-<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-</div>
-
-<script src="/js/totop.js"></script>
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  </body>
+  </div>
+</body>
 </html>

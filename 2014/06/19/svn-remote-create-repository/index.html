@@ -1,584 +1,421 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>svn远程创建版本库 | 前端学习踩过的坑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Cassie Xu">
-    
-    <meta name="description" content="Quick Start
+  <title>svn远程创建版本库 | 前端学习踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Quick Start
 进入远程服务器的svn目录
 比如我测试的服务器svn目录在/var/svn下
-1
-cd /var/svn
-
+1cd /var/svn
 
 新建版本库
-1
-svnadmin create xuyuan
-
+1svnadmin create xuyuan
 
 查看xuyuan版本库是否已经成功创建
-1
-2
-cd /var/svn
-ls
+12cd /var/svnls
 
+修改版本库配置文件
+配置svnserve.conf
+123cd xuyuancd confvi svnserve.conf
 
-修改版本库配置文件">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/cassie.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+修改以下">
+<meta property="og:type" content="article">
+<meta property="og:title" content="svn远程创建版本库">
+<meta property="og:url" content="http://xuyuan923.github.io/2014/06/19/svn-remote-create-repository/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description" content="Quick Start
+进入远程服务器的svn目录
+比如我测试的服务器svn目录在/var/svn下
+1cd /var/svn
+
+新建版本库
+1svnadmin create xuyuan
+
+查看xuyuan版本库是否已经成功创建
+12cd /var/svnls
+
+修改版本库配置文件
+配置svnserve.conf
+123cd xuyuancd confvi svnserve.conf
+
+修改以下">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="svn远程创建版本库">
+<meta name="twitter:description" content="Quick Start
+进入远程服务器的svn目录
+比如我测试的服务器svn目录在/var/svn下
+1cd /var/svn
+
+新建版本库
+1svnadmin create xuyuan
+
+查看xuyuan版本库是否已经成功创建
+12cd /var/svnls
+
+修改版本库配置文件
+配置svnserve.conf
+123cd xuyuancd confvi svnserve.conf
+
+修改以下">
+
+  
+  
+    <link rel="icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
-
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
-				<h2 class="blog-motto">By Cassie</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2014/06/19/svn-remote-create-repository/" title="svn远程创建版本库" itemprop="url">svn远程创建版本库</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" title="Cassie Xu" target="_blank" itemprop="author">Cassie Xu</a>
-		
-  <p class="article-time">
-    <time datetime="2014-06-19T13:06:05.000Z" itemprop="datePublished">发表于6月 19 2014</time>
-    
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.2.1.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.3.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置passwd"><span class="toc-number">1.3.2.</span> <span class="toc-text">配置passwd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.4.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.5.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现公用项目代码自动更新update"><span class="toc-number">1.6.</span> <span class="toc-text">实现公用项目代码自动更新update</span></a></li><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可以使用svn_hooks"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">可以使用svn hooks</span></a></li></ol></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#在测试服务器文件夹根目录checkout版本库"><span class="toc-number">1.7.</span> <span class="toc-text">在测试服务器文件夹根目录checkout版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置域名"><span class="toc-number">1.8.</span> <span class="toc-text">配置域名</span></a></li></ol>
-		
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="img/cassie.jpg">
 		</div>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
 		
-		<h2 id="Quick_Start">Quick Start</h2>
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，努力成长，慢慢沉淀。
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <article id="post-svn-remote-create-repository" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/19/svn-remote-create-repository/" class="article-date">
+  	<time datetime="2014-06-19T13:06:05.000Z" itemprop="datePublished">6月 19 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      svn远程创建版本库
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2>
 <h3 id="进入远程服务器的svn目录">进入远程服务器的svn目录</h3>
 <p>比如我测试的服务器svn目录在/var/svn下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre><span class="built_in">cd</span> /var/svn
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/svn</div></pre></td></tr></table></figure>
 
 <h3 id="新建版本库">新建版本库</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>svnadmin create xuyuan
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnadmin create xuyuan</div></pre></td></tr></table></figure>
 
 <h4 id="查看xuyuan版本库是否已经成功创建">查看xuyuan版本库是否已经成功创建</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">cd</span> /var/svn
-ls
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/svn</div><div class="line">ls</div></pre></td></tr></table></figure>
 
 <h3 id="修改版本库配置文件">修改版本库配置文件</h3>
 <h4 id="配置svnserve-conf">配置svnserve.conf</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre><span class="built_in">cd</span> xuyuan
-<span class="built_in">cd</span> conf
-vi svnserve.conf
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> xuyuan</div><div class="line"><span class="built_in">cd</span> conf</div><div class="line">vi svnserve.conf</div></pre></td></tr></table></figure>
 
 <p>修改以下配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-</pre></td><td class="code"><pre>anon-acess = none //未存在用户没有任何权限
-auth-acess = write //存在用户有写的权限
-password-db = passwd
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anon-acess = none //未存在用户没有任何权限</div><div class="line">auth-acess = write //存在用户有写的权限</div><div class="line">password-db = passwd</div></pre></td></tr></table></figure>
 
 <h4 id="配置passwd">配置passwd</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>vi passwd
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi passwd</div></pre></td></tr></table></figure>
 
 <p>在passwd文件最下方添加用户:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>xuyuan = <span class="number">123456</span>
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xuyuan = <span class="number">123456</span></div></pre></td></tr></table></figure>
 
 <h4 id="配置authz">配置authz</h4>
 <p>在最下方添加用户的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>[/]
-xuyuan = wr
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[/]</div><div class="line">xuyuan = wr</div></pre></td></tr></table></figure>
 
 <h3 id="本地新建空文件夹取回版本库">本地新建空文件夹取回版本库</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre>svn checkout
-svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyuan
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">svn checkout</div><div class="line">svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyuan</div></pre></td></tr></table></figure>
 
 <p>会下载最新版本xuyuan库</p>
 <h3 id="关联提交文件到远程服务器指定文件夹下">关联提交文件到远程服务器指定文件夹下</h3>
-<p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
+<p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank" rel="external">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
 <h3 id="实现公用项目代码自动更新update">实现公用项目代码自动更新update</h3>
 <h5 id="可以使用svn_hooks">可以使用svn hooks</h5>
 <p>将post-commit.tmpl拷贝一份到post-commit</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-</pre></td><td class="code"><pre><span class="built_in">cd</span> [svn版本库]
-<span class="built_in">cd</span> hooks
-ls
-cp post-commit.tmpl post-commit
-vi post-commit
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> [svn版本库]</div><div class="line"><span class="built_in">cd</span> hooks</div><div class="line">ls</div><div class="line">cp post-commit.tmpl post-commit</div><div class="line">vi post-commit</div></pre></td></tr></table></figure>
 
 <p>然后要赋予post-commit文件可执行的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>chmod +x post-commit
-</pre></td></tr></table></figure><br>此时，通过ls -al可以查看到post-commit已有执行的权限了。<br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span>
-svn update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-commit</div></pre></td></tr></table></figure>
+
+<p>此时，通过ls -al可以查看到post-commit已有执行的权限了。<br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span></div><div class="line">svn update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache</div></pre></td></tr></table></figure>
 
 <h3 id="在测试服务器文件夹根目录checkout版本库">在测试服务器文件夹根目录checkout版本库</h3>
 <p>使用<code>shell</code>因为是同时在测试服务器上<code>checkout</code> <code>svn</code> 版本库，所以服务器IP为<code>localhost</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">cd</span> html/[工作副本文件夹]
-svn checkout svn://localhost/xuyuan
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> html/[工作副本文件夹]</div><div class="line">svn checkout svn://localhost/xuyuan</div></pre></td></tr></table></figure>
 
 <h3 id="配置域名">配置域名</h3>
 <p>进入根目录文件夹下的httpd文件夹下，修改vhost</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-</pre></td><td class="code"><pre><span class="built_in">cd</span> /etc/httpd
-vi vhost
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/httpd</div><div class="line">vi vhost</div></pre></td></tr></table></figure>
 
 <p>添加一段新的vhost:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-</pre></td><td class="code"><pre><span class="comment">#library by cassie</span>
-&lt;VirtualHost *:<span class="number">80</span>&gt;
-ServerName findlove.net
-ServerAdmin hfutonline@<span class="number">163</span>.com
-DocumentRoot <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>
-SetEnv APPLICATION_ENV <span class="string">"development"</span>
-&lt;Directory <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>&gt;
-DirectoryIndex index.php
-AllowOverride All
-Order deny,allow
-Allow from all
-<span class="comment">#Option Index</span>
-&lt;/Directory&gt;
-&lt;/VirtualHost&gt;
-</pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#library by cassie</span></div><div class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</div><div class="line">ServerName findlove.net</div><div class="line">ServerAdmin hfutonline@<span class="number">163</span>.com</div><div class="line">DocumentRoot <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span></div><div class="line">SetEnv APPLICATION_ENV <span class="string">"development"</span></div><div class="line">&lt;Directory <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>&gt;</div><div class="line">DirectoryIndex index.php</div><div class="line">AllowOverride All</div><div class="line">Order deny,allow</div><div class="line">Allow from all</div><div class="line"><span class="comment">#Option Index</span></div><div class="line">&lt;/Directory&gt;</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
 
 <p>配置完毕后，需要重启<code>apache</code>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre>1
-</pre></td><td class="code"><pre>service httpd restart
-</pre></td></tr></table></figure>
-
-  
-	</div>
-		<footer class="article-footer clearfix">
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service httpd restart</div></pre></td></tr></table></figure>
 
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/tools/">tools</a>
+      
+    </div>
   </div>
-
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://xuyuan923.github.io/2014/06/19/svn-remote-create-repository/" data-title="svn远程创建版本库 | 前端学习踩过的坑" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2014/06/23/the-effect-of-mouse-drag/" title="鼠标拖拽特效">
-  <strong>上一篇：</strong><br/>
-  <span>
-  鼠标拖拽特效</span>
-</a>
-</div>
-
-
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/06/23/the-effect-of-mouse-drag/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          鼠标拖拽特效
+        
+      </div>
+    </a>
+  
+  
 </nav>
 
-	
-<section class="comment">
-	<div class="ds-thread"></div>
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="svn-remote-create-repository" data-title="svn远程创建版本库" data-url="http://xuyuan923.github.io/2014/06/19/svn-remote-create-repository/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '前端学习踩过的坑-CassieXu'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
 
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
- 
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick_Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a></li><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#进入远程服务器的svn目录"><span class="toc-number">1.1.</span> <span class="toc-text">进入远程服务器的svn目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#新建版本库"><span class="toc-number">1.2.</span> <span class="toc-text">新建版本库</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#查看xuyuan版本库是否已经成功创建"><span class="toc-number">1.2.1.</span> <span class="toc-text">查看xuyuan版本库是否已经成功创建</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#修改版本库配置文件"><span class="toc-number">1.3.</span> <span class="toc-text">修改版本库配置文件</span></a></li><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#配置svnserve-conf"><span class="toc-number">1.3.1.</span> <span class="toc-text">配置svnserve.conf</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置passwd"><span class="toc-number">1.3.2.</span> <span class="toc-text">配置passwd</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置authz"><span class="toc-number">1.3.3.</span> <span class="toc-text">配置authz</span></a></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#本地新建空文件夹取回版本库"><span class="toc-number">1.4.</span> <span class="toc-text">本地新建空文件夹取回版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联提交文件到远程服务器指定文件夹下"><span class="toc-number">1.5.</span> <span class="toc-text">关联提交文件到远程服务器指定文件夹下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现公用项目代码自动更新update"><span class="toc-number">1.6.</span> <span class="toc-text">实现公用项目代码自动更新update</span></a></li><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#可以使用svn_hooks"><span class="toc-number">1.6.0.1.</span> <span class="toc-text">可以使用svn hooks</span></a></li></ol></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#在测试服务器文件夹根目录checkout版本库"><span class="toc-number">1.7.</span> <span class="toc-text">在测试服务器文件夹根目录checkout版本库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置域名"><span class="toc-number">1.8.</span> <span class="toc-text">配置域名</span></a></li></ol>
- 
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/node/" title="node">node<sup>5</sup></a></li>
-		
-			<li><a href="/tags/tools/" title="tools">tools<sup>5</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
-		
-			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
-      <li><a href="http://hustskyking.cnblogs.com/" target="_blank" title="小胡子哥-Barret Lee">小胡子哥-Barret Lee</a></li>
-      <li><a href="http://yujiangshui.com/" target="_blank" title="于江水">于江水</a></li>
-      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
-      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
-      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
-</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
-		
-	</div>
-	
-	
-	<section class="info">
-		<p> 我是一名大四的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
-			这是我的github博客</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
-		
-		
-		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
-		
-		
-		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
-		
-		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
-		
-		</p>
-</div>
+  </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
-</script>
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-<script type="text/javascript">
-  var duoshuoQuery = {short_name:"null"};
-  (function() {
-    var ds = document.createElement('script');
-    ds.type = 'text/javascript';ds.async = true;
-    ds.src = '//static.duoshuo.com/embed.js';
-    ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
-    || document.getElementsByTagName('body')[0]).appendChild(ds);
-  })();
-</script> 
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<div id="totop">
-<a title="返回顶部"><img src="/img/scrollup.png"/></a>
-</div>
-
-<script src="/js/totop.js"></script>
-
-<!-- mathjax config similar to math.stackexchange -->
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  </body>
+  </div>
+</body>
 </html>

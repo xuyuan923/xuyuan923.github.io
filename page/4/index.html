@@ -1,350 +1,558 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>前端学习踩过的坑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Cassie Xu">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/cassie.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <title>前端学习踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端学习踩过的坑">
+<meta property="og:url" content="http://xuyuan923.github.io/page/4/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端学习踩过的坑">
+<meta name="twitter:description">
+
+  
+  
+    <link rel="icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="img/cassie.jpg">
+		</div>
 
-  <body>
-    <header>
-      <div>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
 		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
 			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
-				<h2 class="blog-motto">By Cassie</h2>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，努力成长，慢慢沉淀。
+				</section>
+				
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/08/03/understand-kissy-base/" title="理解Kissy框架的Base机制" itemprop="url">
-  
-    <h1 itemprop="name">理解Kissy框架的Base机制</h1>
-    
-     
-           <p itemprop="description" >理解Base API
-Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为Base API。
-extend()
-
-官网extend()解释为从当前类上扩展出一个子类
-
-callSuper()
-调用父类的对应方法，如果没有，则返回undefined,直接看</p>
-        
-    
-    <time datetime="2014-08-03T12:50:51.000Z" itemprop="datePublished">8月 3 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/06/30/mobile-gallery/" title="移动端相册" itemprop="url">
-  
-    <h1 itemprop="name">移动端相册</h1>
-    
-     
-           <p itemprop="description" >第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。
-移动端对比web端
-移动端的开发优势
-
-移动端浏览器大多采用webkit内核，需要考虑的js兼容性问题较少
-移动端的动画可以用CSS3来制</p>
-        
-    
-    <time datetime="2014-06-30T08:31:43.000Z" itemprop="datePublished">6月 30 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/06/23/the-effect-of-mouse-drag/" title="鼠标拖拽特效" itemprop="url">
-  
-    <h1 itemprop="name">鼠标拖拽特效</h1>
-    
-     
-           <p itemprop="description" >拖拽原理分析
-事件一，鼠标在可拖拽区域按下时
-计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动
-1
-2
-3
-4
-5
-6
-oDrag.addEventListener(&#39;mousedown&#39;, function(e) {
-    var e = e || window.e</p>
-        
-    
-    <time datetime="2014-06-23T13:34:16.000Z" itemprop="datePublished">6月 23 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/06/19/svn-remote-create-repository/" title="svn远程创建版本库" itemprop="url">
-  
-    <h1 itemprop="name">svn远程创建版本库</h1>
-    
-     
-           <p itemprop="description" >Quick Start
-进入远程服务器的svn目录
-比如我测试的服务器svn目录在/var/svn下
-1
-cd /var/svn
-
-
-新建版本库
-1
-svnadmin create xuyuan
-
-
-查看xuyuan版本库是否已经成功创建
-1
-2
-cd /var/svn
-ls
-
-</p>
-        
-    
-    <time datetime="2014-06-19T13:06:05.000Z" itemprop="datePublished">6月 19 2014</time>
-  </a>
-</section>
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" href="/page/3/"><span></span>Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/node/" title="node">node<sup>5</sup></a></li>
-		
-			<li><a href="/tags/tools/" title="tools">tools<sup>5</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
-		
-			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
-      <li><a href="http://hustskyking.cnblogs.com/" target="_blank" title="小胡子哥-Barret Lee">小胡子哥-Barret Lee</a></li>
-      <li><a href="http://yujiangshui.com/" target="_blank" title="于江水">于江水</a></li>
-      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
-      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
-      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
+		</div>
+	</header>				
 </div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
-		
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
 	</div>
-	
-	
-	<section class="info">
-		<p> 我是一名大四的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
-			这是我的github博客</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
-		
-		
-		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
-		
-		
-		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
-		
-		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+</nav>
+      
+  
+    <article id="post-understand-kissy-base" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/03/understand-kissy-base/" class="article-date">
+  	<time datetime="2014-08-03T12:50:51.000Z" itemprop="datePublished">8月 3 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kissy/">kissy</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/03/understand-kissy-base/">理解Kissy框架的Base机制</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="理解Base_API">理解Base API</h2>
+<p>Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为<a href="http://docs.kissyui.com/1.4/docs/html/api/base/" target="_blank" rel="external">Base API</a>。</p>
+<h3 id="extend()">extend()</h3>
+<blockquote>
+<p>官网extend()解释为<strong>从当前类上扩展出一个子类</strong></p>
+</blockquote>
+<h3 id="callSuper()">callSuper()</h3>
+<p>调用父类的对应方法，如果没有，则返回undefined,直接看用法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">KISSY.use(<span class="string">'base'</span>, function(S, Base) {</div><div class="line">    var A = Base.extend({</div><div class="line">        m: function (value) {</div><div class="line">            <span class="keyword">return</span> <span class="string">'am:'</span> + value;</div><div class="line">        },</div><div class="line">        m2: function (value) {</div><div class="line">            <span class="keyword">return</span> <span class="string">'am2:'</span> + value;</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    var B = A.extend({</div><div class="line">        m: function(value) {</div><div class="line">            <span class="keyword">return</span> <span class="string">'bm:('</span> + this.callSuper(value) + <span class="string">')'</span>;</div><div class="line">        },</div><div class="line">        m2: function(value) {</div><div class="line">        //获取B的父类A对应的方法，获取A的参数</div><div class="line">            <span class="keyword">return</span> <span class="string">'bm2('</span> + this.callSuper.apply(this, arguments) + <span class="string">')'</span>;</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    var b = new B();</div><div class="line">    console.log(b.m(<span class="number">1</span>)); //bm:(am:<span class="number">1</span>)</div><div class="line">    console.log(b.m2(<span class="number">2</span>)); //bm2:(am:<span class="number">2</span>)</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h3 id="ATTRS">ATTRS</h3>
+<p>ATTRS是Base的配置项，提供了默认的三种属性。</p>
+<blockquote>
+<p>1.提供默认值（value）<br>2.提供获取属性值时的函数封装（getter）<br>3.提供设定属性值时的函数封装（setter）</p>
+</blockquote>
+<p>举个例子，关键部分代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">Keystone.ATTRS = {</div><div class="line">    backgroundColor: {</div><div class="line">        // 默认值</div><div class="line">        value: <span class="string">'#F50'</span>,</div><div class="line">        // this.set(<span class="string">'backgroundColor'</span>, <span class="string">'#ddd'</span>); 的时候会调用的方法</div><div class="line">        setter: function(v) {</div><div class="line">            <span class="keyword">if</span> (/^\<span class="comment">#[0-9a-f]{6}$/i.test(v) || /^\#[0-9a-f]{3}/i.test(v)) {</span></div><div class="line">                <span class="keyword">return</span> v;</div><div class="line">            }</div><div class="line">            <span class="keyword">else</span> {</div><div class="line">                <span class="keyword">return</span> <span class="string">'#F50'</span>;</div><div class="line">            }</div><div class="line">        },</div><div class="line">        // this.get(<span class="string">'backgroundColor'</span>) 时会调用的方法</div><div class="line">        getter: function(v) {</div><div class="line">            <span class="keyword">if</span> (v.length === <span class="number">4</span>) {</div><div class="line">                <span class="keyword">return</span> <span class="string">'#'</span> + v.substr(<span class="number">1</span>).replace(/\w/ig, function(c) {</div><div class="line">                    <span class="keyword">return</span> c.toUpperCase() + c.toUpperCase();</div><div class="line">                })</div><div class="line">            }</div><div class="line">            <span class="keyword">else</span> {</div><div class="line">                <span class="keyword">return</span> v.toUpperCase();</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h2 id="Base的demo">Base的demo</h2>
+<p>来解析一下官网提供的一个kissy Base的<a href="http://docs.kissyui.com/1.4/docs/html/demo/base/index.html" target="_blank" rel="external">demo</a>。抽出骨架来看一下Base模块，为防止误会，这里把ATTRS里的validator()给删了，validator()是kissy中value特有的方法，ATTRS配置项中通常只允许有value,setter(),getter()三种配置项。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div></pre></td><td class="code"><pre><div class="line">KISSY.use(<span class="string">'base, node, event'</span>, function(S, Base, Node, Event) {</div><div class="line">    var $ = Node.all;</div><div class="line">    // 自定义类</div><div class="line">    // 继承 Base</div><div class="line">    var Person = Base.extend({</div><div class="line">        sayHi: function(name) {</div><div class="line">            alert(<span class="string">"Hi, "</span> + name + <span class="string">"! Nice to meet you!"</span>);</div><div class="line">            //触发自定义事件</div><div class="line">            this.fire(<span class="string">'say'</span>);</div><div class="line">        },</div><div class="line"></div><div class="line">        tellName: <span class="function"><span class="title">function</span></span>() {</div><div class="line">            alert(<span class="string">"My name is "</span> + this.get(<span class="string">'name'</span>) + <span class="string">"."</span>);</div><div class="line">            this.fire(<span class="string">'say'</span>);</div><div class="line">        },</div><div class="line"></div><div class="line">        tellAge: <span class="function"><span class="title">function</span></span>() {</div><div class="line">            alert(<span class="string">"I'm "</span> + this.get(<span class="string">'age'</span>) + <span class="string">" years old."</span>);</div><div class="line">            this.fire(<span class="string">'say'</span>);</div><div class="line">        },</div><div class="line"></div><div class="line">        introduce: function(extra) {</div><div class="line">            alert(<span class="string">"Hello everyone, my name is "</span> + this.get(<span class="string">'name'</span>) + <span class="string">", and I'm "</span> + this.get(<span class="string">'age'</span>) + <span class="string">" years old."</span> + extra);</div><div class="line">            this.fire(<span class="string">'say'</span>);</div><div class="line">        }</div><div class="line">    },{</div><div class="line">        ATTRS: {</div><div class="line">            name: {</div><div class="line">                //设置默认值</div><div class="line">                value: <span class="string">""</span></div><div class="line">            },</div><div class="line">            age: {</div><div class="line">                value: <span class="number">1</span>,</div><div class="line">            },</div><div class="line">            gender: {</div><div class="line">                value: Gender.MALE,</div><div class="line">                /*</div><div class="line">                指定setter和getter方法的操作</div><div class="line">                 */</div><div class="line">                setter: function(value) {</div><div class="line">                    <span class="keyword">if</span> ( S.isString(value) ) {</div><div class="line">                        <span class="keyword">return</span> Gender[value.toUpperCase()];</div><div class="line">                    }</div><div class="line">                    <span class="keyword">return</span> value;</div><div class="line">                },</div><div class="line">                getter: function(value) {</div><div class="line">                    <span class="keyword">return</span> S.keys(Gender)[value];</div><div class="line">                },</div><div class="line">            }</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    window.person = new Person({</div><div class="line">        name: <span class="string">"Andy"</span>,</div><div class="line">        age: <span class="number">18</span>,</div><div class="line">        gender: <span class="string">"female"</span></div><div class="line">    });</div><div class="line"></div><div class="line">    /*</div><div class="line">    继承Person</div><div class="line">     */</div><div class="line">    var Student = Person.extend({</div><div class="line">        introduce: <span class="function"><span class="title">function</span></span>() {</div><div class="line">            //调用父类方法</div><div class="line">            this.callSuper(<span class="string">"I'm a student of "</span> + this.get(<span class="string">'school'</span>) + <span class="string">".My hometown is "</span> + this.get(<span class="string">'from'</span>) + <span class="string">"."</span>);</div><div class="line">        },</div><div class="line"></div><div class="line">        addScore: function(subject, score) {</div><div class="line">            //error异常收集</div><div class="line">            //设置子属性</div><div class="line">            this.set(<span class="string">'score.'</span> + subject, score, {</div><div class="line">                error: function(e) {</div><div class="line">                    console.log(e);</div><div class="line">                }</div><div class="line">            });</div><div class="line">        },</div><div class="line"></div><div class="line">        /*</div><div class="line">        <span class="built_in">bind</span>属性变化的方法</div><div class="line">         */</div><div class="line">        _onSetScore: function(value, ev) {</div><div class="line">            <span class="keyword">if</span> (!S.isEmptyObject(value)) {</div><div class="line">                alert(<span class="string">'Score change'</span>);</div><div class="line">                alert(this.get(<span class="string">'score'</span>));</div><div class="line">            }</div><div class="line">        }</div><div class="line">    }, {</div><div class="line">        ATTRS: {</div><div class="line">            school: {</div><div class="line">                value: <span class="string">""</span></div><div class="line">            },</div><div class="line"></div><div class="line">            from: {</div><div class="line">                value: <span class="string">""</span></div><div class="line">            },</div><div class="line"></div><div class="line">            score: {</div><div class="line">            }</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    var Teacher = Person.extend({</div><div class="line">        introduce: <span class="function"><span class="title">function</span></span>() {</div><div class="line">            this.callSuper(<span class="string">"I'm a "</span> + this.get(<span class="string">'level'</span>) + <span class="string">"teacher, and I teach "</span> + this.get(<span class="string">'teach'</span>) + <span class="string">"."</span>);</div><div class="line">        },</div><div class="line"></div><div class="line">        upLevel: <span class="function"><span class="title">function</span></span>() {</div><div class="line">            this.set(<span class="string">'level'</span>, this.get(<span class="string">'level'</span>) + <span class="number">1</span>, {</div><div class="line">                error: function(e) {</div><div class="line">                    alert(e);</div><div class="line">                }</div><div class="line">            });</div><div class="line">        },</div><div class="line"></div><div class="line">        downLevel: <span class="function"><span class="title">function</span></span>() {</div><div class="line">            this.set(<span class="string">'level'</span>, this.get(<span class="string">'level'</span>) - <span class="number">1</span>, {</div><div class="line">                error: function(e) {</div><div class="line">                    alert(e);</div><div class="line">                }</div><div class="line">            });</div><div class="line">        }</div><div class="line">    }, {</div><div class="line">        ATTRS: {</div><div class="line">            teach: {</div><div class="line">                value: <span class="string">""</span></div><div class="line">            },</div><div class="line"></div><div class="line">            level: {</div><div class="line">                value: Level.PRIMARY,</div><div class="line">                setter: function(value) {</div><div class="line">                    <span class="keyword">if</span> ( S.isString(value) ) {</div><div class="line">                        <span class="keyword">return</span> Level[value.toUpperCase()];</div><div class="line">                    }</div><div class="line">                    <span class="keyword">return</span> value;</div><div class="line">                }</div><div class="line">            }</div><div class="line">        }</div><div class="line">    });</div></pre></td></tr></table></figure>
+
+<h3 id="tips:kissy-add()与kissy-use()">tips:kissy.add()与kissy.use()</h3>
+<p>kissy.add()与kissy.use()的区别是，kissy.add()只加载模块，kissy.use()不仅加载模块，而且引用模块。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">kissy.add(<span class="string">'base,node'</span>,function(S,Base,Node){</div><div class="line">	</div><div class="line">},{</div><div class="line">	ATTRS:{}</div><div class="line">	}</div><div class="line">	<span class="keyword">return</span></div><div class="line">)</div></pre></td></tr></table></figure>
+
+<p>注意区别，kissy.use()还需要配置依赖项。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//引用本地模块</div><div class="line">kissy.use(<span class="string">'fp/mods/lu'</span>,function(S,Base,Node){</div><div class="line">	</div><div class="line">},{</div><div class="line">	ATTRS:{}	</div><div class="line">	<span class="keyword">return</span> </div><div class="line">},{</div><div class="line">	requires: [</div><div class="line">		<span class="string">'../../base/base'</span></div><div class="line">	]</div><div class="line">}</div><div class="line">)</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+  </div>
+  
+</article>
 
 
 
 
 
 
+  
+    <article id="post-mobile-gallery" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/30/mobile-gallery/" class="article-date">
+  	<time datetime="2014-06-30T08:31:43.000Z" itemprop="datePublished">6月 30 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
 
-<!-- mathjax config similar to math.stackexchange -->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/30/mobile-gallery/">移动端相册</a>
+    </h1>
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。</p>
+<h2 id="移动端对比web端">移动端对比web端</h2>
+<h3 id="移动端的开发优势">移动端的开发优势</h3>
+<ul>
+<li>移动端浏览器大多采用webkit内核，需要考虑的js兼容性问题较少</li>
+<li>移动端的动画可以用CSS3来制作，浏览器兼容性问题少，开发效率高</li>
+</ul>
+<h3 id="移动端开发的劣势">移动端开发的劣势</h3>
+<ul>
+<li>移动端对加载速率要求更高，js代码必须更精简高效</li>
+<li>只能引入更小的js库,比如zepto.js</li>
+<li>由于引入的js库（如zepto.js）有些功能尚未包含，有时需要自己写原生的js</li>
+</ul>
+<h2 id="移动端开发工具">移动端开发工具</h2>
+<ul>
+<li>js：<a href="https://github.com/madrobby/zepto" target="_blank" rel="external">zepto.js</a></li>
+<li>css3: <a href="http://daneden.github.io/animate.css/" target="_blank" rel="external">animate.css</a></li>
+</ul>
+<p><code>zepto.js</code>是专为移动端打造的轻量型js库，移动端页面中可以引入大量<code>CSS3</code>动画，十分生动。</p>
+<h2 id="移动端开发的一些注意点">移动端开发的一些注意点</h2>
+<ul>
+<li>传统web端的<code>DOM animation</code>用<code>css3</code>动画代替</li>
+<li><code>zepto.js</code>中由于click事件的效率太低，执行一次click 事件有200~300ms的延迟，为了更快的响应，最好用Zepto 提供的<a href="http://zeptojs.com/#touch" target="_blank" rel="external">touch</a>事件代替。</li>
+<li>使用canvas代替images,canvas会触发GPU设备，进行物理渲染，canvas可以把需要重复绘制的画面数据进行缓存起来，比images更高效</li>
+</ul>
+<h2 id="demo完整版演示">demo完整版演示</h2>
+<p>调试：<code>F12</code>打开调试窗口 ——&gt;<code>ESC</code>打开Console视图，选择<code>Emulation</code>，设置模拟的<code>device</code> ——&gt; F5刷新浏览器，查看模拟效果 </p>
+<ul>
+<li><strong>demo</strong>: <a href="http://xuyuan923.github.io/demo/mobile-gallery.html" target="_blank" rel="external">http://xuyuan923.github.io/demo/mobile-gallery.html</a></li>
+<li>github源码：<a href="https://github.com/xuyuan923/mobile-gallery" target="_blank" rel="external">https://github.com/xuyuan923/mobile-gallery</a></li>
+</ul>
+<h2 id="资料推荐">资料推荐</h2>
+<ul>
+<li><a href="http://www.imooc.com/learn/140" target="_blank" rel="external">@远人，视频传送门</a></li>
+<li><a href="http://chaoskeh.com/blog/some-experience-of-using-zepto.html" target="_blank" rel="external">Zepto 使用中的一些注意点</a></li>
+</ul>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
+      
+    </div>
+  </div>
+  
+</article>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  </body>
- </html>
+
+
+
+
+  
+    <article id="post-the-effect-of-mouse-drag" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/23/the-effect-of-mouse-drag/" class="article-date">
+  	<time datetime="2014-06-23T13:34:16.000Z" itemprop="datePublished">6月 23 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/23/the-effect-of-mouse-drag/">鼠标拖拽特效</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="拖拽原理分析">拖拽原理分析</h2>
+<h3 id="事件一，鼠标在可拖拽区域按下时">事件一，鼠标在可拖拽区域按下时</h3>
+<p>计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">oDrag.addEventListener(<span class="string">'mousedown'</span>, function(e) {</div><div class="line">    var e = e || window.event;</div><div class="line">    mouseOffsetX = e.pageX - oDrag.offsetLeft;</div><div class="line">    mouseOffsetY = e.pageY - oDrag.offsetTop;</div><div class="line">    isDraging = <span class="literal">true</span>;</div><div class="line">})</div></pre></td></tr></table></figure>
+
+<h3 id="事件二，鼠标在可拖动区域按下并开始移动时">事件二，鼠标在可拖动区域按下并开始移动时</h3>
+<h4 id="检测，元素是否标记为移动,浮层跟随鼠标移动">检测，元素是否标记为移动,浮层跟随鼠标移动</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">document.onmousemove = function(e) {</div><div class="line">    var e = e || window.event;</div><div class="line">    var mouseX = e.pageX; //鼠标当前在屏幕的位置</div><div class="line">    var mouseY = e.pageY;</div><div class="line">    var moveX = <span class="number">0</span>; //浮层元素的新位置</div><div class="line">    var moveY = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (isDraging === <span class="literal">true</span>) {</div><div class="line">        moveX = mouseX - mouseOffsetX;</div><div class="line">        moveY = mouseY - mouseOffsetY;</div><div class="line">        oDrag.style.left = moveX + <span class="string">'px'</span>;</div><div class="line">        oDrag.style.top = moveY + <span class="string">'px'</span>;</div><div class="line">    }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h4 id="拖拽区域的宽度和高度限制">拖拽区域的宽度和高度限制</h4>
+<p>上段程序未进行可移动区域的限制，这样拖拽图层可能脱离屏幕，出现滚轮<br>通过<code>clientWidth</code>,<code>clientHeight</code>设置<code>pageWidth</code>和<code>pageHeight</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">document.onmousemove = function(e) {</div><div class="line">    var e = e || window.event;</div><div class="line">    var mouseX = e.pageX; //鼠标当前在屏幕的位置</div><div class="line">    var mouseY = e.pageY;</div><div class="line">    var moveX = <span class="number">0</span>; //浮层元素的新位置</div><div class="line">    var moveY = <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (isDraging === <span class="literal">true</span>) {</div><div class="line">        moveX = mouseX - mouseOffsetX;</div><div class="line">        moveY = mouseY - mouseOffsetY;</div><div class="line">        //宽度限制，moveX&gt;<span class="number">0</span>,并且moveX&lt;(页面最大宽度-dialog宽度)</div><div class="line">        //高度限制，moveYou&gt;<span class="number">0</span>,并且moveY&lt;(页面最大高度-dialog高度)</div><div class="line">        var pageWidth = document.documentElement.clientWidth;</div><div class="line">        var pageHeight = document.documentElement.clientHeight;</div><div class="line">        var dialogWidth = oDrag.offsetWidth;</div><div class="line">        var dialogHeight = oDrag.offsetHeight;</div><div class="line">        var maxX = pageWidth - dialogWidth;</div><div class="line">        var maxY = pageHeight - dialogHeight;</div><div class="line">        moveX = Math.min(maxX, Math.max(<span class="number">0</span>, moveX)); //保证moveX不小于<span class="number">0</span></div><div class="line">        moveY = Math.min(maxY, Math.max(<span class="number">0</span>, moveY)); //保证moveY不小于<span class="number">0</span></div><div class="line">        oDrag.style.left = moveX + <span class="string">'px'</span>;</div><div class="line">        oDrag.style.top = moveY + <span class="string">'px'</span>;</div><div class="line">    }</div><div class="line">};</div></pre></td></tr></table></figure>
+
+<h3 id="事件三，鼠标松开时">事件三，鼠标松开时</h3>
+<p>标记元素为不可拖动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">document.onmouseup = function(e) {</div><div class="line">    isDraging = <span class="literal">false</span>;</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="拖拽特性——重点函数总结">拖拽特性——重点函数总结</h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>document.getElementById(ID)</td>
+<td>根据传入的ID获得元素element对象</td>
+</tr>
+<tr>
+<td>Element.addEventListener(TYPE,FUNCTION)</td>
+<td>为元素对象设置事件侦听处理</td>
+</tr>
+<tr>
+<td>document.onmouseup=function(e){}</td>
+<td>鼠标松开时触发</td>
+</tr>
+<tr>
+<td>document.onmousemove=function(e){}</td>
+<td>鼠标移动时触发</td>
+</tr>
+</tbody>
+</table>
+<h2 id="详细图片展示和demo">详细图片展示和demo</h2>
+<h3 id="详细图片展示">详细图片展示</h3>
+<p><img src="/images/tuozhuai.jpg" alt="拖拽图片"></p>
+<h3 id="demo">demo</h3>
+<p><a href="/demo/drag.html">拖拽效果在线演示</a><br><a href="/demo/dialog.html">完整登陆浮层拖拽效果</a></p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-svn-remote-create-repository" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/06/19/svn-remote-create-repository/" class="article-date">
+  	<time datetime="2014-06-19T13:06:05.000Z" itemprop="datePublished">6月 19 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/06/19/svn-remote-create-repository/">svn远程创建版本库</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Quick_Start">Quick Start</h2>
+<h3 id="进入远程服务器的svn目录">进入远程服务器的svn目录</h3>
+<p>比如我测试的服务器svn目录在/var/svn下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/svn</div></pre></td></tr></table></figure>
+
+<h3 id="新建版本库">新建版本库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnadmin create xuyuan</div></pre></td></tr></table></figure>
+
+<h4 id="查看xuyuan版本库是否已经成功创建">查看xuyuan版本库是否已经成功创建</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/svn</div><div class="line">ls</div></pre></td></tr></table></figure>
+
+<h3 id="修改版本库配置文件">修改版本库配置文件</h3>
+<h4 id="配置svnserve-conf">配置svnserve.conf</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> xuyuan</div><div class="line"><span class="built_in">cd</span> conf</div><div class="line">vi svnserve.conf</div></pre></td></tr></table></figure>
+
+<p>修改以下配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anon-acess = none //未存在用户没有任何权限</div><div class="line">auth-acess = write //存在用户有写的权限</div><div class="line">password-db = passwd</div></pre></td></tr></table></figure>
+
+<h4 id="配置passwd">配置passwd</h4>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi passwd</div></pre></td></tr></table></figure>
+
+<p>在passwd文件最下方添加用户:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xuyuan = <span class="number">123456</span></div></pre></td></tr></table></figure>
+
+<h4 id="配置authz">配置authz</h4>
+<p>在最下方添加用户的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[/]</div><div class="line">xuyuan = wr</div></pre></td></tr></table></figure>
+
+<h3 id="本地新建空文件夹取回版本库">本地新建空文件夹取回版本库</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">svn checkout</div><div class="line">svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyuan</div></pre></td></tr></table></figure>
+
+<p>会下载最新版本xuyuan库</p>
+<h3 id="关联提交文件到远程服务器指定文件夹下">关联提交文件到远程服务器指定文件夹下</h3>
+<p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank" rel="external">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
+<h3 id="实现公用项目代码自动更新update">实现公用项目代码自动更新update</h3>
+<h5 id="可以使用svn_hooks">可以使用svn hooks</h5>
+<p>将post-commit.tmpl拷贝一份到post-commit</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> [svn版本库]</div><div class="line"><span class="built_in">cd</span> hooks</div><div class="line">ls</div><div class="line">cp post-commit.tmpl post-commit</div><div class="line">vi post-commit</div></pre></td></tr></table></figure>
+
+<p>然后要赋予post-commit文件可执行的权限</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-commit</div></pre></td></tr></table></figure>
+
+<p>此时，通过ls -al可以查看到post-commit已有执行的权限了。<br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span></div><div class="line">svn update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache</div></pre></td></tr></table></figure>
+
+<h3 id="在测试服务器文件夹根目录checkout版本库">在测试服务器文件夹根目录checkout版本库</h3>
+<p>使用<code>shell</code>因为是同时在测试服务器上<code>checkout</code> <code>svn</code> 版本库，所以服务器IP为<code>localhost</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> html/[工作副本文件夹]</div><div class="line">svn checkout svn://localhost/xuyuan</div></pre></td></tr></table></figure>
+
+<h3 id="配置域名">配置域名</h3>
+<p>进入根目录文件夹下的httpd文件夹下，修改vhost</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/httpd</div><div class="line">vi vhost</div></pre></td></tr></table></figure>
+
+<p>添加一段新的vhost:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#library by cassie</span></div><div class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</div><div class="line">ServerName findlove.net</div><div class="line">ServerAdmin hfutonline@<span class="number">163</span>.com</div><div class="line">DocumentRoot <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span></div><div class="line">SetEnv APPLICATION_ENV <span class="string">"development"</span></div><div class="line">&lt;Directory <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>&gt;</div><div class="line">DirectoryIndex index.php</div><div class="line">AllowOverride All</div><div class="line">Order deny,allow</div><div class="line">Allow from all</div><div class="line"><span class="comment">#Option Index</span></div><div class="line">&lt;/Directory&gt;</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
+
+<p>配置完毕后，需要重启<code>apache</code>.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service httpd restart</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    </nav>
+  
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>

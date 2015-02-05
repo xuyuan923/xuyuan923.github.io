@@ -1,368 +1,591 @@
-
- <!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>前端学习踩过的坑</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
-    
-    <meta name="author" content="Cassie Xu">
-    
-    
-    
-    
-    <link rel="alternative" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/cassie.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/cassie.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <title>前端学习踩过的坑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端学习踩过的坑">
+<meta property="og:url" content="http://xuyuan923.github.io/page/2/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="前端学习踩过的坑">
+<meta name="twitter:description">
+
+  
+  
+    <link rel="icon" href="img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="img/cassie.jpg">
+		</div>
 
-  <body>
-    <header>
-      <div>
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
 		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="前端学习踩过的坑" title="前端学习踩过的坑"/></a>
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
 			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="前端学习踩过的坑">前端学习踩过的坑</a></h1>
-				<h2 class="blog-motto">By Cassie</h2>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，努力成长，慢慢沉淀。
+				</section>
+				
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					<ul>
-					 
-						<li><a href="/">首页</a></li>
-					
-						<li><a href="/archives">归档</a></li>
-					
-						<li><a href="/about">关于</a></li>
-					
-					<li>
- 					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
-						<input type="hidden" name="q" value="site:xuyuan923.github.io/">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
-    </header>
-    <div id="container">
-      <div id="main">
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/12/30/responsive-layout/" title="移动端布局实践" itemprop="url">
-  
-    <h1 itemprop="name">移动端布局实践</h1>
-    
-     
-           <p itemprop="description" >移动端开发的经验比较少，之前做过一点移动端的页面，都没有好好总结经验教训。移动端布局技巧性比较强，借最近摔的坑，记录一下工具和技巧。
-工具篇
-Chrome模拟器
-首先是chrome的device model,我目前使用的chrome为当前最新的38.0.2125.122版本。没升</p>
-        
-    
-    <time datetime="2014-12-30T13:00:32.000Z" itemprop="datePublished">12月 30 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/12/17/hexagon-6-using-css3/" title="CSS3实现六边形图片，兼容IE6" itemprop="url">
-  
-    <h1 itemprop="name">CSS3实现六边形图片，兼容IE6</h1>
-    
-     
-           <p itemprop="description" >最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。先看一下最终实现的效果图
-主要采用的技术
-这个效果的主要css样式有：
-
-transform: rotate(120deg); 图片旋转
-overflow:hidden;  超出隐藏
-visibility</p>
-        
-    
-    <time datetime="2014-12-17T10:37:01.000Z" itemprop="datePublished">12月 17 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/21/oo-javascript/" title="JavaScript面向对象知识点小结" itemprop="url">
-  
-    <h1 itemprop="name">JavaScript面向对象知识点小结</h1>
-    
-     
-           <p itemprop="description" >JavaScript面向对象主要知识点小结，基于ECMAScript 5.
-构造函数
-1
-2
-3
-4
-5
-6
-7
-function People(name){
-	//this可以理解为通过new即将创建的对象
-	this.name = name;
-}
-//将类实例化
-var pe</p>
-        
-    
-    <time datetime="2014-11-21T13:28:04.000Z" itemprop="datePublished">11月 21 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/20/express-mongoose-error-conclusion/" title="Express+Mongoose建站常见报错原因及方法总结" itemprop="url">
-  
-    <h1 itemprop="name">Express+Mongoose建站常见报错原因及方法总结</h1>
-    
-     
-           <p itemprop="description" >mongoose populate
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-Line.find({issues:id}, function (err, lines) {
-        Issue
-            //在l</p>
-        
-    
-    <time datetime="2014-11-20T14:24:44.000Z" itemprop="datePublished">11月 20 2014</time>
-  </a>
-</section>
-
-  <section class="post" itemscope itemprop="blogPost">
-  
-    <a href="/2014/11/04/github-gitlab-ssh/" title="github/gitlab同时管理多个ssh key" itemprop="url">
-  
-    <h1 itemprop="name">github/gitlab同时管理多个ssh key</h1>
-    
-     
-           <p itemprop="description" >以前用github的ssh key，后来工作原因多了一个gitlab的账号，在绑定gitlab的ssh key时，发现将github的ssh key覆盖了。怎么同时绑定github和gitlab的ssh key，并不产生冲突呢？今天找到了个小技巧，在.ssh目录下新建一个conf</p>
-        
-    
-    <time datetime="2014-11-04T10:53:59.000Z" itemprop="datePublished">11月 4 2014</time>
-  </a>
-</section>
-
-
-  <nav id="page-nav" class="clearfix">
-    <a class="extend prev" href="/"><span></span>Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" href="/page/3/">Next<span></span></a>
-  </nav>
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  
-<div class="tagslist">
-	<p class="asidetitle">标签</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/node/" title="node">node<sup>5</sup></a></li>
-		
-			<li><a href="/tags/tools/" title="tools">tools<sup>5</sup></a></li>
-		
-			<li><a href="/tags/js/" title="js">js<sup>4</sup></a></li>
-		
-			<li><a href="/tags/移动端/" title="移动端">移动端<sup>2</sup></a></li>
-		
-			<li><a href="/tags/kissy/" title="kissy">kissy<sup>1</sup></a></li>
-		
-			<li><a href="/tags/生活/" title="生活">生活<sup>1</sup></a></li>
-		
-			<li><a href="/tags/CSS3/" title="CSS3">CSS3<sup>1</sup></a></li>
-		
-		</ul>
-</div>
-
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://www.zhangxinxu.com/wordpress/" target="_blank" title="张鑫旭-鑫空间-鑫生活">张鑫旭-鑫空间-鑫生活</a></li>
-      <li><a href="http://hustskyking.cnblogs.com/" target="_blank" title="小胡子哥-Barret Lee">小胡子哥-Barret Lee</a></li>
-      <li><a href="http://yujiangshui.com/" target="_blank" title="于江水">于江水</a></li>
-      <li><a href="http://www.36ria.com/" target="_blank" title="RIA 之家">RIA 之家</a></li>
-      <li><a href="http://www.leapoahead.com/?from=inf&wvr=5&loc=infblog" target="_blank" title="淘宝子回——回田园">子回——回田园 </a></li> 
-      <li><a href="http://padding.me/" target="_blank" title="padding me">padding me</a></li>
-    </ul>
-</div>
-
-  <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-</aside>
+		</div>
+	</header>				
 </div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank"><div class="author"></div></a>
-		
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
 	</div>
-	
-	
-	<section class="info">
-		<p> 我是一名大四的学生，热爱前端开发，喜欢捣鼓与折腾一切有好玩的东西~ <br/>
-			这是我的github博客</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		<a href="http://weibo.com/xuyuan923" target="_blank" class="icon-weibo" title="weibo"></a>
-		
-		
-		<a href="https://github.com/xuyuan923" target="_blank" class="icon-github" title="github"></a>
-		
-		
-		
-		
-		
-		
-		<a href="https://plus.google.com/u/0/104549020574856340457?rel=author" target="_blank" class="icon-google_plus" title="Google+"></a>
-		
-		
-		<a href="mailto:xuyuan923@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Pacman">Jacman</a> © 2015 
-		
-		<a href="http://xuyuan923.github.io//about" target="_blank" title="Cassie Xu">Cassie Xu</a>
-		
-		</p>
-</div>
-</footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+</nav>
+      
+  
+    <article id="post-responsive-layout" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/30/responsive-layout/" class="article-date">
+  	<time datetime="2014-12-30T13:00:32.000Z" itemprop="datePublished">12月 30 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
-});
-</script>
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/30/responsive-layout/">移动端布局实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>移动端开发的经验比较少，之前做过一点移动端的页面，都没有好好总结经验教训。移动端布局技巧性比较强，借最近摔的坑，记录一下工具和技巧。</p>
+<h2 id="工具篇">工具篇</h2>
+<h3 id="Chrome模拟器">Chrome模拟器</h3>
+<p>首先是chrome的device model,我目前使用的chrome为当前最新的38.0.2125.122版本。没升级的建议升级下chrome，最新版本从界面上来看非常美观，而且以前从Emulating入口进入，<br>现在可以直接通过手机icon进入，更加快捷。<br>移动端调试时，如果将调试框放在下面，整个移动端界面就会被压缩。笔者之前一直找不到将调试栏移动到右边的方法，谷歌搜索了很久才明白了方法。<br>鼠标<strong>长按</strong>右上角Dock to the main window，将会出现出现右侧布局框的按钮，该细节隐藏太深！简明教程如下：<br><img src="/images/switchtoright.gif" alt=""></p>
+<h2 id="响应式布局">响应式布局</h2>
+<p>我采用的方法是rem为所有长度高度、字体大小的单位。<br>首先设置字体大小为10px,即1rem = 10px;</p>
+<figure class="highlight code"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">html</span><span class="rules">{</span></div><div class="line">    <span class="rule"><span class="attribute">font-size</span>:<span class="value"> <span class="number">62.5%</span></span></span>;</div><div class="line"><span class="rule">}</span></div></pre></td></tr></table></figure>
+
+<p>但是问题来了，在chrome下，1rem显示的字体大小永远为12px！这是因为chrome默认最小字体大小为12px，所以对于低于12px的字体，chrome都做了<code>1rem = 12px</code>的处理。<br>解决方法：进入<code>chrome 设置</code>-&gt;<code>显示高级设置</code>-&gt;<code>网络内容</code>-&gt;<code>自定义字体</code>-&gt;<code>最小字号</code>，调整为10px,这样世界一下明朗了。</p>
+<h2 id="未完，明天继续总结。">未完，明天继续总结。</h2>
+
+      
+    </div>
+  </div>
+  
+</article>
 
 
 
 
 
 
+  
+    <article id="post-hexagon-6-using-css3" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/12/17/hexagon-6-using-css3/" class="article-date">
+  	<time datetime="2014-12-17T10:37:01.000Z" itemprop="datePublished">12月 17 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
 
-<!-- mathjax config similar to math.stackexchange -->
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/17/hexagon-6-using-css3/">CSS3实现六边形图片，兼容IE6</a>
+    </h1>
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。<br>先看一下最终实现的效果图<img src="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png" alt=""></p>
+<h2 id="主要采用的技术">主要采用的技术</h2>
+<p>这个效果的主要css样式有：</p>
+<ul>
+<li>transform: rotate(120deg); 图片旋转</li>
+<li>overflow:hidden;  超出隐藏</li>
+<li>visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置</li>
+</ul>
+<h2 id="实现原理">实现原理</h2>
+<p>我们使用3层div来实现这个六边形图层，</p>
+<ul>
+<li>最外层div(boxF)旋转120度，div设置visibility: hidden</li>
+<li>第二层(boxS)旋转-60度，div设置visibility: hidden</li>
+<li>第三层(boxT)再旋转-60度，和最外层第二层的旋转正好回转，使视觉看起来没有旋转，div设置visibility: visible</li>
+<li>经过旋转肯定有超出的部分，因此对3个div都设置overflow:hidden;</li>
+<li>鼠标放上去时，图层显示以背景图的形式展示图片</li>
+</ul>
+<h2 id="浏览器兼容性处理">浏览器兼容性处理</h2>
+<ul>
+<li>兼容IE9:-ms-transform:rotate(120deg);</li>
+<li>兼容firefox:-moz-transform:rotate(120deg);</li>
+<li>兼容Safari和Chrome:-webkit-transform:rotate(120deg);</li>
+<li>兼容Opera:-o-transform:rotate(120deg);</li>
+<li>兼容IE6-8: filter:progid:DXImageTransform.Microsoft.Matrix(M11=cos(roation),M12=-sin(roation),M21=sin(roation),M22=cos(roation),SizingMethod=’auto expand’);</li>
+</ul>
+<h2 id="demo">demo</h2>
+<p><a href="/demo/hexagon.html">六边形图片演示</a></p>
+<h2 id="资料推荐">资料推荐</h2>
+<ul>
+<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/ie%E7%9F%A9%E9%98%B5%E6%BB%A4%E9%95%9Cmatrix%E4%B8%8B%E6%97%8B%E8%BD%AC%E4%B8%8E%E7%BC%A9%E6%94%BE%E5%8F%8A%E7%BB%93%E5%90%88transform%E7%9A%84%E6%8B%93%E5%B1%95/" target="_blank" rel="external">IE矩阵滤镜Matrix旋转与缩放及结合transform的拓展</a></li>
+</ul>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
+      
+    </div>
+  </div>
+  
+</article>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
 
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-<script type="text/x-mathjax-config"> 
-MathJax.Hub.Config({ 
-  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} 
-}); 
-</script>
-<script type="text/javascript"
-   src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
-  </body>
- </html>
+
+
+
+
+  
+    <article id="post-oo-javascript" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/21/oo-javascript/" class="article-date">
+  	<time datetime="2014-11-21T13:28:04.000Z" itemprop="datePublished">11月 21 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/21/oo-javascript/">JavaScript面向对象知识点小结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>JavaScript面向对象主要知识点小结，基于ECMAScript 5.</p>
+<h2 id="构造函数">构造函数</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span></span>{</div><div class="line">	<span class="comment">//this可以理解为通过new即将创建的对象</span></div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">}</div><div class="line"><span class="comment">//将类实例化</span></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);</div><div class="line"><span class="built_in">console</span>.log(person.name);</div></pre></td></tr></table></figure>
+
+<p>给一个对象赋予属性或者方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello, my name is '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</div><div class="line">  };</div><div class="line">}</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);</div><div class="line">person.greet();</div></pre></td></tr></table></figure>
+
+<h2 id="原型（prototype）">原型（prototype）</h2>
+<p>why we use prototype? -&gt; 便于方法的重用<br><strong>与构造函数模式相比，使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。</strong><br>运行时没找到函数的方法时，对象会首先找它的类的prototype方法</p>
+<h3 id="Demo1">Demo1</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">}</div><div class="line">People.prototype = {</div><div class="line">  greet: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello, my name is '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</div><div class="line">  }</div><div class="line">};</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);</div><div class="line">person.greet();</div><div class="line"><span class="comment">//在每个实例化后的对象都会有一个__proto__属性,类会将它的prototype赋给实例</span></div><div class="line"><span class="comment">//实例化一个对象时，People这个类首先会将person的__proto属性指向People.prototype</span></div><div class="line"><span class="built_in">console</span>.log(person.__proto__ === People.prototype); <span class="comment">// true</span></div></pre></td></tr></table></figure>
+
+<h3 id="Demo2">Demo2</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = { foo: <span class="number">1</span> };</div><div class="line"><span class="keyword">var</span> b = { bar: <span class="number">2</span> };</div><div class="line">b.__proto__ = a;</div><div class="line"><span class="comment">//b本身没有foo属性，但是b会继续寻找__proto__属性</span></div><div class="line"><span class="built_in">console</span>.log(b.foo); <span class="comment">// 1</span></div><div class="line"><span class="built_in">console</span>.log(b.bar); <span class="comment">// 2</span></div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = {};</div><div class="line"><span class="built_in">console</span>.log(a.__proto__); <span class="comment">// {}</span></div><div class="line"><span class="built_in">console</span>.log(a.__proto__.__proto__); <span class="comment">// null</span></div></pre></td></tr></table></figure>
+
+<h3 id="原型链（prototype_chain）">原型链（prototype chain）</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = {};</div><div class="line"><span class="built_in">console</span>.log(a.__proto__); <span class="comment">// {}</span></div><div class="line"><span class="built_in">console</span>.log(a.__proto__.__proto__); <span class="comment">// null</span></div></pre></td></tr></table></figure>
+
+<h2 id="继承(Inheritance)">继承(Inheritance)</h2>
+<h3 id="Demo1-1">Demo1</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">()</span></span>{}</div><div class="line">Parent.prototype = {</div><div class="line">	greet: <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</div><div class="line">}</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">()</span></span>{}</div><div class="line"><span class="comment">//此方法适用于父类Child不需要传参数</span></div><div class="line">Child.prototype = <span class="keyword">new</span> Parent();</div><div class="line"><span class="keyword">var</span> c = <span class="keyword">new</span> Child();</div><div class="line"><span class="comment">//c首先寻找自身的方法，没有great,所以找Child的原型方法，而Child.prototype等于Parent方法</span></div><div class="line">c.greet(); <span class="comment">//console.log('hello world');</span></div></pre></td></tr></table></figure>
+
+<p>上面的例子如果Parent有参数，将存在以下问题：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">(a, b)</span> </span>{}</div><div class="line">Parent.prototype.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'JavaScript rocks'</span>);</div><div class="line">}</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">(a, b)</span> </span>{}</div><div class="line">Child.prototype = <span class="keyword">new</span> Parent(); <span class="comment">//something wrong?-&gt;new Parent()不能传参数，否则参数一直不变</span></div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child();</div><div class="line">child.greet();</div></pre></td></tr></table></figure>
+
+<h3 id="Demo2-1">Demo2</h3>
+<p><strong>解决父类参数问题</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span><span class="params">()</span> </span>{</div><div class="line">	<span class="keyword">this</span>.name = <span class="string">'xxx'</span>,</div><div class="line">	<span class="keyword">this</span>.date = <span class="string">'xxx'</span></div><div class="line">}</div><div class="line">Parent.prototype.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'JavaScript rocks'</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span><span class="params">()</span> </span>{}</div><div class="line"><span class="comment">//此方法适用于</span></div><div class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</div><div class="line"><span class="comment">//硬记的知识	</span></div><div class="line">Child.prototype.constructor = Child;</div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child();</div><div class="line">child.greet();</div></pre></td></tr></table></figure>
+
+<h3 id="Demo3:继承的一个实例">Demo3:继承的一个实例</h3>
+<p>创建一个矩形</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span></span>{</div><div class="line">	<span class="keyword">this</span>._setupDOM(width,height);</div><div class="line">}</div><div class="line">Rect.prototype._setupDOM = <span class="function"><span class="keyword">function</span><span class="params">(width,height)</span></span>{</div><div class="line">	<span class="keyword">this</span>._dom = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">	<span class="keyword">this</span>._dom.style.width = width + <span class="string">'px'</span>;</div><div class="line">	<span class="keyword">this</span>._dom.style.height = height + <span class="string">'px'</span>;</div><div class="line">};</div><div class="line">Rect.prototype.appendToBody = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>._dom);</div><div class="line">};</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">BlueRect</span><span class="params">(width,height)</span></span>{</div><div class="line">  BlueRect._super.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">}</div><div class="line">BlueRect.prototype = <span class="built_in">Object</span>.create(Rect.prototype);</div><div class="line">BlueRect.prototype.constructor = BlueRect;</div><div class="line">BlueRect._super = Rect;</div><div class="line">BlueRect.prototype._setupDOM = <span class="function"><span class="keyword">function</span><span class="params">(width,height)</span></span>{</div><div class="line">  BlueRect._super.prototype._setupDOM.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>);</div><div class="line">  <span class="keyword">this</span>._dom.style.backgroundColor = <span class="string">'blue'</span>;</div><div class="line">};</div><div class="line"><span class="keyword">var</span> br = <span class="keyword">new</span> BlueRect(<span class="number">200</span>,<span class="number">300</span>);</div><div class="line">br.appendToBody();</div></pre></td></tr></table></figure>
+
+<h2 id="this关键字">this关键字</h2>
+<h3 id="Demo:">Demo:</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span></span>{</div><div class="line">	<span class="comment">//私有属性加_</span></div><div class="line">	<span class="keyword">this</span>._dom = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">	<span class="keyword">this</span>._dom.style.width = width + <span class="string">'px'</span>;</div><div class="line">	<span class="keyword">this</span>._dom.style.height = height + <span class="string">'px'</span>;</div><div class="line">	<span class="keyword">this</span>._dom.style.backgroundColor = <span class="string">'red'</span>;</div><div class="line">}</div><div class="line">Rect.prototype.appendToBody = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>._dom);</div><div class="line">};</div><div class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rect(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">rect.appendToBody();</div></pre></td></tr></table></figure>
+
+<h3 id="修改上面demo:">修改上面demo:</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rect</span><span class="params">(width,height)</span></span>{</div><div class="line">	<span class="keyword">this</span>._setupDom(width,height);</div><div class="line">}</div><div class="line">Rect.prototype._setupDom = <span class="function"><span class="keyword">function</span><span class="params">(width,height)</span></span>{</div><div class="line">    <span class="comment">//私有属性加_</span></div><div class="line">	<span class="keyword">this</span>._dom = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">	<span class="keyword">this</span>._dom.style.width = width + <span class="string">'px'</span>;</div><div class="line">	<span class="keyword">this</span>._dom.style.height = height + <span class="string">'px'</span>;</div><div class="line">	<span class="keyword">this</span>._dom.style.backgroundColor = <span class="string">'red'</span>;</div><div class="line">};</div><div class="line">Rect.prototype.appendToBody = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{</div><div class="line">	<span class="built_in">document</span>.body.appendChild(<span class="keyword">this</span>._dom);</div><div class="line">};</div><div class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rect(<span class="number">100</span>,<span class="number">100</span>);</div><div class="line">rect.appendToBody();</div></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> person = {</div><div class="line">    firstName: <span class="string">"Penelope"</span>,</div><div class="line">    lastName: <span class="string">"Barrymore"</span>,</div><div class="line">    sayFullName: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.firstName + <span class="string">" "</span> + <span class="keyword">this</span>.lastName); <span class="comment">//=&gt; "Penelope Barrymore"</span></div><div class="line">        <span class="built_in">console</span>.log(person.firstName + <span class="string">" "</span> + person.lastName); <span class="comment">//=&gt; "Penelope Barrymore"</span></div><div class="line">    }</div><div class="line">};</div><div class="line">person.sayFullName();</div></pre></td></tr></table></figure>
+
+<h3 id="严格模式下的this">严格模式下的this</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">funtion foo(){</div><div class="line">	<span class="string">'use strict'</span>;</div><div class="line">	<span class="built_in">console</span>.log(<span class="keyword">this</span>) <span class="comment">//undefined</span></div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="强制修改函数上下文的方法">强制修改函数上下文的方法</h2>
+<h3 id="用Object-bind()代替this">用Object.bind()代替this</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  <span class="built_in">console</span>.log(a + b);</div><div class="line">}</div><div class="line"><span class="keyword">var</span> fooBinding = foo.bind({ name: <span class="string">'Cassie Xu'</span> });</div><div class="line">fooBinding(<span class="number">1</span>, <span class="number">2</span>);</div></pre></td></tr></table></figure>
+
+<p>上面code将输出</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attr_selector">[object Object]</span> <span class="rules">{</span></div><div class="line">  <span class="rule"><span class="attribute">name</span>:<span class="value"> <span class="string">"Cassie Xu"</span></span></span></div><div class="line">}</div><div class="line">3</div></pre></td></tr></table></figure>
+
+<h3 id="使用Object-call/Object-apply执行上下文">使用Object.call/Object.apply执行上下文</h3>
+<p>call/apply方法都为调用Object方法，区别是apply将所有参数放到一个数组中去</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span><span class="params">(a, b)</span> </span>{</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</div><div class="line">  <span class="built_in">console</span>.log(a + b);</div><div class="line">}</div><div class="line">foo.call({name:<span class="string">'Cassie Xu'</span>}, <span class="number">1</span>, <span class="number">2</span>);</div><div class="line">foo.apply({name:<span class="string">'Cassie Xu'</span>}, [<span class="number">1</span>, <span class="number">2</span>]);</div></pre></td></tr></table></figure>
+
+<h2 id="补充其他">补充其他</h2>
+<h3 id="自执行函数">自执行函数</h3>
+<p>why we use it? -&gt;避免泄露全局变量</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span><span class="params">(c)</span></span>{</div><div class="line">	<span class="keyword">var</span> a = <span class="number">1</span>;</div><div class="line">	<span class="keyword">var</span> b = <span class="number">2</span>;</div><div class="line">	<span class="built_in">console</span>.log(a+b+c);</div><div class="line">})(<span class="number">3</span>)</div><div class="line"><span class="comment">// c = 3</span></div></pre></td></tr></table></figure>
+
+<h3 id="闭包作用域">闭包作用域</h3>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = {};</div><div class="line">a.foo = <span class="function"><span class="keyword">function</span><span class="params">(callback)</span> </span>{</div><div class="line">  <span class="comment">// do something and call callback in whatever way</span></div><div class="line">}</div><div class="line">a.bar = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">this</span>.num = <span class="number">1</span>;</div><div class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</div><div class="line">  <span class="comment">//闭包，这里that可以访问到a.bar的作用域</span></div><div class="line">  <span class="keyword">this</span>.foo(<span class="function"><span class="keyword">function</span><span class="params">(newNum)</span> </span>{</div><div class="line">    that.num = newNum;</div><div class="line">  });</div><div class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.num);</div><div class="line">}</div><div class="line">a.bar();</div></pre></td></tr></table></figure>
+
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-express-mongoose-error-conclusion" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/20/express-mongoose-error-conclusion/" class="article-date">
+  	<time datetime="2014-11-20T14:24:44.000Z" itemprop="datePublished">11月 20 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/20/express-mongoose-error-conclusion/">Express+Mongoose建站常见报错原因及方法总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mongoose_populate">mongoose populate</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Line.find({issues:id}, <span class="function"><span class="keyword">function</span> <span class="params">(err, lines)</span> </span>{</div><div class="line">        Issue</div><div class="line">            <span class="comment">//在line集合中查找issues字段id和issue集合的id相同的line</span></div><div class="line">            <span class="comment">//使用findOne,只取最后插入的一条</span></div><div class="line">            .findOne({_id:id})</div><div class="line">            .populate(<span class="string">'belongLineId'</span>,<span class="string">'name'</span>)</div><div class="line">            .exec(<span class="function"><span class="keyword">function</span><span class="params">(err,issue)</span></span>{</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'lines:'</span>)</div><div class="line">                <span class="built_in">console</span>.log(lines);</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'issue:'</span>);</div><div class="line">                <span class="built_in">console</span>.log(issue);</div><div class="line">                res.render(<span class="string">'issueDetail'</span>, {</div><div class="line">                    title: issue.title,</div><div class="line">                    lines: lines,</div><div class="line">                    issue: issue</div><div class="line">                })</div><div class="line">            })</div><div class="line">    })</div></pre></td></tr></table></figure>
+
+<ul>
+<li><code>populate</code>中的option的值必须为<code>issue</code>集合里的字段，比如这里belongLineId是issue里的字段</li>
+<li><code>populate</code>中的select的值必须为<code>line</code>集合里的字段，比如这里<code>name</code>为<code>line</code>集合的字段</li>
+</ul>
+<h2 id="显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0">显示CastError: Cast to ObjectId failed for value ，length为0</h2>
+<p>通常是在schema中忘记添加相应地字段，或者在controller里render时忘记传递字段值</p>
+<h2 id="出现can’t_set_header_after_they_are_sent">出现can’t set header after they are sent</h2>
+<p>通常是controller里render了两次，或者redirect了两次</p>
+<h2 id="find()与findOne()的区别">find()与findOne()的区别</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> id = req.params.id</div></pre></td></tr></table></figure>
+
+<ul>
+<li><code>find(id)</code>是遍历出所有的数组</li>
+<li><code>findOne({_id:id})</code>是查找出一个这个id浏览器当前页面参数相同的值</li>
+</ul>
+<h2 id="打印出当前用户">打印出当前用户</h2>
+<ul>
+<li><code>req.session.user._id</code></li>
+<li><code>req.session.user.name</code></li>
+</ul>
+<h2 id="转换日期">转换日期</h2>
+<ul>
+<li><code>npm install moment --save</code></li>
+<li><code>#{moment(issue.start).format(&#39;YYYY/MM/DD&#39;)}</code></li>
+</ul>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+    <article id="post-github-gitlab-ssh" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/04/github-gitlab-ssh/" class="article-date">
+  	<time datetime="2014-11-04T10:53:59.000Z" itemprop="datePublished">11月 4 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/04/github-gitlab-ssh/">github/gitlab同时管理多个ssh key</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>以前用github的ssh key，后来工作原因多了一个gitlab的账号，在绑定gitlab的ssh key时，发现将github的ssh key覆盖了。怎么同时绑定github和gitlab的ssh key，并不产生冲突呢？<br>今天找到了个小技巧，在<code>.ssh</code>目录下新建一个<code>config</code>文件配置一下，就能解决gitlab与github的ssh key的冲突。</p>
+<h2 id="生成并添加第一个ssh_key">生成并添加第一个ssh key</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.ssh</div><div class="line">ssh  ssh-keygen -t ras -C <span class="string">"youremail@yourcompany.com"</span></div></pre></td></tr></table></figure>
+
+<p>这时可以一路回车，不输入任何字符，将自动生成<code>id_rsa</code>和<code>id_rsa.pub</code>文件。</p>
+<h2 id="生成并添加第二个ssh_key">生成并添加第二个ssh key</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@gmail.com"</span></div></pre></td></tr></table></figure>
+
+<p>注意，这时不能一路回车，否则邮箱将覆盖上一次生成的ssh key，给这个文件起一个名字， 比如叫 id_rsa_github, 所以相应的也会生成一个 id_rsa_github.pub 文件。<br><img src="/images/githubssh.png" alt=""><br>此时查看.ssh下的目录文件，发现多了<code>id_rsa_github</code>和<code>id_rsa_github.pub</code>两个文件。<br><img src="/images/sshls.png" alt=""></p>
+<h2 id="添加私钥">添加私钥</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ssh-add ~/.ssh/id_rsa</div><div class="line">$ ssh-add ~/.ssh/id_rsa_github</div></pre></td></tr></table></figure>
+
+<h2 id="修改配置文件">修改配置文件</h2>
+<p>在 ~/.ssh 目录下新建一个config文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">touch config</div></pre></td></tr></table></figure>
+
+<p>并添加以下内容</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># gitlab</span></div><div class="line">Host gitlab.com</div><div class="line">    HostName gitlab.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa</div><div class="line"></div><div class="line"><span class="comment"># github</span></div><div class="line">Host github.com</div><div class="line">    HostName github.com</div><div class="line">    PreferredAuthentications publickey</div><div class="line">    IdentityFile ~/.ssh/id_rsa_github</div></pre></td></tr></table></figure>
+
+<h2 id="给github/gitlab上添加ssh_key">给github/gitlab上添加ssh key</h2>
+<p>查看<code>ssh key</code>执行<code>cat id_rsa_github.pub</code>内容，将文本内容拷贝到<a href="https://github.com/settings/ssh。" target="_blank" rel="external">https://github.com/settings/ssh。</a><br>生成<code>ssh key</code>的方法可以去看<a href="https://help.github.com/articles/generating-ssh-keys/" target="_blank" rel="external">官方教程</a>，这里不再赘述。</p>
+<h2 id="测试">测试</h2>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh -T git@github.com</div></pre></td></tr></table></figure>
+
+<p>如果输出<code>Hi xuyuan923! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code>，说明成功的连上github了。</p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
+
+
+  </div>
+</body>
+</html>
