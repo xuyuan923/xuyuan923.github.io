@@ -230,7 +230,7 @@ function cat(){}  cat.">
 <blockquote>
 <p>function cat(){}<br>  cat.prototype={<br>      food:”fish”,<br>      say: function(){<br>      alert(“I love “+this.food);<br>    }<br>  }<br>  var blackCat = new cat;<br>  blackCat.say();</p>
 </blockquote>
-<p>我们有一个对象whiteDog = {food:”bone”},我们不想对它重新定义<code>say</code>方法,那么我们可以通过call或apply用blackCat的say方法：blackCat.say.call(whiteDog);</p>
+<p>我们有一个对象whiteDog = {food:”bone”},我们不想对它重新定义<code>say</code>方法,那么我们可以通过call或apply用blackCat的say方法：blackCat.say.call(whiteDog);<br><a id="more"></a></p>
 <h2 id="1、call()">1、call()</h2>
 <h3 id="call()标准api">call()标准api</h3>
 <blockquote>
