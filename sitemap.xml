@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xuyuan923.github.io/2014/12/31/my-2014/</loc>
+    <lastmod>2015-02-06T11:03:11.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://xuyuan923.github.io/2015/01/03/mobile-debug/</loc>
+    <lastmod>2015-02-06T11:02:44.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://xuyuan923.github.io/2015/01/07/45-useful-javascript-tips/</loc>
     <lastmod>2015-02-06T11:01:26.000Z</lastmod>
   </url>
@@ -27,18 +37,8 @@
   </url>
   
   <url>
-    <loc>http://xuyuan923.github.io/2015/01/03/mobile-debug/</loc>
-    <lastmod>2015-01-03T08:38:50.000Z</lastmod>
-  </url>
-  
-  <url>
     <loc>http://xuyuan923.github.io/2014/12/30/responsive-layout/</loc>
     <lastmod>2015-01-03T08:10:57.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://xuyuan923.github.io/2014/12/31/my-2014/</loc>
-    <lastmod>2014-12-31T13:52:32.000Z</lastmod>
   </url>
   
   <url>

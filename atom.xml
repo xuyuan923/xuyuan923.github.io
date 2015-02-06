@@ -4,7 +4,7 @@
   <subtitle><![CDATA[永远年轻，永远热泪盈眶]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xuyuan923.github.io/"/>
-  <updated>2015-02-06T11:01:31.095Z</updated>
+  <updated>2015-02-06T11:03:14.873Z</updated>
   <id>http://xuyuan923.github.io/</id>
   
   <author>
@@ -366,7 +366,7 @@
     <link href="http://xuyuan923.github.io/2015/01/03/mobile-debug/"/>
     <id>http://xuyuan923.github.io/2015/01/03/mobile-debug/</id>
     <published>2015-01-03T07:09:18.000Z</published>
-    <updated>2015-01-03T08:38:50.000Z</updated>
+    <updated>2015-02-06T11:02:44.000Z</updated>
     <content type="html"><![CDATA[<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
 <h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
 <p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
@@ -381,7 +381,7 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></div></pre></td></tr></table></figure>
 
-<p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>将会看到下面的界面<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong></p>
+<p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br><a id="more"></a><br>将会看到下面的界面<br><img src="/images/D16C9C79-69A7-458C-9023-650E45C2E363.png" alt=""><br>看到这个界面后，你可以调试<strong>自己本地的页面</strong>也可以调试<strong>外网的页面</strong></p>
 <h3 id="调试自己本地的页面">调试自己本地的页面</h3>
 <p>比如说，我本地有这么个页面，想在真机上看下实际效果。<br><img src="/images/5272AF4A-55AB-4564-8C08-033AA93908FA.png" alt=""><br>具体操作步骤为：</p>
 <ul>
@@ -418,7 +418,20 @@
     <summary type="html">
     <![CDATA[<p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
 <h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
-<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试]]>
+<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
+<ul>
+<li>首先安装Weinre</li>
+</ul>
+<figure class="highlight code"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> npm install -g weinre</div></pre></td></tr></table></figure>
+
+<ul>
+<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
+<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></div></pre></td></tr></table></figure>
+
+<p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>]]>
+    
     </summary>
     
       <category term="tools" scheme="http://xuyuan923.github.io/tags/tools/"/>
@@ -430,14 +443,14 @@
     <link href="http://xuyuan923.github.io/2014/12/31/my-2014/"/>
     <id>http://xuyuan923.github.io/2014/12/31/my-2014/</id>
     <published>2014-12-31T11:29:33.000Z</published>
-    <updated>2014-12-31T13:52:32.000Z</updated>
+    <updated>2015-02-06T11:03:11.000Z</updated>
     <content type="html"><![CDATA[<p>2014年最后一天，按照以往的惯例，是时候该总结下今年得与失，给自己些鼓励，给2015年制定一些目标，重新出发。<br>新的技术博客从SAE迁移到了github,便没有再写过关于生活的软文。自从决定学习前端后，以前每周会写的私人日记也变成了技术博客。</p>
 <h2 id="2014年纪事">2014年纪事</h2>
 <ul>
 <li><p>2014年1-3月，<a href="http://findlove.hfutonline.com/" target="_blank" rel="external">我帮室友找对象</a><br>这个项目从1月份真正开始做，然后寒假期间留校了十余天继续做，等2月底三月初开学时稍作修改，于女生节前几天上线了。这是我在学校网络中心的第一个真正意义上的前后端交互比较多的项目。<br>也正是这个项目，让我在三月份阿里春季实习生面试时，有项目细节可以说。现在想来，真该感谢去年寒假留校的日子，当别人都回家了，我和另一个技术部的同学继续做项目。</p>
 </li>
 <li><p>2014年3月，准备阿里实习生面试<br>很早就开始关注阿里的校招，3月份之前便完善了简历。去内推网投过简历，这是一个靠谱的网站，不少阿里的工程师和HR在上面发过招聘启事。那段日子会去上网搜各种面试题，会认真看js的基础知识，一遍一遍完善简历，接到面试官的电话会兴奋很久，面试完等待结果是种煎熬。在收到offer之前，一年前的我不敢想象会有那天。<br>感谢那段日子拼命准备的自己。</p>
-</li>
+<a id="more"></a></li>
 <li><p>2014年5月,断断续续做了几个前端页面，也包括一个移动端的页面<br>项目比较小，也由于种种原因，后面我没有继续再做。收获不是很大。</p>
 </li>
 <li><p>2014年6月，搭建了github博客<br>博客从SAE迁移到了github,原来SAE用的是wordpress,wordpress文件非常大，访问速度器慢。看到不少前端同学在github上撘博客，我也搜了hexo搭建github博客的教程。<br>新的github博客采用nodejs搭建，访问速度非常快。文章发布基于markdown,我也恶补了markdown的知识，搭完的感觉是B格高多了。<br>也会鼓励自己多写博客，找工作之前写博客一方面原因是为了找工作时，附上个人博客可能面试官有加分项。现在写博客主要是真的做项目时摔倒坑里了，一定要总结下以免下次继续摔坑。<br>很多时候我会继续翻看之前写的博客，有不少琐碎的知识点能在自己博客里找到，写博客的真正意义就体现出来了。</p>
@@ -476,7 +489,13 @@
 ]]></content>
     <summary type="html">
     <![CDATA[<p>2014年最后一天，按照以往的惯例，是时候该总结下今年得与失，给自己些鼓励，给2015年制定一些目标，重新出发。<br>新的技术博客从SAE迁移到了github,便没有再写过关于生活的软文。自从决定学习前端后，以前每周会写的私人日记也变成了技术博客。</p>
-<h2 id=]]>
+<h2 id="2014年纪事">2014年纪事</h2>
+<ul>
+<li><p>2014年1-3月，<a href="http://findlove.hfutonline.com/" target="_blank" rel="external">我帮室友找对象</a><br>这个项目从1月份真正开始做，然后寒假期间留校了十余天继续做，等2月底三月初开学时稍作修改，于女生节前几天上线了。这是我在学校网络中心的第一个真正意义上的前后端交互比较多的项目。<br>也正是这个项目，让我在三月份阿里春季实习生面试时，有项目细节可以说。现在想来，真该感谢去年寒假留校的日子，当别人都回家了，我和另一个技术部的同学继续做项目。</p>
+</li>
+<li><p>2014年3月，准备阿里实习生面试<br>很早就开始关注阿里的校招，3月份之前便完善了简历。去内推网投过简历，这是一个靠谱的网站，不少阿里的工程师和HR在上面发过招聘启事。那段日子会去上网搜各种面试题，会认真看js的基础知识，一遍一遍完善简历，接到面试官的电话会兴奋很久，面试完等待结果是种煎熬。在收到offer之前，一年前的我不敢想象会有那天。<br>感谢那段日子拼命准备的自己。</p>
+]]>
+    
     </summary>
     
       <category term="生活" scheme="http://xuyuan923.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
