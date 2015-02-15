@@ -4,7 +4,7 @@
   <subtitle><![CDATA[永远年轻，永远热泪盈眶]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xuyuan923.github.io/"/>
-  <updated>2015-02-06T12:34:02.713Z</updated>
+  <updated>2015-02-15T13:32:14.156Z</updated>
   <id>http://xuyuan923.github.io/</id>
   
   <author>
@@ -90,27 +90,67 @@
   </entry>
   
   <entry>
-    <title><![CDATA[近期nodejs-web开发的一些收获小结]]></title>
+    <title><![CDATA[近期nodejs-web开发的一些总结]]></title>
     <link href="http://xuyuan923.github.io/2015/01/20/%E8%BF%91%E6%9C%9Fnodejs-web%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E6%94%B6%E8%8E%B7%E5%B0%8F%E7%BB%93/"/>
     <id>http://xuyuan923.github.io/2015/01/20/近期nodejs-web开发的一些收获小结/</id>
     <published>2015-01-20T12:46:46.000Z</published>
-    <updated>2015-02-06T11:00:50.000Z</updated>
-    <content type="html"><![CDATA[<p>在node web开发学习和实战的路上兜兜转转，经过半年的学习和磨练，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。<br>由于我后端开发经验不足，所以上手node这门后端语言走了不少弯路，这一路磕磕绊绊，还好，最终我的node-web开发处女秀项目终于做好了。<br>为了开发一个面向研发的OA系统，我在技术上选用nodejs语言，express框架，mongodb数据库，采用mongoose操作库。这几个月下来我的主要成长经历是：<br><a id="more"></a></p>
-<h2 id="初始学习阶段">初始学习阶段</h2>
-<p>最初的学习阶段为上网看一些博客教程，看node开发书，比如《深入浅出Node》,《Node.js实战》这样的书，在此说明《深入浅出Node》把node的原理性知识讲解的很透彻，但它并不适合作为开发者nodejs开发实践教材。</p>
+    <updated>2015-02-15T13:30:10.000Z</updated>
+    <content type="html"><![CDATA[<p>在node web开发学习和实战的路上兜兜转转，经过半年的学习积累，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。<br>由于我后端开发经验不足，所以上手node这门后端语言走了不少弯路，好在我的node系统项目终于完成，也算是小有收获。<br>关于如何快速学习一门新技术，如何快速地进行知识积累，以及进行项目技术选型，一些功能应该交给前端还是后端处理有了一些新的认识。<br><a id="more"></a></p>
+<h2 id="1、如何快速学习新的技术并进行知识积累">1、如何快速学习新的技术并进行知识积累</h2>
+<p>让程序员去学习一门新的技术有两种情况，自我驱动和外部驱动，自我驱动主要依靠自身的兴趣，对新的技术充满好奇所以迫切想去尝试，这种驱动没有时间上的压力。另一个原因是外部驱动，外部驱动是老大给你安排了一个新任务，比如说用node+mongodb开发一个内部系统，这种驱动就需要你能快速学习新技能，并快速完成所需技术的知识积累。</p>
+<h3 id="如何更快的上手？">如何更快的上手？</h3>
+<p>我的建议是<code>看视频</code>-&gt;<code>看博文教程</code>-&gt;<code>clone优秀简单的demo练习</code>-&gt;<code>看官方api文档</code>。<br>为什么第一步是看视频而不是看书呢？之前的学习经验告诉我，看书容易产生注意力不集中，厚厚一本书看下去会产生情绪厌烦感，会让人误认为该技术多少坑多么难，从而产生心理抗拒害怕动手实践。<br>相反，第一步看视频尤其是讲核心理论和项目实践结合的视频，会让你迅速对这个技术着迷，觉得这样写代码还是很容易的，实现什么样的功能原来如此简单。看视频还有一个好处，你可以一边看老师讲解，一遍自己敲代码看效果，因为基本是填鸭式抄代码，不会遇到多少问题，自信心也上去了。这里推荐一个靠谱网站：<a href="http://www.imooc.com/" target="_blank" rel="external">慕课网</a>，不少技术我都是从这里入门的。<br>第二步是看博文教程，谷歌搜索关键词<strong>node mongodb best practice</strong>可以搜出很多，推荐国外的博客教程，里面通常会附上博主在 github上的代码demo,把这些demo clone下来，自己安装运行跑起来，看看优秀的代码结构是怎样构建的，该功能别人是怎么实现和处理的。<br>第三步是看优秀开源demo,这个和上面第二步有些重复，看优秀博客教程的同时就会下载博主的示例代码研究，你也可以谷歌搜索关键词找github上star多的入门级demo.<br>做完以上三步，相信你已经具备了使用新技术构建项目的能力了，通过研究别人的demo也掌握了一些基础功能的实现，比如注册登录功能。那么，下面你可以大胆开始新项目的编码了！<br>在项目编码阶段，你需要做的就是看官方api了，我的建议是把api先粗略看过一遍，遇到api写的不够清楚的，可以借助google和stackoverflow搜索答案。</p>
+<p>那么，<strong>真的不需要看书吗？</strong><br>NO！如果想快速上手做项目，我的建议是看视频比看书上手的快，但是书上的详细的理论知识是视频无法给与的，在我做完这个node项目时，我重新看《深入浅出node》时，我发现我理解的更加深刻了，也更容易理解其中的一些原理了。</p>
+<h2 id="2、如何进行项目的技术选型">2、如何进行项目的技术选型</h2>
+<p>这个技术选型包括项目<strong>代码结构</strong>的架构和<strong>工具</strong>、<strong>技术</strong>的选型。<br>代码结构的设计是很重要和必要的，代码结构紊乱会随着项目功能增加和复杂度增加产生很多的弊端，也不利于项目的维护。<br>我的做法是看别人的教程，别人的代码结构是怎样构建的，对于你的项目是否合适。我最终采用了<a href="http://www.jdon.com/idea/js/mean.html" target="_blank" rel="external">MEAN</a>架构<br><img src="/images/A49534D5-F05F-469E-908D-10D777BD38E7.png" alt=""><br>app里放后端代码，public为前端静态资源，config为路由文件，使用grunt启动项目，编译less，使用grunt插件让项目代码改变自动重启服务。</p>
+<h3 id="如何选型技术架构？">如何选型技术架构？</h3>
+<p>Node框架我选用了Express,原因很简单，Express相比Koa发展的更成熟更稳定，文档也更健全，教程资料也更多。对于新手来说，我的建议是选择更稳定资料更多的框架，不要说什么框架什么技术过时了，对于没接触做过项目的你来说这些框架、技术都很新。</p>
+<h3 id="如何选择开发工具？">如何选择开发工具？</h3>
+<p>node开发你只要学会代码调试工具就好，webstorm里的断点调试工具以及一些好用的node服务重启工具，可以参考我的<a href="http://xuyuan923.github.io/2014/09/25/nodejs-notes/" target="_blank" rel="external">Nodejs Web开发一些好用的工具</a>这篇文章。</p>
+<h2 id="3、前后端如何分工">3、前后端如何分工</h2>
+<p>当我开发第一个与后端有较多合作的项目时，当时用的是PHP，所以写PHP的同学在我的html代码里嵌入了很多<code>&lt;?php echo(&#39;&#39;) ?&gt;</code>这样的代码，前端和后端同时维护一个文件，这样的处理方式糟糕透了。<br>使用模板语言，使用RESTful接口，后端来构造RESTful接口，前端在模板里添加数据，这样的方式让前后端分离开来，友好多了。<br>如果使用MEAN架构，前端的代码全部在<code>、public</code>文件夹里，放jade/css/js/images/less文件，后端代码在<code>/app</code>,<code>/config</code>和<code>app.js</code>里，处理数据逻辑和路由。</p>
+<h3 id="前端做_or_后端做_？">前端做 or 后端做 ？</h3>
+<p>在没做该node项目前，一些功能我都会觉得前端可以实现，在做完node项目后，我的理解是<strong>这些功能放在后端处理更合适</strong></p>
 <ul>
-<li>看一些博客教程，学习如何在本地搭建node+mongodb<br>于是有了第一篇翻译的国外的一篇博客的教程，<a href="http://xuyuan923.github.io/2014/08/05/node-mongodb-tutorial/" target="_blank" rel="external">Node+Express+Mongodb+monk简易入门教程</a></li>
-<li>折腾node-web开发相关工具<br>折腾开发工具是因为我开始觉得node调试不够方便，不便于打印日志，每次不明原因的报错以及线程挂起node无法重启，查询mongodb的不便，我开始寻找解决方案。<br>于是写了一篇<a href="http://xuyuan923.github.io/2014/09/25/nodejs-notes/" target="_blank" rel="external">Nodejs Web开发一些好用的工具</a>,推荐<a href="http://www.itpub.net/thread-1821025-1-1.html" target="_blank" rel="external">写给Node.js学徒的7个建议</a>这篇文章。</li>
-<li>看视频教程，看了<a href="http://www.imooc.com/learn/75" target="_blank" rel="external">node+mongodb 建站攻略（一期）</a><br>跟着上面的视频教程后面学习，并跟着敲了<a href="https://github.com/xuyuan923/imooc-1" target="_blank" rel="external">代码</a>，在自己本地跑程序，初步感受到了express-mongodb应用是如何启动起来的，对node文件、数据库文件、路由文件、静态文件是怎么分离的有了大体的认识。</li>
+<li>Favicon网页图标前端来设置还是后端？<br>我以前的做法是前端在<code>&lt;head&gt;&lt;/head&gt;</code>里嵌入一段<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</code>这样的代码，前端来设置网页图标。<br>这样的弊端是要给所有html/模板文件头部添加该<code>link</code>，该做法纯碎人肉操作，对于html文件太多的项目，一个个手动添加容易遗漏也会死星人。<br>现在的做法是放在后端来处理，<code>npm install serve-favicon</code>安装网页图标模块，在<code>app.js</code>里插入这段代码：</li>
 </ul>
-<h2 id="尝试一轮系统开发(失败告终)">尝试一轮系统开发(失败告终)</h2>
-<p>做完上面的学习积累觉得可以开始做项目了，在纠结用原生的mongodb还是用mongodb的库mongoose上纠结了一阵子，后来决定采用mongodb，因为mongoose需要多一层model与schema的逻辑，我觉得这一层model和schema的嵌套有些复杂就想简单一点，单纯用mongodb。最后证明我当时的决定是错误的，用原生的mongodb非常之麻烦。<br>第二轮重写时，我使用了mongoose,它是mongodb的对象模型工具，用原生的mongodb的痛点是每次数据操作涉及到的嵌套回调太多，当然你可以用Q或者Async来解决。但是用mongoose，它自带了promise模块可以让你不会陷入回调地狱。</p>
-<h2 id="继续深入学习node-web开发">继续深入学习node-web开发</h2>
-<p>深入学习node-web开发，我的学习方式是，当时正好看了慕课网的<a href="http://www.imooc.com/learn/75" target="_blank" rel="external">node+mongodb 建站攻略（一期）</a>，但这一期讲的还是有些基础和简单，欣喜地发现<a href="http://www.imooc.com/learn/197" target="_blank" rel="external">node+mongodb 建站攻略</a>推出了第二期，老师讲的非常好很透彻，所以我的项目目录完全按照这期教程搭建的，基于MEAN架构(mongodb+express+angular+node),当然我并没有用angular,但是数据和模板的绑定也是和Angular有些相似的。<br>在一轮的系统开发中</p>
-<h2 id="重新开发(成功)">重新开发(成功)</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>);</div><div class="line">app.use(favicon(__dirname + <span class="string">'/public/images/favicon.ico'</span>));</div></pre></td></tr></table></figure>
+
+<p>给项目全局使用该网页图标。</p>
+<ul>
+<li>当前页链接hover选中状态前端设置还是后端设置？<br>我以前的做法是使用js的switch case判断url是什么给链接添加active样式。<br>该做法的弊端是，当切换的链接太多时手动一个个增加case显得简单粗暴，而且一些链接是生成的，无法判断链接是什么。<br>现在我的做法是交给后端判断链接，后端通过req.path判断当前链接，前端通过在模板里的class里判断后端的<code>req.path</code>里的值和模板里数据是否一致添加active.<br>具体处理代码如下：<br>/app/controllers/nav.js</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">res.locals.activeNav = <span class="function"><span class="keyword">function</span><span class="params">(nav)</span></span>{</div><div class="line">        <span class="keyword">var</span> result = <span class="string">''</span>;</div><div class="line">        <span class="keyword">var</span> _path = req.path;</div><div class="line">        <span class="keyword">if</span>(nav == _path){</div><div class="line">            result = <span class="string">'active'</span>;</div><div class="line">        }<span class="keyword">else</span>{</div><div class="line">            result = <span class="string">''</span>;</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    }</div></pre></td></tr></table></figure>
+
+<p>/app/views/pages/nav.jade</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">a(href=<span class="string">"/admin/line/my"</span>,<span class="keyword">class</span>=<span class="string">"#{activeNav('/admin/line/my')}"</span>)</div></pre></td></tr></table></figure>
+
+<ul>
+<li>分页列表前后端如何配合处理？<br>后端给前端提供totalPage和currentPage，前端给currentPage的元素的class加上active类。<br>下面是一些处理的核心代码：<br>模板代码：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">ul.pagination</div><div class="line">   li</div><div class="line">        a(href=<span class="string">"/?p=0"</span>)</div><div class="line">            span(aria-hidden=<span class="string">"true"</span>) &laquo;</div><div class="line">            span.sr-only Previous</div><div class="line">    - <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; ((totalPage &gt; <span class="number">5</span>) ? <span class="number">5</span> : totalPage); i++){</div><div class="line">        <span class="keyword">if</span> (currentPage == (i+<span class="number">1</span>))</div><div class="line">                li.active</div><div class="line">                    span #{currentPage}</div><div class="line">            <span class="keyword">else</span></div><div class="line">                li</div><div class="line">                    a(href=<span class="string">"/?p=#{i}"</span>) #{i+<span class="number">1</span>}</div><div class="line">    - }</div><div class="line">    <span class="keyword">if</span>(totalPage&gt;<span class="number">5</span>)</div><div class="line">        li</div><div class="line">            a ...</div><div class="line">    li</div><div class="line">        a(href=<span class="string">"/?p=#{totalPage-1}"</span>)</div><div class="line">            span(aria-hidden=<span class="string">"true"</span>) &raquo;</div><div class="line">            span.sr-only Next</div></pre></td></tr></table></figure>
+
+<p>后端代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取每页数据</span></div><div class="line"><span class="keyword">var</span> results = issues.slice(index,index+count);</div><div class="line"><span class="keyword">if</span>(err){</div><div class="line">    <span class="built_in">console</span>.log(err)</div><div class="line">}<span class="keyword">else</span>{</div><div class="line">    res.render(<span class="string">'abc'</span>,{</div><div class="line">        title: <span class="string">'xxx'</span>,</div><div class="line">        currentPage: (page+<span class="number">1</span>),</div><div class="line">        <span class="comment">//向上舍入取整</span></div><div class="line">        totalPage: <span class="built_in">Math</span>.ceil(issues.length/count),</div><div class="line">        issues: results</div><div class="line">    })</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="4、学习node-web开发过程帮到我的资料">4、学习node-web开发过程帮到我的资料</h2>
+<h3 id="视频教程：">视频教程：</h3>
+<ul>
+<li><a href="http://www.imooc.com/view/75" target="_blank" rel="external">node+mongodb 建站攻略（一期）</a></li>
+<li><a href="http://www.imooc.com/learn/197" target="_blank" rel="external">node建站攻略(二期)——网站升级</a><h3 id="博客教程(入门级)">博客教程(入门级)</h3>
+</li>
+<li><a href="http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/" target="_blank" rel="external">node-express-mongo教程</a><h3 id="api文档">api文档</h3>
+</li>
+<li><a href="http://expressjs.com/" target="_blank" rel="external">express api</a></li>
+<li><a href="http://mongoosejs.com/index.html" target="_blank" rel="external">mongoose api</a><h3 id="其他">其他</h3>
+</li>
+<li><a href="http://www.itpub.net/thread-1821025-1-1.html" target="_blank" rel="external">写给Node.js学徒的7个建议</a></li>
+<li><a href="https://cnodejs.org/" target="_blank" rel="external">cnode</a></li>
+<li><a href="http://stackoverflow.com/" target="_blank" rel="external">stackoverflow</a></li>
+</ul>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>在node web开发学习和实战的路上兜兜转转，经过半年的学习和磨练，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。<br>由于我后端开发经验不足，所以上手node这门后端语言走了不少弯路，这一路磕磕绊绊，还好，最终我的node-web开发处女秀项目终于做好了。<br>为了开发一个面向研发的OA系统，我在技术上选用nodejs语言，express框架，mongodb数据库，采用mongoose操作库。这几个月下来我的主要成长经历是：<br>]]>
+    <![CDATA[<p>在node web开发学习和实战的路上兜兜转转，经过半年的学习积累，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。<br>由于我后端开发经验不足，所以上手node这门后端语言走了不少弯路，好在我的node系统项目终于完成，也算是小有收获。<br>关于如何快速学习一门新技术，如何快速地进行知识积累，以及进行项目技术选型，一些功能应该交给前端还是后端处理有了一些新的认识。<br>]]>
     
     </summary>
     
