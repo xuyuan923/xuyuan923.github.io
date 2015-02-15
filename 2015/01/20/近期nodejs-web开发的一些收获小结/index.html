@@ -226,11 +226,11 @@
 <h3 id="如何选择开发工具？">如何选择开发工具？</h3>
 <p>node开发你只要学会代码调试工具就好，webstorm里的断点调试工具以及一些好用的node服务重启工具，可以参考我的<a href="http://xuyuan923.github.io/2014/09/25/nodejs-notes/" target="_blank" rel="external">Nodejs Web开发一些好用的工具</a>这篇文章。</p>
 <h2 id="3、前后端如何分工">3、前后端如何分工</h2>
-<p>当我开发第一个与后端有较多合作的项目时，当时用的是PHP，所以写PHP的同学在我的html代码里嵌入了很多<code>&lt;?php echo(&#39;&#39;) ?&gt;</code>这样的代码，前端和后端同时维护一个文件，这样的处理方式糟糕透了。<br>使用模板语言，使用RESTful接口，后端来构造RESTful接口，前端在模板里添加数据，这样的方式让前后端分离开来，友好多了。<br>如果使用MEAN架构，前端的代码全部在<code>、public</code>文件夹里，放jade/css/js/images/less文件，后端代码在<code>/app</code>,<code>/config</code>和<code>app.js</code>里，处理数据逻辑和路由。</p>
+<p>当我开发第一个与后端有较多合作的项目时，当时用的是PHP，所以写PHP的同学在我的html代码里嵌入了很多<code>&lt;?php echo(&#39;&#39;) ?&gt;</code>这样的代码，前端和后端同时维护一个文件，这样的处理方式糟糕透了。<br>使用模板语言，使用RESTful接口，后端来构造RESTful接口，前端在模板里添加数据，这样的方式让前后端分离开来，友好多了。<br>如果使用MEAN架构，前端的代码全部在<code>/public</code>文件夹里，放jade/css/js/images/less文件，后端代码在<code>/app</code>,<code>/config</code>和<code>app.js</code>里，处理数据逻辑和路由。</p>
 <h3 id="前端做_or_后端做_？">前端做 or 后端做 ？</h3>
-<p>在没做该node项目前，一些功能我都会觉得前端可以实现，在做完node项目后，我的理解是<strong>这些功能放在后端处理更合适</strong></p>
+<p>在没做该node项目前，一些功能我都会觉得前端可以实现，在做完node项目后，我的理解是<strong>这些功能放在后端处理更合适。</strong></p>
 <ul>
-<li>Favicon网页图标前端来设置还是后端？<br>我以前的做法是前端在<code>&lt;head&gt;&lt;/head&gt;</code>里嵌入一段<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</code>这样的代码，前端来设置网页图标。<br>这样的弊端是要给所有html/模板文件头部添加该<code>link</code>，该做法纯碎人肉操作，对于html文件太多的项目，一个个手动添加容易遗漏也会死星人。<br>现在的做法是放在后端来处理，<code>npm install serve-favicon</code>安装网页图标模块，在<code>app.js</code>里插入这段代码：</li>
+<li>Favicon网页图标前端来设置还是后端？<br>我以前的做法是前端在<code>&lt;head&gt;&lt;/head&gt;</code>里嵌入一段<code>&lt;link rel=&quot;shortcut icon&quot; href=&quot;/images/favicon.ico&quot; type=&quot;image/x-icon&quot;&gt;</code>这样的代码，前端来设置网页图标。<br>这样的弊端是要给所有<code>html/模板文件</code>头部添加该<code>link</code>，该做法纯碎人肉操作，对于html文件太多的项目，一个个手动添加容易遗漏也会死星人。<br>现在的做法是放在后端来处理，<code>npm install serve-favicon</code>安装网页图标模块，在<code>app.js</code>里插入这段代码：</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'serve-favicon'</span>);</div><div class="line">app.use(favicon(__dirname + <span class="string">'/public/images/favicon.ico'</span>));</div></pre></td></tr></table></figure>
 
