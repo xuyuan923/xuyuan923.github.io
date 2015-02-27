@@ -4,7 +4,7 @@
   <subtitle><![CDATA[永远年轻，永远热泪盈眶]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xuyuan923.github.io/"/>
-  <updated>2015-02-27T14:13:37.056Z</updated>
+  <updated>2015-02-27T14:16:32.749Z</updated>
   <id>http://xuyuan923.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://xuyuan923.github.io/2015/02/27/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/"/>
     <id>http://xuyuan923.github.io/2015/02/27/常用正则匹配规则/</id>
     <published>2015-02-27T10:25:16.000Z</published>
-    <updated>2015-02-27T14:13:32.000Z</updated>
+    <updated>2015-02-27T14:14:45.000Z</updated>
     <content type="html"><![CDATA[<p>正则表达式是前后端开发过程中经常接触到的，后端用的更多一些，之前做项目时碰到但不会匹配，今天学习总结一些规律。</p>
 <a id="more"></a>
 <h2 id="常用元字符">常用元字符</h2>
@@ -50,7 +50,8 @@
 <li><p><code>\w</code>: 匹配字母或数字或下划线或汉字等</p>
 </li>
 </ul>
-<p>常用元字符汇总：<br>代码|说明<br>:—-| :—-<br>.|匹配除换行符以外的任意字符<br><em>|匹配</em>前面的内容重复任意次(可能是0次)<br>.*|匹配任意数量的不包含换行的字符<br>\s|匹配任意的空白符<br>\d|匹配数字<br>\b|匹配单词的开始或结束<br>^|匹配字符串的开始<br>$|匹配字符串的结束<br>\w|匹配字母或数字或下划线或汉字等<br>-|匹配它本身</p>
+<p>常用元字符汇总：<br>代码|说明<br>:—-| :—-<br><code>.</code>|匹配除换行符以外的任意字符<br><code>*</code>|匹配<em>前面的内容重复任意次(可能是0次)<br>`.</em><code>|匹配任意数量的不包含换行的字符</code>\s<code>|匹配任意的空白符</code>\d<code>|匹配数字</code>\b<code>|匹配单词的开始或结束</code>^<code>|匹配字符串的开始
+$``|匹配字符串的结束</code>\w<code>|匹配字母或数字或下划线或汉字等</code>-`|匹配它本身</p>
 <h2 id="字符转义">字符转义</h2>
 <p>字符转义用在查找元字符本身，比如查找<code>.</code>或者<code>*</code>，为了不让它解释成别的意思，需要用<code>\</code>取消这些字符的特殊含义。应该使用<code>\.</code>或者<code>\*</code>.<br>对于要查找<code>\</code>本身，需要使用<code>\\</code>.</p>
 <h2 id="重复">重复</h2>
