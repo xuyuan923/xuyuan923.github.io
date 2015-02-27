@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
 					</div>
 				</section>
 				
@@ -184,6 +184,126 @@
 	</div>
 </nav>
       
+  
+    <article id="post-node-mongodb-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/08/05/node-mongodb-tutorial/" class="article-date">
+  	<time datetime="2014-08-05T12:07:32.000Z" itemprop="datePublished">8月 5 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/08/05/node-mongodb-tutorial/">Node+Express+Mongodb+monk简易入门教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这篇入门教程，适合node+mongodb开发小白，node已玩过很久的大神这篇文章可能不适合你们。<br>接触node很久了，但是玩的都是node工具，没有做过node的项目，也没有玩过mongodb。这几天搭建了了node+express+mongodb的环境，使用了mongodb的可视化工具<a href="http://rockmongo.com/" target="_blank" rel="external">rockmongo</a>,踩到不少坑，在此认真记录一下。</p>
+<h2 id="1-安装nodejs">1.安装nodejs</h2>
+<p>安装nodejs的教程网上非常多，这里不再赘述。</p>
+<h2 id="2-安装express">2.安装express</h2>
+<p>打开命令窗口，安装express全局环境，方面以后可以在本地各文件夹下安装express文件，输入<code>npm install -g express</code></p>
+<h2 id="3-新建一个express工程">3.新建一个express工程</h2>
+<p>比如这里我在<code>F:\rs</code>目录下新建一个<code>nodetest1</code>的项目</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /f/rs</div><div class="line">node express nodetest1</div></pre></td></tr></table></figure>
+
+<p>此时，你将在nodetest1文件夹下看到<code>package.json</code>的文件，文件结构如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    <span class="string">"name"</span>: <span class="string">"application-name"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">    <span class="string">"private"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"scripts"</span>: {</div><div class="line">        <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span></div><div class="line">    },</div><div class="line">    <span class="string">"dependencies"</span>: {</div><div class="line">        <span class="string">"express"</span>: <span class="string">"~4.0.0"</span>,</div><div class="line">        <span class="string">"static-favicon"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"morgan"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"cookie-parser"</span>: <span class="string">"~1.0.1"</span>,</div><div class="line">        <span class="string">"body-parser"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"debug"</span>: <span class="string">"~0.7.4"</span>,</div><div class="line">        <span class="string">"jade"</span>: <span class="string">"~1.3.0"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<p>此时，编辑你的<code>package.json</code>文件，在配置后面加上<code>&quot;mongodb&quot;: &quot;*&quot;</code>和<code>&quot;monk&quot;: &quot;*&quot;</code>,在依赖里引入mongodb和monk，monk是一个Node模块,可以方便你操作mongodb集合的接口。配置完的<code>package.json</code>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    <span class="string">"name"</span>: <span class="string">"application-name"</span>,</div><div class="line">    <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">    <span class="string">"private"</span>: <span class="literal">true</span>,</div><div class="line">    <span class="string">"scripts"</span>: {</div><div class="line">        <span class="string">"start"</span>: <span class="string">"node ./bin/www"</span></div><div class="line">    },</div><div class="line">    <span class="string">"dependencies"</span>: {</div><div class="line">        <span class="string">"express"</span>: <span class="string">"~4.0.0"</span>,</div><div class="line">        <span class="string">"static-favicon"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"morgan"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"cookie-parser"</span>: <span class="string">"~1.0.1"</span>,</div><div class="line">        <span class="string">"body-parser"</span>: <span class="string">"~1.0.0"</span>,</div><div class="line">        <span class="string">"debug"</span>: <span class="string">"~0.7.4"</span>,</div><div class="line">        <span class="string">"jade"</span>: <span class="string">"~1.3.0"</span></div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure>
+
+<h2 id="4-安装包依赖">4.安装包依赖</h2>
+<p>进入我所在的nodetest1文件夹，安装npm</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /f/rs/nodetest1</div><div class="line">npm install</div></pre></td></tr></table></figure>
+
+<p>此时，执行<code>npm start</code>，打开<a href="http://localhost:3000/" target="_blank" rel="external">http://localhost:3000/</a>,可以看到<br><img src="/images/suc-welcome.jpg" alt="欢迎页">的界面，代表node+express运行成功了！下一步，我们将Node和mongodb关联起来。</p>
+<h2 id="5-安装mongodb">5.安装mongodb</h2>
+<p>首先，安装<a href="https://www.mongodb.org/" target="_blank" rel="external">mongodb</a>,直接解压安装，这里不再赘述。<br>下面，我们来讲mongodb和node连接起来，在工程文件夹<code>nodetest1</code>下新建<code>data</code>用来存放数据</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /f/rs/nodetest1</div><div class="line">mkdir data</div></pre></td></tr></table></figure>
+
+<p>这里，我的mongodb安装的路径为<code>D:\Program Files\MONGO</code>,所以，我进入<code>MONGO</code>下的<code>bin</code>文件夹下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /d/Program Files/MONGO/data</div><div class="line">mongod --dbpath <span class="string">"f://rs//nodetest1//data"</span></div></pre></td></tr></table></figure>
+
+<p>出现这样的结果，说明连接mongodb成功了！<br><img src="/images/con-mongodb.jpg" alt="连接mongodb"><br>下面我们来创建数据库。</p>
+<h2 id="创建数据库">创建数据库</h2>
+<p>注意，<strong>重新打开一个新的命令窗口</strong>，因为在执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>的窗口再输入新的命令时，原来的连接数据库的命令将会中断！</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /d/Program Files/MONGO/data</div><div class="line">use nodetest1</div></pre></td></tr></table></figure>
+
+<p>这时，创建一个新的数据库，将自动切到nodetest1下。<br>插入一个<code>usercollection</code>表，执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.usercollection.insert({ <span class="string">"username"</span> : <span class="string">"testuser1"</span>, <span class="string">"email"</span> : <span class="string">"testuser1@testdomain.com"</span> })</div></pre></td></tr></table></figure>
+
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">db.usercollection.find().pretty()</div></pre></td></tr></table></figure>
+
+<p>查看你刚刚创建的<code>usercollection</code>表。</p>
+<h2 id="6-将数据插入到浏览器中">6.将数据插入到浏览器中</h2>
+<p>打开<code>app.js</code>,应该可以看到<code>app.js</code>中的内容</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'static-favicon'</span>);</div><div class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</div><div class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div></pre></td></tr></table></figure>
+
+<p>在下面插入3行，现在的app.js应为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</div><div class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>);</div><div class="line"><span class="keyword">var</span> favicon = <span class="built_in">require</span>(<span class="string">'static-favicon'</span>);</div><div class="line"><span class="keyword">var</span> logger = <span class="built_in">require</span>(<span class="string">'morgan'</span>);</div><div class="line"><span class="keyword">var</span> cookieParser = <span class="built_in">require</span>(<span class="string">'cookie-parser'</span>);</div><div class="line"><span class="keyword">var</span> bodyParser = <span class="built_in">require</span>(<span class="string">'body-parser'</span>);</div><div class="line"><span class="comment">// New Code</span></div><div class="line"><span class="keyword">var</span> mongo = <span class="built_in">require</span>(<span class="string">'mongodb'</span>);</div><div class="line"><span class="keyword">var</span> monk = <span class="built_in">require</span>(<span class="string">'monk'</span>);</div><div class="line"><span class="keyword">var</span> db = monk(<span class="string">'localhost:27017/nodetest1'</span>);</div></pre></td></tr></table></figure>
+
+<p>在以下代码的<strong>下面</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">app.use(<span class="string">'/'</span>, routes);</div><div class="line">app.use(<span class="string">'/users'</span>, users);</div></pre></td></tr></table></figure>
+
+<p>插入以下3行代码，将数据库和router相连</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.use(<span class="function"><span class="keyword">function</span><span class="params">(req,res,next)</span></span>{</div><div class="line">    req.db = db;</div><div class="line">    <span class="built_in">next</span>();</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<h2 id="7-渲染用户列表页">7.渲染用户列表页</h2>
+<p>打开<code>/routee/index.js</code>输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* GET Userlist page. */</span></div><div class="line">router.get(<span class="string">'/userlist'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line">    <span class="keyword">var</span> db = req.db;</div><div class="line">    <span class="keyword">var</span> collection = db.get(<span class="string">'usercollection'</span>);</div><div class="line">    collection.find({},{},<span class="function"><span class="keyword">function</span><span class="params">(e,docs)</span></span>{</div><div class="line">        res.render(<span class="string">'userlist'</span>, {</div><div class="line">            <span class="string">"userlist"</span> : docs</div><div class="line">        });</div><div class="line">    });</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>在view文件夹下新建<code>userlist.jade</code>文件，打开<code>/views/userlist.jade</code>输入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">extends layout</div><div class="line">block content</div><div class="line">    h1.</div><div class="line">        User List</div><div class="line">    ul</div><div class="line">        each user, i <span class="keyword">in</span> userlist</div><div class="line">            li</div><div class="line">                a(href=<span class="string">"mailto:#{user.email}"</span>)= user.username</div></pre></td></tr></table></figure>
+
+<p>执行<code>npm start</code>,打开<a href="http://localhost:3000/userlist" target="_blank" rel="external">http://localhost:3000/userlist</a>,可以在命令行插入的一条记录。</p>
+<h2 id="8-向渲染页插入数据">8.向渲染页插入数据</h2>
+<p>打开<code>/routes/index.js</code>,插入以下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* POST to Add User Service */</span></div><div class="line">router.post(<span class="string">'/adduser'</span>, <span class="function"><span class="keyword">function</span><span class="params">(req, res)</span> </span>{</div><div class="line"></div><div class="line">    <span class="comment">// Set our internal DB variable</span></div><div class="line">    <span class="keyword">var</span> db = req.db;</div><div class="line"></div><div class="line">    <span class="comment">// Get our form values. These rely on the "name" attributes</span></div><div class="line">    <span class="keyword">var</span> userName = req.body.username;</div><div class="line">    <span class="keyword">var</span> userEmail = req.body.useremail;</div><div class="line"></div><div class="line">    <span class="comment">// Set our collection</span></div><div class="line">    <span class="keyword">var</span> collection = db.get(<span class="string">'usercollection'</span>);</div><div class="line"></div><div class="line">    <span class="comment">// Submit to the DB</span></div><div class="line">    collection.insert({</div><div class="line">        <span class="string">"username"</span> : userName,</div><div class="line">        <span class="string">"email"</span> : userEmail</div><div class="line">    }, <span class="function"><span class="keyword">function</span> <span class="params">(err, doc)</span> </span>{</div><div class="line">        <span class="keyword">if</span> (err) {</div><div class="line">            <span class="comment">// If it failed, return error</span></div><div class="line">            res.send(<span class="string">"There was a problem adding the information to the database."</span>);</div><div class="line">        }</div><div class="line">        <span class="keyword">else</span> {</div><div class="line">            <span class="comment">// If it worked, set the header so the address bar doesn't still say /adduser</span></div><div class="line">            res.location(<span class="string">"userlist"</span>);</div><div class="line">            <span class="comment">// And forward to success page</span></div><div class="line">            res.redirect(<span class="string">"userlist"</span>);</div><div class="line">        }</div><div class="line">    });</div><div class="line">});</div></pre></td></tr></table></figure>
+
+<p>执行<code>npm start</code>，打开<a href="http://localhost:3000/newuser" target="_blank" rel="external">http://localhost:3000/newuser</a>,可以看到页面已经可以插入数据了！</p>
+<h2 id="9-Mongodb可视化工具rockmongo">9.Mongodb可视化工具rockmongo</h2>
+<p><a href="http://rockmongo.com/" target="_blank" rel="external">rockmongo</a>是mongodb的一款可视化工具，弥补了非关系型数据库只能用命令行显示的缺陷，这个工具可以直观友好地显示数据库。</p>
+<h3 id="安装">安装</h3>
+<p>去<a href="http://rockmongo.com/downloads" target="_blank" rel="external">rockmongo官网</a>下载安装即可，安装很简单，直接运行exe文件即可，这里不再赘述。</p>
+<h3 id="rockmongo的配置">rockmongo的配置</h3>
+<h4 id="给数据库注册用户名和密码">给数据库注册用户名和密码</h4>
+<p>发现配置rockmongo时需要输入数据库用户名和密码，而创建nodetest1时，系统未提示我们需要创建数据库用户名和密码。我们可以自行用命令的形式给数据库创建用户名和密码。首先切入到nodetest1数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /d/Program Files/MONGO/bin</div><div class="line">mongo</div><div class="line">use nodetest1</div></pre></td></tr></table></figure>
+
+<p>执行<code>db.addUser(“root”, “root”)</code>插入用户名和密码均为root,这时执行<code>show users</code>,将看到<br><img src="/images/show-users.jpg" alt="show-users"><br>表明，现在数据库nodetest1中已存在root的用户。<br>打开rockmongo安装文件夹，打开<code>/web/rockmongo/config.php</code>文件，修改以下几项：<br>首先打开cmd串口，输入<code>ipConfig</code>查看本机IP，node的默认端口为27017,如果你的端口没有改，则不需要改，下图为我的配置：<br><img src="/images/rockmongo.jpg" alt="rockmongo"><br>这时，双击安装文件夹下的<code>rockstart.bat</code>将打开浏览器，出现非常友好的数据库界面，wonderful!<br><img src="/images/rockmongo-welcome.jpg" alt="rockmongo"></p>
+<h2 id="10-一些坑">10.一些坑</h2>
+<p>在将数据库和工程文件夹data相连接时，我们通常会在mongo安装目录下执行<code>mongod --dbpath &quot;f://rs//nodetest1//data&quot;</code>或者在mongo安装目录下执行mongo命令，它有时会报错“errno:10061”。<br><img src="/images/mongodlock.png" alt="mongod.lock error"><br>原因：工程文件夹<code>data</code>下存在了<code>mongod.lock</code>文件。这个文件阻止其他进程使用此工程目录。<br>解决办法：删除工程文件夹下的<code>data</code>文件夹里的mongod.lock文件。</p>
+<p>附本人demo源码: <a href="https://github.com/xuyuan923/node-mongodb-demo" target="_blank" rel="external">https://github.com/xuyuan923/node-mongodb-demo</a><br>第一次在atatech上发文章，给自己总结经验也是帮新手少走弯路。</p>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-understand-kissy-base" class="article article-type-post" itemscope itemprop="blogPost">
   
