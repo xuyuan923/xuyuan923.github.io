@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[前端学习踩过的坑]]></title>
-  <subtitle><![CDATA[永远年轻，永远热泪盈眶]]></subtitle>
+  <subtitle><![CDATA[前端程序媛，走在路上，慢慢沉淀]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xuyuan923.github.io/"/>
-  <updated>2015-02-28T06:52:00.253Z</updated>
+  <updated>2015-02-28T06:59:48.345Z</updated>
   <id>http://xuyuan923.github.io/</id>
   
   <author>
