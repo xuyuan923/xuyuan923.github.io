@@ -1,11 +1,10 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   
   <title>Node Express获取参数的几种方式 | 前端学习踩过的坑</title>
-  <meta name="author" content="徐媛">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Node配合Express框架获取参数主要有以下4种形式:
 
 req.body
@@ -16,78 +15,232 @@ req.query
 那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
 适用情景案例
 req.body
-req.body在官方文档">
-  
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+req.body在官方文档是没有提供的，但是它也是很好用的获取表单参数的方法。req.body是配合Express中间件bod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Node Express获取参数的几种方式">
+<meta property="og:url" content="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/">
+<meta property="og:site_name" content="前端学习踩过的坑">
+<meta property="og:description" content="Node配合Express框架获取参数主要有以下4种形式:
 
-  <meta property="og:title" content="Node Express获取参数的几种方式"/>
-  <meta property="og:site_name" content="前端学习踩过的坑"/>
+req.body
+req.params
+req.param()
+req.query
+
+那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
+适用情景案例
+req.body
+req.body在官方文档是没有提供的，但是它也是很好用的获取表单参数的方法。req.body是配合Express中间件bod">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Node Express获取参数的几种方式">
+<meta name="twitter:description" content="Node配合Express框架获取参数主要有以下4种形式:
+
+req.body
+req.params
+req.param()
+req.query
+
+那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
+适用情景案例
+req.body
+req.body在官方文档是没有提供的，但是它也是很好用的获取表单参数的方法。req.body是配合Express中间件bod">
 
   
-    <meta property="og:image" content="undefined"/>
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
   
 
-  <link href="/favicon.ico" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
-<link rel="stylesheet" href="/css/style.css" type="text/css">
-
-  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-  
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
 </head>
-
 <body>
-  <header id="header" class='normal_mode'>
-    <nav id="main-nav">
-  <ul class='container'>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-  </header>
-  <div id="content" class="container">
-    <article class="post">
-  
-    <div class="gallery">
-  <div class="photoset">
-    
-      <img src="">
-    
-  </div>
-  <div class="control">
-    <div class="prev"></div>
-    <div class="next"></div>
-  </div>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<div class="profilepic">
+			<img src="/img/cassie.jpg">
+		</div>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">徐媛</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud">
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
+			        
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					前端程序媛，走在路上，慢慢沉淀。
+				</section>
+				
+			</div>
+		</div>
+	</header>				
 </div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay"></div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="/img/cassie.jpg">
+			</div>
+
+			<hgroup>
+			  <h1 class="header-author"><a href="/">徐媛</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <article id="post-node-tutorial-req" class="article article-type-post" itemscope itemprop="blogPost">
   
-  <div class="post-content">
-    <header>
+    <div class="article-meta">
+      <a href="/2014/10/10/node-tutorial-req/" class="article-date">
+  	<time datetime="2014-10-10T12:54:14.000Z" itemprop="datePublished">10月 10 2014</time>
+</a>
       
-      <time datetime="2014-10-10T12:54:14.000Z"><a href="/2014/10/10/node-tutorial-req/">周五, 10月 10 2014, 8:54:14 晚上</a></time>
-
-  
-    <h1 class="title">Node Express获取参数的几种方式</h1>
-  
-
-
-
-  
-  <div class="tags">
-  	<i class="fa fa-tag"></i>
-    <a href="/tags/node/">node</a>
-  </div>
-
-<div class="clear"></div>
       
-    </header>
-    <div class="entry">
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Node Express获取参数的几种方式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <p>Node配合Express框架获取参数主要有以下4种形式:</p>
 <ul>
@@ -131,149 +284,108 @@ req.body在官方文档">
 
       
     </div>
-    <footer>
-      
-          
-<!-- JiaThis Button BEGIN -->
-<div class="jiathis_style">
-  <span class="jiathis_txt">分享到：</span>
-  <a class="jiathis_button_weixin">微信</a>
-  <a class="jiathis_button_tsina">新浪微博</a>
-  <a class="jiathis_button_renren">人人网</a>
-  <a class="jiathis_button_qzone">QQ空间</a>
-  <a class="jiathis_button_douban">豆瓣</a>
-  <a class="jiathis_button_pocket">Pocket</a>
-  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
-  <a class="jiathis_counter_style"></a>
-</div>
-<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
-<!-- JiaThis Button END -->
-
-          <div class="clearfix"></div>
-          <nav id="pagination">
-  
-    <a href="/2014/10/16/chrome-debug-tool/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
-  
-  
-    <a href="/2014/09/25/nodejs-notes/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
-  
-  <div class="clearfix"></div>
-</nav>
-      
-      <div class="clearfix"></div>
-    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/10/16/chrome-debug-tool/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          chrome调试工具常用功能整理
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/09/25/nodejs-notes/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Nodejs Web开发一些好用的工具</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
 </article>
 
 
-<section id="comment">
-  <h1 class="title">留言</h1>
-
-  
-      <!-- Duoshuo Comment BEGIN -->
-<div class="ds-thread" data-thread-key="/2014/10/10/node-tutorial-req/"></div>
-<!-- Duoshuo Comment END -->
-  
-</section>
-
-
-
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div>
-  
-  &copy; 2015 徐媛
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </div>
-Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
-
-<div class="clearfix"></div></footer>
-  
-<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
-<script src="/js/gallery.js" type="text/javascript"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
 
 
 
-<script type="text/javascript">
-var disqus_shortname = '前端学习踩过的坑-CassieXu';
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="node-tutorial-req" data-title="Node Express获取参数的几种方式" data-url="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"cassiexu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-(function(){
-  var dsq = document.createElement('script');
-  dsq.type = 'text/javascript';
-  dsq.async = true;
-  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-}());
-</script>
 
 
 
+<section id="comments">
+  <div id="disqus_thread"></div>
     <script type="text/javascript">
-        (function(){
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = '前端学习踩过的坑-CassieXu'; // required: replace example with your forum shortname
 
-            $(window).scroll(function(){
-
-                var scrollTop = $(window).scrollTop();
-                if ( scrollTop >200 ){
-                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
-                } else{
-                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
-                }
-
-            });
-
-        })();
-    </script>
-
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript">
-  (function($){
-    $('.fancybox').fancybox({
-      'titlePosition': 'inside'
-    });
-  })(jQuery);
-  </script>
-
-
-
-    
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:"cassiexu"};
+    /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.src = 'http://static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0] 
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
   </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 徐媛
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+  <script src="/js/main.js" type="text/javascript"></script>
 
 
-
-<script type="text/javascript">
-  
-  $(function(){
-
-    $('.title').hover(
-      function() {      
-        $(this).stop().animate(
-          {'marginLeft': '10px'}, 200
-        );   
-      }, 
-      function() {       
-        $(this).stop().animate({'marginLeft': '0px'}, 200);      
-      
-    });   
-
-  });
-
-</script>
-
-
+  </div>
 </body>
 </html>

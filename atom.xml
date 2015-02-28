@@ -4,7 +4,7 @@
   <subtitle><![CDATA[永远年轻，永远热泪盈眶]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xuyuan923.github.io/"/>
-  <updated>2015-02-28T06:45:38.284Z</updated>
+  <updated>2015-02-28T06:49:06.899Z</updated>
   <id>http://xuyuan923.github.io/</id>
   
   <author>
@@ -19,37 +19,24 @@
     <link href="http://xuyuan923.github.io/2015/02/27/%E5%B8%B8%E7%94%A8%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%E8%A7%84%E5%88%99/"/>
     <id>http://xuyuan923.github.io/2015/02/27/常用正则匹配规则/</id>
     <published>2015-02-27T10:25:16.000Z</published>
-    <updated>2015-02-28T05:38:50.000Z</updated>
+    <updated>2015-02-28T06:48:46.000Z</updated>
     <content type="html"><![CDATA[<p>正则表达式是前后端开发过程中经常接触到的，后端用的更多一些，之前做项目时碰到但不会匹配，今天学习总结一些规律。</p>
 <a id="more"></a>
 <h2 id="常用元字符">常用元字符</h2>
-<ul>
-<li><code>\b</code>： 正则中的特殊代码，元字符</li>
-</ul>
+<h3 id="\b：_正则中的特殊代码，元字符"><code>\b</code>： 正则中的特殊代码，元字符</h3>
 <p>代表着单词的开头或结尾，也就是单词的分界处，<strong>它只匹配一个位置</strong>。<br>对于<code>hi</code>,<code>him</code>,<code>history</code>,<code>high</code>,我们需要精确查找<code>hi</code>这个单词，我们应该使用<strong><code>\bhi\b</code></strong></p>
-<ul>
-<li><p><code>.</code>: 匹配<strong>除了换行符以外的任意字符</strong></p>
-</li>
-<li><p><code>*</code>: 指定*前边的内容可以连续重复使用任意次以使整个表达式得到匹配</p>
-</li>
-<li><p><code>.*</code>: 连在一起，表示<strong>任意数量的不包含换行的字符</strong></p>
-</li>
-</ul>
+<h3 id="-:_匹配除了换行符以外的任意字符"><code>.</code>: 匹配<strong>除了换行符以外的任意字符</strong></h3>
+<h3 id="*:_指定*前边的内容可以连续重复使用任意次以使整个表达式得到匹配"><code>*</code>: 指定*前边的内容可以连续重复使用任意次以使整个表达式得到匹配</h3>
+<h3 id="-*:_连在一起，表示任意数量的不包含换行的字符"><code>.*</code>: 连在一起，表示<strong>任意数量的不包含换行的字符</strong></h3>
 <p>例子：</p>
 <blockquote>
 <p>hi后面不远处跟着一个Lucy</p>
 </blockquote>
 <p>应该用<code>\bhi\b.*\bLucy\b</code>，表示先是一个单词hi,然后是任意个任意字符(但不能是换行)，最后是Lucy这个单词。</p>
-<ul>
-<li><p><code>\d</code>: 匹配一位数字(0，或1，或2，或……)</p>
-</li>
-<li><p><code>-</code>: 不是元字符，只匹配它本身</p>
-</li>
-<li><p><code>\s</code>: 匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等</p>
-</li>
-<li><p><code>\w</code>: 匹配字母或数字或下划线或汉字等</p>
-</li>
-</ul>
+<h3 id="\d:_匹配一位数字(0，或1，或2，或……)"><code>\d</code>: 匹配一位数字(0，或1，或2，或……)</h3>
+<h3 id="-:_不是元字符，只匹配它本身"><code>-</code>: 不是元字符，只匹配它本身</h3>
+<h3 id="\s:_匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等"><code>\s</code>: 匹配任意的空白符，包括空格，制表符(Tab)，换行符，中文全角空格等</h3>
+<h3 id="\w:_匹配字母或数字或下划线或汉字等"><code>\w</code>: 匹配字母或数字或下划线或汉字等</h3>
 <p>常用元字符汇总：<br>代码|说明<br>:—-| :—-<br><code>.</code>|匹配除换行符以外的任意字符<br><code>*</code>|匹配<code>*</code>前面的内容重复任意次,可能是0次<br><code>.*</code>|匹配任意数量的不包含换行的字符<br><code>\s</code>|匹配任意的空白符<br><code>\d</code>|匹配数字<br><code>\b</code>|匹配单词的开始或结束<br><code>^</code>|匹配字符串的开始<br><code>$</code>|匹配字符串的结束<br><code>\w</code>|匹配字母或数字或下划线或汉字等<br><code>-</code>|匹配它本身</p>
 <h2 id="字符转义">字符转义</h2>
 <p>字符转义用在查找元字符本身，比如查找<code>.</code>或者<code>*</code>，为了不让它解释成别的意思，需要用<code>\</code>取消这些字符的特殊含义。应该使用<code>\.</code>或者<code>\*</code>.<br>对于要查找<code>\</code>本身，需要使用<code>\\</code>.</p>
