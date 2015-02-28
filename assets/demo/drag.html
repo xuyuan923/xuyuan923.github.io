@@ -3,36 +3,50 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CSS3实现六边形图片，兼容IE6 | 前端学习踩过的坑</title>
+  <title>前端学习踩过的坑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。先看一下最终实现的效果图
-主要采用的技术
-这个效果的主要css样式有：
+  <meta name="description" content="慕课网-拖拽实现
 
-transform: rotate(120deg); 图片旋转
-overflow:hidden;  超出隐藏
-visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="CSS3实现六边形图片，兼容IE6">
-<meta property="og:url" content="http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/">
+#draggable{ 
+    width: 100px;
+    height: 100px; 
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 10px;
+    curso">
+<meta property="og:type" content="website">
+<meta property="og:title" content="前端学习踩过的坑">
+<meta property="og:url" content="http://xuyuan923.github.io/assets/demo/drag.html">
 <meta property="og:site_name" content="前端学习踩过的坑">
-<meta property="og:description" content="最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。先看一下最终实现的效果图
-主要采用的技术
-这个效果的主要css样式有：
+<meta property="og:description" content="慕课网-拖拽实现
 
-transform: rotate(120deg); 图片旋转
-overflow:hidden;  超出隐藏
-visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置">
-<meta property="og:image" content="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png">
+#draggable{ 
+    width: 100px;
+    height: 100px; 
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 10px;
+    curso">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3实现六边形图片，兼容IE6">
-<meta name="twitter:description" content="最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。先看一下最终实现的效果图
-主要采用的技术
-这个效果的主要css样式有：
+<meta name="twitter:title" content="前端学习踩过的坑">
+<meta name="twitter:description" content="慕课网-拖拽实现
 
-transform: rotate(120deg); 图片旋转
-overflow:hidden;  超出隐藏
-visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置">
+#draggable{ 
+    width: 100px;
+    height: 100px; 
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 10px;
+    curso">
 
   
   
@@ -202,16 +216,14 @@ visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，�
 		</header>				
 	</div>
 </nav>
-      <article id="post-hexagon-6-using-css3" class="article article-type-post" itemscope itemprop="blogPost">
+      <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/12/17/hexagon-6-using-css3/" class="article-date">
-  	<time datetime="2014-12-17T10:37:01.000Z" itemprop="datePublished">12月 17 2014</time>
+      <a href="/assets/demo/drag.html" class="article-date">
+  	<time datetime="2014-11-04T08:25:05.000Z" itemprop="datePublished">11月 4 2014</time>
 </a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
-
     </div>
   
   <div class="article-inner">
@@ -219,74 +231,82 @@ visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，�
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      CSS3实现六边形图片，兼容IE6
-    </h1>
-  
-
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。<br>先看一下最终实现的效果图<img src="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png" alt=""></p>
-<h2 id="主要采用的技术">主要采用的技术</h2>
-<p>这个效果的主要css样式有：</p>
-<ul>
-<li>transform: rotate(120deg); 图片旋转</li>
-<li>overflow:hidden;  超出隐藏</li>
-<li>visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，它虽然隐藏了，但依然会在网页中占有位置</li>
-</ul>
-<h2 id="实现原理">实现原理</h2>
-<p>我们使用3层div来实现这个六边形图层，</p>
-<ul>
-<li>最外层div(boxF)旋转120度，div设置visibility: hidden</li>
-<li>第二层(boxS)旋转-60度，div设置visibility: hidden</li>
-<li>第三层(boxT)再旋转-60度，和最外层第二层的旋转正好回转，使视觉看起来没有旋转，div设置visibility: visible</li>
-<li>经过旋转肯定有超出的部分，因此对3个div都设置overflow:hidden;</li>
-<li>鼠标放上去时，图层显示以背景图的形式展示图片</li>
-</ul>
-<h2 id="浏览器兼容性处理">浏览器兼容性处理</h2>
-<ul>
-<li>兼容IE9:-ms-transform:rotate(120deg);</li>
-<li>兼容firefox:-moz-transform:rotate(120deg);</li>
-<li>兼容Safari和Chrome:-webkit-transform:rotate(120deg);</li>
-<li>兼容Opera:-o-transform:rotate(120deg);</li>
-<li>兼容IE6-8: filter:progid:DXImageTransform.Microsoft.Matrix(M11=cos(roation),M12=-sin(roation),M21=sin(roation),M22=cos(roation),SizingMethod=’auto expand’);</li>
-</ul>
-<h2 id="demo">demo</h2>
-<p><a href="/assets/demo/hexagon.html">六边形图片演示</a></p>
-<h2 id="资料推荐">资料推荐</h2>
-<ul>
-<li><a href="http://www.zhangxinxu.com/wordpress/2011/03/ie%E7%9F%A9%E9%98%B5%E6%BB%A4%E9%95%9Cmatrix%E4%B8%8B%E6%97%8B%E8%BD%AC%E4%B8%8E%E7%BC%A9%E6%94%BE%E5%8F%8A%E7%BB%93%E5%90%88transform%E7%9A%84%E6%8B%93%E5%B1%95/" target="_blank" rel="external">IE矩阵滤镜Matrix旋转与缩放及结合transform的拓展</a></li>
-</ul>
+        <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>慕课网-拖拽实现</title>
+<style type="text/css">
+#draggable{ 
+    width: 100px;
+    height: 100px; 
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding: 10px;
+    cursor: default;
+}
+</style>
+</head>
+<body>
+<div id="draggable">拖我</div>
+<script type="text/javascript">
+    var oDrag = document.getElementById('draggable');
+    var isDraging = false;
+    var startX = 0;
+    var startY = 0;
+    oDrag.addEventListener('mousedown', function(e) {
+        //鼠标事件1 - 在标题栏按下（要计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动） 
+        var e = e || window.event;
+        mouseOffsetX = e.pageX - oDrag.offsetLeft;
+        mouseOffsetY = e.pageY - oDrag.offsetTop;
+        isDraging = true;
+    })
+
+    document.onmouseup = function(e) {
+        //鼠标事件3 - 鼠标松开的时候（标记元素为不可拖动）
+        isDraging = false;
+    }
+
+    document.onmousemove = function(e) {
+        //鼠标事件2 - 鼠标移动时（要检测，元素是否标记为移动）
+        var e = e || window.event;
+        var mouseX = e.pageX; //鼠标当前在屏幕的位置
+        var mouseY = e.pageY;
+        var moveX = 0; //浮层元素的新位置
+        var moveY = 0;
+        if (isDraging === true) {
+            moveX = mouseX - mouseOffsetX;
+            moveY = mouseY - mouseOffsetY;
+            //宽度限制，moveX>0,并且moveX<(页面最大宽度-dialog宽度)
+            //高度限制，moveYou>0,并且moveY<(页面最大高度-dialog高度)
+            var pageWidth = document.documentElement.clientWidth;
+            var pageHeight = document.documentElement.clientHeight;
+            var dialogWidth = oDrag.offsetWidth;
+            var dialogHeight = oDrag.offsetHeight;
+            console.log(pageWidth);
+            console.log(dialogWidth);
+            var maxX = pageWidth - dialogWidth;
+            var maxY = pageHeight - dialogHeight;
+            moveX = Math.min(maxX, Math.max(0, moveX)); //保证moveX不小于0
+            moveY = Math.min(maxY, Math.max(0, moveY)); //保证moveY不小于0
+            oDrag.style.left = moveX + 'px';
+            oDrag.style.top = moveY + 'px';
+        }
+    };
+</script>
+</body>
+</html>
 
       
     </div>
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/2014/12/30/responsive-layout/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          移动端布局实践
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/11/21/oo-javascript/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JavaScript面向对象知识点小结</div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
-  
-</nav>
-
   
 </article>
 
@@ -310,7 +330,7 @@ visibility: hidden;  也是隐藏，与display:none;相似，但不同的是，�
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hexagon-6-using-css3" data-title="CSS3实现六边形图片，兼容IE6" data-url="http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/"></div>
+	<div class="ds-thread" data-thread-key="undefined" data-title="" data-url="http://xuyuan923.github.io/assets/demo/drag.html"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

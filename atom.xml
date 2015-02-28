@@ -4,7 +4,7 @@
   <subtitle><![CDATA[永远年轻，永远热泪盈眶]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://xuyuan923.github.io/"/>
-  <updated>2015-02-28T04:57:47.600Z</updated>
+  <updated>2015-02-28T05:35:43.612Z</updated>
   <id>http://xuyuan923.github.io/</id>
   
   <author>
@@ -698,7 +698,7 @@
     <link href="http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/"/>
     <id>http://xuyuan923.github.io/2014/12/17/hexagon-6-using-css3/</id>
     <published>2014-12-17T10:37:01.000Z</published>
-    <updated>2014-12-17T11:22:58.000Z</updated>
+    <updated>2015-02-28T05:32:59.000Z</updated>
     <content type="html"><![CDATA[<p>最近在写一个小项目，遇到一个需求是做一个六边形的图层，鼠标移动上去显示图片。<br>先看一下最终实现的效果图<img src="/images/B81F0EAE-D136-4234-96E7-44EB791B0216.png" alt=""></p>
 <h2 id="主要采用的技术">主要采用的技术</h2>
 <p>这个效果的主要css样式有：</p>
@@ -725,7 +725,7 @@
 <li>兼容IE6-8: filter:progid:DXImageTransform.Microsoft.Matrix(M11=cos(roation),M12=-sin(roation),M21=sin(roation),M22=cos(roation),SizingMethod=’auto expand’);</li>
 </ul>
 <h2 id="demo">demo</h2>
-<p><a href="/demo/hexagon.html">六边形图片演示</a></p>
+<p><a href="/assets/demo/hexagon.html">六边形图片演示</a></p>
 <h2 id="资料推荐">资料推荐</h2>
 <ul>
 <li><a href="http://www.zhangxinxu.com/wordpress/2011/03/ie%E7%9F%A9%E9%98%B5%E6%BB%A4%E9%95%9Cmatrix%E4%B8%8B%E6%97%8B%E8%BD%AC%E4%B8%8E%E7%BC%A9%E6%94%BE%E5%8F%8A%E7%BB%93%E5%90%88transform%E7%9A%84%E6%8B%93%E5%B1%95/" target="_blank" rel="external">IE矩阵滤镜Matrix旋转与缩放及结合transform的拓展</a></li>
@@ -1385,7 +1385,7 @@
     <link href="http://xuyuan923.github.io/2014/06/30/mobile-gallery/"/>
     <id>http://xuyuan923.github.io/2014/06/30/mobile-gallery/</id>
     <published>2014-06-30T08:31:43.000Z</published>
-    <updated>2014-11-04T08:24:27.000Z</updated>
+    <updated>2015-02-28T05:32:59.000Z</updated>
     <content type="html"><![CDATA[<p>第一次尝试制作移动端的WEB相册，听了@远人的视频教程，对移动端开发产生了不少兴趣，写篇博客记录下这次移动端WEB相册学习过程中的一些心得。</p>
 <h2 id="移动端对比web端">移动端对比web端</h2>
 <h3 id="移动端的开发优势">移动端的开发优势</h3>
@@ -1414,7 +1414,7 @@
 <h2 id="demo完整版演示">demo完整版演示</h2>
 <p>调试：<code>F12</code>打开调试窗口 ——&gt;<code>ESC</code>打开Console视图，选择<code>Emulation</code>，设置模拟的<code>device</code> ——&gt; F5刷新浏览器，查看模拟效果 </p>
 <ul>
-<li><strong>demo</strong>: <a href="http://xuyuan923.github.io/demo/mobile-gallery.html" target="_blank" rel="external">http://xuyuan923.github.io/demo/mobile-gallery.html</a></li>
+<li><strong>demo</strong>: <a href="http://xuyuan923.github.io/assets/demo/mobile-gallery.html" target="_blank" rel="external">http://xuyuan923.github.io/assets/demo/mobile-gallery.html</a></li>
 <li>github源码：<a href="https://github.com/xuyuan923/mobile-gallery" target="_blank" rel="external">https://github.com/xuyuan923/mobile-gallery</a></li>
 </ul>
 <h2 id="资料推荐">资料推荐</h2>
@@ -1438,7 +1438,7 @@
     <link href="http://xuyuan923.github.io/2014/06/23/the-effect-of-mouse-drag/"/>
     <id>http://xuyuan923.github.io/2014/06/23/the-effect-of-mouse-drag/</id>
     <published>2014-06-23T13:34:16.000Z</published>
-    <updated>2014-11-04T08:24:27.000Z</updated>
+    <updated>2015-02-28T05:32:59.000Z</updated>
     <content type="html"><![CDATA[<h2 id="拖拽原理分析">拖拽原理分析</h2>
 <h3 id="事件一，鼠标在可拖拽区域按下时">事件一，鼠标在可拖拽区域按下时</h3>
 <p>计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动</p>
@@ -1487,7 +1487,7 @@
 <h3 id="详细图片展示">详细图片展示</h3>
 <p><img src="/images/tuozhuai.jpg" alt="拖拽图片"></p>
 <h3 id="demo">demo</h3>
-<p><a href="/demo/drag.html">拖拽效果在线演示</a><br><a href="/demo/dialog.html">完整登陆浮层拖拽效果</a></p>
+<p><a href="/assets/demo/drag.html">拖拽效果在线演示</a><br><a href="/assets/demo/dialog.html">完整登陆浮层拖拽效果</a></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h2 id="拖拽原理分析">拖拽原理分析</h2>
