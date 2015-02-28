@@ -1,614 +1,407 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2014 | 前端学习踩过的坑</title>
+  <title>归档：2014 | 前端学习踩过的坑</title>
+  <meta name="author" content="徐媛">
+  
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端学习踩过的坑">
-<meta property="og:url" content="http://xuyuan923.github.io/archives/2014/">
-<meta property="og:site_name" content="前端学习踩过的坑">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习踩过的坑">
-<meta name="twitter:description">
 
   
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <meta property="og:site_name" content="前端学习踩过的坑"/>
 
   
+    <meta property="og:image" content="undefined"/>
+  
 
-  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
 </head>
+
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<div class="profilepic">
-			<img src="/img/cassie.jpg">
-		</div>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">徐媛</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud">
-						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
-			        
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					前端程序媛，走在路上，慢慢沉淀。
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay"></div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="/img/cassie.jpg">
-			</div>
-
-			<hgroup>
-			  <h1 class="header-author"><a href="/">徐媛</a></h1>
-			</hgroup>
-			
-			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
 </nav>
-      
-  
-  
+  </header>
+  <div id="content" class="container">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2014" class="archive-year">2014</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/12/31/my-2014/" class="archive-article-date">
-  	<time datetime="2014-12-31T11:29:33.000Z" itemprop="datePublished">12月 31</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/生活/">生活</a></li></ul>
+<h2 class="archive-title"><i class="fa fa-archive"></i>2014</h2>
 
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/12/31/my-2014/">路还很长，2015重新出发</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/12/30/responsive-layout/" class="archive-article-date">
-  	<time datetime="2014-12-30T13:00:32.000Z" itemprop="datePublished">12月 30</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-12-31T11:29:33.000Z"><a href="/2014/12/31/my-2014/">12月 31 2014</a></time>
+		  <h1 class="title"><a href="/2014/12/31/my-2014/">路还很长，2015重新出发</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/生活/">生活</a>
+			  </div>
+			
 
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/12/30/responsive-layout/">移动端布局实践</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/12/17/hexagon-6-using-css3/" class="archive-article-date">
-  	<time datetime="2014-12-17T10:37:01.000Z" itemprop="datePublished">12月 17</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS3/">CSS3</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/12/17/hexagon-6-using-css3/">CSS3实现六边形图片，兼容IE6</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/11/21/oo-javascript/" class="archive-article-date">
-  	<time datetime="2014-11-21T13:28:04.000Z" itemprop="datePublished">11月 21</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/21/oo-javascript/">JavaScript面向对象知识点小结</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/11/20/express-mongoose-error-conclusion/" class="archive-article-date">
-  	<time datetime="2014-11-20T14:24:44.000Z" itemprop="datePublished">11月 20</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/20/express-mongoose-error-conclusion/">Express+Mongoose建站常见报错原因及方法总结</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/11/04/github-gitlab-ssh/" class="archive-article-date">
-  	<time datetime="2014-11-04T10:53:59.000Z" itemprop="datePublished">11月 4</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/11/04/github-gitlab-ssh/">github/gitlab同时管理多个ssh key</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/10/17/git-tutorial/" class="archive-article-date">
-  	<time datetime="2014-10-17T02:33:31.000Z" itemprop="datePublished">10月 17</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/17/git-tutorial/">21分钟入门Git</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/10/16/chrome-debug-tool/" class="archive-article-date">
-  	<time datetime="2014-10-16T11:56:56.000Z" itemprop="datePublished">10月 16</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/16/chrome-debug-tool/">chrome调试工具常用功能整理</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/10/10/node-tutorial-req/" class="archive-article-date">
-  	<time datetime="2014-10-10T12:54:14.000Z" itemprop="datePublished">10月 10</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/10/10/node-tutorial-req/">Node Express获取参数的几种方式</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/09/25/nodejs-notes/" class="archive-article-date">
-  	<time datetime="2014-09-25T08:54:13.000Z" itemprop="datePublished">9月 25</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/09/25/nodejs-notes/">Nodejs Web开发一些好用的工具</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/08/05/node-mongodb-tutorial/" class="archive-article-date">
-  	<time datetime="2014-08-05T12:07:32.000Z" itemprop="datePublished">8月 5</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/05/node-mongodb-tutorial/">Node+Express+Mongodb+monk简易入门教程</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/08/03/understand-kissy-base/" class="archive-article-date">
-  	<time datetime="2014-08-03T12:50:51.000Z" itemprop="datePublished">8月 3</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/kissy/">kissy</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/08/03/understand-kissy-base/">理解Kissy框架的Base机制</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/06/30/mobile-gallery/" class="archive-article-date">
-  	<time datetime="2014-06-30T08:31:43.000Z" itemprop="datePublished">6月 30</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/移动端/">移动端</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/06/30/mobile-gallery/">移动端相册</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/06/23/the-effect-of-mouse-drag/" class="archive-article-date">
-  	<time datetime="2014-06-23T13:34:16.000Z" itemprop="datePublished">6月 23</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/06/23/the-effect-of-mouse-drag/">鼠标拖拽特效</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2014/06/19/svn-remote-create-repository/" class="archive-article-date">
-  	<time datetime="2014-06-19T13:06:05.000Z" itemprop="datePublished">6月 19</time>
-</a>
-	      	<br>
-	      	
-	    	
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
-
-    	</div>
-    	
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2014/06/19/svn-remote-create-repository/">svn远程创建版本库</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2015 徐媛
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
+		</header>
+	</article>
     </div>
-  </div>
-</footer>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-12-30T13:00:32.000Z"><a href="/2014/12/30/responsive-layout/">12月 30 2014</a></time>
+		  <h1 class="title"><a href="/2014/12/30/responsive-layout/">移动端布局实践</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/移动端/">移动端</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
     </div>
-    
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-12-17T10:37:01.000Z"><a href="/2014/12/17/hexagon-6-using-css3/">12月 17 2014</a></time>
+		  <h1 class="title"><a href="/2014/12/17/hexagon-6-using-css3/">CSS3实现六边形图片，兼容IE6</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/CSS3/">CSS3</a>
+			  </div>
+			
 
-  <script src="/js/main.js" type="text/javascript"></script>
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-11-21T13:28:04.000Z"><a href="/2014/11/21/oo-javascript/">11月 21 2014</a></time>
+		  <h1 class="title"><a href="/2014/11/21/oo-javascript/">JavaScript面向对象知识点小结</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/js/">js</a>
+			  </div>
+			
 
 
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-11-20T14:24:44.000Z"><a href="/2014/11/20/express-mongoose-error-conclusion/">11月 20 2014</a></time>
+		  <h1 class="title"><a href="/2014/11/20/express-mongoose-error-conclusion/">Express+Mongoose建站常见报错原因及方法总结</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/node/">node</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-11-04T10:53:59.000Z"><a href="/2014/11/04/github-gitlab-ssh/">11月 4 2014</a></time>
+		  <h1 class="title"><a href="/2014/11/04/github-gitlab-ssh/">github/gitlab同时管理多个ssh key</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/tools/">tools</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-10-17T02:33:31.000Z"><a href="/2014/10/17/git-tutorial/">10月 17 2014</a></time>
+		  <h1 class="title"><a href="/2014/10/17/git-tutorial/">21分钟入门Git</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/tools/">tools</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-10-16T11:56:56.000Z"><a href="/2014/10/16/chrome-debug-tool/">10月 16 2014</a></time>
+		  <h1 class="title"><a href="/2014/10/16/chrome-debug-tool/">chrome调试工具常用功能整理</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/tools/">tools</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-10-10T12:54:14.000Z"><a href="/2014/10/10/node-tutorial-req/">10月 10 2014</a></time>
+		  <h1 class="title"><a href="/2014/10/10/node-tutorial-req/">Node Express获取参数的几种方式</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/node/">node</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-09-25T08:54:13.000Z"><a href="/2014/09/25/nodejs-notes/">9月 25 2014</a></time>
+		  <h1 class="title"><a href="/2014/09/25/nodejs-notes/">Nodejs Web开发一些好用的工具</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/node/">node</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-08-05T12:07:32.000Z"><a href="/2014/08/05/node-mongodb-tutorial/">8月 5 2014</a></time>
+		  <h1 class="title"><a href="/2014/08/05/node-mongodb-tutorial/">Node+Express+Mongodb+monk简易入门教程</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/node/">node</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-08-03T12:50:51.000Z"><a href="/2014/08/03/understand-kissy-base/">8月 3 2014</a></time>
+		  <h1 class="title"><a href="/2014/08/03/understand-kissy-base/">理解Kissy框架的Base机制</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/kissy/">kissy</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-06-30T08:31:43.000Z"><a href="/2014/06/30/mobile-gallery/">6月 30 2014</a></time>
+		  <h1 class="title"><a href="/2014/06/30/mobile-gallery/">移动端相册</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/移动端/">移动端</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-06-23T13:34:16.000Z"><a href="/2014/06/23/the-effect-of-mouse-drag/">6月 23 2014</a></time>
+		  <h1 class="title"><a href="/2014/06/23/the-effect-of-mouse-drag/">鼠标拖拽特效</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/js/">js</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+    <div class="archive">
+	<article class="post"
+		<header>
+		  <time datetime="2014-06-19T13:06:05.000Z"><a href="/2014/06/19/svn-remote-create-repository/">6月 19 2014</a></time>
+		  <h1 class="title"><a href="/2014/06/19/svn-remote-create-repository/">svn远程创建版本库</a></h1>
+		  
+			  <div class="tags">
+			  	<i class="fa fa-tag"></i>
+			    <a href="/tags/tools/">tools</a>
+			  </div>
+			
+
+
+		</header>
+	</article>
+    </div>
+
+<nav id="pagination">
+  
+  
+  <div class="clearfix"></div>
+</nav>
+
+    <div class="clearfix"></div>
   </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2015 徐媛
+  
+</div>
+Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
+<script src="/js/gallery.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = '前端学习踩过的坑-CassieXu';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
+    
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"cassiexu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+
+
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
 </body>
 </html>

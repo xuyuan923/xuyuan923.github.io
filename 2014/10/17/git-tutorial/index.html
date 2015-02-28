@@ -1,233 +1,88 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
   <title>21分钟入门Git | 前端学习踩过的坑</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="徐媛">
+  
   <meta name="description" content="为什么要学git
 团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。更多git的强大之处，这里不再赘述，更多git的介绍请看这里，git-wiki
 git 命令大全
 获取与创建项目
 
-git init在项目根目录执行git init,根目录会多出一个.git的文件夹，这个文件夹用于保存如何git相关的操作记录">
-<meta property="og:type" content="article">
-<meta property="og:title" content="21分钟入门Git">
-<meta property="og:url" content="http://xuyuan923.github.io/2014/10/17/git-tutorial/">
-<meta property="og:site_name" content="前端学习踩过的坑">
-<meta property="og:description" content="为什么要学git
-团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。更多git的强大之处，这里不再赘述，更多git的介绍请看这里，git-wiki
-git 命令大全
-获取与创建项目
-
-git init在项目根目录执行git init,根目录会多出一个.git的文件夹，这个文件夹用于保存如何git相关的操作记录">
-<meta property="og:image" content="http://gtms03.alicdn.com/tps/i3/TB1BQNaGFXXXXaZaXXXhdPbZFXX-498-125.png">
-<meta property="og:image" content="http://gtms02.alicdn.com/tps/i2/TB1Z.xmGFXXXXcLXpXXKwd3HVXX-458-234.jpg">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="21分钟入门Git">
-<meta name="twitter:description" content="为什么要学git
-团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。更多git的强大之处，这里不再赘述，更多git的介绍请看这里，git-wiki
-git 命令大全
-获取与创建项目
-
-git init在项目根目录执行git init,根目录会多出一个.git的文件夹，这个文件夹用于保存如何git相关的操作记录">
-
+git init在项目根目">
   
   
-    <link rel="icon" href="/img/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="21分钟入门Git"/>
+  <meta property="og:site_name" content="前端学习踩过的坑"/>
 
   
+    <meta property="og:image" content="undefined"/>
+  
 
-  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
 </head>
+
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<div class="profilepic">
-			<img src="/img/cassie.jpg">
-		</div>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">徐媛</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud">
-						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
-			        
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					前端程序媛，走在路上，慢慢沉淀。
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay"></div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="/img/cassie.jpg">
-			</div>
-
-			<hgroup>
-			  <h1 class="header-author"><a href="/">徐媛</a></h1>
-			</hgroup>
-			
-			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
 </nav>
-      <article id="post-git-tutorial" class="article article-type-post" itemscope itemprop="blogPost">
+  </header>
+  <div id="content" class="container">
+    <article class="post">
   
-    <div class="article-meta">
-      <a href="/2014/10/17/git-tutorial/" class="article-date">
-  	<time datetime="2014-10-17T02:33:31.000Z" itemprop="datePublished">10月 17 2014</time>
-</a>
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
       
+      <time datetime="2014-10-17T02:33:31.000Z"><a href="/2014/10/17/git-tutorial/">周五, 10月 17 2014, 10:33:31 上午</a></time>
+
+  
+    <h1 class="title">21分钟入门Git</h1>
+  
+
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/tools/">tools</a>
+  </div>
+
+<div class="clear"></div>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      21分钟入门Git
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+    </header>
+    <div class="entry">
       
         <h2 id="为什么要学git">为什么要学git</h2>
 <p>团队协作开发，对于分支的合并，版本的更新需要用一套很好的工具，来协同开发。各大牛逼的互联网公司，牛逼的开发工程师，都选择git作为版本控制。<br>更多git的强大之处，这里不再赘述，更多git的介绍请看这里，<a href="http://zh.wikipedia.org/zh/Git" target="_blank" rel="external">git-wiki</a></p>
@@ -332,108 +187,149 @@ git init在项目根目录执行git init,根目录会多出一个.git的文件�
 
       
     </div>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2014/11/04/github-gitlab-ssh/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">&lt;</strong>
-      <div class="article-nav-title">
-        
-          github/gitlab同时管理多个ssh key
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/10/16/chrome-debug-tool/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">chrome调试工具常用功能整理</div>
-      <strong class="article-nav-caption">&gt;</strong>
-    </a>
-  
-</nav>
+    <footer>
+      
+          
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <span class="jiathis_txt">分享到：</span>
+  <a class="jiathis_button_weixin">微信</a>
+  <a class="jiathis_button_tsina">新浪微博</a>
+  <a class="jiathis_button_renren">人人网</a>
+  <a class="jiathis_button_qzone">QQ空间</a>
+  <a class="jiathis_button_douban">豆瓣</a>
+  <a class="jiathis_button_pocket">Pocket</a>
+  <a href="http://www.jiathis.com/share?uid=901656" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" src="http://v3.jiathis.com/code_mini/jia.js?uid=901656" charset="utf-8"></script>
+<!-- JiaThis Button END -->
 
+          <div class="clearfix"></div>
+          <nav id="pagination">
   
+    <a href="/2014/11/04/github-gitlab-ssh/" class="alignleft prev"><i class="fa fa-long-arrow-left"></i>Next</a>
+  
+  
+    <a href="/2014/10/16/chrome-debug-tool/" class="alignright next">Prev<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
 </article>
 
 
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
+<section id="comment">
+  <h1 class="title">留言</h1>
 
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="git-tutorial" data-title="21分钟入门Git" data-url="http://xuyuan923.github.io/2014/10/17/git-tutorial/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"cassiexu"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
-
-<section id="comments">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = '前端学习踩过的坑-CassieXu'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  
+      <!-- Duoshuo Comment BEGIN -->
+<div class="ds-thread" data-thread-key="/2014/10/17/git-tutorial/"></div>
+<!-- Duoshuo Comment END -->
+  
 </section>
 
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2015 徐媛
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
+
+
+    <div class="clearfix"></div>
   </div>
-</footer>
-    </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2015 徐媛
+  
+</div>
+Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
+<script src="/js/gallery.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = '前端学习踩过的坑-CassieXu';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"cassiexu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-
-  <script src="/js/main.js" type="text/javascript"></script>
 
 
-  </div>
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
 </body>
 </html>

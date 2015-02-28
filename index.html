@@ -1,266 +1,182 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
   <title>前端学习踩过的坑</title>
+  <meta name="author" content="徐媛">
+  
+  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端学习踩过的坑">
-<meta property="og:url" content="http://xuyuan923.github.io/">
-<meta property="og:site_name" content="前端学习踩过的坑">
-<meta property="og:description">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习踩过的坑">
-<meta name="twitter:description">
 
   
-  
-    <link rel="icon" href="/img/favicon.ico">
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <meta property="og:site_name" content="前端学习踩过的坑"/>
 
   
+    <meta property="og:image" content="undefined"/>
+  
 
-  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="前端学习踩过的坑" type="application/atom+xml">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css">
+<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
 </head>
+
 <body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<div class="profilepic">
-			<img src="/img/cassie.jpg">
-		</div>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">徐媛</a></h1>
-		</hgroup>
-
-		
-		<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>标签</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>关于我</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/archives">所有文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud">
-						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.zhangxinxu.com/wordpress/">张鑫旭</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://hustskyking.cnblogs.com/">小胡子哥-Barret Lee</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://yujiangshui.com/">于江水</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.leapoahead.com/">子回-回田园</a>
-			        
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					前端程序媛，走在路上，慢慢沉淀。
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay"></div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-				<img src="/img/cassie.jpg">
-			</div>
-
-			<hgroup>
-			  <h1 class="header-author"><a href="/">徐媛</a></h1>
-			</hgroup>
-			
-			<p class="header-subtitle">永远年轻，永远热泪盈眶</p>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/archives">所有文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="https://github.com/xuyuan923" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="http://weibo.com/xuyuan923" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
+  <header id="header" class='normal_mode'>
+    <nav id="main-nav">
+  <ul class='container'>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
 </nav>
-      
-  
-    <article id="post-常用正则匹配规则" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/02/27/常用正则匹配规则/" class="article-date">
-  	<time datetime="2015-02-27T10:25:16.000Z" itemprop="datePublished">2月 27 2015</time>
-</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
+  </header>
+  <div id="content" class="container">
+    <div id="cover">
+	<div id="profile" alt="http://ww1.sinaimg.cn/large/6cea169fjw1edgyzma1xcj21kw16ohba.jpg">
+		<a href="/">
+			<div class="logo">
+				<img src="/logo.png" alt="Profile Picture">
+			</div>
+			<div id="title">前端学习踩过的坑</div>
+		</a>
 
-    </div>
+		
+			<div id="subtitle">永远年轻，永远热泪盈眶</div>
+		
+		 <ul class="my-socials">
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+  <li>
+  	<a href="https://github.com/xuyuan923" class="github" target="_blank">
+  		<i class="fa fa-github"></i>
+  	</a>
+  </li>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/02/27/常用正则匹配规则/">一些常用的正则匹配规则</a>
-    </h1>
+  <li>
+  	<a href="http://weibo.com/xuyuan923" class="weibo" target="_blank">
+  		<i class="fa fa-weibo"></i>
+  	</a>
+  </li>
+  
+ 
+ <li>
+   	<a href="mailto:xuyuan923@163.com" class="email" target="_blank" title="Email Me">
+  		<i class="fa fa-envelope"></i>
+  	</a>
+ </li>
+ 
+</ul>
+	</div>
+</div>
+
+
+  <article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header>
+      
+      <time datetime="2015-02-27T10:25:16.000Z"><a href="/2015/02/27/常用正则匹配规则/">周五, 2月 27 2015, 6:25:16 晚上</a></time>
+
+  
+    <h1 class="title"><a href="/2015/02/27/常用正则匹配规则/">一些常用的正则匹配规则</a></h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/正则/">正则</a>
+  </div>
+
+<div class="clear"></div>
+      
+    </header>
+    <div class="entry">
       
         <p>正则表达式是前后端开发过程中经常接触到的，后端用的更多一些，之前做项目时碰到但不会匹配，今天学习总结一些规律。</p>
 
-        
-          <p class="article-more-link">
-            <a href="/2015/02/27/常用正则匹配规则/#more">more >></a>
-          </p>
-        
       
     </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/02/27/常用正则匹配规则/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://xuyuan923.github.io/2015/02/27/常用正则匹配规则/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/02/27/常用正则匹配规则/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
   </div>
-  
 </article>
 
 
 
 
-
-
+  <article class="post">
   
-    <article id="post-理解js中call,apply,bind,caller,callee的区别" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
-    <div class="article-meta">
-      <a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/" class="article-date">
-  	<time datetime="2015-01-24T07:07:31.000Z" itemprop="datePublished">1月 24 2015</time>
-</a>
+  <div class="post-content">
+    <header>
       
+      <time datetime="2015-01-24T07:07:31.000Z"><a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/">周六, 1月 24 2015, 3:07:31 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/">理解js中call,apply,caller,callee的区别</a></h1>
+  
+
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/js/">js</a>
+  </div>
+
+<div class="clear"></div>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/">理解js中call,apply,caller,callee的区别</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+    </header>
+    <div class="entry">
       
         <p>javascript中的<code>call()</code>,<code>apply()</code>,<code>caller()</code>,<code>callee()</code>方法作用都是调用某个函数或方法，概念和作用容易混淆，我自己也经常分不清楚什么时候该用哪种函数，这里总结一下，以免忘记。</p>
 <h2 id="为什么要用call()和apply()方法？">为什么要用call()和apply()方法？</h2>
@@ -269,98 +185,128 @@
 <p>function cat(){}<br>  cat.prototype={<br>      food:”fish”,<br>      say: function(){<br>      alert(“I love “+this.food);<br>    }<br>  }<br>  var blackCat = new cat;<br>  blackCat.say();</p>
 </blockquote>
 <p>我们有一个对象whiteDog = {food:”bone”},我们不想对它重新定义<code>say</code>方法,那么我们可以通过call或apply用blackCat的say方法：blackCat.say.call(whiteDog);<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/#more">more >></a>
-          </p>
-        
       
     </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://xuyuan923.github.io/2015/01/24/理解js中call,apply,bind,caller,callee的区别/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/01/24/理解js中call,apply,bind,caller,callee的区别/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
   </div>
-  
 </article>
 
 
 
 
-
-
+  <article class="post">
   
-    <article id="post-近期nodejs-web开发的一些收获小结" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
-    <div class="article-meta">
-      <a href="/2015/01/20/近期nodejs-web开发的一些收获小结/" class="article-date">
-  	<time datetime="2015-01-20T12:46:46.000Z" itemprop="datePublished">1月 20 2015</time>
-</a>
+  <div class="post-content">
+    <header>
       
+      <time datetime="2015-01-20T12:46:46.000Z"><a href="/2015/01/20/近期nodejs-web开发的一些收获小结/">周二, 1月 20 2015, 8:46:46 晚上</a></time>
+
+  
+    <h1 class="title"><a href="/2015/01/20/近期nodejs-web开发的一些收获小结/">近期nodejs-web开发的一些总结</a></h1>
+  
+
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/node/">node</a>
+  </div>
+
+<div class="clear"></div>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/20/近期nodejs-web开发的一些收获小结/">近期nodejs-web开发的一些总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+    </header>
+    <div class="entry">
       
         <p>在node web开发学习和实战的路上兜兜转转，经过半年的学习积累，对nodejs web开发开始觉得走上门道了，知道node文件该放在什么路径下，知道怎么分离路由，怎么往模板里塞数据，怎么构造数据库，建哪些字段，怎么构造json数据了。<br>由于我后端开发经验不足，所以上手node这门后端语言走了不少弯路，好在我的node系统项目终于完成，也算是小有收获。<br>关于如何快速学习一门新技术，如何快速地进行知识积累，以及进行项目技术选型，一些功能应该交给前端还是后端处理有了一些新的认识。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/20/近期nodejs-web开发的一些收获小结/#more">more >></a>
-          </p>
-        
       
     </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/01/20/近期nodejs-web开发的一些收获小结/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://xuyuan923.github.io/2015/01/20/近期nodejs-web开发的一些收获小结/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/01/20/近期nodejs-web开发的一些收获小结/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
   </div>
-  
 </article>
 
 
 
 
-
-
+  <article class="post">
   
-    <article id="post-45-useful-javascript-tips" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
-    <div class="article-meta">
-      <a href="/2015/01/07/45-useful-javascript-tips/" class="article-date">
-  	<time datetime="2015-01-07T01:52:47.000Z" itemprop="datePublished">1月 7 2015</time>
-</a>
+  <div class="post-content">
+    <header>
       
+      <time datetime="2015-01-07T01:52:47.000Z"><a href="/2015/01/07/45-useful-javascript-tips/">周三, 1月 7 2015, 9:52:47 上午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/01/07/45-useful-javascript-tips/">45个实用的JavaScript技巧</a></h1>
+  
+
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/js/">js</a>
+  </div>
+
+<div class="clear"></div>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/07/45-useful-javascript-tips/">45个实用的JavaScript技巧</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+    </header>
+    <div class="entry">
       
         <p>本文是一篇转载加补充的文章，原文及译文信息如下：</p>
 <ul>
@@ -370,51 +316,66 @@
 <li>作者：<a href="http://chensd.com/" target="_blank" rel="external">chensd</a></li>
 </ul>
 <p>JavaScript是一个绝冠全球的编程语言，可用于Web开发、移动应用开发（PhoneGap、Appcelerator）、服务器端开发（Node.js和Wakanda）等等。JavaScript还是很多新手踏入编程世界的第一个语言。既可以用来显示浏览器中的简单提示框，也可以通过nodebot或nodruino来控制机器人。能够编写结构清晰、性能高效的JavaScript代码的开发人员，现如今已成了招聘市场最受追捧的人。<br>在这篇文章里，我将分享一些JavaScript的技巧、秘诀和最佳实践，除了少数几个外，不管是浏览器的JavaScript引擎，还是服务器端JavaScript解释器，均适用。<br>本文中的示例代码，通过了在Google Chrome 30最新版（V8 3.20.17.15）上的测试。<br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/07/45-useful-javascript-tips/#more">more >></a>
-          </p>
-        
       
     </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/01/07/45-useful-javascript-tips/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://xuyuan923.github.io/2015/01/07/45-useful-javascript-tips/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/01/07/45-useful-javascript-tips/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
   </div>
-  
 </article>
 
 
 
 
-
-
+  <article class="post">
   
-    <article id="post-mobile-debug" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="gallery">
+  <div class="photoset">
+    
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
   
-    <div class="article-meta">
-      <a href="/2015/01/03/mobile-debug/" class="article-date">
-  	<time datetime="2015-01-03T07:09:18.000Z" itemprop="datePublished">1月 3 2015</time>
-</a>
+  <div class="post-content">
+    <header>
       
+      <time datetime="2015-01-03T07:09:18.000Z"><a href="/2015/01/03/mobile-debug/">周六, 1月 3 2015, 3:09:18 下午</a></time>
+
+  
+    <h1 class="title"><a href="/2015/01/03/mobile-debug/">移动端前端开发真机调试实践</a></h1>
+  
+
+
+
+  
+  <div class="tags">
+  	<i class="fa fa-tag"></i>
+    <a href="/tags/tools/">tools</a>
+  </div>
+
+<div class="clear"></div>
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/mobile-debug/">移动端前端开发真机调试实践</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+    </header>
+    <div class="entry">
       
         <p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
 <h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
@@ -431,50 +392,140 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></div></pre></td></tr></table></figure>
 
 <p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/03/mobile-debug/#more">more >></a>
-          </p>
-        
       
     </div>
+    <footer>
+      
+        <div class="alignleft">
+            <a href="/2015/01/03/mobile-debug/#more" class="more-link"><i class="fa fa-chevron-right"></i>Read More</a>
+        </div>
+        
+        
+          <div class="alignright"> 
+            <a href="http://xuyuan923.github.io/2015/01/03/mobile-debug/#comment" class="comment-link">
+              <i class="fa fa-comments"></i><span class="ds-thread-count" data-thread-key="/2015/01/03/mobile-debug/">&nbsp;
+              </span>
+            </a>
+          </div>
+        
+      
+      <div class="clearfix"></div>
+    </footer>
   </div>
-  
 </article>
 
 
 
 
 
+<nav id="pagination">
+  
+  
+    <a href="/page/2/" class="alignright next">下一页<i class="fa fa-long-arrow-right"></i></a>
+  
+  <div class="clearfix"></div>
+</nav>
 
-  
-  
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
-  
+<script src="/js/jquery.anystretch.min.js" type="text/javascript"></script>
+<script src="/js/cover.js" type="text/javascript"></script>
 
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2015 徐媛
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
+
+    <div class="clearfix"></div>
   </div>
-</footer>
-    </div>
+  <footer id="footer" class="inner"><div>
+  
+  &copy; 2015 徐媛
+  
+</div>
+Powered by <a href="http://zespia.tw/hexo/" title="Hexo" target="_blank" rel="external">Hexo</a> and <a href="http://pages.github.com/" title="GitHub Pages" target="_blank" rel="external">GitHub Pages</a>
+
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery.imagesloaded.min.js" type="text/javascript"></script>
+<script src="/js/gallery.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js" type="text/javascript"></script>
+
+
+
+<script type="text/javascript">
+var disqus_shortname = '前端学习踩过的坑-CassieXu';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+    <script type="text/javascript">
+        (function(){
+
+            $(window).scroll(function(){
+
+                var scrollTop = $(window).scrollTop();
+                if ( scrollTop >200 ){
+                    $("#main-nav").removeClass('normal_mode').addClass('top_mode');
+                } else{
+                    $("#main-nav").removeClass('top_mode').addClass('normal_mode');
+                }
+
+            });
+
+        })();
+    </script>
+
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript">
+  (function($){
+    $('.fancybox').fancybox({
+      'titlePosition': 'inside'
+    });
+  })(jQuery);
+  </script>
+
+
+
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"cassiexu"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = 'http://static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0] 
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
-
-  <script src="/js/main.js" type="text/javascript"></script>
 
 
-  </div>
+<script type="text/javascript">
+  
+  $(function(){
+
+    $('.title').hover(
+      function() {      
+        $(this).stop().animate(
+          {'marginLeft': '10px'}, 200
+        );   
+      }, 
+      function() {       
+        $(this).stop().animate({'marginLeft': '0px'}, 200);      
+      
+    });   
+
+  });
+
+</script>
+
+
 </body>
 </html>
