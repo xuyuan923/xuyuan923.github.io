@@ -7,25 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="JavaScript面向对象主要知识点小结，基于ECMAScript 5.
 构造函数
-1234567function People(name){	//this可以理解为通过new即将创建的对象	this.name = name;}//将类实例化var person = new People('Cassie Xu');console.log(person.name);
-
-给一个对象赋予属性或者方法">
+1234567function People(name){	//this可以理解为通过new即将创建的对象	this.name = name;}//将类实例化var person = new People('Cassie Xu');console.log(person.name);">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript面向对象知识点小结">
 <meta property="og:url" content="http://xuyuan923.github.io/2014/11/21/oo-javascript/">
 <meta property="og:site_name" content="前端学习踩过的坑">
 <meta property="og:description" content="JavaScript面向对象主要知识点小结，基于ECMAScript 5.
 构造函数
-1234567function People(name){	//this可以理解为通过new即将创建的对象	this.name = name;}//将类实例化var person = new People('Cassie Xu');console.log(person.name);
-
-给一个对象赋予属性或者方法">
+1234567function People(name){	//this可以理解为通过new即将创建的对象	this.name = name;}//将类实例化var person = new People('Cassie Xu');console.log(person.name);">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript面向对象知识点小结">
 <meta name="twitter:description" content="JavaScript面向对象主要知识点小结，基于ECMAScript 5.
 构造函数
-1234567function People(name){	//this可以理解为通过new即将创建的对象	this.name = name;}//将类实例化var person = new People('Cassie Xu');console.log(person.name);
-
-给一个对象赋予属性或者方法">
+1234567function People(name){	//this可以理解为通过new即将创建的对象	this.name = name;}//将类实例化var person = new People('Cassie Xu');console.log(person.name);">
 
   
   
@@ -228,6 +222,7 @@
 <h2 id="构造函数">构造函数</h2>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span></span>{</div><div class="line">	<span class="comment">//this可以理解为通过new即将创建的对象</span></div><div class="line">	<span class="keyword">this</span>.name = name;</div><div class="line">}</div><div class="line"><span class="comment">//将类实例化</span></div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);</div><div class="line"><span class="built_in">console</span>.log(person.name);</div></pre></td></tr></table></figure>
 
+<a id="more"></a>
 <p>给一个对象赋予属性或者方法</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span><span class="params">(name)</span> </span>{</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.greet = <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'Hello, my name is '</span> + <span class="keyword">this</span>.name + <span class="string">'!'</span>);</div><div class="line">  };</div><div class="line">}</div><div class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> People(<span class="string">'Cassie Xu'</span>);</div><div class="line">person.greet();</div></pre></td></tr></table></figure>
 

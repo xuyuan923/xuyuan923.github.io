@@ -219,61 +219,12 @@
 <p>比如我测试的服务器svn目录在/var/svn下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/svn</div></pre></td></tr></table></figure>
 
-<h3 id="新建版本库">新建版本库</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">svnadmin create xuyuan</div></pre></td></tr></table></figure>
 
-<h4 id="查看xuyuan版本库是否已经成功创建">查看xuyuan版本库是否已经成功创建</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /var/svn</div><div class="line">ls</div></pre></td></tr></table></figure>
-
-<h3 id="修改版本库配置文件">修改版本库配置文件</h3>
-<h4 id="配置svnserve-conf">配置svnserve.conf</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> xuyuan</div><div class="line"><span class="built_in">cd</span> conf</div><div class="line">vi svnserve.conf</div></pre></td></tr></table></figure>
-
-<p>修改以下配置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">anon-acess = none //未存在用户没有任何权限</div><div class="line">auth-acess = write //存在用户有写的权限</div><div class="line">password-db = passwd</div></pre></td></tr></table></figure>
-
-<h4 id="配置passwd">配置passwd</h4>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi passwd</div></pre></td></tr></table></figure>
-
-<p>在passwd文件最下方添加用户:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xuyuan = <span class="number">123456</span></div></pre></td></tr></table></figure>
-
-<h4 id="配置authz">配置authz</h4>
-<p>在最下方添加用户的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">[/]</div><div class="line">xuyuan = wr</div></pre></td></tr></table></figure>
-
-<h3 id="本地新建空文件夹取回版本库">本地新建空文件夹取回版本库</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">svn checkout</div><div class="line">svn://<span class="number">210.45</span>.<span class="number">245.5</span>/xuyuan</div></pre></td></tr></table></figure>
-
-<p>会下载最新版本xuyuan库</p>
-<h3 id="关联提交文件到远程服务器指定文件夹下">关联提交文件到远程服务器指定文件夹下</h3>
-<p>svn只能上传到版本库下<br>svn版本库不支持remote文件到服务器功能<br>可以使用<a href="http://wbond.net/sublime_packages/sftp" target="_blank" rel="external">sublime sftp工具</a>，配置<code>sftp-config.json</code>文件可以remote文件.</p>
-<h3 id="实现公用项目代码自动更新update">实现公用项目代码自动更新update</h3>
-<h5 id="可以使用svn_hooks">可以使用svn hooks</h5>
-<p>将post-commit.tmpl拷贝一份到post-commit</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> [svn版本库]</div><div class="line"><span class="built_in">cd</span> hooks</div><div class="line">ls</div><div class="line">cp post-commit.tmpl post-commit</div><div class="line">vi post-commit</div></pre></td></tr></table></figure>
-
-<p>然后要赋予post-commit文件可执行的权限</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-commit</div></pre></td></tr></table></figure>
-
-<p>此时，通过ls -al可以查看到post-commit已有执行的权限了。<br>编辑<code>post-commit</code>,在文件后面加入下面的代码，要根据具体的项目做出相应的调整:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> LANG=en_US.UTF-<span class="number">8</span></div><div class="line">svn update --username xuyuan --password <span class="number">123456</span> /var/www/html/dangxiao --no-auth-cache</div></pre></td></tr></table></figure>
-
-<h3 id="在测试服务器文件夹根目录checkout版本库">在测试服务器文件夹根目录checkout版本库</h3>
-<p>使用<code>shell</code>因为是同时在测试服务器上<code>checkout</code> <code>svn</code> 版本库，所以服务器IP为<code>localhost</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> html/[工作副本文件夹]</div><div class="line">svn checkout svn://localhost/xuyuan</div></pre></td></tr></table></figure>
-
-<h3 id="配置域名">配置域名</h3>
-<p>进入根目录文件夹下的httpd文件夹下，修改vhost</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /etc/httpd</div><div class="line">vi vhost</div></pre></td></tr></table></figure>
-
-<p>添加一段新的vhost:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#library by cassie</span></div><div class="line">&lt;VirtualHost *:<span class="number">80</span>&gt;</div><div class="line">ServerName findlove.net</div><div class="line">ServerAdmin hfutonline@<span class="number">163</span>.com</div><div class="line">DocumentRoot <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span></div><div class="line">SetEnv APPLICATION_ENV <span class="string">"development"</span></div><div class="line">&lt;Directory <span class="string">"/var/www/html/cassiexu/xyfind/public/"</span>&gt;</div><div class="line">DirectoryIndex index.php</div><div class="line">AllowOverride All</div><div class="line">Order deny,allow</div><div class="line">Allow from all</div><div class="line"><span class="comment">#Option Index</span></div><div class="line">&lt;/Directory&gt;</div><div class="line">&lt;/VirtualHost&gt;</div></pre></td></tr></table></figure>
-
-<p>配置完毕后，需要重启<code>apache</code>.</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service httpd restart</div></pre></td></tr></table></figure>
-
-
+        
+          <p class="article-more-link">
+            <a href="/2014/06/19/svn-remote-create-repository/#more">more >></a>
+          </p>
+        
       
     </div>
   </div>

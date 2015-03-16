@@ -9,11 +9,7 @@
 Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为Base API。
 extend()
 
-官网extend()解释为从当前类上扩展出一个子类
-
-callSuper()
-调用父类的对应方法，如果没有，则返回undefined,直接看用法
-123456789101112131415161718192021222324KISSY.use('base',">
+官网extend()解释为从当前类上扩展出一个子类">
 <meta property="og:type" content="article">
 <meta property="og:title" content="理解Kissy框架的Base机制">
 <meta property="og:url" content="http://xuyuan923.github.io/2014/08/03/understand-kissy-base/">
@@ -22,22 +18,14 @@ callSuper()
 Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为Base API。
 extend()
 
-官网extend()解释为从当前类上扩展出一个子类
-
-callSuper()
-调用父类的对应方法，如果没有，则返回undefined,直接看用法
-123456789101112131415161718192021222324KISSY.use('base',">
+官网extend()解释为从当前类上扩展出一个子类">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="理解Kissy框架的Base机制">
 <meta name="twitter:description" content="理解Base API
 Kissy的Base机制非常强大，官方文档对Base的解释并不全面，官方文档为Base API。
 extend()
 
-官网extend()解释为从当前类上扩展出一个子类
-
-callSuper()
-调用父类的对应方法，如果没有，则返回undefined,直接看用法
-123456789101112131415161718192021222324KISSY.use('base',">
+官网extend()解释为从当前类上扩展出一个子类">
 
   
   
@@ -242,6 +230,7 @@ callSuper()
 <blockquote>
 <p>官网extend()解释为<strong>从当前类上扩展出一个子类</strong></p>
 </blockquote>
+<a id="more"></a>
 <h3 id="callSuper()">callSuper()</h3>
 <p>调用父类的对应方法，如果没有，则返回undefined,直接看用法</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">KISSY.use(<span class="string">'base'</span>, function(S, Base) {</div><div class="line">    var A = Base.extend({</div><div class="line">        m: function (value) {</div><div class="line">            <span class="keyword">return</span> <span class="string">'am:'</span> + value;</div><div class="line">        },</div><div class="line">        m2: function (value) {</div><div class="line">            <span class="keyword">return</span> <span class="string">'am2:'</span> + value;</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    var B = A.extend({</div><div class="line">        m: function(value) {</div><div class="line">            <span class="keyword">return</span> <span class="string">'bm:('</span> + this.callSuper(value) + <span class="string">')'</span>;</div><div class="line">        },</div><div class="line">        m2: function(value) {</div><div class="line">        //获取B的父类A对应的方法，获取A的参数</div><div class="line">            <span class="keyword">return</span> <span class="string">'bm2('</span> + this.callSuper.apply(this, arguments) + <span class="string">')'</span>;</div><div class="line">        }</div><div class="line">    });</div><div class="line"></div><div class="line">    var b = new B();</div><div class="line">    console.log(b.m(<span class="number">1</span>)); //bm:(am:<span class="number">1</span>)</div><div class="line">    console.log(b.m2(<span class="number">2</span>)); //bm2:(am:<span class="number">2</span>)</div><div class="line">});</div></pre></td></tr></table></figure>

@@ -12,10 +12,7 @@ req.params
 req.param()
 req.query
 
-那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
-适用情景案例
-req.body
-req.body在官方文档是没有提供的，但是它也是很好用的获取表单参数的方法。req.body是配合Express中间件bod">
+那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Node Express获取参数的几种方式">
 <meta property="og:url" content="http://xuyuan923.github.io/2014/10/10/node-tutorial-req/">
@@ -27,10 +24,7 @@ req.params
 req.param()
 req.query
 
-那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
-适用情景案例
-req.body
-req.body在官方文档是没有提供的，但是它也是很好用的获取表单参数的方法。req.body是配合Express中间件bod">
+那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Node Express获取参数的几种方式">
 <meta name="twitter:description" content="Node配合Express框架获取参数主要有以下4种形式:
@@ -40,10 +34,7 @@ req.params
 req.param()
 req.query
 
-那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？
-适用情景案例
-req.body
-req.body在官方文档是没有提供的，但是它也是很好用的获取表单参数的方法。req.body是配合Express中间件bod">
+那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？">
 
   
   
@@ -250,6 +241,7 @@ req.body在官方文档是没有提供的，但是它也是很好用的获取表
 <li>req.query</li>
 </ul>
 <p>那么，以上几种形式获取参数的值适用于什么情景呢？这4种获取参数值的方式各有什么区别和联系呢？</p>
+<a id="more"></a>
 <h1 id="适用情景案例">适用情景案例</h1>
 <h2 id="req-body">req.body</h2>
 <p><code>req.body</code>在<a href="http://expressjs.com/4x/api.html#request" target="_blank" rel="external">官方文档</a>是没有提供的，但是它也是很好用的获取表单参数的方法。<code>req.body</code>是<strong>配合Express中间件<code>bodyParser()</code>中间件</strong>提供的。当<code>bodyParser()</code>中间件使用后，这个对象默认为 <code>{}</code>,<code>req.body</code>可以获取到post到body中的内容。<br>举个栗子：</p>

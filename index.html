@@ -230,66 +230,12 @@
 <li>^：匹配行首</li>
 <li>[^a-z]：当^在字符集里面的时候，表示不匹配，这个就表示匹配除了小写字母以外的字符</li>
 </ul>
-<p>恩，这个很枯燥，但是还是得记住，必须的。</p>
-<h2 id="正则表达式_test()方法">正则表达式 test()方法</h2>
-<p>这个方法接受一个字符串的参数，然后返回一个bool值来表明是否匹配。如果你不需要对匹配结果做特殊的处理-比如验证用户名-那么test()方法就够用了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> username = <span class="string">'johnsmith'</span>;</div><div class="line">alert(<span class="regexp">/[a-zA-Z_-]+/</span>.test(username)); <span class="comment">//return true;</span></div></pre></td></tr></table></figure>
 
-<p>上面的例子我们声明的正则表达式用来匹配大小写字母以及<code>_</code>和<code>-</code>。我们用方括号将这个包起来，表示要匹配的字符集。后面的<code>+</code>号表示匹配字符集中的一个或者多个，然后通过<code>test()</code>方法来检测，因为我们的用户名johnsmith符合规则，所以返回为true。</p>
-<h2 id="正则表达式_split()方法">正则表达式 split()方法</h2>
-<p>你可能比较熟悉split()方法了。他接受一个正则表达式的参数，用来确定在哪里进行分割，当然用字符串做参数也可以。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'this is my string'</span>;</div><div class="line">alert(str.split(<span class="regexp">/\s/</span>)); <span class="comment">//alerts "this,is,my,string"</span></div></pre></td></tr></table></figure>
-
-<p>传入<code>\s</code>表示要匹配空格，我们将字符串分割为一个数组，如果你要访问某一个，那么可以明确指出：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'this is my string'</span>;</div><div class="line">alert(str.spli(<span class="regexp">/\s/</span>)[<span class="number">3</span>]); <span class="comment">//alerts string</span></div></pre></td></tr></table></figure>
-
-<h2 id="正则表达式_replace()方法">正则表达式 replace()方法</h2>
-<p>跟你认为的一样，replace()方法就是去替换一段文本的，替换的参数可以是字符串也可以是正则表达式。</p>
-<h3 id="示例1">示例1</h3>
-<p>如果你想把’hello world’替换为’hello universe’，那么可以这样做：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> str = <span class="string">'Hello,World!'</span>;</div><div class="line">str = str.replace(<span class="regexp">/World/</span>,<span class="string">'Universe'</span>);</div><div class="line">alert(str);</div></pre></td></tr></table></figure>
-
-<p>你可能会问，为什么不直接使用.replace()方法呢，因为这个方法不会复写本来的变量，所以需要重新赋值一下。</p>
-<h3 id="示例2">示例2</h3>
-<p>另外一个例子，想象这样的场景，为了安全起见，我们需要对用户输入的内容进行转义，比如我们需要移除那些符号，引号，分号等等。这样使用正则就很方便了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> username = <span class="string">'J;ohnSmith;@%'</span>;</div><div class="line">username = username.replace(<span class="regexp">/[^A-Za-z\d_-]+/</span>, <span class="string">''</span>);</div><div class="line">alert(username); <span class="comment">// JohnSmith;@%</span></div></pre></td></tr></table></figure>
-
-<p>根据最后alert的内容，有人可能认为我们的代码有问题。其实不是的，J后面的那个分号还是被移除了，如果需要移除字符串中的所有符号，我们需要在最后的/后面加一个g参数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> username = <span class="string">'J;ohnSmith;@%'</span>;</div><div class="line">username = username.replace(<span class="regexp">/[^A-Za-z\d_-]+/g</span>, <span class="string">''</span>);</div><div class="line">alert(username); <span class="comment">// JohnSmith</span></div></pre></td></tr></table></figure>
-
-<p>经过这样的处理之后，就去掉了多余的字符了，注意方括号里面的那个^符号，他表示非。真个正则表达式的意思就是匹配所有A-Z、a-z、以及-和下划线_之外的字符，然后将他们替换为空。</p>
-<h2 id="正则表达式_match()方法">正则表达式 match()方法</h2>
-<p>与test()方法不同的是，match()会返回一个匹配到的字符串的数组。</p>
-<h3 id="示例1-1">示例1</h3>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'JeffreyWay'</span>;</div><div class="line">alert(name.match(<span class="regexp">/e/</span>)); <span class="comment">//alerts "e"</span></div></pre></td></tr></table></figure>
-
-<p>我们注意到，这个字符串中有两个e，但是最后只是alert出来一个，因为缺少了g参数，我们加上之后看看。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'JeffreyWay'</span>;</div><div class="line">alert(name.match(<span class="regexp">/e/g</span>)); <span class="comment">//alerts "e,e"</span></div></pre></td></tr></table></figure>
-
-<p>如果我们想alert某一个具体的，那么可以：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> name = <span class="string">'JeffreyWay'</span>;</div><div class="line">alert(name.match(<span class="regexp">/e/g</span>)[<span class="number">1</span>]); <span class="comment">//alerts "e"</span></div></pre></td></tr></table></figure>
-
-<h3 id="示例2-1">示例2</h3>
-<p>我们来看看另外一个例子来加深一下理解。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> string = <span class="string">'This is just a string with some 12345 and some !@#$ mixed in.'</span>;</div><div class="line">alert(string.match(<span class="regexp">/[a-z]+/gi</span>)); <span class="comment">// alerts "This,is,just,a,string,with,some,and,some,mixed,in"</span></div></pre></td></tr></table></figure>
-
-<p>在这个例子中，我们的正则表达式要匹配的是所有的字母，i参数表示忽略大小写，g参数表示全局查找。所以最后alert的就是字符串中所有的单词。如果我们输入要alert的索引值，那么就会输出相对应的单词。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> string = <span class="string">'This is just a string with some 12345 and some !@#$ mixed in.'</span>;</div><div class="line"><span class="keyword">var</span> matches = string.match(<span class="regexp">/[a-z]+/gi</span>);</div><div class="line">alert(matches[<span class="number">2</span>]); <span class="comment">// alerts "just"</span></div></pre></td></tr></table></figure>
-
-<h2 id="小练习">小练习</h2>
-<p>为了练习一下，我们来尝试分割一个email地址―rocker@rockux.com―来取出用户名rocker和本站地址rockux.com。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> email = <span class="string">'rocker@rockux.com'</span>;</div><div class="line">alert(email.replace(<span class="regexp">/([a-z\d_-]+)@([a-z\d_-]+)\.[a-z]{2,4}/ig</span>, <span class="string">'$1, $2'</span>)</div></pre></td></tr></table></figure>
-
-<p>如果你之前对于正则表达式不是很熟悉，那么这个看着可能有点恐怖，不过没关系，我们一点一点来分解。</p>
-<h3 id="-replace(/[a-z\d_-]+)">.replace(/[a-z\d_-]+)</h3>
-<p>从中间开始，我们去匹配所有的字母数字下划线和-，然后使用+号来匹配多个，我们需要访问这个值，所以用括号括起来。这样我们在后面就可以引用到。</p>
-<h3 id="@([a-z\d-_]+)">@([a-z\d-_]+)</h3>
-<p>然后去匹配@字符，以及他后面的字母数字下划线和-，同样的，我们用括号括起来，一会要访问他。</p>
-<h3 id="-[a-z]{2,4}/ig">.[a-z]{2,4}/ig</h3>
-<p>这一段表示用来匹配后面的域名类型，ig表示全局匹配并且忽略大小写。在大括号中的数字表示需要匹配的前面字符的起始和结束个数。</p>
-<h3 id="‘$1,$2′)">‘$1,$2′)</h3>
-<p>这一部分表示replace方法的第二个参数，用来输入需要替换成为的字符。这里我们使用正则表达式中存储的变量，在这个例子中，$1表示rocker $2表示rockux。</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2015/03/16/-转-javascript正则表达式教程/#more">more >></a>
+          </p>
+        
       
     </div>
   </div>
