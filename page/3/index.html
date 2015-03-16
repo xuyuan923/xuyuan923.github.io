@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 13.33px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
 					</div>
 				</section>
 				
@@ -184,6 +184,76 @@
 	</div>
 </nav>
       
+  
+    <article id="post-express-mongoose-error-conclusion" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2014/11/20/express-mongoose-error-conclusion/" class="article-date">
+  	<time datetime="2014-11-20T14:24:44.000Z" itemprop="datePublished">11月 20 2014</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/20/express-mongoose-error-conclusion/">Express+Mongoose建站常见报错原因及方法总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="mongoose_populate">mongoose populate</h2>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Line.find({issues:id}, <span class="function"><span class="keyword">function</span> <span class="params">(err, lines)</span> </span>{</div><div class="line">        Issue</div><div class="line">            <span class="comment">//在line集合中查找issues字段id和issue集合的id相同的line</span></div><div class="line">            <span class="comment">//使用findOne,只取最后插入的一条</span></div><div class="line">            .findOne({_id:id})</div><div class="line">            <span class="comment">//等价于populate({path:'belongLineId',select:'name'})</span></div><div class="line">            .populate(<span class="string">'belongLineId'</span>,<span class="string">'name'</span>)</div><div class="line">            .exec(<span class="function"><span class="keyword">function</span><span class="params">(err,issue)</span></span>{</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'lines:'</span>)</div><div class="line">                <span class="built_in">console</span>.log(lines);</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'issue:'</span>);</div><div class="line">                <span class="built_in">console</span>.log(issue);</div><div class="line">                res.render(<span class="string">'issueDetail'</span>, {</div><div class="line">                    title: issue.title,</div><div class="line">                    lines: lines,</div><div class="line">                    issue: issue</div><div class="line">                })</div><div class="line">            })</div><div class="line">    })</div></pre></td></tr></table></figure>
+
+<ul>
+<li><code>populate</code>中的path的值必须为<code>issue</code>集合里的字段，比如这里belongLineId是issue里的字段</li>
+<li><code>populate</code>中的select的值必须为<code>line</code>集合里的字段，比如这里<code>name</code>为<code>line</code>集合的字段</li>
+</ul>
+<h2 id="显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0">显示CastError: Cast to ObjectId failed for value ，length为0</h2>
+<p>通常是在schema中忘记添加相应地字段，或者在controller里render时忘记传递字段值</p>
+<h2 id="出现can’t_set_header_after_they_are_sent">出现can’t set header after they are sent</h2>
+<p>通常是controller里render了两次，或者redirect了两次</p>
+<h2 id="find()与findOne()的区别">find()与findOne()的区别</h2>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> id = req.params.id</div></pre></td></tr></table></figure>
+
+<ul>
+<li><code>find(id)</code>是遍历出所有的数组</li>
+<li><code>findOne({_id:id})</code>是查找出一个这个id浏览器当前页面参数相同的值</li>
+</ul>
+<h2 id="打印出当前用户">打印出当前用户</h2>
+<ul>
+<li><code>req.session.user._id</code></li>
+<li><code>req.session.user.name</code></li>
+</ul>
+<h2 id="转换日期">转换日期</h2>
+<ul>
+<li><code>npm install moment --save</code></li>
+<li><code>#{moment(issue.start).format(&#39;YYYY/MM/DD&#39;)}</code></li>
+</ul>
+
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-github-gitlab-ssh" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -613,73 +683,9 @@
 
 
   
-    <article id="post-nodejs-notes" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/09/25/nodejs-notes/" class="article-date">
-  	<time datetime="2014-09-25T08:54:13.000Z" itemprop="datePublished">9月 25 2014</time>
-</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/25/nodejs-notes/">Nodejs Web开发一些好用的工具</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>学习Node Web开发一个月了，通过做项目积累了一些Node Web开发的经验，分享几款好用的Node Web开发的工具。</p>
-<h2 id="1-数据库可视化工具">1.数据库可视化工具</h2>
-<p>这里推荐MongoVUE。</p>
-<h3 id="a-连接">a.连接</h3>
-<p>点击<code>+</code>icon连接，其中<code>Name</code>配置项是自己配置的，<code>Port</code>默认是27017，<code>Server</code>,<code>Username</code>,<code>Password</code>,<code>Database</code>均是根据mongodb应用的配置来的。</p>
-<h3 id="b-使用">b.使用</h3>
-<p>看一下整体界面，功能很强大，界面友好！<img src="http://gtms04.alicdn.com/tps/i4/TB1esIQGXXXXXXXXpXXFgXUMFXX-1358-712.jpg" alt="使用">,<br>mongovue是收费的，过了免费试用期，就会关闭部分mongovue服务，破解方法传送门，下载本文最后的附件，解压缩后替换mongovue的安装目录下相应文件，即可注册，亲测能用。</p>
-<h2 id="2-Nodemon">2.Nodemon</h2>
-<h3 id="a-为什么要用Nodemon？">a.为什么要用Nodemon？</h3>
-<p>当我第一次开发的node app时候，每当我修改很小东西的时候需要<code>control+c</code>来关闭当前应用，再<code>node app</code>重启应用，这让开发者非常痛苦。Nodemon是一款智能的工具，能监测到你应用的更新，自动重启服务，大大提高了开发效率。</p>
-<h3 id="b-安装">b.安装</h3>
-<p>执行<code>npm install -g nodemon</code>,全局安装</p>
-<h3 id="c-使用">c.使用</h3>
-<p>像执行<code>node app.js</code>那样，执行<code>nodemon app.js</code>，看当我修改了js，nodemon会自动重启应用，即使应用crashed，只要js重新修改过，nodemon还会重启！<br><img src="http://gtms02.alicdn.com/tps/i2/TB1BLkRGXXXXXbqXXXXG.tA2FXX-643-292.jpg" alt="nodemon"></p>
-<h2 id="3-Webstorm_IDE_node_debug工具">3.Webstorm IDE node debug工具</h2>
-<h3 id="a-安装">a.安装</h3>
-<p>如果你已安装了webstorm IDE,就会自带有node debug功能，无需再安装。</p>
-<h3 id="b-监测app-js">b.监测app.js</h3>
-<p>首先配置你需要debug的js,打开webstorm-&gt;<code>run</code>-&gt;’edit configurations’-&gt;指定debug的文件。比如我要监测的是<code>app.js</code>,配置如下：<br><img src="http://gtms04.alicdn.com/tps/i4/TB17ygMGXXXXXb9XpXXv5iZUXXX-1061-363.jpg" alt="debug"><br>注意，<strong>关闭当前node服务</strong>，因为webstorm debug会开启本地服务，会与node服务的端口冲突。<br>下图为常用功能说明<img src="http://gtms03.alicdn.com/tps/i3/TB1SWQRGXXXXXb5XXXXd9uP8pXX-1092-464.jpg" alt="node debugger"></p>
-<h3 id="c-监测其他node文件">c.监测其他node文件</h3>
-<p>如果要监测的是除node启动文件<code>app.js</code>以外的其他node文件，基本步骤同上文，监测的文件同为<code>app.js</code>,区别的是当刷新页面时，只有打开的页面引用到相应的node文件，即需要执行相应的node文件时，这个node文件的断点才能被执行。比如我想监测<code>db.js</code>这样的node文件,在访问<code>/index/require/my</code>页面时，<code>db.js</code>才执行，如果要查看<code>db.js</code>文件的断点情况，则需要打开<code>/index/require/my</code>页面。</p>
-<p>Node Web开发的一些调试工具、回调的处理方法等学问很多，本人造诣不深，等摸透了再做一些分享~</p>
-
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &raquo;</a>
     </nav>
   
 

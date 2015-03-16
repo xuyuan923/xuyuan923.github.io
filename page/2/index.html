@@ -113,7 +113,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud">
-						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 10.00px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
+						<a href="/tags/CSS3/" style="font-size: 10.00px;">CSS3</a><a href="/tags/js/" style="font-size: 16.67px;">js</a><a href="/tags/kissy/" style="font-size: 10.00px;">kissy</a><a href="/tags/node/" style="font-size: 20.00px;">node</a><a href="/tags/tools/" style="font-size: 20.00px;">tools</a><a href="/tags/正则/" style="font-size: 13.33px;">正则</a><a href="/tags/生活/" style="font-size: 10.00px;">生活</a><a href="/tags/移动端/" style="font-size: 13.33px;">移动端</a>
 					</div>
 				</section>
 				
@@ -184,6 +184,67 @@
 	</div>
 </nav>
       
+  
+    <article id="post-mobile-debug" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/01/03/mobile-debug/" class="article-date">
+  	<time datetime="2015-01-03T07:09:18.000Z" itemprop="datePublished">1月 3 2015</time>
+</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/tools/">tools</a></li></ul>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/03/mobile-debug/">移动端前端开发真机调试实践</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上篇文章介绍了移动端开发布局的一些知识点，关于移动端测试的知识点特别多，通过亲自安装体验，记录一下实践过程。</p>
+<h2 id="Weinre测试安卓真机">Weinre测试安卓真机</h2>
+<p>Weinre可以方便地查看PC端的页面在手机端的效果，以及在PC端调试查看手机端的效果。它使用的前提是保证PC和手机在同一局域网内。<br>我的电脑是Mac,只在Mac上做了测试,具体测试步骤是：</p>
+<ul>
+<li>首先安装Weinre</li>
+</ul>
+<figure class="highlight code"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">sudo</span> npm install -g weinre</div></pre></td></tr></table></figure>
+
+<ul>
+<li>在本地开启一个监听服务器<br>mac下需要执行命令 <code>ipconfig getifaddr en0</code></li>
+<li>指定使用当前机器的 ip 以供移动设备访问使用<br>通过<code>ipconfig</code>，知道我的电脑ip为<code>192.168.1.103</code>，在命令窗口下执行</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">weinre --boundHost <span class="number">192.168</span><span class="number">.1</span><span class="number">.103</span></div></pre></td></tr></table></figure>
+
+<p>weinre默认监听8080端口,在pc上打开链接<code>http://192.168.1.103:8080/</code><br>
+        
+          <p class="article-more-link">
+            <a href="/2015/01/03/mobile-debug/#more">more >></a>
+          </p>
+        
+      
+    </div>
+  </div>
+  
+</article>
+
+
+
+
+
+
   
     <article id="post-my-2014" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -475,79 +536,9 @@
 
 
   
-    <article id="post-express-mongoose-error-conclusion" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2014/11/20/express-mongoose-error-conclusion/" class="article-date">
-  	<time datetime="2014-11-20T14:24:44.000Z" itemprop="datePublished">11月 20 2014</time>
-</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
-
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/20/express-mongoose-error-conclusion/">Express+Mongoose建站常见报错原因及方法总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="mongoose_populate">mongoose populate</h2>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Line.find({issues:id}, <span class="function"><span class="keyword">function</span> <span class="params">(err, lines)</span> </span>{</div><div class="line">        Issue</div><div class="line">            <span class="comment">//在line集合中查找issues字段id和issue集合的id相同的line</span></div><div class="line">            <span class="comment">//使用findOne,只取最后插入的一条</span></div><div class="line">            .findOne({_id:id})</div><div class="line">            <span class="comment">//等价于populate({path:'belongLineId',select:'name'})</span></div><div class="line">            .populate(<span class="string">'belongLineId'</span>,<span class="string">'name'</span>)</div><div class="line">            .exec(<span class="function"><span class="keyword">function</span><span class="params">(err,issue)</span></span>{</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'lines:'</span>)</div><div class="line">                <span class="built_in">console</span>.log(lines);</div><div class="line">                <span class="built_in">console</span>.log(<span class="string">'issue:'</span>);</div><div class="line">                <span class="built_in">console</span>.log(issue);</div><div class="line">                res.render(<span class="string">'issueDetail'</span>, {</div><div class="line">                    title: issue.title,</div><div class="line">                    lines: lines,</div><div class="line">                    issue: issue</div><div class="line">                })</div><div class="line">            })</div><div class="line">    })</div></pre></td></tr></table></figure>
-
-<ul>
-<li><code>populate</code>中的path的值必须为<code>issue</code>集合里的字段，比如这里belongLineId是issue里的字段</li>
-<li><code>populate</code>中的select的值必须为<code>line</code>集合里的字段，比如这里<code>name</code>为<code>line</code>集合的字段</li>
-</ul>
-<h2 id="显示CastError:_Cast_to_ObjectId_failed_for_value_，length为0">显示CastError: Cast to ObjectId failed for value ，length为0</h2>
-<p>通常是在schema中忘记添加相应地字段，或者在controller里render时忘记传递字段值</p>
-<h2 id="出现can’t_set_header_after_they_are_sent">出现can’t set header after they are sent</h2>
-<p>通常是controller里render了两次，或者redirect了两次</p>
-<h2 id="find()与findOne()的区别">find()与findOne()的区别</h2>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> id = req.params.id</div></pre></td></tr></table></figure>
-
-<ul>
-<li><code>find(id)</code>是遍历出所有的数组</li>
-<li><code>findOne({_id:id})</code>是查找出一个这个id浏览器当前页面参数相同的值</li>
-</ul>
-<h2 id="打印出当前用户">打印出当前用户</h2>
-<ul>
-<li><code>req.session.user._id</code></li>
-<li><code>req.session.user.name</code></li>
-</ul>
-<h2 id="转换日期">转换日期</h2>
-<ul>
-<li><code>npm install moment --save</code></li>
-<li><code>#{moment(issue.start).format(&#39;YYYY/MM/DD&#39;)}</code></li>
-</ul>
-
-      
-    </div>
-  </div>
-  
-</article>
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 
