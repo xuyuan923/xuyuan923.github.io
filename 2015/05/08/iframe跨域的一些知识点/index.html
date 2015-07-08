@@ -3,50 +3,35 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端学习踩过的坑</title>
+  <title>iframe跨域的一些知识点 | 前端学习踩过的坑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="慕课网-拖拽实现
+  <meta name="description" content="页面嵌套iframe是比较常见的，实现跨域的前提条件是父页面与子页面都是自己可以控制的。iframe跨域的主要方法有以下几点：
 
-#draggable{ 
-    width: 100px;
-    height: 100px; 
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    border: 1px solid #ccc;
-    background: #eee;
-    padding: 10px;
-    curso">
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端学习踩过的坑">
-<meta property="og:url" content="http://xuyuan923.github.io/assets/demo/drag.html">
+设置一致的document.domain
+设置window.name
+设置location.hash
+设置window.navigator
+设置postMessage">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iframe跨域的一些知识点">
+<meta property="og:url" content="http://xuyuan923.github.io/2015/05/08/iframe跨域的一些知识点/">
 <meta property="og:site_name" content="前端学习踩过的坑">
-<meta property="og:description" content="慕课网-拖拽实现
+<meta property="og:description" content="页面嵌套iframe是比较常见的，实现跨域的前提条件是父页面与子页面都是自己可以控制的。iframe跨域的主要方法有以下几点：
 
-#draggable{ 
-    width: 100px;
-    height: 100px; 
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    border: 1px solid #ccc;
-    background: #eee;
-    padding: 10px;
-    curso">
+设置一致的document.domain
+设置window.name
+设置location.hash
+设置window.navigator
+设置postMessage">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端学习踩过的坑">
-<meta name="twitter:description" content="慕课网-拖拽实现
+<meta name="twitter:title" content="iframe跨域的一些知识点">
+<meta name="twitter:description" content="页面嵌套iframe是比较常见的，实现跨域的前提条件是父页面与子页面都是自己可以控制的。iframe跨域的主要方法有以下几点：
 
-#draggable{ 
-    width: 100px;
-    height: 100px; 
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    border: 1px solid #ccc;
-    background: #eee;
-    padding: 10px;
-    curso">
+设置一致的document.domain
+设置window.name
+设置location.hash
+设置window.navigator
+设置postMessage">
 
   
   
@@ -216,14 +201,16 @@
 		</header>				
 	</div>
 </nav>
-      <article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
+      <article id="post-iframe跨域的一些知识点" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/assets/demo/drag.html" class="article-date">
-  	<time datetime="2014-11-04T08:25:05.000Z" itemprop="datePublished">11月 4 2014</time>
+      <a href="/2015/05/08/iframe跨域的一些知识点/" class="article-date">
+  	<time datetime="2015-05-08T14:13:35.000Z" itemprop="datePublished">5月 8 2015</time>
 </a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jsonp/">jsonp</a></li></ul>
+
     </div>
   
   <div class="article-inner">
@@ -231,82 +218,60 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      iframe跨域的一些知识点
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>慕课网-拖拽实现</title>
-<style type="text/css">
-#draggable{ 
-    width: 100px;
-    height: 100px; 
-    position: absolute;
-    top: 100px;
-    left: 100px;
-    border: 1px solid #ccc;
-    background: #eee;
-    padding: 10px;
-    cursor: default;
-}
-</style>
-</head>
-<body>
-<div id="draggable">拖我</div>
-<script type="text/javascript">
-    var oDrag = document.getElementById('draggable');
-    var isDraging = false;
-    var startX = 0;
-    var startY = 0;
-    oDrag.addEventListener('mousedown', function(e) {
-        //鼠标事件1 - 在标题栏按下（要计算鼠标相对拖拽元素的左上角的坐标 ，并且标记元素为可拖动） 
-        var e = e || window.event;
-        mouseOffsetX = e.pageX - oDrag.offsetLeft;
-        mouseOffsetY = e.pageY - oDrag.offsetTop;
-        isDraging = true;
-    })
+        <p>页面嵌套iframe是比较常见的，实现跨域的前提条件是父页面与子页面都是自己可以控制的。<br>iframe跨域的主要方法有以下几点：</p>
+<ul>
+<li>设置一致的document.domain</li>
+<li>设置window.name</li>
+<li>设置location.hash</li>
+<li>设置window.navigator</li>
+<li>设置postMessage</li>
+</ul>
+<a id="more"></a>
+<h2 id="document-domain">document.domain</h2>
+<p><code>document.domain</code>是最常见iframe处理跨域的方式，可以实现同一个主域下不同子域之间的跨域请求。<br>比如 <code>foo.com</code> 和 <code>img.foo.com</code> 之间，<code>img1.foo.com</code> 和 <code>img2.foo.com</code> 之间，处理方式是把这两个页面的document.domain都指向主域，比如<code>document.domain=&#39;foo.com&#39;</code>。<br>设置完父页面和子页面就可以像同一个域下两个页面之间访问了。<br>父页面通过<code>ifr.contentWindow</code>就可以访问子页面的window，子页面通过<code>parent.window</code>或<code>parent</code>访问父页面的window，接下来可以进一步获取dom和js。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;!-- foo.com/a.html --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">iframe</span> <span class="attribute">id</span>=<span class="value">"ifr"</span> <span class="attribute">src</span>=<span class="value">"http://img.foo.com/b.html"</span>&gt;</span><span class="tag">&lt;/<span class="title">iframe</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="built_in">document</span>.domain = <span class="string">'foo.com'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">aa</span><span class="params">(str)</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(str);</div><div class="line">}</div><div class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{</div><div class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'#ifr'</span>).contentWindow.bb(<span class="string">'aaa'</span>);</div><div class="line">}</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
 
-    document.onmouseup = function(e) {
-        //鼠标事件3 - 鼠标松开的时候（标记元素为不可拖动）
-        isDraging = false;
-    }
 
-    document.onmousemove = function(e) {
-        //鼠标事件2 - 鼠标移动时（要检测，元素是否标记为移动）
-        var e = e || window.event;
-        var mouseX = e.pageX; //鼠标当前在屏幕的位置
-        var mouseY = e.pageY;
-        var moveX = 0; //浮层元素的新位置
-        var moveY = 0;
-        if (isDraging === true) {
-            moveX = mouseX - mouseOffsetX;
-            moveY = mouseY - mouseOffsetY;
-            //宽度限制，moveX>0,并且moveX<(页面最大宽度-dialog宽度)
-            //高度限制，moveYou>0,并且moveY<(页面最大高度-dialog高度)
-            var pageWidth = document.documentElement.clientWidth;
-            var pageHeight = document.documentElement.clientHeight;
-            var dialogWidth = oDrag.offsetWidth;
-            var dialogHeight = oDrag.offsetHeight;
-            console.log(pageWidth);
-            console.log(dialogWidth);
-            var maxX = pageWidth - dialogWidth;
-            var maxY = pageHeight - dialogHeight;
-            moveX = Math.min(maxX, Math.max(0, moveX)); //保证moveX不小于0
-            moveY = Math.min(maxY, Math.max(0, moveY)); //保证moveY不小于0
-            oDrag.style.left = moveX + 'px';
-            oDrag.style.top = moveY + 'px';
-        }
-    };
-</script>
-</body>
-</html>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;!-- img.foo.com/b.html --&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span></span></div><div class="line"><span class="built_in">document</span>.domain = <span class="string">'foo.com'</span>;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">bb</span><span class="params">(str)</span> </span>{</div><div class="line">    <span class="built_in">console</span>.log(str);</div><div class="line">}</div><div class="line">parent.aa(<span class="string">'bbb'</span>);</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure>
+
 
       
     </div>
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2015/07/07/Mac-OS下前端开发工具快捷键总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          Mac OS下前端开发工具快捷键总结
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/16/-转-javascript正则表达式教程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">[转]javascript正则表达式教程</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
@@ -330,7 +295,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="undefined" data-title="" data-url="http://xuyuan923.github.io/assets/demo/drag.html"></div>
+	<div class="ds-thread" data-thread-key="iframe跨域的一些知识点" data-title="iframe跨域的一些知识点" data-url="http://xuyuan923.github.io/2015/05/08/iframe跨域的一些知识点/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
